@@ -64,9 +64,14 @@ UIScrollViewDelegate
     searchButton.frame = CGRectMake(SCREEN_WIDTH / 4 * 3 + 60,30,30, 30);
     [searchButton setImage:[UIImage imageNamed:@"search"] forState:UIControlStateNormal];
     [_topView addSubview:searchButton];
+    
+
     [searchButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
+    
         ElSearchViewController *searchView = [[ElSearchViewController alloc] init];
-        [self presentViewController:searchView animated:YES completion:nil];
+        self.tabBarController.tabBar.hidden = YES;
+        [self.navigationController pushViewController:searchView animated:YES];
+        
     }];
     
 }
@@ -74,7 +79,7 @@ UIScrollViewDelegate
 
 
 - (void)creatScrollView {
-    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, _topView.height, SCREEN_WIDTH, SCREEN_HEIGHT - _topView.height - 44)];
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, _topView.height, SCREEN_WIDTH, SCREEN_HEIGHT - _topView.height)];
     _scrollView.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:_scrollView];
 

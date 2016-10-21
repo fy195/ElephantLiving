@@ -20,6 +20,7 @@
 		499FBE2D1DB786CE0015CC1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 499FBE2B1DB786CE0015CC1D /* Main.storyboard */; };
 		499FBE2F1DB786CE0015CC1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 499FBE2E1DB786CE0015CC1D /* Assets.xcassets */; };
 		499FBE321DB786CE0015CC1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 499FBE301DB786CE0015CC1D /* LaunchScreen.storyboard */; };
+		49B1EE3F1DB9B8EF005C8B17 /* ElTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B1EE3E1DB9B8EF005C8B17 /* ElTabBar.m */; };
 		49E759981DB8EE3100BDCB3C /* ElNormalListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E759971DB8EE3100BDCB3C /* ElNormalListTableViewCell.m */; };
 		49E7599B1DB8EE5100BDCB3C /* ElPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7599A1DB8EE5100BDCB3C /* ElPersonViewController.m */; };
 		49E7599E1DB8EE8800BDCB3C /* ElPersonHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7599D1DB8EE8800BDCB3C /* ElPersonHeaderView.m */; };
@@ -81,6 +82,8 @@
 		499FBE2E1DB786CE0015CC1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		499FBE311DB786CE0015CC1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		499FBE331DB786CE0015CC1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		49B1EE3D1DB9B8EF005C8B17 /* ElTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElTabBar.h; sourceTree = "<group>"; };
+		49B1EE3E1DB9B8EF005C8B17 /* ElTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElTabBar.m; sourceTree = "<group>"; };
 		49E759961DB8EE3100BDCB3C /* ElNormalListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElNormalListTableViewCell.h; sourceTree = "<group>"; };
 		49E759971DB8EE3100BDCB3C /* ElNormalListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElNormalListTableViewCell.m; sourceTree = "<group>"; };
 		49E759991DB8EE5100BDCB3C /* ElPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElPersonViewController.h; sourceTree = "<group>"; };
@@ -408,6 +411,8 @@
 		49FE39D61DB79B9E00FD8A99 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				49B1EE3D1DB9B8EF005C8B17 /* ElTabBar.h */,
+				49B1EE3E1DB9B8EF005C8B17 /* ElTabBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1033,6 +1038,7 @@
 				49FE39CB1DB79A4C00FD8A99 /* FileManagerUtils.m in Sources */,
 				49FE39BD1DB79A4C00FD8A99 /* NSDate+Categories.m in Sources */,
 				499FBE241DB786CE0015CC1D /* main.m in Sources */,
+				49B1EE3F1DB9B8EF005C8B17 /* ElTabBar.m in Sources */,
 				49FE3A171DB7A1FE00FD8A99 /* ElHomePageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
