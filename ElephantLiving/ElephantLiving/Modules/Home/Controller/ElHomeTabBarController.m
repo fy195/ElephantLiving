@@ -56,17 +56,7 @@
     self.selectedIndex = tag - 1000;
 }
 
-//- (void)TapBnt: (UIButton *)sender
-//{
-//    for (int i = 0; i < 3; i++)
-//    {
-//        UIButton *btn = (UIButton *)[self.view viewWithTag:i+1000];
-//        btn.selected = NO;
-//    }
-//    sender.selected = YES;
-//    //切换控制器：
-//    self.selectedIndex = sender.tag - 1000;
-//}
+
 
 
 

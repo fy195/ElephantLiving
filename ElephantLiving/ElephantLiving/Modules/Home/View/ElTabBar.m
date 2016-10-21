@@ -24,7 +24,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        NSLog(@"11");
         self.norImage = @[@"1",@"1",@"1"];
         self.seleImage = @[@"2",@"2",@"2"];
         
