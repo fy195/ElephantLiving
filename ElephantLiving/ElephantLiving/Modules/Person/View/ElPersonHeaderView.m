@@ -25,6 +25,7 @@
         self.headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake((self.bounds.size.width / 2 - self.bounds.size.height * 0.3 / 2), self.bounds.size.height * 0.3, self.bounds.size.height * 0.3, self.bounds.size.height * 0.3)];
         _headerImageView.image = [UIImage imageNamed:@"1.png"];
         _headerImageView.layer.cornerRadius = _headerImageView.layer.cornerRadius = self.bounds.size.height * 0.3 / 2;
+        _headerImageView.clipsToBounds = YES;
         [self addSubview:_headerImageView];
         
         
