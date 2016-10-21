@@ -258,12 +258,12 @@
 		49F2C9601DB9AF3E000589A7 /* Gift */ = {
 			isa = PBXGroup;
 			children = (
-				49F2C9641DB9AF98000589A7 /* ViewModel */,
+				49F2C9611DB9AF72000589A7 /* Controller */,
 				49F2C9631DB9AF93000589A7 /* Model */,
 				49F2C9621DB9AF8E000589A7 /* View */,
-				49F2C9611DB9AF72000589A7 /* Controller */,
+				49F2C9641DB9AF98000589A7 /* ViewModel */,
 			);
-			name = Gift;
+			path = Gift;
 			sourceTree = "<group>";
 		};
 		49F2C9611DB9AF72000589A7 /* Controller */ = {
@@ -272,39 +272,39 @@
 				49F2C9741DB9B0A4000589A7 /* ElGiftViewController.h */,
 				49F2C9751DB9B0A4000589A7 /* ElGiftViewController.m */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		49F2C9621DB9AF8E000589A7 /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		49F2C9631DB9AF93000589A7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		49F2C9641DB9AF98000589A7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = ViewModel;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		49F2C9651DB9AFA0000589A7 /* Album */ = {
 			isa = PBXGroup;
 			children = (
-				49F2C9691DB9AFD0000589A7 /* Model */,
-				49F2C9681DB9AFCA000589A7 /* ViewModel */,
-				49F2C9671DB9AFC6000589A7 /* View */,
 				49F2C9661DB9AFB9000589A7 /* Controller */,
+				49F2C9691DB9AFD0000589A7 /* Model */,
+				49F2C9671DB9AFC6000589A7 /* View */,
+				49F2C9681DB9AFCA000589A7 /* ViewModel */,
 			);
-			name = Album;
+			path = Album;
 			sourceTree = "<group>";
 		};
 		49F2C9661DB9AFB9000589A7 /* Controller */ = {
@@ -313,39 +313,39 @@
 				49F2C9771DB9B0B2000589A7 /* ElAlbumViewController.h */,
 				49F2C9781DB9B0B2000589A7 /* ElAlbumViewController.m */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		49F2C9671DB9AFC6000589A7 /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		49F2C9681DB9AFCA000589A7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = ViewModel;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		49F2C9691DB9AFD0000589A7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		49F2C96A1DB9AFE8000589A7 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				49F2C96E1DB9B00C000589A7 /* ViewModel */,
+				49F2C96B1DB9AFF9000589A7 /* Controller */,
 				49F2C96D1DB9B007000589A7 /* Model */,
 				49F2C96C1DB9B000000589A7 /* View */,
-				49F2C96B1DB9AFF9000589A7 /* Controller */,
+				49F2C96E1DB9B00C000589A7 /* ViewModel */,
 			);
-			name = Setting;
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		49F2C96B1DB9AFF9000589A7 /* Controller */ = {
@@ -354,39 +354,39 @@
 				49F2C97A1DB9B0BF000589A7 /* ElSettingViewController.h */,
 				49F2C97B1DB9B0BF000589A7 /* ElSettingViewController.m */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		49F2C96C1DB9B000000589A7 /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		49F2C96D1DB9B007000589A7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		49F2C96E1DB9B00C000589A7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = ViewModel;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		49F2C96F1DB9B063000589A7 /* Manage */ = {
 			isa = PBXGroup;
 			children = (
-				49F2C9731DB9B082000589A7 /* ViewModel */,
+				49F2C9701DB9B072000589A7 /* Controller */,
 				49F2C9721DB9B07D000589A7 /* Model */,
 				49F2C9711DB9B079000589A7 /* View */,
-				49F2C9701DB9B072000589A7 /* Controller */,
+				49F2C9731DB9B082000589A7 /* ViewModel */,
 			);
-			name = Manage;
+			path = Manage;
 			sourceTree = "<group>";
 		};
 		49F2C9701DB9B072000589A7 /* Controller */ = {
@@ -395,28 +395,28 @@
 				49F2C97D1DB9B0CA000589A7 /* ElManageViewController.h */,
 				49F2C97E1DB9B0CA000589A7 /* ElManageViewController.m */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		49F2C9711DB9B079000589A7 /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		49F2C9721DB9B07D000589A7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		49F2C9731DB9B082000589A7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = ViewModel;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		49FE39841DB7974B00FD8A99 /* Base */ = {
@@ -565,21 +565,21 @@
 		49FE39D41DB79B8C00FD8A99 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				49F2C96F1DB9B063000589A7 /* Manage */,
-				49F2C96A1DB9AFE8000589A7 /* Setting */,
 				49F2C9651DB9AFA0000589A7 /* Album */,
-				49F2C9601DB9AF3E000589A7 /* Gift */,
 				49FE3A021DB79D0F00FD8A99 /* ForgetPassword */,
+				49F2C9601DB9AF3E000589A7 /* Gift */,
 				49FE39D51DB79B9900FD8A99 /* Home */,
 				49FE3A101DB7A19200FD8A99 /* HomePage */,
 				49FE39DA1DB79BB300FD8A99 /* Hot */,
 				49FE39EE1DB79C6100FD8A99 /* List */,
 				49FE39F31DB79CA100FD8A99 /* Live */,
 				49FE39F81DB79CC200FD8A99 /* Login */,
+				49F2C96F1DB9B063000589A7 /* Manage */,
 				49FE39DF1DB79BCE00FD8A99 /* New */,
 				49FE39E41DB79BE900FD8A99 /* Person */,
 				49FE39FD1DB79CEE00FD8A99 /* Register */,
 				49FE39E91DB79C0400FD8A99 /* Search */,
+				49F2C96A1DB9AFE8000589A7 /* Setting */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
