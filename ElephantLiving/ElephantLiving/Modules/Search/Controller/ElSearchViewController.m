@@ -8,30 +8,35 @@
 
 #import "ElSearchViewController.h"
 
-@implementation ElSearchViewController
-- (void)viewWillAppear:(BOOL)animated {
+#import "ElHomePageViewController.h"
 
+#import "ElTopView.h"
+
+@implementation ElSearchViewController
+
+- (void)viewDidAppear:(BOOL)animated {
+    
 
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    
+
+    self.view.backgroundColor = [UIColor whiteColor];
     UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 64)];
     topView.backgroundColor = [UIColor cyanColor];
     [self.view addSubview:topView];
     
     UIButton *returnButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [returnButton setTitle:@"取消" forState:UIControlStateNormal];
-    returnButton.frame = CGRectMake(0, 0, 100, 30);
+    returnButton.frame = CGRectMake(0, 100, 100, 30);
     [returnButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
     [self.view addSubview:returnButton];
     
     [returnButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
-        [self dismissViewControllerAnimated:YES completion:nil];
+        self.tabBarController.tabBar.hidden = NO;
+        [self.navigationController popToRootViewControllerAnimated:YES];
     }];
     
     
