@@ -23,6 +23,10 @@
 		49E759981DB8EE3100BDCB3C /* ElNormalListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E759971DB8EE3100BDCB3C /* ElNormalListTableViewCell.m */; };
 		49E7599B1DB8EE5100BDCB3C /* ElPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7599A1DB8EE5100BDCB3C /* ElPersonViewController.m */; };
 		49E7599E1DB8EE8800BDCB3C /* ElPersonHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7599D1DB8EE8800BDCB3C /* ElPersonHeaderView.m */; };
+		49F2C9591DB99F9E000589A7 /* ElPersonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F2C9571DB99F9E000589A7 /* ElPersonTableViewCell.m */; };
+		49F2C95A1DB99F9E000589A7 /* ElPersonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49F2C9581DB99F9E000589A7 /* ElPersonTableViewCell.xib */; };
+		49F2C95E1DB9AAED000589A7 /* ElPersonCharmTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F2C95C1DB9AAED000589A7 /* ElPersonCharmTableViewCell.m */; };
+		49F2C95F1DB9AAED000589A7 /* ElPersonCharmTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49F2C95D1DB9AAED000589A7 /* ElPersonCharmTableViewCell.xib */; };
 		49FE39781DB790E600FD8A99 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FE39771DB790E600FD8A99 /* libz.tbd */; };
 		49FE397A1DB790F300FD8A99 /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FE39791DB790F300FD8A99 /* VideoToolbox.framework */; };
 		49FE397C1DB790FD00FD8A99 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FE397B1DB790FD00FD8A99 /* AudioToolbox.framework */; };
@@ -87,6 +91,12 @@
 		49E7599A1DB8EE5100BDCB3C /* ElPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElPersonViewController.m; sourceTree = "<group>"; };
 		49E7599C1DB8EE8800BDCB3C /* ElPersonHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElPersonHeaderView.h; sourceTree = "<group>"; };
 		49E7599D1DB8EE8800BDCB3C /* ElPersonHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElPersonHeaderView.m; sourceTree = "<group>"; };
+		49F2C9561DB99F9E000589A7 /* ElPersonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElPersonTableViewCell.h; sourceTree = "<group>"; };
+		49F2C9571DB99F9E000589A7 /* ElPersonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElPersonTableViewCell.m; sourceTree = "<group>"; };
+		49F2C9581DB99F9E000589A7 /* ElPersonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElPersonTableViewCell.xib; sourceTree = "<group>"; };
+		49F2C95B1DB9AAED000589A7 /* ElPersonCharmTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElPersonCharmTableViewCell.h; sourceTree = "<group>"; };
+		49F2C95C1DB9AAED000589A7 /* ElPersonCharmTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElPersonCharmTableViewCell.m; sourceTree = "<group>"; };
+		49F2C95D1DB9AAED000589A7 /* ElPersonCharmTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElPersonCharmTableViewCell.xib; sourceTree = "<group>"; };
 		49FE39771DB790E600FD8A99 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		49FE39791DB790F300FD8A99 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		49FE397B1DB790FD00FD8A99 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -537,8 +547,14 @@
 		49FE39E51DB79BEF00FD8A99 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				49F2C95B1DB9AAED000589A7 /* ElPersonCharmTableViewCell.h */,
+				49F2C95C1DB9AAED000589A7 /* ElPersonCharmTableViewCell.m */,
+				49F2C95D1DB9AAED000589A7 /* ElPersonCharmTableViewCell.xib */,
 				49E7599C1DB8EE8800BDCB3C /* ElPersonHeaderView.h */,
 				49E7599D1DB8EE8800BDCB3C /* ElPersonHeaderView.m */,
+				49F2C9561DB99F9E000589A7 /* ElPersonTableViewCell.h */,
+				49F2C9571DB99F9E000589A7 /* ElPersonTableViewCell.m */,
+				49F2C9581DB99F9E000589A7 /* ElPersonTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -937,6 +953,8 @@
 				499FBE321DB786CE0015CC1D /* LaunchScreen.storyboard in Resources */,
 				493907561DB8EEF000F06D40 /* ElNewCollectionViewCell.xib in Resources */,
 				499FBE2F1DB786CE0015CC1D /* Assets.xcassets in Resources */,
+				49F2C95F1DB9AAED000589A7 /* ElPersonCharmTableViewCell.xib in Resources */,
+				49F2C95A1DB99F9E000589A7 /* ElPersonTableViewCell.xib in Resources */,
 				493907511DB8EED400F06D40 /* ElHotTableViewCell.xib in Resources */,
 				499FBE2D1DB786CE0015CC1D /* Main.storyboard in Resources */,
 			);
@@ -1006,6 +1024,7 @@
 				49FE398B1DB797C100FD8A99 /* ElBaseModel.m in Sources */,
 				499FBE271DB786CE0015CC1D /* AppDelegate.m in Sources */,
 				49FE3A091DB79EBD00FD8A99 /* ElHomeTabBarController.m in Sources */,
+				49F2C9591DB99F9E000589A7 /* ElPersonTableViewCell.m in Sources */,
 				49FE87211DB8BDB7000092C2 /* ElHotViewController.m in Sources */,
 				49FE39C21DB79A4C00FD8A99 /* NSString+Regex.m in Sources */,
 				49FE398E1DB797D500FD8A99 /* ElBaseView.m in Sources */,
@@ -1027,6 +1046,7 @@
 				49FE39C71DB79A4C00FD8A99 /* UIView+Frame.m in Sources */,
 				49FE39C31DB79A4C00FD8A99 /* NSUserDefaults+Categories.m in Sources */,
 				49E759981DB8EE3100BDCB3C /* ElNormalListTableViewCell.m in Sources */,
+				49F2C95E1DB9AAED000589A7 /* ElPersonCharmTableViewCell.m in Sources */,
 				49FE39C61DB79A4C00FD8A99 /* UIImage+Categories.m in Sources */,
 				49FE39CA1DB79A4C00FD8A99 /* AppStoreUtils.m in Sources */,
 				49FE39C51DB79A4C00FD8A99 /* UIColor+Categories.m in Sources */,

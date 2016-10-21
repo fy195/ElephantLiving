@@ -8,15 +8,79 @@
 
 #import "ElPersonViewController.h"
 #import "ElPersonHeaderView.h"
+#import "ElPersonTableViewCell.h"
+#import "ElPersonCharmTableViewCell.h"
+
+static NSString *const person = @"person";
+static NSString *const charm = @"charm";
+
+@interface ElPersonViewController()
+<
+UITableViewDelegate,
+UITableViewDataSource
+>
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSArray *titleArray;
+
+@end
 
 @implementation ElPersonViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    ElPersonHeaderView *view = [[ElPersonHeaderView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT * 0.5)];
-    [self.view addSubview:view];
+    UINib *cellNib = [UINib nibWithNibName:@"ElPersonTableViewCell" bundle:nil];
+    UINib *charmNib = [UINib nibWithNibName:@"ElPersonCharmTableViewCell" bundle:nil];
+    self.titleArray = @[@[@"魅力值", @"收到的礼物", @"送出的礼物"], @[@"相册", @"直播间管理"], @[@"设置"]];
     
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 44) style:UITableViewStylePlain];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.backgroundColor = [UIColor colorWithRed:0.97 green:0.97 blue:0.97 alpha:1.00];
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _tableView.rowHeight = 60;
+    [self.view addSubview:_tableView];
+    
+    [_tableView registerNib:cellNib forCellReuseIdentifier:person];
+    [_tableView registerNib:charmNib forCellReuseIdentifier:charm];
+    
+    ElPersonHeaderView *headerView = [[ElPersonHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT * 0.45)];
+    _tableView.tableHeaderView = headerView;
+    
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 30)];
+    footerView.backgroundColor = [UIColor colorWithRed:0.97 green:0.97 blue:0.97 alpha:1.00];
+    _tableView.tableFooterView = footerView;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return _titleArray.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 30;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSArray *array = _titleArray[section];
+    return array.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSArray *array = _titleArray[indexPath.section];
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            ElPersonCharmTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:charm];
+            cell.title = array[indexPath.row];
+            cell.count = [NSString stringWithFormat:@"%ld", (NSInteger)9999];
+            return cell;
+        }
+    }
+    ElPersonTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:person];
+    cell.title = array[indexPath.row];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
 }
 

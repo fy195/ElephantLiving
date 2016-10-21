@@ -22,13 +22,13 @@
         [self addSubview:_backgroundImageView];
         
         
-        self.headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.bounds.size.width * 0.35, self.bounds.size.width * 0.2, self.bounds.size.width * 0.3, self.bounds.size.width * 0.3)];
+        self.headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake((self.bounds.size.width / 2 - self.bounds.size.height * 0.3 / 2), self.bounds.size.height * 0.3, self.bounds.size.height * 0.3, self.bounds.size.height * 0.3)];
         _headerImageView.image = [UIImage imageNamed:@"1.png"];
-        _headerImageView.layer.cornerRadius = 60;
+        _headerImageView.layer.cornerRadius = _headerImageView.layer.cornerRadius = self.bounds.size.height * 0.3 / 2;
         [self addSubview:_headerImageView];
         
         
-        self.nikenameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width * 0.35, self.bounds.size.width * 0.52, self.bounds.size.width * 0.3, self.bounds.size.width * 0.08)];
+        self.nikenameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width * 0.35, self.bounds.size.height * 0.61, self.bounds.size.width * 0.3, self.bounds.size.width * 0.08)];
         _nikenameLabel.text = @"哦哈哈哈";
         _nikenameLabel.textAlignment = NSTextAlignmentCenter;
         _nikenameLabel.numberOfLines = 1;
