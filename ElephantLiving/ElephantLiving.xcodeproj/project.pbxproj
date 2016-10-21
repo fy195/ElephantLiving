@@ -68,6 +68,8 @@
 		49FE87211DB8BDB7000092C2 /* ElHotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FE87201DB8BDB7000092C2 /* ElHotViewController.m */; };
 		49FE87241DB8BDD2000092C2 /* ElNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FE87231DB8BDD2000092C2 /* ElNewViewController.m */; };
 		49FE87271DB8DA6E000092C2 /* ElSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FE87261DB8DA6E000092C2 /* ElSearchViewController.m */; };
+		EB70D5F01DB9C051009D9E34 /* ElGiftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB70D5EF1DB9C051009D9E34 /* ElGiftTableViewCell.m */; };
+		EB70D5F31DB9E7D6009D9E34 /* ElAlbumCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB70D5F21DB9E7D6009D9E34 /* ElAlbumCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -184,6 +186,10 @@
 		49FE87261DB8DA6E000092C2 /* ElSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElSearchViewController.m; sourceTree = "<group>"; };
 		4ED348DAA932E1D700311B69 /* Pods-ElephantLiving.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElephantLiving.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElephantLiving/Pods-ElephantLiving.release.xcconfig"; sourceTree = "<group>"; };
 		D89B2F47EF8313096B83FF86 /* Pods-ElephantLiving.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElephantLiving.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ElephantLiving/Pods-ElephantLiving.debug.xcconfig"; sourceTree = "<group>"; };
+		EB70D5EE1DB9C051009D9E34 /* ElGiftTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ElGiftTableViewCell.h; path = ../../../../../../Documents/ElGiftTableViewCell.h; sourceTree = "<group>"; };
+		EB70D5EF1DB9C051009D9E34 /* ElGiftTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ElGiftTableViewCell.m; path = ../../../../../../Documents/ElGiftTableViewCell.m; sourceTree = "<group>"; };
+		EB70D5F11DB9E7D6009D9E34 /* ElAlbumCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ElAlbumCollectionViewCell.h; path = ../../../../../../Documents/ElAlbumCollectionViewCell.h; sourceTree = "<group>"; };
+		EB70D5F21DB9E7D6009D9E34 /* ElAlbumCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ElAlbumCollectionViewCell.m; path = ../../../../../../Documents/ElAlbumCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,6 +293,8 @@
 		49F2C9621DB9AF8E000589A7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EB70D5EE1DB9C051009D9E34 /* ElGiftTableViewCell.h */,
+				EB70D5EF1DB9C051009D9E34 /* ElGiftTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -328,6 +336,8 @@
 		49F2C9671DB9AFC6000589A7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EB70D5F11DB9E7D6009D9E34 /* ElAlbumCollectionViewCell.h */,
+				EB70D5F21DB9E7D6009D9E34 /* ElAlbumCollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1215,6 +1225,7 @@
 				493907551DB8EEF000F06D40 /* ElNewCollectionViewCell.m in Sources */,
 				499FBE2A1DB786CE0015CC1D /* ViewController.m in Sources */,
 				49FE39C11DB79A4C00FD8A99 /* NSString+Categories.m in Sources */,
+				EB70D5F31DB9E7D6009D9E34 /* ElAlbumCollectionViewCell.m in Sources */,
 				49FE39C91DB79A4C00FD8A99 /* HttpClient.m in Sources */,
 				49E7599B1DB8EE5100BDCB3C /* ElPersonViewController.m in Sources */,
 				49FE398B1DB797C100FD8A99 /* ElBaseModel.m in Sources */,
@@ -1229,6 +1240,7 @@
 				49FE398E1DB797D500FD8A99 /* ElBaseView.m in Sources */,
 				49FE87241DB8BDD2000092C2 /* ElNewViewController.m in Sources */,
 				498A10461DB8F233003F86B8 /* ElTopView.m in Sources */,
+				EB70D5F01DB9C051009D9E34 /* ElGiftTableViewCell.m in Sources */,
 				49FE3A1A1DB7A27A00FD8A99 /* ElLiveViewController.m in Sources */,
 				49FE39C41DB79A4C00FD8A99 /* UIButton+Block.m in Sources */,
 				49FE39BC1DB79A4C00FD8A99 /* NSArray+Categories.m in Sources */,

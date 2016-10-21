@@ -7,8 +7,17 @@
 //
 
 #import "ElGiftViewController.h"
+#import "ElMacro.h"
+#import "ElGiftTableViewCell.h"
+
+static NSString *const giftOfCell = @"cell";
 
 @interface ElGiftViewController ()
+
+<
+UITableViewDataSource,
+UITableViewDelegate
+>
 
 @end
 
@@ -16,8 +25,57 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self createGiftTableView];
+    
+    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    backButton.backgroundColor = [UIColor yellowColor];
+    backButton.frame = CGRectMake(0, 0, 64, 64);
+    [backButton addTarget:self action:@selector(buttonAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:backButton];
+    
 }
+
+#pragma mark - 返回按钮点击事件
+- (void)buttonAction {
+
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+}
+
+
+#pragma mark - 创建礼物tableView
+- (void)createGiftTableView {
+
+    UITableView *giftTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
+    giftTableView.rowHeight = 90;
+    giftTableView.delegate = self;
+    giftTableView.dataSource = self;
+    [self.view addSubview:giftTableView];
+    
+    // 注册
+    [giftTableView registerClass:[ElGiftTableViewCell class] forCellReuseIdentifier:giftOfCell];
+
+}
+
+
+#pragma mark - tableView协议方法
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
+    return 5;
+
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    ElGiftTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:giftOfCell];
+    
+    
+    return cell;
+    
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
