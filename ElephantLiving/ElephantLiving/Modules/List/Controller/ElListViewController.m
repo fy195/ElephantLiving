@@ -42,7 +42,7 @@ UITableViewDelegate
 #pragma mark - 创建tableView
 - (void)createTableView {
     
-    self.listTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) style:UITableViewStylePlain];
+    self.listTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 108) style:UITableViewStylePlain];
     _listTableView.backgroundColor = [UIColor whiteColor];
     _listTableView.delegate = self;
     _listTableView.dataSource = self;
