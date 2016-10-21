@@ -10,6 +10,10 @@
 #import "ElPersonHeaderView.h"
 #import "ElPersonTableViewCell.h"
 #import "ElPersonCharmTableViewCell.h"
+#import "ElGiftViewController.h"
+#import "ElAlbumViewController.h"
+#import "ElManageViewController.h"
+#import "ElSettingViewController.h"
 
 static NSString *const person = @"person";
 static NSString *const charm = @"charm";
@@ -72,6 +76,7 @@ UITableViewDataSource
             ElPersonCharmTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:charm];
             cell.title = array[indexPath.row];
             cell.count = [NSString stringWithFormat:@"%ld", (NSInteger)9999];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }
     }
@@ -81,7 +86,23 @@ UITableViewDataSource
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    if (0 == indexPath.section) {
+        if (indexPath.row > 0) {
+            ElGiftViewController *giftViewController = [[ElGiftViewController alloc] init];
+            [self presentViewController:giftViewController animated:YES completion:nil];
+        }
+    }else if (1 == indexPath.section) {
+        if (0 == indexPath.row) {
+            ElAlbumViewController *albumViewController = [[ElAlbumViewController alloc] init];
+            [self presentViewController:albumViewController animated:YES completion:nil];
+        }else {
+            ElManageViewController *manageViewController = [[ElManageViewController alloc] init];
+            [self presentViewController:manageViewController animated:YES completion:nil];
+        }
+    }else {
+        ElSettingViewController *settingViewController = [[ElSettingViewController alloc] init];
+        [self presentViewController:settingViewController animated:YES completion:nil];
+    }
 }
 
 @end
