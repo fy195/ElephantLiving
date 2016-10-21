@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1E01D04A11FE9998F9DC88AC /* libPods-ElephantLiving.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C9DE1CC7772D4788CAEA57 /* libPods-ElephantLiving.a */; };
+		492709CA1DB9C4B000D6F550 /* ElHotCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 492709C91DB9C4B000D6F550 /* ElHotCollectionViewCell.m */; };
+		492709CD1DB9C60D00D6F550 /* ElHotCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 492709CC1DB9C60D00D6F550 /* ElHotCarouselView.m */; };
 		493907501DB8EED400F06D40 /* ElHotTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4939074E1DB8EED400F06D40 /* ElHotTableViewCell.m */; };
 		493907511DB8EED400F06D40 /* ElHotTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4939074F1DB8EED400F06D40 /* ElHotTableViewCell.xib */; };
 		493907551DB8EEF000F06D40 /* ElNewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 493907531DB8EEF000F06D40 /* ElNewCollectionViewCell.m */; };
@@ -70,6 +72,10 @@
 
 /* Begin PBXFileReference section */
 		10C9DE1CC7772D4788CAEA57 /* libPods-ElephantLiving.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ElephantLiving.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		492709C81DB9C4B000D6F550 /* ElHotCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElHotCollectionViewCell.h; sourceTree = "<group>"; };
+		492709C91DB9C4B000D6F550 /* ElHotCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElHotCollectionViewCell.m; sourceTree = "<group>"; };
+		492709CB1DB9C60D00D6F550 /* ElHotCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElHotCarouselView.h; sourceTree = "<group>"; };
+		492709CC1DB9C60D00D6F550 /* ElHotCarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElHotCarouselView.m; sourceTree = "<group>"; };
 		4939074D1DB8EED400F06D40 /* ElHotTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElHotTableViewCell.h; sourceTree = "<group>"; };
 		4939074E1DB8EED400F06D40 /* ElHotTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElHotTableViewCell.m; sourceTree = "<group>"; };
 		4939074F1DB8EED400F06D40 /* ElHotTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElHotTableViewCell.xib; sourceTree = "<group>"; };
@@ -644,6 +650,10 @@
 		49FE39DB1DB79BBA00FD8A99 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				492709CB1DB9C60D00D6F550 /* ElHotCarouselView.h */,
+				492709CC1DB9C60D00D6F550 /* ElHotCarouselView.m */,
+				492709C81DB9C4B000D6F550 /* ElHotCollectionViewCell.h */,
+				492709C91DB9C4B000D6F550 /* ElHotCollectionViewCell.m */,
 				4939074D1DB8EED400F06D40 /* ElHotTableViewCell.h */,
 				4939074E1DB8EED400F06D40 /* ElHotTableViewCell.m */,
 				4939074F1DB8EED400F06D40 /* ElHotTableViewCell.xib */,
@@ -1209,6 +1219,7 @@
 				49E7599B1DB8EE5100BDCB3C /* ElPersonViewController.m in Sources */,
 				49FE398B1DB797C100FD8A99 /* ElBaseModel.m in Sources */,
 				49F2C9791DB9B0B2000589A7 /* ElAlbumViewController.m in Sources */,
+				492709CD1DB9C60D00D6F550 /* ElHotCarouselView.m in Sources */,
 				499FBE271DB786CE0015CC1D /* AppDelegate.m in Sources */,
 				49FE3A091DB79EBD00FD8A99 /* ElHomeTabBarController.m in Sources */,
 				49F2C9591DB99F9E000589A7 /* ElPersonTableViewCell.m in Sources */,
@@ -1235,6 +1246,7 @@
 				49FE39C71DB79A4C00FD8A99 /* UIView+Frame.m in Sources */,
 				49FE39C31DB79A4C00FD8A99 /* NSUserDefaults+Categories.m in Sources */,
 				49E759981DB8EE3100BDCB3C /* ElNormalListTableViewCell.m in Sources */,
+				492709CA1DB9C4B000D6F550 /* ElHotCollectionViewCell.m in Sources */,
 				49F2C95E1DB9AAED000589A7 /* ElPersonCharmTableViewCell.m in Sources */,
 				49FE39C61DB79A4C00FD8A99 /* UIImage+Categories.m in Sources */,
 				49FE39CA1DB79A4C00FD8A99 /* AppStoreUtils.m in Sources */,

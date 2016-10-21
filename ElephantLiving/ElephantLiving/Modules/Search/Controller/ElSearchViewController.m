@@ -14,15 +14,12 @@
 
 @implementation ElSearchViewController
 
-- (void)viewDidAppear:(BOOL)animated {
-    
-
-}
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    
+    
     self.view.backgroundColor = [UIColor whiteColor];
     UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 64)];
     topView.backgroundColor = [UIColor cyanColor];
@@ -38,10 +35,6 @@
         self.tabBarController.tabBar.hidden = NO;
         [self.navigationController popToRootViewControllerAnimated:YES];
     }];
-    
-    
-    
-    
 }
 
 @end
