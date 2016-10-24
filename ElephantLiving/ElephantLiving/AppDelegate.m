@@ -27,11 +27,16 @@
     ElHomeTabBarController *homeView = [[ElHomeTabBarController alloc] init];
     self.window.rootViewController = homeView;
     
+    
+    [NSThread sleepForTimeInterval:2];
+    
+
     [[QPAuth shared] registerAppWithKey:kQPAppKey secret:kQPAppSecret space:@"com.kfc.ElephantLiving" success:^(NSString *accessToken) {
         NSLog(@"access token : %@", accessToken);
     } failure:^(NSError *error) {
         NSLog(@"failed : %@", error.description);
     }];
+
     // Override point for customization after application launch.
     return YES;
 }
