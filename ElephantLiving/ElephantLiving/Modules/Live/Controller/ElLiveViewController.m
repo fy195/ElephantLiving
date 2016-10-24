@@ -30,21 +30,21 @@
     }
     IJKFFOptions *options = [IJKFFOptions optionsByDefault];
     [options setPlayerOptionIntValue:1 forKey:@"videotoolbox"];
-    [options setPlayerOptionIntValue:29.97 forKey:@"r"];
+    [options setPlayerOptionIntValue:1 forKey:@"audiotoolbox"];
+    [options setPlayerOptionIntValue:15 forKey:@"r"];
     [options setPlayerOptionIntValue:512 forKey:@"vol"];
-    NSString *flv = @"http://hdl.9158.com/live/5717d4fd5f189d5ddaa8d5c78df2e895.flv";
+    NSString *flv = @"http://hdl.9158.com/live/a42ef99a3a248f35dc07e0bc5e131f8c.flv";
     self.moviePlayer = [[IJKFFMoviePlayerController alloc] initWithContentURLString:flv withOptions:options];
     _moviePlayer.view.frame = self.view.bounds;
     _moviePlayer.scalingMode = IJKMPMovieScalingModeAspectFill;
     _moviePlayer.shouldAutoplay = NO;
     _moviePlayer.shouldShowHudView = NO;
     
-
     [_moviePlayer prepareToPlay];
     NSLog(@"播放");
     [self initObserver];
-    
     [self.view addSubview:_moviePlayer.view];
+
 }
 
 - (void)initObserver
