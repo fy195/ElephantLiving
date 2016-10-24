@@ -33,7 +33,7 @@
     [options setPlayerOptionIntValue:1 forKey:@"audiotoolbox"];
     [options setPlayerOptionIntValue:15 forKey:@"r"];
     [options setPlayerOptionIntValue:512 forKey:@"vol"];
-    NSString *flv = @"http://hdl.9158.com/live/a42ef99a3a248f35dc07e0bc5e131f8c.flv";
+    NSString *flv = @"http://pull99.a8.com/live/1477305734286725.flv?";
     self.moviePlayer = [[IJKFFMoviePlayerController alloc] initWithContentURLString:flv withOptions:options];
     _moviePlayer.view.frame = self.view.bounds;
     _moviePlayer.scalingMode = IJKMPMovieScalingModeAspectFill;
