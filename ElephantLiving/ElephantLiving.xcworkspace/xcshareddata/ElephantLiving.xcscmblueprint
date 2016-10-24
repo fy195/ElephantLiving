@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "ABF57E7B3AE7C2B19FEB061C9F179A5526ACDCD8",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "ABF57E7B3AE7C2B19FEB061C9F179A5526ACDCD8" : 0,
+    "AD5C40071A3D09ED3876DE6D4039984FF5B04354" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9D489044-65DC-4A2E-8F85-CD3BFED4C528",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "ABF57E7B3AE7C2B19FEB061C9F179A5526ACDCD8" : "ElephantLiving\/",
+    "AD5C40071A3D09ED3876DE6D4039984FF5B04354" : "ElephantLiving\/ElephantLiving\/ElephantLiving\/ijkplayerLib\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ElephantLiving",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ElephantLiving\/ElephantLiving.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/fy195\/ElephantLiving.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "ABF57E7B3AE7C2B19FEB061C9F179A5526ACDCD8"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/iThinkerYZ\/ijkplayerLib.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "AD5C40071A3D09ED3876DE6D4039984FF5B04354"
+    }
+  ]
+}

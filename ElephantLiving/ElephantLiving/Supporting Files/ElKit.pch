@@ -32,4 +32,8 @@
 
 #import <CocoaLumberjack.h>
 
+#define kQPAppKey @"20cb0ee4eacf2a8"//使用自己的AppKey
+#define kQPAppSecret @"629044b589904b8fb76019f6aeb4a186"//使用自己的AppSecret
+#define kQPDomain @"http://elephantliving.s.qupai.me"//域名使用控制台空间管理自己的域名
+
 #endif /* ElMacro_pch */
