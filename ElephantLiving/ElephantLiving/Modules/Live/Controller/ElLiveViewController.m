@@ -17,12 +17,12 @@
 @implementation ElLiveViewController
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
     [self playFlv];
 }
 
 - (void)playFlv {
     if (_moviePlayer) {
-        [self.view addSubview:_moviePlayer.view];
         [_moviePlayer shutdown];
         [_moviePlayer.view removeFromSuperview];
         _moviePlayer = nil;
@@ -32,16 +32,19 @@
     [options setPlayerOptionIntValue:1 forKey:@"videotoolbox"];
     [options setPlayerOptionIntValue:29.97 forKey:@"r"];
     [options setPlayerOptionIntValue:512 forKey:@"vol"];
-    NSString *flv = @"http://hdl.9158.com/live/de3e76c8743ae7a59c3750b6006441c0.flv";
+    NSString *flv = @"http://hdl.9158.com/live/5717d4fd5f189d5ddaa8d5c78df2e895.flv";
     self.moviePlayer = [[IJKFFMoviePlayerController alloc] initWithContentURLString:flv withOptions:options];
     _moviePlayer.view.frame = self.view.bounds;
     _moviePlayer.scalingMode = IJKMPMovieScalingModeAspectFill;
     _moviePlayer.shouldAutoplay = NO;
     _moviePlayer.shouldShowHudView = NO;
     
+
     [_moviePlayer prepareToPlay];
     NSLog(@"播放");
     [self initObserver];
+    
+    [self.view addSubview:_moviePlayer.view];
 }
 
 - (void)initObserver
