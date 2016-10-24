@@ -27,6 +27,8 @@
     self.window.rootViewController = homeView;
     
     
+    [NSThread sleepForTimeInterval:2];
+    
     // Override point for customization after application launch.
     return YES;
 }
