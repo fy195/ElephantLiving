@@ -116,11 +116,11 @@
     [UIView animateWithDuration:0.95 animations:^{
         _timeImageView.frame = CGRectMake(0, 0, 200, 200);
         _timeImageView.center = self.view.center;
-        _timeImageView.alpha = 0.5;
+        _timeImageView.alpha = 1;
     } completion:^(BOOL finished) {
         _timeImageView.frame = CGRectMake(0, 0, 10, 10);
         _timeImageView.center = self.view.center;
-        _timeImageView.alpha = 1;
+        _timeImageView.alpha = 0.5;
     }];
     
 }
