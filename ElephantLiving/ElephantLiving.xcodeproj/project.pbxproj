@@ -7,14 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1E01D04A11FE9998F9DC88AC /* libPods-ElephantLiving.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C9DE1CC7772D4788CAEA57 /* libPods-ElephantLiving.a */; };
 		492709CA1DB9C4B000D6F550 /* ElHotCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 492709C91DB9C4B000D6F550 /* ElHotCollectionViewCell.m */; };
 		492709CD1DB9C60D00D6F550 /* ElHotCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 492709CC1DB9C60D00D6F550 /* ElHotCarouselView.m */; };
-		492849261DBDEDAF006BD010 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 4928491F1DBDEDAF006BD010 /* .gitignore */; };
-		492849271DBDEDAF006BD010 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492849211DBDEDAF006BD010 /* IJKMediaFramework.framework */; };
-		492849281DBDEDAF006BD010 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 492849221DBDEDAF006BD010 /* LICENSE */; };
-		492849291DBDEDAF006BD010 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 492849231DBDEDAF006BD010 /* README.md */; };
-		4928492A1DBDEDAF006BD010 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 492849251DBDEDAF006BD010 /* IJKMediaFramework.framework */; };
 		493907501DB8EED400F06D40 /* ElHotTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4939074E1DB8EED400F06D40 /* ElHotTableViewCell.m */; };
 		493907511DB8EED400F06D40 /* ElHotTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4939074F1DB8EED400F06D40 /* ElHotTableViewCell.xib */; };
 		493907551DB8EEF000F06D40 /* ElNewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 493907531DB8EEF000F06D40 /* ElNewCollectionViewCell.m */; };
@@ -73,21 +67,20 @@
 		49FE87211DB8BDB7000092C2 /* ElHotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FE87201DB8BDB7000092C2 /* ElHotViewController.m */; };
 		49FE87241DB8BDD2000092C2 /* ElNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FE87231DB8BDD2000092C2 /* ElNewViewController.m */; };
 		49FE87271DB8DA6E000092C2 /* ElSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FE87261DB8DA6E000092C2 /* ElSearchViewController.m */; };
+		73E262811E273442D85341C1 /* Pods_ElephantLiving.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C3B4E93879647ED95BB357 /* Pods_ElephantLiving.framework */; };
 		EB70D63A1DBA06A1009D9E34 /* ElAlbumCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB70D6391DBA06A1009D9E34 /* ElAlbumCollectionViewCell.m */; };
 		EB70D63D1DBA0756009D9E34 /* ElGiftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB70D63C1DBA0756009D9E34 /* ElGiftTableViewCell.m */; };
+		EB99EAF61DC0506000621EF3 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB99EAF11DC0506000621EF3 /* IJKMediaFramework.framework */; };
+		EB99EAF71DC0506000621EF3 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = EB99EAF21DC0506000621EF3 /* LICENSE */; };
+		EB99EAF81DC0506000621EF3 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = EB99EAF31DC0506000621EF3 /* README.md */; };
+		EB99EAF91DC0506000621EF3 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB99EAF51DC0506000621EF3 /* IJKMediaFramework.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		10C9DE1CC7772D4788CAEA57 /* libPods-ElephantLiving.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ElephantLiving.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		492709C81DB9C4B000D6F550 /* ElHotCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElHotCollectionViewCell.h; sourceTree = "<group>"; };
 		492709C91DB9C4B000D6F550 /* ElHotCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElHotCollectionViewCell.m; sourceTree = "<group>"; };
 		492709CB1DB9C60D00D6F550 /* ElHotCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElHotCarouselView.h; sourceTree = "<group>"; };
 		492709CC1DB9C60D00D6F550 /* ElHotCarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElHotCarouselView.m; sourceTree = "<group>"; };
-		4928491F1DBDEDAF006BD010 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		492849211DBDEDAF006BD010 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
-		492849221DBDEDAF006BD010 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		492849231DBDEDAF006BD010 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		492849251DBDEDAF006BD010 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		4939074D1DB8EED400F06D40 /* ElHotTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElHotTableViewCell.h; sourceTree = "<group>"; };
 		4939074E1DB8EED400F06D40 /* ElHotTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElHotTableViewCell.m; sourceTree = "<group>"; };
 		4939074F1DB8EED400F06D40 /* ElHotTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElHotTableViewCell.xib; sourceTree = "<group>"; };
@@ -195,11 +188,16 @@
 		49FE87251DB8DA6E000092C2 /* ElSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElSearchViewController.h; sourceTree = "<group>"; };
 		49FE87261DB8DA6E000092C2 /* ElSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElSearchViewController.m; sourceTree = "<group>"; };
 		4ED348DAA932E1D700311B69 /* Pods-ElephantLiving.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElephantLiving.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElephantLiving/Pods-ElephantLiving.release.xcconfig"; sourceTree = "<group>"; };
+		72C3B4E93879647ED95BB357 /* Pods_ElephantLiving.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElephantLiving.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D89B2F47EF8313096B83FF86 /* Pods-ElephantLiving.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElephantLiving.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ElephantLiving/Pods-ElephantLiving.debug.xcconfig"; sourceTree = "<group>"; };
 		EB70D6381DBA06A1009D9E34 /* ElAlbumCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElAlbumCollectionViewCell.h; sourceTree = "<group>"; };
 		EB70D6391DBA06A1009D9E34 /* ElAlbumCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElAlbumCollectionViewCell.m; sourceTree = "<group>"; };
 		EB70D63B1DBA0756009D9E34 /* ElGiftTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElGiftTableViewCell.h; sourceTree = "<group>"; };
 		EB70D63C1DBA0756009D9E34 /* ElGiftTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElGiftTableViewCell.m; sourceTree = "<group>"; };
+		EB99EAF11DC0506000621EF3 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
+		EB99EAF21DC0506000621EF3 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		EB99EAF31DC0506000621EF3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		EB99EAF51DC0506000621EF3 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,13 +208,13 @@
 				49FE39821DB7912F00FD8A99 /* CoreTelephony.framework in Frameworks */,
 				49FE39801DB7912100FD8A99 /* SystemConfiguration.framework in Frameworks */,
 				49FE397E1DB7911200FD8A99 /* libstdc++.tbd in Frameworks */,
-				4928492A1DBDEDAF006BD010 /* IJKMediaFramework.framework in Frameworks */,
+				EB99EAF91DC0506000621EF3 /* IJKMediaFramework.framework in Frameworks */,
 				49FE397C1DB790FD00FD8A99 /* AudioToolbox.framework in Frameworks */,
 				49FE397A1DB790F300FD8A99 /* VideoToolbox.framework in Frameworks */,
 				49FE3A241DB7A7D400FD8A99 /* QPLive.framework in Frameworks */,
-				492849271DBDEDAF006BD010 /* IJKMediaFramework.framework in Frameworks */,
+				EB99EAF61DC0506000621EF3 /* IJKMediaFramework.framework in Frameworks */,
 				49FE39781DB790E600FD8A99 /* libz.tbd in Frameworks */,
-				1E01D04A11FE9998F9DC88AC /* libPods-ElephantLiving.a in Frameworks */,
+				73E262811E273442D85341C1 /* Pods_ElephantLiving.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,34 +228,6 @@
 				4ED348DAA932E1D700311B69 /* Pods-ElephantLiving.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		4928491E1DBDEDAF006BD010 /* ijkplayerLib */ = {
-			isa = PBXGroup;
-			children = (
-				492849201DBDEDAF006BD010 /* Debug-IJKMediaFramework */,
-				492849241DBDEDAF006BD010 /* Release-IJKMediaFramework */,
-				4928491F1DBDEDAF006BD010 /* .gitignore */,
-				492849221DBDEDAF006BD010 /* LICENSE */,
-				492849231DBDEDAF006BD010 /* README.md */,
-			);
-			path = ijkplayerLib;
-			sourceTree = "<group>";
-		};
-		492849201DBDEDAF006BD010 /* Debug-IJKMediaFramework */ = {
-			isa = PBXGroup;
-			children = (
-				492849211DBDEDAF006BD010 /* IJKMediaFramework.framework */,
-			);
-			path = "Debug-IJKMediaFramework";
-			sourceTree = "<group>";
-		};
-		492849241DBDEDAF006BD010 /* Release-IJKMediaFramework */ = {
-			isa = PBXGroup;
-			children = (
-				492849251DBDEDAF006BD010 /* IJKMediaFramework.framework */,
-			);
-			path = "Release-IJKMediaFramework";
 			sourceTree = "<group>";
 		};
 		499FBE161DB786CE0015CC1D = {
@@ -281,14 +251,13 @@
 		499FBE211DB786CE0015CC1D /* ElephantLiving */ = {
 			isa = PBXGroup;
 			children = (
+				EB99EAEE1DC0506000621EF3 /* Vendors */,
 				49FE39841DB7974B00FD8A99 /* Base */,
 				49FE39931DB79A4C00FD8A99 /* Common */,
 				49FE39CD1DB79A7400FD8A99 /* Macro */,
 				49FE39D41DB79B8C00FD8A99 /* Modules */,
 				49FE39D01DB79B5D00FD8A99 /* Resources */,
 				499FBE221DB786CE0015CC1D /* Supporting Files */,
-				49FE39D31DB79B8000FD8A99 /* Vendors */,
-				4928491E1DBDEDAF006BD010 /* ijkplayerLib */,
 				49FE3A221DB7A7D400FD8A99 /* lib */,
 				499FBE251DB786CE0015CC1D /* AppDelegate.h */,
 				499FBE261DB786CE0015CC1D /* AppDelegate.m */,
@@ -613,13 +582,6 @@
 				49FE39D11DB79B7200FD8A99 /* AboutMe.text */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		49FE39D31DB79B8000FD8A99 /* Vendors */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Vendors;
 			sourceTree = "<group>";
 		};
 		49FE39D41DB79B8C00FD8A99 /* Modules */ = {
@@ -1121,6 +1083,41 @@
 			path = lib;
 			sourceTree = "<group>";
 		};
+		EB99EAEE1DC0506000621EF3 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				EB99EAEF1DC0506000621EF3 /* ijkplayerLib */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		EB99EAEF1DC0506000621EF3 /* ijkplayerLib */ = {
+			isa = PBXGroup;
+			children = (
+				EB99EAF01DC0506000621EF3 /* Debug-IJKMediaFramework */,
+				EB99EAF21DC0506000621EF3 /* LICENSE */,
+				EB99EAF31DC0506000621EF3 /* README.md */,
+				EB99EAF41DC0506000621EF3 /* Release-IJKMediaFramework */,
+			);
+			path = ijkplayerLib;
+			sourceTree = "<group>";
+		};
+		EB99EAF01DC0506000621EF3 /* Debug-IJKMediaFramework */ = {
+			isa = PBXGroup;
+			children = (
+				EB99EAF11DC0506000621EF3 /* IJKMediaFramework.framework */,
+			);
+			path = "Debug-IJKMediaFramework";
+			sourceTree = "<group>";
+		};
+		EB99EAF41DC0506000621EF3 /* Release-IJKMediaFramework */ = {
+			isa = PBXGroup;
+			children = (
+				EB99EAF51DC0506000621EF3 /* IJKMediaFramework.framework */,
+			);
+			path = "Release-IJKMediaFramework";
+			sourceTree = "<group>";
+		};
 		FD265F04054B206DD08E33BE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1130,7 +1127,7 @@
 				49FE397F1DB7912100FD8A99 /* SystemConfiguration.framework */,
 				49FE39811DB7912F00FD8A99 /* CoreTelephony.framework */,
 				49FE397B1DB790FD00FD8A99 /* AudioToolbox.framework */,
-				10C9DE1CC7772D4788CAEA57 /* libPods-ElephantLiving.a */,
+				72C3B4E93879647ED95BB357 /* Pods_ElephantLiving.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1197,13 +1194,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				492849261DBDEDAF006BD010 /* .gitignore in Resources */,
 				499FBE321DB786CE0015CC1D /* LaunchScreen.storyboard in Resources */,
 				493907561DB8EEF000F06D40 /* ElNewCollectionViewCell.xib in Resources */,
+				EB99EAF71DC0506000621EF3 /* LICENSE in Resources */,
 				499FBE2F1DB786CE0015CC1D /* Assets.xcassets in Resources */,
 				49F2C95F1DB9AAED000589A7 /* ElPersonCharmTableViewCell.xib in Resources */,
 				49F2C95A1DB99F9E000589A7 /* ElPersonTableViewCell.xib in Resources */,
-				492849281DBDEDAF006BD010 /* LICENSE in Resources */,
 				493907511DB8EED400F06D40 /* ElHotTableViewCell.xib in Resources */,
 				499FBE2D1DB786CE0015CC1D /* Main.storyboard in Resources */,
 			);
@@ -1281,7 +1277,7 @@
 				49FE39C21DB79A4C00FD8A99 /* NSString+Regex.m in Sources */,
 				49F2C97F1DB9B0CA000589A7 /* ElManageViewController.m in Sources */,
 				49FE398E1DB797D500FD8A99 /* ElBaseView.m in Sources */,
-				492849291DBDEDAF006BD010 /* README.md in Sources */,
+				EB99EAF81DC0506000621EF3 /* README.md in Sources */,
 				49FE87241DB8BDD2000092C2 /* ElNewViewController.m in Sources */,
 				498A10461DB8F233003F86B8 /* ElTopView.m in Sources */,
 				49FE3A1A1DB7A27A00FD8A99 /* ElLiveViewController.m in Sources */,
@@ -1431,8 +1427,18 @@
 					"$(PROJECT_DIR)/ElephantLiving/lib",
 					"$(PROJECT_DIR)/ElephantLiving/ijkplayerLib/Debug-IJKMediaFramework",
 					"$(PROJECT_DIR)/ElephantLiving/ijkplayerLib/Release-IJKMediaFramework",
+					"$(PROJECT_DIR)/ElephantLiving/Vendors/ijkplayerLib/Debug-IJKMediaFramework",
+					"$(PROJECT_DIR)/ElephantLiving/Vendors/ijkplayerLib/Release-IJKMediaFramework",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ElephantLiving/Supporting Files/ElKit.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaLumberjack\"",
+					"\"${PODS_ROOT}/Headers/Public/IJKPlayerLib\"",
+					"\"${PODS_ROOT}/Headers/Public/SDiPhoneVersion\"",
+				);
 				INFOPLIST_FILE = ElephantLiving/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1454,8 +1460,18 @@
 					"$(PROJECT_DIR)/ElephantLiving/lib",
 					"$(PROJECT_DIR)/ElephantLiving/ijkplayerLib/Debug-IJKMediaFramework",
 					"$(PROJECT_DIR)/ElephantLiving/ijkplayerLib/Release-IJKMediaFramework",
+					"$(PROJECT_DIR)/ElephantLiving/Vendors/ijkplayerLib/Debug-IJKMediaFramework",
+					"$(PROJECT_DIR)/ElephantLiving/Vendors/ijkplayerLib/Release-IJKMediaFramework",
 				);
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ElephantLiving/Supporting Files/ElKit.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/CocoaLumberjack\"",
+					"\"${PODS_ROOT}/Headers/Public/IJKPlayerLib\"",
+					"\"${PODS_ROOT}/Headers/Public/SDiPhoneVersion\"",
+				);
 				INFOPLIST_FILE = ElephantLiving/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

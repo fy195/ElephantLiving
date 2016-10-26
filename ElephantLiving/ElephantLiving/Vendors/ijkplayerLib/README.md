@@ -1,0 +1,2 @@
+# ijkplayerLib
+自己打包ijkplayerLib库，Debug和Release版本
