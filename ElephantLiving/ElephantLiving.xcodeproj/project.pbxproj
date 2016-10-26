@@ -276,13 +276,13 @@
 		499FBE211DB786CE0015CC1D /* ElephantLiving */ = {
 			isa = PBXGroup;
 			children = (
-				EB99EAEE1DC0506000621EF3 /* Vendors */,
 				49FE39841DB7974B00FD8A99 /* Base */,
 				49FE39931DB79A4C00FD8A99 /* Common */,
 				49FE39CD1DB79A7400FD8A99 /* Macro */,
 				49FE39D41DB79B8C00FD8A99 /* Modules */,
 				49FE39D01DB79B5D00FD8A99 /* Resources */,
 				499FBE221DB786CE0015CC1D /* Supporting Files */,
+				EB99EAEE1DC0506000621EF3 /* Vendors */,
 				49FE3A221DB7A7D400FD8A99 /* lib */,
 				499FBE251DB786CE0015CC1D /* AppDelegate.h */,
 				499FBE261DB786CE0015CC1D /* AppDelegate.m */,
@@ -1161,9 +1161,9 @@
 			isa = PBXGroup;
 			children = (
 				EB99EAF01DC0506000621EF3 /* Debug-IJKMediaFramework */,
+				EB99EAF41DC0506000621EF3 /* Release-IJKMediaFramework */,
 				EB99EAF21DC0506000621EF3 /* LICENSE */,
 				EB99EAF31DC0506000621EF3 /* README.md */,
-				EB99EAF41DC0506000621EF3 /* Release-IJKMediaFramework */,
 			);
 			path = ijkplayerLib;
 			sourceTree = "<group>";
