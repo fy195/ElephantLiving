@@ -10,6 +10,7 @@
 
 
 
+
 @interface ElTabBar ()
 
 @property (nonatomic, strong) NSArray *norImage;
@@ -73,8 +74,7 @@
     _tagBtn =button.tag;
     [self.delegateOfPresent getButtonTag:_tagBtn];
     
-    
-//    self.selectedIndex = _bottomView.tagBtn - 1000;
+   
     
     
 }

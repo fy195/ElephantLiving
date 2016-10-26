@@ -24,7 +24,7 @@ UITextFieldDelegate
     self = [super initWithFrame:frame];
     if (self) {
         
-        self.hidden = NO;
+//        self.hidden = NO;
         
         self.backgroundColor = [UIColor clearColor];
         
@@ -42,7 +42,6 @@ UITextFieldDelegate
         _backButton.backgroundColor = [UIColor yellowColor];
         _backButton.frame = CGRectMake(SCREEN_WIDTH * 0.88, 20, SCREEN_WIDTH * 0.08, SCREEN_WIDTH * 0.08);
         [_backButton setImage:[UIImage imageNamed:@"2"] forState:UIControlStateNormal];
-        [_backButton addTarget:self action:@selector(backButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_backButton];
         
         
@@ -52,7 +51,6 @@ UITextFieldDelegate
         [_startButton setTitle:@"开始直播" forState:UIControlStateNormal];
         [_startButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         _startButton.layer.cornerRadius = 25;
-        [_startButton addTarget:self action:@selector(startButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_startButton];
         
         
@@ -61,16 +59,10 @@ UITextFieldDelegate
     return self;
 }
 
-- (void)backButtonAction:(UIButton *)backButton {
-
-}
 
 
-- (void)startButtonAction:(UIButton *)startButton {
 
-    self.hidden = YES;
-    
-}
+
 
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
