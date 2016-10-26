@@ -34,6 +34,13 @@ UIScrollViewDelegate
 
 
 @implementation ElHomePageViewController
+
+- (void)viewWillAppear:(BOOL)animated {
+    self.tabBarController.tabBar.hidden = NO;
+
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor =[UIColor whiteColor];
@@ -127,10 +134,5 @@ UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
         self.topView.underLine.centerX = SCREEN_WIDTH / 2 + (scrollView.contentOffset.x - SCREEN_WIDTH) / 4;
 }
-
-
-
-
-
 
 @end
