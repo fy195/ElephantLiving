@@ -10,4 +10,6 @@
 
 @interface HttpClient : NSObject
 
+//+ ()
+
 @end
