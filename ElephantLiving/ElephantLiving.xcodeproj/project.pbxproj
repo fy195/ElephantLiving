@@ -241,10 +241,10 @@
 		4916D8521DBEEEAF00FAFB68 /* Watch */ = {
 			isa = PBXGroup;
 			children = (
-				49CA5A3E1DC03CF1005F2172 /* ViewModel */,
+				49CA5A3B1DC03CDE005F2172 /* Controller */,
 				49CA5A3D1DC03CEC005F2172 /* Model */,
 				49CA5A3C1DC03CE5005F2172 /* View */,
-				49CA5A3B1DC03CDE005F2172 /* Controller */,
+				49CA5A3E1DC03CF1005F2172 /* ViewModel */,
 			);
 			path = Watch;
 			sourceTree = "<group>";
@@ -314,28 +314,28 @@
 				4916D8531DBEF02700FAFB68 /* ElWatchViewController.h */,
 				4916D8541DBEF02700FAFB68 /* ElWatchViewController.m */,
 			);
-			name = Controller;
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		49CA5A3C1DC03CE5005F2172 /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		49CA5A3D1DC03CEC005F2172 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		49CA5A3E1DC03CF1005F2172 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = ViewModel;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		49F2C9601DB9AF3E000589A7 /* Gift */ = {
