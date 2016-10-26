@@ -241,38 +241,12 @@
 		4916D8521DBEEEAF00FAFB68 /* Watch */ = {
 			isa = PBXGroup;
 			children = (
-				4916D8531DBEF02700FAFB68 /* ElWatchViewController.h */,
-				4916D8541DBEF02700FAFB68 /* ElWatchViewController.m */,
+				49CA5A3E1DC03CF1005F2172 /* ViewModel */,
+				49CA5A3D1DC03CEC005F2172 /* Model */,
+				49CA5A3C1DC03CE5005F2172 /* View */,
+				49CA5A3B1DC03CDE005F2172 /* Controller */,
 			);
 			path = Watch;
-			sourceTree = "<group>";
-		};
-		4928491E1DBDEDAF006BD010 /* ijkplayerLib */ = {
-			isa = PBXGroup;
-			children = (
-				496085E31DBDEEB6007CD041 /* .gitignore */,
-				496085E41DBDEEB6007CD041 /* Debug-IJKMediaFramework */,
-				496085E61DBDEEB6007CD041 /* LICENSE */,
-				496085E71DBDEEB6007CD041 /* README.md */,
-				496085E81DBDEEB6007CD041 /* Release-IJKMediaFramework */,
-			);
-			path = ijkplayerLib;
-			sourceTree = "<group>";
-		};
-		496085E41DBDEEB6007CD041 /* Debug-IJKMediaFramework */ = {
-			isa = PBXGroup;
-			children = (
-				496085E51DBDEEB6007CD041 /* IJKMediaFramework.framework */,
-			);
-			path = "Debug-IJKMediaFramework";
-			sourceTree = "<group>";
-		};
-		496085E81DBDEEB6007CD041 /* Release-IJKMediaFramework */ = {
-			isa = PBXGroup;
-			children = (
-				496085E91DBDEEB6007CD041 /* IJKMediaFramework.framework */,
-			);
-			path = "Release-IJKMediaFramework";
 			sourceTree = "<group>";
 		};
 		499FBE161DB786CE0015CC1D = {
@@ -296,7 +270,6 @@
 		499FBE211DB786CE0015CC1D /* ElephantLiving */ = {
 			isa = PBXGroup;
 			children = (
-				496085E21DBDEEB6007CD041 /* ijkplayerLib */,
 				49FE39841DB7974B00FD8A99 /* Base */,
 				49FE39931DB79A4C00FD8A99 /* Common */,
 				49FE39CD1DB79A7400FD8A99 /* Macro */,
@@ -333,6 +306,36 @@
 				49CA5A391DC03AAC005F2172 /* ElEndViewController.m */,
 			);
 			path = End;
+			sourceTree = "<group>";
+		};
+		49CA5A3B1DC03CDE005F2172 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4916D8531DBEF02700FAFB68 /* ElWatchViewController.h */,
+				4916D8541DBEF02700FAFB68 /* ElWatchViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		49CA5A3C1DC03CE5005F2172 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		49CA5A3D1DC03CEC005F2172 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		49CA5A3E1DC03CF1005F2172 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModel;
 			sourceTree = "<group>";
 		};
 		49F2C9601DB9AF3E000589A7 /* Gift */ = {
