@@ -8,6 +8,7 @@
 
 #import "ElLiveViewController.h"
 #import <IJKMediaFramework/IJKMediaFramework.h>
+#import "ElStartLiving.h"
 
 @interface ElLiveViewController ()
 
@@ -15,9 +16,22 @@
 
 @implementation ElLiveViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+
+    ElStartLiving *view = [[ElStartLiving alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:view];
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor cyanColor];
+    
+    
 }
+
+
 
 
 @end
