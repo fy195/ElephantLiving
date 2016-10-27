@@ -9,6 +9,7 @@
 #import "ElHotViewController.h"
 #import "ElHotCollectionViewCell.h"
 #import "ElHotCarouselView.h"
+#import "ElWatchViewController.h"
 
 static NSString *const carousel = @"carousel";
 @interface ElHotViewController ()
@@ -18,7 +19,16 @@ static NSString *const carousel = @"carousel";
 @implementation ElHotViewController
 
 - (void)viewDidLoad {
-    [self createCarouselView];  
+    [self createCarouselView];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(100, 300, 100, 100);
+    button.backgroundColor = [UIColor redColor];
+    [self.view addSubview:button];
+    [button handleControlEvent:UIControlEventTouchUpInside withBlock:^{
+        ElWatchViewController *view = [[ElWatchViewController alloc] init];
+        [self presentViewController:view animated:YES completion:nil];
+    }];
 }
 
 - (void)createCarouselView {

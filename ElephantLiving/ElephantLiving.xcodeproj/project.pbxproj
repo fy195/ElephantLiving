@@ -20,6 +20,8 @@
 		493DA3911DC1CA7D0031C317 /* ElLivingBottomToolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493DA38C1DC1CA7D0031C317 /* ElLivingBottomToolView.xib */; };
 		493DA3921DC1CA7D0031C317 /* ElLivingTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 493DA38E1DC1CA7D0031C317 /* ElLivingTopView.m */; };
 		493DA3931DC1CA7D0031C317 /* ElLivingTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493DA38F1DC1CA7D0031C317 /* ElLivingTopView.xib */; };
+		493DA3FC1DC217F90031C317 /* ElLeftToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 493DA3FA1DC217F90031C317 /* ElLeftToolView.m */; };
+		493DA3FD1DC217F90031C317 /* ElLeftToolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493DA3FB1DC217F90031C317 /* ElLeftToolView.xib */; };
 		496085EB1DBDEEB6007CD041 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496085E51DBDEEB6007CD041 /* IJKMediaFramework.framework */; };
 		496085EE1DBDEEB6007CD041 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496085E91DBDEEB6007CD041 /* IJKMediaFramework.framework */; };
 		498A10461DB8F233003F86B8 /* ElTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 498A10451DB8F233003F86B8 /* ElTopView.m */; };
@@ -109,6 +111,9 @@
 		493DA38D1DC1CA7D0031C317 /* ElLivingTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElLivingTopView.h; sourceTree = "<group>"; };
 		493DA38E1DC1CA7D0031C317 /* ElLivingTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElLivingTopView.m; sourceTree = "<group>"; };
 		493DA38F1DC1CA7D0031C317 /* ElLivingTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElLivingTopView.xib; sourceTree = "<group>"; };
+		493DA3F91DC217F90031C317 /* ElLeftToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElLeftToolView.h; sourceTree = "<group>"; };
+		493DA3FA1DC217F90031C317 /* ElLeftToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElLeftToolView.m; sourceTree = "<group>"; };
+		493DA3FB1DC217F90031C317 /* ElLeftToolView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElLeftToolView.xib; sourceTree = "<group>"; };
 		496085E51DBDEEB6007CD041 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		496085E91DBDEEB6007CD041 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		498A10441DB8F233003F86B8 /* ElTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElTopView.h; sourceTree = "<group>"; };
@@ -976,6 +981,9 @@
 		49FE39F41DB79CA700FD8A99 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				493DA3F91DC217F90031C317 /* ElLeftToolView.h */,
+				493DA3FA1DC217F90031C317 /* ElLeftToolView.m */,
+				493DA3FB1DC217F90031C317 /* ElLeftToolView.xib */,
 				493DA38A1DC1CA7D0031C317 /* ElLivingBottomToolView.h */,
 				493DA38B1DC1CA7D0031C317 /* ElLivingBottomToolView.m */,
 				493DA38C1DC1CA7D0031C317 /* ElLivingBottomToolView.xib */,
@@ -1302,6 +1310,7 @@
 			files = (
 				499FBE321DB786CE0015CC1D /* LaunchScreen.storyboard in Resources */,
 				493907561DB8EEF000F06D40 /* ElNewCollectionViewCell.xib in Resources */,
+				493DA3FD1DC217F90031C317 /* ElLeftToolView.xib in Resources */,
 				493DA3931DC1CA7D0031C317 /* ElLivingTopView.xib in Resources */,
 				49F2C95F1DB9AAED000589A7 /* ElPersonCharmTableViewCell.xib in Resources */,
 				493DA3911DC1CA7D0031C317 /* ElLivingBottomToolView.xib in Resources */,
@@ -1414,6 +1423,7 @@
 				49FE39C61DB79A4C00FD8A99 /* UIImage+Categories.m in Sources */,
 				49FE39CA1DB79A4C00FD8A99 /* AppStoreUtils.m in Sources */,
 				49FE39C51DB79A4C00FD8A99 /* UIColor+Categories.m in Sources */,
+				493DA3FC1DC217F90031C317 /* ElLeftToolView.m in Sources */,
 				49FE39CB1DB79A4C00FD8A99 /* FileManagerUtils.m in Sources */,
 				4916D8561DBEF02700FAFB68 /* ElWatchViewController.m in Sources */,
 				49FE39BD1DB79A4C00FD8A99 /* NSDate+Categories.m in Sources */,
