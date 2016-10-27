@@ -111,7 +111,7 @@ QPLiveSessionDelegate
         self.pushUrl = pushUrl;
         _configuration.url = pushUrl;
         self.pullUrl = pullUrl;
-//        [self createConfiguration];
+        NSLog(@"%@", pullUrl);
     } failure:^(NSError *error) {
         UIAlertController *alerat = [UIAlertController alertControllerWithTitle:@"" message:@"Create Live Failed" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
