@@ -29,7 +29,7 @@
 
     _startView.hidden = NO;
     self.tabBarController.tabBar.hidden = YES;
-
+   
 }
 
 
