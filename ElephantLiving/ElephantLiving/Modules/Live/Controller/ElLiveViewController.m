@@ -9,7 +9,6 @@
 #import "ElLiveViewController.h"
 #import <IJKMediaFramework/IJKMediaFramework.h>
 #import "ElStartLiving.h"
-#import "ElLivingTopView.h"
 
 @interface ElLiveViewController ()
 
@@ -21,7 +20,6 @@
 
 @property (nonatomic, assign) NSInteger timeNumber;
 
-@property (nonatomic, strong) ElLivingTopView *topView;
 
 @end
 
@@ -48,7 +46,7 @@
     self.timeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
     _timeImageView.center = self.view.center;
     _timeImageView.backgroundColor = [UIColor clearColor];
- 
+    
 }
 
 
@@ -108,7 +106,7 @@
     
     NSLog(@"倒计时%d",seconds);
     _timeImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"time%d",seconds]];
-    [UIView animateWithDuration:0.8 animations:^{
+    [UIView animateWithDuration:0.95 animations:^{
         _timeImageView.frame = CGRectMake(0, 0, 200, 200);
         _timeImageView.center = self.view.center;
         _timeImageView.alpha = 1;
