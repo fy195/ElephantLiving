@@ -19,6 +19,10 @@
 		493907561DB8EEF000F06D40 /* ElNewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493907541DB8EEF000F06D40 /* ElNewCollectionViewCell.xib */; };
 		496085EB1DBDEEB6007CD041 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496085E51DBDEEB6007CD041 /* IJKMediaFramework.framework */; };
 		496085EE1DBDEEB6007CD041 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496085E91DBDEEB6007CD041 /* IJKMediaFramework.framework */; };
+		496AB0081DC1927E00995823 /* ElLivingTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 496AB0071DC1927E00995823 /* ElLivingTopView.m */; };
+		496AB00C1DC19A9F00995823 /* ElLivingTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 496AB00B1DC19A9F00995823 /* ElLivingTopView.xib */; };
+		496AB00F1DC1B29400995823 /* ElLivingBottomToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 496AB00E1DC1B29400995823 /* ElLivingBottomToolView.m */; };
+		496AB0111DC1B31400995823 /* ElLivingBottomToolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 496AB0101DC1B31400995823 /* ElLivingBottomToolView.xib */; };
 		498A10461DB8F233003F86B8 /* ElTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 498A10451DB8F233003F86B8 /* ElTopView.m */; };
 		498A10491DB8F25B003F86B8 /* ElListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498A10481DB8F25B003F86B8 /* ElListViewController.m */; };
 		499FBE241DB786CE0015CC1D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 499FBE231DB786CE0015CC1D /* main.m */; };
@@ -104,6 +108,12 @@
 		493907541DB8EEF000F06D40 /* ElNewCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElNewCollectionViewCell.xib; sourceTree = "<group>"; };
 		496085E51DBDEEB6007CD041 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		496085E91DBDEEB6007CD041 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
+		496AB0061DC1927E00995823 /* ElLivingTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElLivingTopView.h; sourceTree = "<group>"; };
+		496AB0071DC1927E00995823 /* ElLivingTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElLivingTopView.m; sourceTree = "<group>"; };
+		496AB00B1DC19A9F00995823 /* ElLivingTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElLivingTopView.xib; sourceTree = "<group>"; };
+		496AB00D1DC1B29400995823 /* ElLivingBottomToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElLivingBottomToolView.h; sourceTree = "<group>"; };
+		496AB00E1DC1B29400995823 /* ElLivingBottomToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElLivingBottomToolView.m; sourceTree = "<group>"; };
+		496AB0101DC1B31400995823 /* ElLivingBottomToolView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElLivingBottomToolView.xib; sourceTree = "<group>"; };
 		498A10441DB8F233003F86B8 /* ElTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElTopView.h; sourceTree = "<group>"; };
 		498A10451DB8F233003F86B8 /* ElTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElTopView.m; sourceTree = "<group>"; };
 		498A10471DB8F25B003F86B8 /* ElListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElListViewController.h; sourceTree = "<group>"; };
@@ -209,8 +219,8 @@
 		4ED348DAA932E1D700311B69 /* Pods-ElephantLiving.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElephantLiving.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElephantLiving/Pods-ElephantLiving.release.xcconfig"; sourceTree = "<group>"; };
 		72C3B4E93879647ED95BB357 /* Pods_ElephantLiving.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElephantLiving.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D89B2F47EF8313096B83FF86 /* Pods-ElephantLiving.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElephantLiving.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ElephantLiving/Pods-ElephantLiving.debug.xcconfig"; sourceTree = "<group>"; };
-		EB33479F1DC08D4D00AB0D18 /* ElStartLiving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ElStartLiving.h; path = ElephantLiving/Modules/Live/Controller/ElStartLiving.h; sourceTree = SOURCE_ROOT; };
-		EB3347A01DC08D4D00AB0D18 /* ElStartLiving.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ElStartLiving.m; path = ElephantLiving/Modules/Live/Controller/ElStartLiving.m; sourceTree = SOURCE_ROOT; };
+		EB33479F1DC08D4D00AB0D18 /* ElStartLiving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElStartLiving.h; sourceTree = "<group>"; };
+		EB3347A01DC08D4D00AB0D18 /* ElStartLiving.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElStartLiving.m; sourceTree = "<group>"; };
 		EB70D6381DBA06A1009D9E34 /* ElAlbumCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElAlbumCollectionViewCell.h; sourceTree = "<group>"; };
 		EB70D6391DBA06A1009D9E34 /* ElAlbumCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElAlbumCollectionViewCell.m; sourceTree = "<group>"; };
 		EB70D63B1DBA0756009D9E34 /* ElGiftTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElGiftTableViewCell.h; sourceTree = "<group>"; };
@@ -272,12 +282,12 @@
 			children = (
 				4938CA331DC08F7900EFE602 /* ElConfiguration.h */,
 				4938CA341DC08F7900EFE602 /* ElConfiguration.m */,
-				4938CA361DC08F9800EFE602 /* ElLiveSession.h */,
-				4938CA371DC08F9800EFE602 /* ElLiveSession.m */,
 				4938CA391DC0902E00EFE602 /* ElLiveRequest.h */,
 				4938CA3A1DC0902E00EFE602 /* ElLiveRequest.m */,
+				4938CA361DC08F9800EFE602 /* ElLiveSession.h */,
+				4938CA371DC08F9800EFE602 /* ElLiveSession.m */,
 			);
-			name = ElLive;
+			path = ElLive;
 			sourceTree = "<group>";
 		};
 		499FBE161DB786CE0015CC1D = {
@@ -585,9 +595,9 @@
 		49FE39931DB79A4C00FD8A99 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				499BD25D1DC08CEE00362487 /* ElLive */,
 				49FE39941DB79A4C00FD8A99 /* Categories */,
 				49FE39AD1DB79A4C00FD8A99 /* DataBase */,
+				499BD25D1DC08CEE00362487 /* ElLive */,
 				49FE39B01DB79A4C00FD8A99 /* HttpClient */,
 				49FE39B41DB79A4C00FD8A99 /* Util */,
 			);
@@ -980,6 +990,12 @@
 		49FE39F41DB79CA700FD8A99 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				496AB00D1DC1B29400995823 /* ElLivingBottomToolView.h */,
+				496AB00E1DC1B29400995823 /* ElLivingBottomToolView.m */,
+				496AB0101DC1B31400995823 /* ElLivingBottomToolView.xib */,
+				496AB0061DC1927E00995823 /* ElLivingTopView.h */,
+				496AB0071DC1927E00995823 /* ElLivingTopView.m */,
+				496AB00B1DC19A9F00995823 /* ElLivingTopView.xib */,
 				EB33479F1DC08D4D00AB0D18 /* ElStartLiving.h */,
 				EB3347A01DC08D4D00AB0D18 /* ElStartLiving.m */,
 			);
@@ -1262,6 +1278,7 @@
 					499FBE1E1DB786CE0015CC1D = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = QWKQAE7W9B;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -1289,9 +1306,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				499FBE321DB786CE0015CC1D /* LaunchScreen.storyboard in Resources */,
+				496AB0111DC1B31400995823 /* ElLivingBottomToolView.xib in Resources */,
 				493907561DB8EEF000F06D40 /* ElNewCollectionViewCell.xib in Resources */,
 				499FBE2F1DB786CE0015CC1D /* Assets.xcassets in Resources */,
 				49F2C95F1DB9AAED000589A7 /* ElPersonCharmTableViewCell.xib in Resources */,
+				496AB00C1DC19A9F00995823 /* ElLivingTopView.xib in Resources */,
 				49F2C95A1DB99F9E000589A7 /* ElPersonTableViewCell.xib in Resources */,
 				493907511DB8EED400F06D40 /* ElHotTableViewCell.xib in Resources */,
 				499FBE2D1DB786CE0015CC1D /* Main.storyboard in Resources */,
@@ -1357,6 +1376,7 @@
 				49FE39CC1DB79A4C00FD8A99 /* NSUserDefaultsUtils.m in Sources */,
 				493907551DB8EEF000F06D40 /* ElNewCollectionViewCell.m in Sources */,
 				499FBE2A1DB786CE0015CC1D /* ViewController.m in Sources */,
+				496AB0081DC1927E00995823 /* ElLivingTopView.m in Sources */,
 				49FE39C11DB79A4C00FD8A99 /* NSString+Categories.m in Sources */,
 				49FE39C91DB79A4C00FD8A99 /* HttpClient.m in Sources */,
 				49E7599B1DB8EE5100BDCB3C /* ElPersonViewController.m in Sources */,
@@ -1384,6 +1404,7 @@
 				49FE39BF1DB79A4C00FD8A99 /* NSDictionary+Categories.m in Sources */,
 				49E7599E1DB8EE8800BDCB3C /* ElPersonHeaderView.m in Sources */,
 				493907501DB8EED400F06D40 /* ElHotTableViewCell.m in Sources */,
+				496AB00F1DC1B29400995823 /* ElLivingBottomToolView.m in Sources */,
 				498A10491DB8F25B003F86B8 /* ElListViewController.m in Sources */,
 				49FE39D21DB79B7200FD8A99 /* AboutMe.text in Sources */,
 				49FE39911DB797E500FD8A99 /* ElBaseViewController.m in Sources */,
@@ -1521,6 +1542,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ElephantLiving/lib",
@@ -1543,7 +1566,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kfc.ElephantLiving;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "725a71e6-71f0-49c0-ab86-c846121bb68f";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1554,6 +1578,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ElephantLiving/lib",
@@ -1576,7 +1602,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kfc.ElephantLiving;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "725a71e6-71f0-49c0-ab86-c846121bb68f";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
