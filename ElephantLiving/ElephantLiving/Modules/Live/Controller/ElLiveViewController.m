@@ -39,7 +39,6 @@
     self.tabBarController.tabBar.hidden = YES;
     self.view.backgroundColor = [UIColor cyanColor];
     self.startView = [[ElStartLiving alloc] initWithFrame:self.view.bounds];
-    _startView.hidden = NO;
     [self.view addSubview:_startView];
     [_startView.startButton addTarget:self action:@selector(startButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_startView.backButton addTarget:self action:@selector(backButtonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -116,11 +115,11 @@
     [UIView animateWithDuration:0.95 animations:^{
         _timeImageView.frame = CGRectMake(0, 0, 200, 200);
         _timeImageView.center = self.view.center;
-        _timeImageView.alpha = 0.5;
+        _timeImageView.alpha = 1;
     } completion:^(BOOL finished) {
         _timeImageView.frame = CGRectMake(0, 0, 10, 10);
         _timeImageView.center = self.view.center;
-        _timeImageView.alpha = 1;
+        _timeImageView.alpha = 0.5;
     }];
     
 }
