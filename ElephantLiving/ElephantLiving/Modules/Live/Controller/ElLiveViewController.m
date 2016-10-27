@@ -39,7 +39,6 @@
     self.tabBarController.tabBar.hidden = YES;
     self.view.backgroundColor = [UIColor cyanColor];
     self.startView = [[ElStartLiving alloc] initWithFrame:self.view.bounds];
-    _startView.hidden = NO;
     [self.view addSubview:_startView];
     [_startView.startButton addTarget:self action:@selector(startButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_startView.backButton addTarget:self action:@selector(backButtonAction:) forControlEvents:UIControlEventTouchUpInside];
