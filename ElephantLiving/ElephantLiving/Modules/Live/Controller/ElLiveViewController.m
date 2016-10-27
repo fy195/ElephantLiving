@@ -61,14 +61,8 @@
 
 - (void)backButtonAction:(UIButton *)backButton {
     
-    self.tabBarController.selectedIndex = 0;
-//    for (UIButton *button in self.tabBarController.tabBar.subviews) {
-//        NSLog(@"11");
-//        if (button.tag == 1000) {
-//            NSLog(@"22");
-//            button.selected = YES;
-//        }
-//    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+
     
 }
 -(void)openCountdown{
