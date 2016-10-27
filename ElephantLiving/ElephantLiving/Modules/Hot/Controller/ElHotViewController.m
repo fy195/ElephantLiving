@@ -18,7 +18,7 @@ static NSString *const carousel = @"carousel";
 @implementation ElHotViewController
 
 - (void)viewDidLoad {
-    [self createCarouselView];
+    [self createCarouselView];  
 }
 
 - (void)createCarouselView {
