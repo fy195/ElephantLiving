@@ -29,7 +29,7 @@
     
 //    [NSThread sleepForTimeInterval:1];
     
-    [[QPAuth shared] registerAppWithKey:kQPAppKey secret:kQPAppSecret space:@"com.kfc.ElephantLiving" success:^(NSString *accessToken) {
+    [[QPAuth shared] registerAppWithKey:kELAppKey secret:kELAppSecret space:@"com.kfc.ElephantLiving" success:^(NSString *accessToken) {
         NSLog(@"access token : %@", accessToken);
     } failure:^(NSError *error) {
         NSLog(@"failed : %@", error.description);

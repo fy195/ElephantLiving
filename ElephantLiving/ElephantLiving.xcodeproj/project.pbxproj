@@ -10,9 +10,6 @@
 		4916D8561DBEF02700FAFB68 /* ElWatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4916D8541DBEF02700FAFB68 /* ElWatchViewController.m */; };
 		492709CA1DB9C4B000D6F550 /* ElHotCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 492709C91DB9C4B000D6F550 /* ElHotCollectionViewCell.m */; };
 		492709CD1DB9C60D00D6F550 /* ElHotCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 492709CC1DB9C60D00D6F550 /* ElHotCarouselView.m */; };
-		4938CA351DC08F7900EFE602 /* ElConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 4938CA341DC08F7900EFE602 /* ElConfiguration.m */; };
-		4938CA381DC08F9800EFE602 /* ElLiveSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 4938CA371DC08F9800EFE602 /* ElLiveSession.m */; };
-		4938CA3B1DC0902E00EFE602 /* ElLiveRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4938CA3A1DC0902E00EFE602 /* ElLiveRequest.m */; };
 		493907501DB8EED400F06D40 /* ElHotTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4939074E1DB8EED400F06D40 /* ElHotTableViewCell.m */; };
 		493907511DB8EED400F06D40 /* ElHotTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4939074F1DB8EED400F06D40 /* ElHotTableViewCell.xib */; };
 		493907551DB8EEF000F06D40 /* ElNewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 493907531DB8EEF000F06D40 /* ElNewCollectionViewCell.m */; };
@@ -96,12 +93,6 @@
 		492709C91DB9C4B000D6F550 /* ElHotCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElHotCollectionViewCell.m; sourceTree = "<group>"; };
 		492709CB1DB9C60D00D6F550 /* ElHotCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElHotCarouselView.h; sourceTree = "<group>"; };
 		492709CC1DB9C60D00D6F550 /* ElHotCarouselView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElHotCarouselView.m; sourceTree = "<group>"; };
-		4938CA331DC08F7900EFE602 /* ElConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElConfiguration.h; sourceTree = "<group>"; };
-		4938CA341DC08F7900EFE602 /* ElConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElConfiguration.m; sourceTree = "<group>"; };
-		4938CA361DC08F9800EFE602 /* ElLiveSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElLiveSession.h; sourceTree = "<group>"; };
-		4938CA371DC08F9800EFE602 /* ElLiveSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElLiveSession.m; sourceTree = "<group>"; };
-		4938CA391DC0902E00EFE602 /* ElLiveRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElLiveRequest.h; sourceTree = "<group>"; };
-		4938CA3A1DC0902E00EFE602 /* ElLiveRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElLiveRequest.m; sourceTree = "<group>"; };
 		4939074D1DB8EED400F06D40 /* ElHotTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElHotTableViewCell.h; sourceTree = "<group>"; };
 		4939074E1DB8EED400F06D40 /* ElHotTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElHotTableViewCell.m; sourceTree = "<group>"; };
 		4939074F1DB8EED400F06D40 /* ElHotTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElHotTableViewCell.xib; sourceTree = "<group>"; };
@@ -281,19 +272,6 @@
 				49CA5A3E1DC03CF1005F2172 /* ViewModel */,
 			);
 			path = Watch;
-			sourceTree = "<group>";
-		};
-		499BD25D1DC08CEE00362487 /* ElLive */ = {
-			isa = PBXGroup;
-			children = (
-				4938CA331DC08F7900EFE602 /* ElConfiguration.h */,
-				4938CA341DC08F7900EFE602 /* ElConfiguration.m */,
-				4938CA391DC0902E00EFE602 /* ElLiveRequest.h */,
-				4938CA3A1DC0902E00EFE602 /* ElLiveRequest.m */,
-				4938CA361DC08F9800EFE602 /* ElLiveSession.h */,
-				4938CA371DC08F9800EFE602 /* ElLiveSession.m */,
-			);
-			path = ElLive;
 			sourceTree = "<group>";
 		};
 		499FBE161DB786CE0015CC1D = {
@@ -604,7 +582,6 @@
 			children = (
 				49FE39941DB79A4C00FD8A99 /* Categories */,
 				49FE39AD1DB79A4C00FD8A99 /* DataBase */,
-				499BD25D1DC08CEE00362487 /* ElLive */,
 				49FE39B01DB79A4C00FD8A99 /* HttpClient */,
 				49FE39B41DB79A4C00FD8A99 /* Util */,
 			);
@@ -1296,6 +1273,7 @@
 					499FBE1E1DB786CE0015CC1D = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = QWKQAE7W9B;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -1420,7 +1398,6 @@
 				493DA3901DC1CA7D0031C317 /* ElLivingBottomToolView.m in Sources */,
 				49F2C9761DB9B0A4000589A7 /* ElGiftViewController.m in Sources */,
 				49FE87271DB8DA6E000092C2 /* ElSearchViewController.m in Sources */,
-				4938CA351DC08F7900EFE602 /* ElConfiguration.m in Sources */,
 				49FE39BF1DB79A4C00FD8A99 /* NSDictionary+Categories.m in Sources */,
 				49E7599E1DB8EE8800BDCB3C /* ElPersonHeaderView.m in Sources */,
 				493907501DB8EED400F06D40 /* ElHotTableViewCell.m in Sources */,
@@ -1431,7 +1408,6 @@
 				49FE39C01DB79A4C00FD8A99 /* NSNumber+Extend.m in Sources */,
 				49FE39C71DB79A4C00FD8A99 /* UIView+Frame.m in Sources */,
 				49FE39C31DB79A4C00FD8A99 /* NSUserDefaults+Categories.m in Sources */,
-				4938CA3B1DC0902E00EFE602 /* ElLiveRequest.m in Sources */,
 				49E759981DB8EE3100BDCB3C /* ElNormalListTableViewCell.m in Sources */,
 				492709CA1DB9C4B000D6F550 /* ElHotCollectionViewCell.m in Sources */,
 				49F2C95E1DB9AAED000589A7 /* ElPersonCharmTableViewCell.m in Sources */,
@@ -1447,7 +1423,6 @@
 				49CA5A3A1DC03AAC005F2172 /* ElEndViewController.m in Sources */,
 				EB70D63D1DBA0756009D9E34 /* ElGiftTableViewCell.m in Sources */,
 				EB70D63A1DBA06A1009D9E34 /* ElAlbumCollectionViewCell.m in Sources */,
-				4938CA381DC08F9800EFE602 /* ElLiveSession.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1561,6 +1536,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ElephantLiving/lib",
@@ -1583,7 +1560,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kfc.ElephantLiving;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "725a71e6-71f0-49c0-ab86-c846121bb68f";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1594,6 +1572,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ElephantLiving/lib",
@@ -1616,7 +1596,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kfc.ElephantLiving;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "725a71e6-71f0-49c0-ab86-c846121bb68f";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

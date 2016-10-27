@@ -11,6 +11,7 @@
 #import "ElLiveViewController.h"
 #import "ElPersonViewController.h"
 #import "ElMainTabBar.h"
+#import <QPLive/QPLive.h>
 
 
 @interface ElHomeTabBarController ()
