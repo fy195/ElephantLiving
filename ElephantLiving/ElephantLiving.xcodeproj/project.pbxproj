@@ -17,6 +17,12 @@
 		493907511DB8EED400F06D40 /* ElHotTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4939074F1DB8EED400F06D40 /* ElHotTableViewCell.xib */; };
 		493907551DB8EEF000F06D40 /* ElNewCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 493907531DB8EEF000F06D40 /* ElNewCollectionViewCell.m */; };
 		493907561DB8EEF000F06D40 /* ElNewCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493907541DB8EEF000F06D40 /* ElNewCollectionViewCell.xib */; };
+		493DA3861DC188D20031C317 /* ElMainTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 493DA3851DC188D20031C317 /* ElMainTabBarButton.m */; };
+		493DA3891DC188E90031C317 /* ElMainTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 493DA3881DC188E90031C317 /* ElMainTabBar.m */; };
+		493DA3901DC1CA7D0031C317 /* ElLivingBottomToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 493DA38B1DC1CA7D0031C317 /* ElLivingBottomToolView.m */; };
+		493DA3911DC1CA7D0031C317 /* ElLivingBottomToolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493DA38C1DC1CA7D0031C317 /* ElLivingBottomToolView.xib */; };
+		493DA3921DC1CA7D0031C317 /* ElLivingTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 493DA38E1DC1CA7D0031C317 /* ElLivingTopView.m */; };
+		493DA3931DC1CA7D0031C317 /* ElLivingTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493DA38F1DC1CA7D0031C317 /* ElLivingTopView.xib */; };
 		496085EB1DBDEEB6007CD041 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496085E51DBDEEB6007CD041 /* IJKMediaFramework.framework */; };
 		496085EE1DBDEEB6007CD041 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496085E91DBDEEB6007CD041 /* IJKMediaFramework.framework */; };
 		496AB0081DC1927E00995823 /* ElLivingTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 496AB0071DC1927E00995823 /* ElLivingTopView.m */; };
@@ -108,6 +114,12 @@
 		493DA3851DC188D20031C317 /* ElMainTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElMainTabBarButton.m; sourceTree = "<group>"; };
 		493DA3871DC188E90031C317 /* ElMainTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElMainTabBar.h; sourceTree = "<group>"; };
 		493DA3881DC188E90031C317 /* ElMainTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElMainTabBar.m; sourceTree = "<group>"; };
+		493DA38A1DC1CA7D0031C317 /* ElLivingBottomToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElLivingBottomToolView.h; sourceTree = "<group>"; };
+		493DA38B1DC1CA7D0031C317 /* ElLivingBottomToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElLivingBottomToolView.m; sourceTree = "<group>"; };
+		493DA38C1DC1CA7D0031C317 /* ElLivingBottomToolView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElLivingBottomToolView.xib; sourceTree = "<group>"; };
+		493DA38D1DC1CA7D0031C317 /* ElLivingTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElLivingTopView.h; sourceTree = "<group>"; };
+		493DA38E1DC1CA7D0031C317 /* ElLivingTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElLivingTopView.m; sourceTree = "<group>"; };
+		493DA38F1DC1CA7D0031C317 /* ElLivingTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElLivingTopView.xib; sourceTree = "<group>"; };
 		496085E51DBDEEB6007CD041 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		496085E91DBDEEB6007CD041 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		496AB0061DC1927E00995823 /* ElLivingTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElLivingTopView.h; sourceTree = "<group>"; };
@@ -323,8 +335,8 @@
 				49FE3A221DB7A7D400FD8A99 /* lib */,
 				499FBE251DB786CE0015CC1D /* AppDelegate.h */,
 				499FBE261DB786CE0015CC1D /* AppDelegate.m */,
-				499FBE331DB786CE0015CC1D /* Info.plist */,
 				EB3347A61DC190C400AB0D18 /* Assets.xcassets */,
+				499FBE331DB786CE0015CC1D /* Info.plist */,
 				499FBE301DB786CE0015CC1D /* LaunchScreen.storyboard */,
 				499FBE2B1DB786CE0015CC1D /* Main.storyboard */,
 				499FBE281DB786CE0015CC1D /* ViewController.h */,
@@ -345,9 +357,9 @@
 		49CA5A371DC03A8E005F2172 /* End */ = {
 			isa = PBXGroup;
 			children = (
+				EB3347A21DC1885700AB0D18 /* View */,
 				49CA5A381DC03AAC005F2172 /* ElEndViewController.h */,
 				49CA5A391DC03AAC005F2172 /* ElEndViewController.m */,
-				EB3347A21DC1885700AB0D18 /* View */,
 			);
 			path = End;
 			sourceTree = "<group>";
@@ -725,10 +737,10 @@
 		49FE39D61DB79B9E00FD8A99 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				493DA3841DC188D20031C317 /* ElMainTabBarButton.h */,
-				493DA3851DC188D20031C317 /* ElMainTabBarButton.m */,
 				493DA3871DC188E90031C317 /* ElMainTabBar.h */,
 				493DA3881DC188E90031C317 /* ElMainTabBar.m */,
+				493DA3841DC188D20031C317 /* ElMainTabBarButton.h */,
+				493DA3851DC188D20031C317 /* ElMainTabBarButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -995,6 +1007,7 @@
 		49FE39F41DB79CA700FD8A99 /* View */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				496AB0121DC1C8F700995823 /* ElStartLiving.h */,
 				496AB0131DC1C8F700995823 /* ElStartLiving.m */,
 				496AB00D1DC1B29400995823 /* ElLivingBottomToolView.h */,
@@ -1003,6 +1016,16 @@
 				496AB0061DC1927E00995823 /* ElLivingTopView.h */,
 				496AB0071DC1927E00995823 /* ElLivingTopView.m */,
 				496AB00B1DC19A9F00995823 /* ElLivingTopView.xib */,
+=======
+				493DA38A1DC1CA7D0031C317 /* ElLivingBottomToolView.h */,
+				493DA38B1DC1CA7D0031C317 /* ElLivingBottomToolView.m */,
+				493DA38C1DC1CA7D0031C317 /* ElLivingBottomToolView.xib */,
+				493DA38D1DC1CA7D0031C317 /* ElLivingTopView.h */,
+				493DA38E1DC1CA7D0031C317 /* ElLivingTopView.m */,
+				493DA38F1DC1CA7D0031C317 /* ElLivingTopView.xib */,
+				EB33479F1DC08D4D00AB0D18 /* ElStartLiving.h */,
+				EB3347A01DC08D4D00AB0D18 /* ElStartLiving.m */,
+>>>>>>> ce7d96b64bf4485a14c71a8d4275e73a554a11c7
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1204,7 +1227,7 @@
 				EB3347A31DC1889200AB0D18 /* ElEndLiving.h */,
 				EB3347A41DC1889200AB0D18 /* ElEndLiving.m */,
 			);
-			name = View;
+			path = View;
 			sourceTree = "<group>";
 		};
 		EB99EAEE1DC0506000621EF3 /* Vendors */ = {
@@ -1322,7 +1345,9 @@
 				499FBE321DB786CE0015CC1D /* LaunchScreen.storyboard in Resources */,
 				496AB0111DC1B31400995823 /* ElLivingBottomToolView.xib in Resources */,
 				493907561DB8EEF000F06D40 /* ElNewCollectionViewCell.xib in Resources */,
+				493DA3931DC1CA7D0031C317 /* ElLivingTopView.xib in Resources */,
 				49F2C95F1DB9AAED000589A7 /* ElPersonCharmTableViewCell.xib in Resources */,
+				493DA3911DC1CA7D0031C317 /* ElLivingBottomToolView.xib in Resources */,
 				496AB00C1DC19A9F00995823 /* ElLivingTopView.xib in Resources */,
 				49F2C95A1DB99F9E000589A7 /* ElPersonTableViewCell.xib in Resources */,
 				493907511DB8EED400F06D40 /* ElHotTableViewCell.xib in Resources */,
@@ -1394,6 +1419,7 @@
 				49FE39C91DB79A4C00FD8A99 /* HttpClient.m in Sources */,
 				49E7599B1DB8EE5100BDCB3C /* ElPersonViewController.m in Sources */,
 				49FE398B1DB797C100FD8A99 /* ElBaseModel.m in Sources */,
+				493DA3921DC1CA7D0031C317 /* ElLivingTopView.m in Sources */,
 				49F2C9791DB9B0B2000589A7 /* ElAlbumViewController.m in Sources */,
 				492709CD1DB9C60D00D6F550 /* ElHotCarouselView.m in Sources */,
 				499FBE271DB786CE0015CC1D /* AppDelegate.m in Sources */,
@@ -1410,6 +1436,7 @@
 				49FE39C41DB79A4C00FD8A99 /* UIButton+Block.m in Sources */,
 				49FE39BC1DB79A4C00FD8A99 /* NSArray+Categories.m in Sources */,
 				49FE39BE1DB79A4C00FD8A99 /* NSDate+EasyExtend.mm in Sources */,
+				493DA3901DC1CA7D0031C317 /* ElLivingBottomToolView.m in Sources */,
 				49F2C9761DB9B0A4000589A7 /* ElGiftViewController.m in Sources */,
 				496AB0141DC1C8F700995823 /* ElStartLiving.m in Sources */,
 				49FE87271DB8DA6E000092C2 /* ElSearchViewController.m in Sources */,
