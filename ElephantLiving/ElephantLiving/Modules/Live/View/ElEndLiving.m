@@ -102,16 +102,12 @@
         [self addSubview:momentsButton];
         
         
-        UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        backButton.frame = CGRectMake(SCREEN_WIDTH *0.1, SCREEN_HEIGHT *0.6, SCREEN_WIDTH *0.8, SCREEN_HEIGHT * 0.08);
-        [backButton setTitle:@"返回首页" forState:UIControlStateNormal];
-        [backButton setTitleColor:[UIColor cyanColor] forState:UIControlStateNormal];
-        [backButton setBackgroundImage:[UIImage imageNamed:@"button_bg_large_borders"] forState:UIControlStateNormal];
-        [self addSubview:backButton];
-        
-        
-        
-        
+        self.backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _backButton.frame = CGRectMake(SCREEN_WIDTH *0.1, SCREEN_HEIGHT *0.6, SCREEN_WIDTH *0.8, SCREEN_HEIGHT * 0.08);
+        [_backButton setTitle:@"返回首页" forState:UIControlStateNormal];
+        [_backButton setTitleColor:[UIColor cyanColor] forState:UIControlStateNormal];
+        [_backButton setBackgroundImage:[UIImage imageNamed:@"button_bg_large_borders"] forState:UIControlStateNormal];
+        [self addSubview:_backButton];  
     }
     return self;
 }

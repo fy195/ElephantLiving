@@ -8,7 +8,20 @@
 
 #import "ElLivingBottomToolView.h"
 
+@interface ElLivingBottomToolView ()
+<
+UITableViewDelegate,
+UITableViewDataSource
+>
+@property (weak, nonatomic) IBOutlet UITableView *commentTableView;
+
+@end
+
 @implementation ElLivingBottomToolView
+
++ (instancetype)elLivingBottomToolView {
+    return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil].lastObject;
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.
