@@ -36,7 +36,7 @@
     [options setPlayerOptionIntValue:1 forKey:@"audiotoolbox"];
     [options setPlayerOptionIntValue:15 forKey:@"r"];
     [options setPlayerOptionIntValue:512 forKey:@"vol"];
-    NSString *flv = @"http://play.lss.qupai.me/elephantliving/elephantliving-20RUS.flv?auth_key=1477651840-0-2783-b847733f4e738309bfd9d82e0e1aa5e4.flv";
+    NSString *flv = @"http://play.lss.qupai.me/elephantliving/elephantliving-20TBE.flv?auth_key=1477730688-0-2783-9b7abe87e1630656d8c8fca4a10ac0d3.flv";
     self.moviePlayer = [[IJKFFMoviePlayerController alloc] initWithContentURLString:flv withOptions:options];
     _moviePlayer.view.frame = self.view.bounds;
     _moviePlayer.scalingMode = IJKMPMovieScalingModeAspectFill;
