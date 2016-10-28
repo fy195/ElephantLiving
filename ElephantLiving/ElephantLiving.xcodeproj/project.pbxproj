@@ -32,6 +32,12 @@
 		499FBE2D1DB786CE0015CC1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 499FBE2B1DB786CE0015CC1D /* Main.storyboard */; };
 		499FBE321DB786CE0015CC1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 499FBE301DB786CE0015CC1D /* LaunchScreen.storyboard */; };
 		49CA5A3A1DC03AAC005F2172 /* ElEndViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CA5A391DC03AAC005F2172 /* ElEndViewController.m */; };
+		49DF2C201DC2DA040096E935 /* ElLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DF2C1E1DC2DA040096E935 /* ElLoginViewController.m */; };
+		49DF2C211DC2DA040096E935 /* ElLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49DF2C1F1DC2DA040096E935 /* ElLoginViewController.xib */; };
+		49DF2C251DC2DA220096E935 /* ElRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DF2C231DC2DA220096E935 /* ElRegisterViewController.m */; };
+		49DF2C261DC2DA220096E935 /* ElRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49DF2C241DC2DA220096E935 /* ElRegisterViewController.xib */; };
+		49DF2C2A1DC2E4990096E935 /* ElForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DF2C281DC2E4990096E935 /* ElForgetPasswordViewController.m */; };
+		49DF2C2B1DC2E4990096E935 /* ElForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49DF2C291DC2E4990096E935 /* ElForgetPasswordViewController.xib */; };
 		49E759981DB8EE3100BDCB3C /* ElNormalListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E759971DB8EE3100BDCB3C /* ElNormalListTableViewCell.m */; };
 		49E7599B1DB8EE5100BDCB3C /* ElPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7599A1DB8EE5100BDCB3C /* ElPersonViewController.m */; };
 		49E7599E1DB8EE8800BDCB3C /* ElPersonHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7599D1DB8EE8800BDCB3C /* ElPersonHeaderView.m */; };
@@ -131,6 +137,15 @@
 		499FBE331DB786CE0015CC1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49CA5A381DC03AAC005F2172 /* ElEndViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElEndViewController.h; sourceTree = "<group>"; };
 		49CA5A391DC03AAC005F2172 /* ElEndViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElEndViewController.m; sourceTree = "<group>"; };
+		49DF2C1D1DC2DA040096E935 /* ElLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElLoginViewController.h; sourceTree = "<group>"; };
+		49DF2C1E1DC2DA040096E935 /* ElLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElLoginViewController.m; sourceTree = "<group>"; };
+		49DF2C1F1DC2DA040096E935 /* ElLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElLoginViewController.xib; sourceTree = "<group>"; };
+		49DF2C221DC2DA220096E935 /* ElRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElRegisterViewController.h; sourceTree = "<group>"; };
+		49DF2C231DC2DA220096E935 /* ElRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElRegisterViewController.m; sourceTree = "<group>"; };
+		49DF2C241DC2DA220096E935 /* ElRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElRegisterViewController.xib; sourceTree = "<group>"; };
+		49DF2C271DC2E4990096E935 /* ElForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElForgetPasswordViewController.h; sourceTree = "<group>"; };
+		49DF2C281DC2E4990096E935 /* ElForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElForgetPasswordViewController.m; sourceTree = "<group>"; };
+		49DF2C291DC2E4990096E935 /* ElForgetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElForgetPasswordViewController.xib; sourceTree = "<group>"; };
 		49E759961DB8EE3100BDCB3C /* ElNormalListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElNormalListTableViewCell.h; sourceTree = "<group>"; };
 		49E759971DB8EE3100BDCB3C /* ElNormalListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElNormalListTableViewCell.m; sourceTree = "<group>"; };
 		49E759991DB8EE5100BDCB3C /* ElPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElPersonViewController.h; sourceTree = "<group>"; };
@@ -1047,6 +1062,9 @@
 		49FE39FB1DB79CD100FD8A99 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				49DF2C1D1DC2DA040096E935 /* ElLoginViewController.h */,
+				49DF2C1E1DC2DA040096E935 /* ElLoginViewController.m */,
+				49DF2C1F1DC2DA040096E935 /* ElLoginViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1079,6 +1097,9 @@
 		49FE39FF1DB79CFC00FD8A99 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				49DF2C221DC2DA220096E935 /* ElRegisterViewController.h */,
+				49DF2C231DC2DA220096E935 /* ElRegisterViewController.m */,
+				49DF2C241DC2DA220096E935 /* ElRegisterViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1125,6 +1146,9 @@
 		49FE3A051DB79D3100FD8A99 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				49DF2C271DC2E4990096E935 /* ElForgetPasswordViewController.h */,
+				49DF2C281DC2E4990096E935 /* ElForgetPasswordViewController.m */,
+				49DF2C291DC2E4990096E935 /* ElForgetPasswordViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1308,11 +1332,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49DF2C211DC2DA040096E935 /* ElLoginViewController.xib in Resources */,
 				499FBE321DB786CE0015CC1D /* LaunchScreen.storyboard in Resources */,
 				493907561DB8EEF000F06D40 /* ElNewCollectionViewCell.xib in Resources */,
+				49DF2C2B1DC2E4990096E935 /* ElForgetPasswordViewController.xib in Resources */,
 				493DA3FD1DC217F90031C317 /* ElLeftToolView.xib in Resources */,
 				493DA3931DC1CA7D0031C317 /* ElLivingTopView.xib in Resources */,
 				49F2C95F1DB9AAED000589A7 /* ElPersonCharmTableViewCell.xib in Resources */,
+				49DF2C261DC2DA220096E935 /* ElRegisterViewController.xib in Resources */,
 				493DA3911DC1CA7D0031C317 /* ElLivingBottomToolView.xib in Resources */,
 				49F2C95A1DB99F9E000589A7 /* ElPersonTableViewCell.xib in Resources */,
 				EB3347A71DC190C400AB0D18 /* Assets.xcassets in Resources */,
@@ -1376,7 +1403,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49DF2C251DC2DA220096E935 /* ElRegisterViewController.m in Sources */,
 				49F2C97C1DB9B0BF000589A7 /* ElSettingViewController.m in Sources */,
+				49DF2C2A1DC2E4990096E935 /* ElForgetPasswordViewController.m in Sources */,
 				49FE39CC1DB79A4C00FD8A99 /* NSUserDefaultsUtils.m in Sources */,
 				493907551DB8EEF000F06D40 /* ElNewCollectionViewCell.m in Sources */,
 				499FBE2A1DB786CE0015CC1D /* ViewController.m in Sources */,
@@ -1433,6 +1462,7 @@
 				49CA5A3A1DC03AAC005F2172 /* ElEndViewController.m in Sources */,
 				EB70D63D1DBA0756009D9E34 /* ElGiftTableViewCell.m in Sources */,
 				EB70D63A1DBA06A1009D9E34 /* ElAlbumCollectionViewCell.m in Sources */,
+				49DF2C201DC2DA040096E935 /* ElLoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
