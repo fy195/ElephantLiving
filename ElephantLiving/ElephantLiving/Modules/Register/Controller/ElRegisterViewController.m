@@ -7,7 +7,7 @@
 //
 
 #import "ElRegisterViewController.h"
-//#import "ElLoginViewController.h"
+#import "ElTextViewController.h"
 
 @interface ElRegisterViewController ()
 
@@ -21,7 +21,12 @@
 }
 - (IBAction)ReturnButton:(id)sender {
 //    ElLoginViewController *loginView = [[ElLoginViewController alloc] init];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+- (IBAction)RegisterButtonAction:(id)sender {
+    ElTextViewController *textView = [[ElTextViewController alloc] init];
+    [self.navigationController pushViewController:textView animated:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -15,8 +15,8 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w3y-u5-DD0">
-                    <rect key="frame" x="60" y="350" width="294" height="45"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入您的昵称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w3y-u5-DD0">
+                    <rect key="frame" x="60" y="90" width="294" height="45"/>
                     <animations/>
                     <color key="backgroundColor" red="0.77819720049999996" green="0.71407430750000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -25,8 +25,8 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RwP-IE-qWj">
-                    <rect key="frame" x="60" y="455" width="294" height="45"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RwP-IE-qWj">
+                    <rect key="frame" x="60" y="180" width="294" height="45"/>
                     <animations/>
                     <color key="backgroundColor" red="0.77819720049999996" green="0.71407430750000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -36,19 +36,13 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMF-py-rMm">
-                    <rect key="frame" x="60" y="545" width="294" height="45"/>
+                    <rect key="frame" x="60" y="360" width="294" height="45"/>
                     <animations/>
                     <color key="backgroundColor" red="0.77819720049999996" green="0.71407430750000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="注册"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jS3-aL-XLq">
-                    <rect key="frame" x="254" y="455" width="100" height="45"/>
-                    <animations/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="100" id="T0T-MP-64B"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="获取验证码"/>
+                    <connections>
+                        <action selector="RegisterButtonAction:" destination="-1" eventType="touchUpInside" id="ZNj-t4-0Zf"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t2k-qm-OkC">
                     <rect key="frame" x="30" y="30" width="45" height="45"/>
@@ -64,31 +58,43 @@
                         <action selector="ReturnButton:" destination="-1" eventType="touchUpInside" id="h3e-YT-tQ3"/>
                     </connections>
                 </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OCS-JY-flF">
+                    <rect key="frame" x="60" y="270" width="294" height="45"/>
+                    <animations/>
+                    <color key="backgroundColor" red="0.77819720049999996" green="0.71407430750000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="t2k-qm-OkC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="76V-oo-sy1"/>
                 <constraint firstItem="WMF-py-rMm" firstAttribute="width" secondItem="RwP-IE-qWj" secondAttribute="width" id="7iO-6w-ghJ"/>
-                <constraint firstItem="jS3-aL-XLq" firstAttribute="trailing" secondItem="RwP-IE-qWj" secondAttribute="trailing" id="9Vu-g7-Dni"/>
-                <constraint firstItem="RwP-IE-qWj" firstAttribute="width" secondItem="w3y-u5-DD0" secondAttribute="width" id="AIt-SF-FJr"/>
+                <constraint firstItem="OCS-JY-flF" firstAttribute="width" secondItem="RwP-IE-qWj" secondAttribute="width" id="8Et-dW-QBD"/>
+                <constraint firstItem="RwP-IE-qWj" firstAttribute="leading" secondItem="w3y-u5-DD0" secondAttribute="leading" id="9Mc-0D-bZm"/>
+                <constraint firstItem="WMF-py-rMm" firstAttribute="top" secondItem="OCS-JY-flF" secondAttribute="bottom" constant="45" id="Anz-i2-9G2"/>
+                <constraint firstItem="RwP-IE-qWj" firstAttribute="height" secondItem="w3y-u5-DD0" secondAttribute="height" id="DdT-mc-RUc"/>
+                <constraint firstItem="RwP-IE-qWj" firstAttribute="width" secondItem="w3y-u5-DD0" secondAttribute="width" id="F1R-u4-hK9"/>
+                <constraint firstItem="OCS-JY-flF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="HXH-4N-jdV"/>
                 <constraint firstItem="w3y-u5-DD0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="I3g-gq-cgQ"/>
-                <constraint firstItem="jS3-aL-XLq" firstAttribute="top" secondItem="RwP-IE-qWj" secondAttribute="top" id="IZ6-kX-JAh"/>
                 <constraint firstItem="t2k-qm-OkC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="LXV-r3-hMn"/>
+                <constraint firstItem="OCS-JY-flF" firstAttribute="top" secondItem="RwP-IE-qWj" secondAttribute="bottom" constant="45" id="O8f-pI-65A"/>
+                <constraint firstItem="RwP-IE-qWj" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="PE6-hU-YPV"/>
+                <constraint firstItem="WMF-py-rMm" firstAttribute="height" secondItem="RwP-IE-qWj" secondAttribute="height" id="RwQ-an-vTl"/>
                 <constraint firstItem="RwP-IE-qWj" firstAttribute="centerX" secondItem="w3y-u5-DD0" secondAttribute="centerX" id="V1Z-1T-oOJ"/>
                 <constraint firstItem="RwP-IE-qWj" firstAttribute="top" secondItem="w3y-u5-DD0" secondAttribute="top" id="Xxb-fC-u02"/>
-                <constraint firstItem="w3y-u5-DD0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="350" id="gUD-Pl-OzG"/>
-                <constraint firstItem="RwP-IE-qWj" firstAttribute="top" secondItem="w3y-u5-DD0" secondAttribute="bottom" constant="60" id="kKR-Jr-lYb"/>
-                <constraint firstItem="jS3-aL-XLq" firstAttribute="height" secondItem="RwP-IE-qWj" secondAttribute="height" id="qBk-Nu-Ziz"/>
-                <constraint firstItem="WMF-py-rMm" firstAttribute="height" secondItem="RwP-IE-qWj" secondAttribute="height" id="tYn-bP-f5J"/>
-                <constraint firstItem="RwP-IE-qWj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="tz8-91-Qko"/>
+                <constraint firstItem="WMF-py-rMm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="azJ-a3-JyB"/>
+                <constraint firstItem="w3y-u5-DD0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="90" id="gUD-Pl-OzG"/>
+                <constraint firstItem="RwP-IE-qWj" firstAttribute="top" secondItem="w3y-u5-DD0" secondAttribute="bottom" constant="45" id="kKR-Jr-lYb"/>
+                <constraint firstItem="OCS-JY-flF" firstAttribute="height" secondItem="RwP-IE-qWj" secondAttribute="height" id="r0C-uR-c1Q"/>
                 <constraint firstAttribute="trailing" secondItem="w3y-u5-DD0" secondAttribute="trailing" constant="60" id="x41-vC-aYn"/>
                 <constraint firstAttribute="trailing" secondItem="WMF-py-rMm" secondAttribute="trailing" constant="60" id="xPb-JK-yQP"/>
-                <constraint firstItem="WMF-py-rMm" firstAttribute="top" secondItem="RwP-IE-qWj" secondAttribute="bottom" constant="45" id="xhn-BM-2LT"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="PE6-hU-YPV"/>
                     <exclude reference="V1Z-1T-oOJ"/>
                     <exclude reference="Xxb-fC-u02"/>
                 </mask>

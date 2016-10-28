@@ -1,45 +1,32 @@
 //
-//  ElLoginViewController.m
+//  ElTextViewController.m
 //  ElephantLiving
 //
 //  Created by dllo on 16/10/28.
 //  Copyright © 2016年 dllo. All rights reserved.
 //
 
+#import "ElTextViewController.h"
 #import "ElLoginViewController.h"
-#import "ElRegisterViewController.h"
-#import "ElForgetPasswordViewController.h"
-
-
-@interface ElLoginViewController ()
+@interface ElTextViewController ()
 
 @end
 
-@implementation ElLoginViewController
+@implementation ElTextViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
-- (IBAction)RegisterButton:(id)sender {
-    ElRegisterViewController * registerView = [[ElRegisterViewController alloc] init];
-    [self.navigationController pushViewController:registerView animated:YES];
-}
-- (IBAction)ReturnButtonAction:(id)sender {
-    
-//    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (IBAction)ForgetPasswordButtonAction:(id)sender {
-    ElForgetPasswordViewController *forgetPasswordView = [[ElForgetPasswordViewController alloc] init];
-    [self.navigationController pushViewController:forgetPasswordView animated:YES];
-}
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)SureButtonAction:(id)sender {
+    ElLoginViewController *loginView = [[ElLoginViewController alloc] init];
+    [self.navigationController pushViewController:loginView animated:YES];
+    
 }
 
 /*

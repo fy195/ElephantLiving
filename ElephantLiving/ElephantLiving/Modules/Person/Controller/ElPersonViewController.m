@@ -101,7 +101,7 @@ UITableViewDataSource
         }
     }else {
         ElSettingViewController *settingViewController = [[ElSettingViewController alloc] init];
-        [self presentViewController:settingViewController animated:YES completion:nil];
+        [self.navigationController pushViewController:settingViewController animated:YES];
     }
 }
 

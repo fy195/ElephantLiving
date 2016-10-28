@@ -159,7 +159,7 @@
     
     [exitButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         ElLoginViewController *loginView = [[ElLoginViewController alloc] init];
-        [self presentViewController:loginView animated:YES completion:nil];
+        [self.navigationController pushViewController:loginView animated:YES];
     }];
     
     

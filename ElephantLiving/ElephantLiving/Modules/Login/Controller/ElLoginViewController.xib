@@ -15,8 +15,8 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入账号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OQz-71-xcs">
-                    <rect key="frame" x="60" y="350" width="294" height="45"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OQz-71-xcs">
+                    <rect key="frame" x="60" y="90" width="294" height="45"/>
                     <animations/>
                     <color key="backgroundColor" red="0.95294117649999999" green="0.78039215689999997" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -26,7 +26,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ods-5j-0td">
-                    <rect key="frame" x="60" y="455" width="294" height="45"/>
+                    <rect key="frame" x="60" y="195" width="294" height="45"/>
                     <animations/>
                     <color key="backgroundColor" red="0.95294117649999999" green="0.78039215689999997" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -36,7 +36,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bk7-tf-00n">
-                    <rect key="frame" x="60" y="545" width="294" height="45"/>
+                    <rect key="frame" x="60" y="285" width="294" height="45"/>
                     <animations/>
                     <color key="backgroundColor" red="0.95294117649999999" green="0.78039215689999997" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -52,7 +52,7 @@
                     </variation>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRq-Ji-HN1">
-                    <rect key="frame" x="294" y="610" width="60" height="30"/>
+                    <rect key="frame" x="294" y="350" width="60" height="30"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="ZVt-bn-NfC"/>
@@ -80,7 +80,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJO-gm-Qtg">
-                    <rect key="frame" x="274" y="515" width="80" height="30"/>
+                    <rect key="frame" x="274" y="255" width="80" height="30"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="UaI-GH-wZR"/>
@@ -98,7 +98,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Bk7-tf-00n" firstAttribute="top" secondItem="ods-5j-0td" secondAttribute="bottom" constant="45" id="6we-u7-nBA"/>
-                <constraint firstItem="OQz-71-xcs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="350" id="7cp-Dy-pDm"/>
+                <constraint firstItem="OQz-71-xcs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="90" id="7cp-Dy-pDm"/>
                 <constraint firstAttribute="trailing" secondItem="kJO-gm-Qtg" secondAttribute="trailing" constant="60" id="Bxr-Z4-C0d"/>
                 <constraint firstItem="Bk7-tf-00n" firstAttribute="width" secondItem="ods-5j-0td" secondAttribute="width" id="IQP-b1-Ao4"/>
                 <constraint firstItem="Bk7-tf-00n" firstAttribute="top" secondItem="ods-5j-0td" secondAttribute="bottom" constant="45" id="Nux-OH-X21"/>
