@@ -19,7 +19,7 @@
     // Do any additional setup after loading the view from its nib.
 }
 - (IBAction)ReturnButtonAction:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

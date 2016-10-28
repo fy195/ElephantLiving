@@ -45,7 +45,7 @@
     [self.view addSubview:returnButton];
     
     [returnButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self.navigationController popViewControllerAnimated:YES];
     }];
 
     
