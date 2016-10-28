@@ -31,7 +31,7 @@
 		499FBE2A1DB786CE0015CC1D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 499FBE291DB786CE0015CC1D /* ViewController.m */; };
 		499FBE2D1DB786CE0015CC1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 499FBE2B1DB786CE0015CC1D /* Main.storyboard */; };
 		499FBE321DB786CE0015CC1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 499FBE301DB786CE0015CC1D /* LaunchScreen.storyboard */; };
-		49CA5A3A1DC03AAC005F2172 /* ElEndViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CA5A391DC03AAC005F2172 /* ElEndViewController.m */; };
+		49B5F6421DC2FAA8006A3538 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B5F6411DC2FAA8006A3538 /* QuartzCore.framework */; };
 		49E759981DB8EE3100BDCB3C /* ElNormalListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E759971DB8EE3100BDCB3C /* ElNormalListTableViewCell.m */; };
 		49E7599B1DB8EE5100BDCB3C /* ElPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7599A1DB8EE5100BDCB3C /* ElPersonViewController.m */; };
 		49E7599E1DB8EE8800BDCB3C /* ElPersonHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7599D1DB8EE8800BDCB3C /* ElPersonHeaderView.m */; };
@@ -129,8 +129,7 @@
 		499FBE2C1DB786CE0015CC1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		499FBE311DB786CE0015CC1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		499FBE331DB786CE0015CC1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		49CA5A381DC03AAC005F2172 /* ElEndViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElEndViewController.h; sourceTree = "<group>"; };
-		49CA5A391DC03AAC005F2172 /* ElEndViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElEndViewController.m; sourceTree = "<group>"; };
+		49B5F6411DC2FAA8006A3538 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		49E759961DB8EE3100BDCB3C /* ElNormalListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElNormalListTableViewCell.h; sourceTree = "<group>"; };
 		49E759971DB8EE3100BDCB3C /* ElNormalListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElNormalListTableViewCell.m; sourceTree = "<group>"; };
 		49E759991DB8EE5100BDCB3C /* ElPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElPersonViewController.h; sourceTree = "<group>"; };
@@ -238,6 +237,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49B5F6421DC2FAA8006A3538 /* QuartzCore.framework in Frameworks */,
 				49FE39821DB7912F00FD8A99 /* CoreTelephony.framework in Frameworks */,
 				49FE39801DB7912100FD8A99 /* SystemConfiguration.framework in Frameworks */,
 				49FE397E1DB7911200FD8A99 /* libstdc++.tbd in Frameworks */,
@@ -327,16 +327,6 @@
 				499FBE231DB786CE0015CC1D /* main.m */,
 			);
 			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		49CA5A371DC03A8E005F2172 /* End */ = {
-			isa = PBXGroup;
-			children = (
-				EB3347A21DC1885700AB0D18 /* View */,
-				49CA5A381DC03AAC005F2172 /* ElEndViewController.h */,
-				49CA5A391DC03AAC005F2172 /* ElEndViewController.m */,
-			);
-			path = End;
 			sourceTree = "<group>";
 		};
 		49CA5A3B1DC03CDE005F2172 /* Controller */ = {
@@ -677,7 +667,6 @@
 			isa = PBXGroup;
 			children = (
 				49F2C9651DB9AFA0000589A7 /* Album */,
-				49CA5A371DC03A8E005F2172 /* End */,
 				49FE3A021DB79D0F00FD8A99 /* ForgetPassword */,
 				49F2C9601DB9AF3E000589A7 /* Gift */,
 				49FE39D51DB79B9900FD8A99 /* Home */,
@@ -981,6 +970,8 @@
 		49FE39F41DB79CA700FD8A99 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				EB3347A31DC1889200AB0D18 /* ElEndLiving.h */,
+				EB3347A41DC1889200AB0D18 /* ElEndLiving.m */,
 				493DA3F91DC217F90031C317 /* ElLeftToolView.h */,
 				493DA3FA1DC217F90031C317 /* ElLeftToolView.m */,
 				493DA3FB1DC217F90031C317 /* ElLeftToolView.xib */,
@@ -1187,15 +1178,6 @@
 			path = lib;
 			sourceTree = "<group>";
 		};
-		EB3347A21DC1885700AB0D18 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				EB3347A31DC1889200AB0D18 /* ElEndLiving.h */,
-				EB3347A41DC1889200AB0D18 /* ElEndLiving.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		EB99EAEE1DC0506000621EF3 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
@@ -1234,6 +1216,7 @@
 		FD265F04054B206DD08E33BE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				49B5F6411DC2FAA8006A3538 /* QuartzCore.framework */,
 				49FE39771DB790E600FD8A99 /* libz.tbd */,
 				49FE397D1DB7911200FD8A99 /* libstdc++.tbd */,
 				49FE39791DB790F300FD8A99 /* VideoToolbox.framework */,
@@ -1430,7 +1413,6 @@
 				499FBE241DB786CE0015CC1D /* main.m in Sources */,
 				493DA3891DC188E90031C317 /* ElMainTabBar.m in Sources */,
 				49FE3A171DB7A1FE00FD8A99 /* ElHomePageViewController.m in Sources */,
-				49CA5A3A1DC03AAC005F2172 /* ElEndViewController.m in Sources */,
 				EB70D63D1DBA0756009D9E34 /* ElGiftTableViewCell.m in Sources */,
 				EB70D63A1DBA06A1009D9E34 /* ElAlbumCollectionViewCell.m in Sources */,
 			);

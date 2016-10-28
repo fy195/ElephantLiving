@@ -42,7 +42,7 @@ ElMainTabBarDelegate
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.navigationController.navigationBar.hidden = YES;
     [self SetupMainTabBar];
     [self SetupAllControllers];
 
@@ -79,12 +79,12 @@ ElMainTabBarDelegate
 }
 
 - (void)SetupChildVc:(UIViewController *)childVc title:(NSString *)title image:(NSString *)imageName selectedImage:(NSString *)selectedImageName{
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:childVc];
+//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:childVc];
     childVc.tabBarItem.image = [UIImage imageNamed:imageName];
     childVc.tabBarItem.selectedImage = [UIImage imageNamed:selectedImageName];
     childVc.tabBarItem.title = title;
     [self.mainTabBar addTabBarButtonWithTabBarItem:childVc.tabBarItem];
-    [self addChildViewController:nav];
+    [self addChildViewController:childVc];
 }
 
 
@@ -96,7 +96,19 @@ ElMainTabBarDelegate
 
 - (void)tabBarClickMiddleButton:(ElMainTabBar *)tabBar{
     ElLiveViewController *liveVC = [[ElLiveViewController alloc] init];
-    [self presentViewController:liveVC animated:YES completion:nil];
+    CATransition* transition = [CATransition animation];
+    //执行时间长短
+    transition.duration = 0.5;
+    //动画的开始与结束的快慢
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    //各种动画效果
+    transition.type = kCATransitionPush; //kCATransitionMoveIn, kCATransitionPush, kCATransitionReveal, kCATransitionFade
+    //动画方向
+    transition.subtype = kCATransitionFromTop;
+    //kCATransitionFromLeft, kCATransitionFromRight, kCATransitionFromTop, kCATransitionFromBottom
+    //将动画添加在视图层上
+    [self.navigationController.view.layer addAnimation:transition forKey:nil];
+    [self.navigationController pushViewController:liveVC animated:NO];
 }
 
 

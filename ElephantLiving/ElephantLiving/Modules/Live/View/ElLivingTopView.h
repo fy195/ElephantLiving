@@ -10,6 +10,10 @@
 
 @interface ElLivingTopView : UIView
 
+@property (nonatomic, strong) UIImage *headerImage;
+
+@property (nonatomic, strong) NSString *watchCount;
+
 + (instancetype)elLivingTopView;
 
 @end

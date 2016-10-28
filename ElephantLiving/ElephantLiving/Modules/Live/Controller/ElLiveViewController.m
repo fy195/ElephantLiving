@@ -9,6 +9,10 @@
 #import "ElLiveViewController.h"
 #import "ElStartLiving.h"
 #import <QPLive/QPLive.h>
+#import "ElLeftToolView.h"
+#import "ElLivingTopView.h"
+#import "ElLivingBottomToolView.h"
+#import "ElEndLiving.h"
 //#import <CoreTelephony/CTCallCenter.h>
 //#import <CoreTelephony/CTCall.h>
 
@@ -16,6 +20,8 @@
 <
 QPLiveSessionDelegate
 >
+
+//@property (nonatomic, strong) CTCallCenter *callCenter;
 
 @property (nonatomic, strong) ElStartLiving *startView;
 
@@ -29,7 +35,15 @@ QPLiveSessionDelegate
 
 @property (nonatomic, strong) NSString *pullUrl;
 
-//@property (nonatomic, strong) CTCallCenter *callCenter;
+@property (nonatomic, strong) UIButton *closeButton;
+
+@property (nonatomic, strong) ElLeftToolView *leftToolView;
+
+@property (nonatomic, strong) ElLivingTopView *topToolView;
+
+@property (nonatomic, strong) ElLivingBottomToolView *bottomToolView;
+
+@property (nonatomic, strong) ElEndLiving *endView;
 
 @property (nonatomic, strong) QPLiveSession *liveSession;;
 
@@ -45,6 +59,8 @@ QPLiveSessionDelegate
 
 - (void)viewWillAppear:(BOOL)animated {
     _startView.hidden = NO;
+    [self hiddenToolView:YES];
+    _endView.hidden = YES;
     self.tabBarController.tabBar.hidden = YES;
 }
 
@@ -59,12 +75,16 @@ QPLiveSessionDelegate
     [_startView.startButton addTarget:self action:@selector(startButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_startView.backButton addTarget:self action:@selector(backButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     
+    [self createToolView];
+    
     self.timeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
     _timeImageView.center = self.view.center;
     _timeImageView.backgroundColor = [UIColor clearColor];
     
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appResignActive) name:UIApplicationWillResignActiveNotification object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appBecomeActive) name:UIApplicationDidBecomeActiveNotification object:nil];
+    // 添加观察者
+    /*
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appResignActive) name:UIApplicationWillResignActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appBecomeActive) name:UIApplicationDidBecomeActiveNotification object:nil];*/
     
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesture:)];
     [self.view addGestureRecognizer:gesture];
@@ -72,6 +92,69 @@ QPLiveSessionDelegate
     [self createRequest];
     [self createConfiguration];
     
+}
+
+- (void)createToolView {
+    self.endView = [[ElEndLiving alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    [_endView.backButton addTarget:self action:@selector(backHomeAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_endView];
+    
+    self.topToolView = [ElLivingTopView elLivingTopView];
+    _topToolView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 57);
+    _topToolView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:_topToolView];
+    
+    self.leftToolView = [ElLeftToolView elLeftToolView];
+    _leftToolView.frame = CGRectMake(0, _topToolView.y + _topToolView.height, 50, 290);
+    _leftToolView.backgroundColor = [UIColor clearColor];
+    [_leftToolView.cameraButton addTarget:self action:@selector(cameraButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_leftToolView];
+    
+    self.bottomToolView = [ElLivingBottomToolView elLivingBottomToolView];
+    _bottomToolView.frame = CGRectMake(0, SCREEN_HEIGHT - 206, SCREEN_WIDTH, 206);
+    _bottomToolView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:_bottomToolView];
+    
+    self.closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _closeButton.frame = CGRectMake(SCREEN_WIDTH - 22 - 30, SCREEN_HEIGHT - 20 - 30, 30, 30);
+    _closeButton.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.15];
+    _closeButton.layer.cornerRadius = 15.0;
+    _closeButton.clipsToBounds = YES;
+    [_closeButton setBackgroundImage:[UIImage imageNamed:@"Home"] forState:UIControlStateNormal];
+    [_closeButton addTarget:self action:@selector(closeButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_closeButton];
+    [self.view bringSubviewToFront:_closeButton];
+    
+    [self hiddenToolView:YES];
+}
+
+- (void)closeButtonAction:(UIButton *)button {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定结束直播吗？" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *commitAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [_liveSession disconnectServer];
+        [_liveSession stopPreview];
+        _endView.hidden = NO;
+        [self hiddenToolView:YES];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [alert addAction:cancelAction];
+    [alert addAction:commitAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)hiddenToolView:(BOOL)isLiving {
+    if (isLiving) {
+        _topToolView.hidden = YES;
+        _leftToolView.hidden = YES;
+        _bottomToolView.hidden = YES;
+        _closeButton.hidden = YES;
+    }else {
+        _topToolView.hidden = NO;
+        _leftToolView.hidden = NO;
+        _bottomToolView.hidden = NO;
+        _closeButton.hidden = NO;
+    }
 }
 
 // 聚焦
@@ -83,28 +166,30 @@ QPLiveSessionDelegate
     [_liveSession focusAtAdjustedPoint:percentPoint autoFocus:YES];
 }
 
-//- (void)appResignActive{
-//    [self destroySession];
-//    // 监听电话
-//    _callCenter = [[CTCallCenter alloc] init];
-//    _isCTCallStateDisconnected = NO;
-//    _callCenter.callEventHandler = ^(CTCall* call) {
-//        if ([call.callState isEqualToString:CTCallStateDisconnected]) {
-//            _isCTCallStateDisconnected = YES;
-//        }else if([call.callState isEqualToString:CTCallStateConnected]) {
-//            _callCenter = nil;
-//        }
-//    };
-//}
-//
-//- (void)appBecomeActive{
-//    if (_isCTCallStateDisconnected) {
-//        sleep(2);
-//    }
-//    [self createConfiguration];
-//}
+// 监听电话状态
+/*
+- (void)appResignActive{
+    [self destroySession];
+    // 监听电话
+    _callCenter = [[CTCallCenter alloc] init];
+    _isCTCallStateDisconnected = NO;
+    _callCenter.callEventHandler = ^(CTCall* call) {
+        if ([call.callState isEqualToString:CTCallStateDisconnected]) {
+            _isCTCallStateDisconnected = YES;
+        }else if([call.callState isEqualToString:CTCallStateConnected]) {
+            _callCenter = nil;
+        }
+    };
+}
 
+- (void)appBecomeActive{
+    if (_isCTCallStateDisconnected) {
+        sleep(2);
+    }
+    [self createConfiguration];
+}*/
 
+// 请求推拉流地址
 - (void)createRequest {
     QPLiveRequest *request = [[QPLiveRequest alloc] init];
     [request requestCreateLiveWithDomain:kELDomain success:^(NSString *pushUrl, NSString *pullUrl) {
@@ -121,6 +206,7 @@ QPLiveSessionDelegate
     }];
 }
 
+// 视频参数
 - (void)createConfiguration {
     QPLConfiguration *configuration = [[QPLConfiguration alloc] init];
     configuration.url = _pushUrl;
@@ -163,27 +249,42 @@ QPLiveSessionDelegate
     });
 }
 
+// 开始直播按钮
 - (void)startButtonAction:(UIButton *)startButton {
     _startView.hidden = YES;
-        [self.view addSubview:_timeImageView];
-        [self openCountdown];
+    [self.view addSubview:_timeImageView];
+    [self openCountdown];
+    [self hiddenToolView:NO];
 }
 
-- (void)destroySession{
-    
-    [_liveSession disconnectServer];
-    
-    [_liveSession stopPreview];
-    [_liveSession.previewView removeFromSuperview];
-    
-    _liveSession = nil;
-}
-
+// 未开始直播时的关闭按钮
 - (void)backButtonAction:(UIButton *)backButton {
     [_liveSession stopPreview];
     [_liveSession.previewView removeFromSuperview];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    CATransition* transition = [CATransition animation];
+    //执行时间长短
+    transition.duration = 0.5;
+    //动画的开始与结束的快慢
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    //各种动画效果
+    transition.type = kCATransitionPush; //kCATransitionMoveIn, kCATransitionPush, kCATransitionReveal, kCATransitionFade
+    //动画方向
+    transition.subtype = kCATransitionFromBottom;
+    //kCATransitionFromLeft, kCATransitionFromRight, kCATransitionFromTop, kCATransitionFromBottom
+    //将动画添加在视图层上
+    [self.navigationController.view.layer addAnimation:transition forKey:nil];
+    [self.navigationController popViewControllerAnimated:NO];
 }
+
+// 开始直播后结束直播的返回按钮
+- (void)backHomeAction:(UIButton *)button {
+    [_liveSession.previewView removeFromSuperview];
+    _liveSession = nil;
+    [self timeEnd];
+    [self.navigationController popViewControllerAnimated:NO];
+}
+
+// 开始倒计时
 -(void)openCountdown{
     
     __block NSInteger time = 3; //倒计时时间
@@ -197,6 +298,7 @@ QPLiveSessionDelegate
             dispatch_source_cancel(_timer);
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self countdownEnd];
+                // 倒计时结束开始连接服务直播计时
                 [_liveSession connectServer];
             });
         }else{
@@ -210,6 +312,7 @@ QPLiveSessionDelegate
     });
     dispatch_resume(_timer);
 }
+
 //  倒计时结束
 - (void)countdownEnd {
     [_timeImageView removeFromSuperview];
@@ -232,14 +335,14 @@ QPLiveSessionDelegate
     }];
     
 }
+
 - (void) timerAction {
-   
     _timeNumber++;
-    
 }
+
 //  直播时长
 - (void)timeEnd {
-    
+    [_myTimer invalidate];
     NSInteger tempHour = _timeNumber / 3600;
     NSInteger tempMinute = _timeNumber / 60 - (tempHour * 60);
     NSInteger tempSecond = _timeNumber - (tempHour * 3600 + tempMinute * 60);
@@ -256,7 +359,7 @@ QPLiveSessionDelegate
         second = [@"0" stringByAppendingString:second];
     }
     NSLog(@"%@:%@:%@",hour,minute,second);
-    [_myTimer invalidate];
+    
 }
 
 // session代理方法
@@ -269,10 +372,9 @@ QPLiveSessionDelegate
     });
 }
 
-
 - (void)liveSessionNetworkSlow:(QPLiveSession *)session{
     dispatch_async(dispatch_get_main_queue(), ^{
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"YES" message:@"网络太差" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"网络太差" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
         [alertView show];
     });
 }
@@ -280,25 +382,24 @@ QPLiveSessionDelegate
 - (void)liveSessionConnectSuccess:(QPLiveSession *)session {
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"YES" message:@"连接成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"连接成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
         [alertView show];
     });
 }
 
 - (void)openAudioSuccess:(QPLiveSession *)session {
     dispatch_async(dispatch_get_main_queue(), ^{
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"YES" message:@"麦克风打开成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"麦克风打开成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
         [alertView show];
     });
 }
 
 - (void)openVideoSuccess:(QPLiveSession *)session {
     dispatch_async(dispatch_get_main_queue(), ^{
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"YES" message:@"摄像头打开成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"摄像头打开成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
         [alertView show];
     });
 }
-
 
 - (void)liveSession:(QPLiveSession *)session openAudioError:(NSError *)error {
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -330,18 +431,11 @@ QPLiveSessionDelegate
     });
 }
 
-//- (IBAction)buttonCloseClick:(id)sender {
-//    [self destroySession];
-//    [_myTimer invalidate];
-//    _myTimer = nil;
-//    [self dismissViewControllerAnimated:YES completion:nil];
-//}
-
-//- (IBAction)cameraButtonClick:(UIButton *)button {
-//    button.selected = !button.isSelected;
-//    _liveSession.devicePosition = button.isSelected ? AVCaptureDevicePositionBack : AVCaptureDevicePositionFront;
-//    _currentPosition = _liveSession.devicePosition;
-//}
+- (void)cameraButtonClick:(UIButton *)button {
+    button.selected = !button.isSelected;
+    _liveSession.devicePosition = button.isSelected ? AVCaptureDevicePositionBack : AVCaptureDevicePositionFront;
+    _currentPosition = _liveSession.devicePosition;
+}
 //
 //- (IBAction)skinButtonClick:(UIButton *)button {
 //    button.selected = !button.isSelected;
@@ -351,15 +445,7 @@ QPLiveSessionDelegate
 //    button.selected = !button.isSelected;
 //    _liveSession.torchMode = button.isSelected ? AVCaptureTorchModeOn : AVCaptureTorchModeOff;
 //}
-//
-//
-//- (IBAction)disconnectButtonClick:(id)sender {
-//    if (_liveSession.dumpDebugInfo.connectStatus == QPLConnectStatusNone) {
-//        [_liveSession connectServer];
-//    }else{
-//        [_liveSession disconnectServer];
-//    }
-//}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

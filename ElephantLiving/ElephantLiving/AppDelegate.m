@@ -25,7 +25,8 @@
     [_window makeKeyAndVisible];
     
     ElHomeTabBarController *homeView = [[ElHomeTabBarController alloc] init];
-    self.window.rootViewController = homeView;
+    UINavigationController *navHomeView = [[UINavigationController alloc] initWithRootViewController:homeView];
+    self.window.rootViewController = navHomeView;
     
 //    [NSThread sleepForTimeInterval:1];
     
