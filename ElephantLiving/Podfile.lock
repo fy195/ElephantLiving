@@ -14,6 +14,25 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - AVOSCloud (3.6.0)
+  - AVOSCloudCrashReporting (3.6.0):
+    - AVOSCloud (= 3.6.0)
+    - AVOSCloudCrashReporting/_ARC (= 3.6.0)
+    - AVOSCloudCrashReporting/_NOARC (= 3.6.0)
+  - AVOSCloudCrashReporting/_ARC (3.6.0):
+    - AVOSCloud (= 3.6.0)
+    - AVOSCloudCrashReporting/_NOARC (= 3.6.0)
+  - AVOSCloudCrashReporting/_NOARC (3.6.0):
+    - AVOSCloud (= 3.6.0)
+  - AVOSCloudIM (3.6.0):
+    - AVOSCloud (= 3.6.0)
+    - AVOSCloudIM/_ARC (= 3.6.0)
+    - AVOSCloudIM/_NOARC (= 3.6.0)
+  - AVOSCloudIM/_ARC (3.6.0):
+    - AVOSCloud (= 3.6.0)
+    - AVOSCloudIM/_NOARC (= 3.6.0)
+  - AVOSCloudIM/_NOARC (3.6.0):
+    - AVOSCloud (= 3.6.0)
   - CocoaLumberjack (2.4.0):
     - CocoaLumberjack/Default (= 2.4.0)
     - CocoaLumberjack/Extensions (= 2.4.0)
@@ -26,14 +45,20 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
+  - AVOSCloud (~> 3.6.0)
+  - AVOSCloudCrashReporting (~> 3.6.0)
+  - AVOSCloudIM (~> 3.6.0)
   - CocoaLumberjack (~> 2.4.0)
   - SDiPhoneVersion (~> 1.1.2)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  AVOSCloud: be838e80e13c3247abf24d95e325b3fd515f9d12
+  AVOSCloudCrashReporting: 0fe2705407f431c0d84465d72ba25b11a62b8dd6
+  AVOSCloudIM: 7044ffb9c883fedb8d9055db12e4f28c5160795d
   CocoaLumberjack: aa9dcab71bdf9eaf2a63bbd9ddc87863efe45457
   SDiPhoneVersion: c52245ccaab8142701e2e7fb8f0391ba3f255b76
 
-PODFILE CHECKSUM: 68aa0e565a81676551b56003f6151183f87ae647
+PODFILE CHECKSUM: c0ec58644039e6d5a0812bb863be9bc5acfc47cf
 
 COCOAPODS: 1.0.1
