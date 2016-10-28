@@ -55,6 +55,7 @@ QPLiveSessionDelegate
     QPLiveSession *_liveSession;
     AVCaptureDevicePosition _currentPosition;
 //    BOOL _isCTCallStateDisconnected;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
