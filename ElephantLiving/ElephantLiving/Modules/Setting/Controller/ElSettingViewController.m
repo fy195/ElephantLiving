@@ -7,6 +7,7 @@
 //
 
 #import "ElSettingViewController.h"
+#import "ElLoginViewController.h"
 
 @interface ElSettingViewController ()
 
@@ -155,6 +156,13 @@
     [exitButton setTitle:@"退出登录" forState:UIControlStateNormal];
     [exitButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.view addSubview:exitButton];
+    
+    [exitButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
+        ElLoginViewController *loginView = [[ElLoginViewController alloc] init];
+        [self presentViewController:loginView animated:YES completion:nil];
+    }];
+    
+    
     // Do any additional setup after loading the view.
 }
 

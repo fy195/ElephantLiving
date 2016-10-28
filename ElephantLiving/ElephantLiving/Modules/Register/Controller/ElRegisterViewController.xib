@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ElRegisterViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w3y-u5-DD0">
+                    <rect key="frame" x="60" y="350" width="294" height="45"/>
+                    <animations/>
+                    <color key="backgroundColor" red="0.77819720049999996" green="0.71407430750000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="JFx-Ra-ZYe"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RwP-IE-qWj">
+                    <rect key="frame" x="60" y="455" width="294" height="45"/>
+                    <animations/>
+                    <color key="backgroundColor" red="0.77819720049999996" green="0.71407430750000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="8Cl-qh-9SI"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMF-py-rMm">
+                    <rect key="frame" x="60" y="545" width="294" height="45"/>
+                    <animations/>
+                    <color key="backgroundColor" red="0.77819720049999996" green="0.71407430750000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="注册"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jS3-aL-XLq">
+                    <rect key="frame" x="254" y="455" width="100" height="45"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="T0T-MP-64B"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="获取验证码"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t2k-qm-OkC">
+                    <rect key="frame" x="30" y="30" width="45" height="45"/>
+                    <animations/>
+                    <color key="backgroundColor" red="0.77819720049999996" green="0.71407430750000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="mfi-7r-pXE"/>
+                        <constraint firstAttribute="width" constant="45" id="zHB-s5-99w"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <state key="normal" title="返回"/>
+                    <connections>
+                        <action selector="ReturnButton:" destination="-1" eventType="touchUpInside" id="h3e-YT-tQ3"/>
+                    </connections>
+                </button>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="t2k-qm-OkC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="76V-oo-sy1"/>
+                <constraint firstItem="WMF-py-rMm" firstAttribute="width" secondItem="RwP-IE-qWj" secondAttribute="width" id="7iO-6w-ghJ"/>
+                <constraint firstItem="jS3-aL-XLq" firstAttribute="trailing" secondItem="RwP-IE-qWj" secondAttribute="trailing" id="9Vu-g7-Dni"/>
+                <constraint firstItem="RwP-IE-qWj" firstAttribute="width" secondItem="w3y-u5-DD0" secondAttribute="width" id="AIt-SF-FJr"/>
+                <constraint firstItem="w3y-u5-DD0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="I3g-gq-cgQ"/>
+                <constraint firstItem="jS3-aL-XLq" firstAttribute="top" secondItem="RwP-IE-qWj" secondAttribute="top" id="IZ6-kX-JAh"/>
+                <constraint firstItem="t2k-qm-OkC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="LXV-r3-hMn"/>
+                <constraint firstItem="RwP-IE-qWj" firstAttribute="centerX" secondItem="w3y-u5-DD0" secondAttribute="centerX" id="V1Z-1T-oOJ"/>
+                <constraint firstItem="RwP-IE-qWj" firstAttribute="top" secondItem="w3y-u5-DD0" secondAttribute="top" id="Xxb-fC-u02"/>
+                <constraint firstItem="w3y-u5-DD0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="350" id="gUD-Pl-OzG"/>
+                <constraint firstItem="RwP-IE-qWj" firstAttribute="top" secondItem="w3y-u5-DD0" secondAttribute="bottom" constant="60" id="kKR-Jr-lYb"/>
+                <constraint firstItem="jS3-aL-XLq" firstAttribute="height" secondItem="RwP-IE-qWj" secondAttribute="height" id="qBk-Nu-Ziz"/>
+                <constraint firstItem="WMF-py-rMm" firstAttribute="height" secondItem="RwP-IE-qWj" secondAttribute="height" id="tYn-bP-f5J"/>
+                <constraint firstItem="RwP-IE-qWj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="tz8-91-Qko"/>
+                <constraint firstAttribute="trailing" secondItem="w3y-u5-DD0" secondAttribute="trailing" constant="60" id="x41-vC-aYn"/>
+                <constraint firstAttribute="trailing" secondItem="WMF-py-rMm" secondAttribute="trailing" constant="60" id="xPb-JK-yQP"/>
+                <constraint firstItem="WMF-py-rMm" firstAttribute="top" secondItem="RwP-IE-qWj" secondAttribute="bottom" constant="45" id="xhn-BM-2LT"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="V1Z-1T-oOJ"/>
+                    <exclude reference="Xxb-fC-u02"/>
+                </mask>
+            </variation>
+            <point key="canvasLocation" x="294" y="352"/>
+        </view>
+    </objects>
+</document>

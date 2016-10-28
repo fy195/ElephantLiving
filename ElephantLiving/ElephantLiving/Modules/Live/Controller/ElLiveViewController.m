@@ -221,7 +221,7 @@ QPLiveSessionDelegate
     self.configuration = configuration;
     
     // 水印
-    configuration.waterMaskImage = [UIImage imageNamed:@"live"];
+    configuration.waterMaskImage = [UIImage imageNamed:@"水印"];
     configuration.waterMaskLocation = 0;
     configuration.waterMaskMarginX = 20;
     configuration.waterMaskMarginY = 20;
