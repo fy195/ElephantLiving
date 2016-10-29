@@ -1,12 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ElRegisterViewController">
             <connections>
+                <outlet property="passwordTextField" destination="OCS-JY-flF" id="DLD-Um-1pR"/>
+                <outlet property="phoneNumberTextField" destination="RwP-IE-qWj" id="NrH-dJ-5VA"/>
+                <outlet property="userNameTextField" destination="w3y-u5-DD0" id="rXM-Hk-5ja"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,7 +20,6 @@
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入您的昵称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w3y-u5-DD0">
                     <rect key="frame" x="60" y="90" width="294" height="45"/>
-                    <animations/>
                     <color key="backgroundColor" red="0.77819720049999996" green="0.71407430750000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="JFx-Ra-ZYe"/>
@@ -27,7 +29,6 @@
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RwP-IE-qWj">
                     <rect key="frame" x="60" y="180" width="294" height="45"/>
-                    <animations/>
                     <color key="backgroundColor" red="0.77819720049999996" green="0.71407430750000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="8Cl-qh-9SI"/>
@@ -37,7 +38,6 @@
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMF-py-rMm">
                     <rect key="frame" x="60" y="360" width="294" height="45"/>
-                    <animations/>
                     <color key="backgroundColor" red="0.77819720049999996" green="0.71407430750000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="注册"/>
                     <connections>
@@ -46,7 +46,6 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t2k-qm-OkC">
                     <rect key="frame" x="30" y="30" width="45" height="45"/>
-                    <animations/>
                     <color key="backgroundColor" red="0.77819720049999996" green="0.71407430750000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="mfi-7r-pXE"/>
@@ -60,13 +59,11 @@
                 </button>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OCS-JY-flF">
                     <rect key="frame" x="60" y="270" width="294" height="45"/>
-                    <animations/>
                     <color key="backgroundColor" red="0.77819720049999996" green="0.71407430750000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
             </subviews>
-            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="t2k-qm-OkC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="76V-oo-sy1"/>

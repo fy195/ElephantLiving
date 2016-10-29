@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "ElHomeTabBarController.h"
 #import <QPLive/QPLive.h>
+#import <AVOSCloud/AVOSCloud.h>
+#import <AVOSCloudCrashReporting/AVOSCloudCrashReporting.h>
 
 @interface AppDelegate ()
 
@@ -28,7 +30,7 @@
     UINavigationController *navHomeView = [[UINavigationController alloc] initWithRootViewController:homeView];
     self.window.rootViewController = navHomeView;
     
-//    [NSThread sleepForTimeInterval:1];
+    [NSThread sleepForTimeInterval:1];
     
     [[QPAuth shared] registerAppWithKey:kELAppKey secret:kELAppSecret space:@"com.kfc.ElephantLiving" success:^(NSString *accessToken) {
         NSLog(@"access token : %@", accessToken);
@@ -36,6 +38,13 @@
         NSLog(@"failed : %@", error.description);
     }];
     // Override point for customization after application launch.
+    
+    // 登录注册
+    [AVOSCloudCrashReporting enable];
+    [AVOSCloud setApplicationId:APP_ID clientKey:APP_KEY];
+    
+    
+    
     return YES;
 }
 

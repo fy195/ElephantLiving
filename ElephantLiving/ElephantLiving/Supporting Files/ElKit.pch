@@ -34,4 +34,7 @@
 #define kELAppSecret @"629044b589904b8fb76019f6aeb4a186"//使用自己的AppSecret
 #define kELDomain @"http://elephantliving.s.qupai.me"//域名使用控制台空间管理自己的域名
 
+#define APP_ID @"3heYOVyoSBzGYcANRFrWBCQF-gzGzoHsz"
+#define APP_KEY @"d7WP75iQ8BiwSvg5lu22tDaA"
+
 #endif /* ElMacro_pch */

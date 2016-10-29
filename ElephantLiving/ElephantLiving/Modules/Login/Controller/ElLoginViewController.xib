@@ -1,12 +1,14 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ElLoginViewController">
             <connections>
+                <outlet property="passwordTextField" destination="ods-5j-0td" id="vcT-R6-gua"/>
+                <outlet property="phoneNumberTextField" destination="OQz-71-xcs" id="1R1-ju-xit"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,7 +19,6 @@
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OQz-71-xcs">
                     <rect key="frame" x="60" y="90" width="294" height="45"/>
-                    <animations/>
                     <color key="backgroundColor" red="0.95294117649999999" green="0.78039215689999997" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="Qjk-hS-N95"/>
@@ -27,7 +28,6 @@
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ods-5j-0td">
                     <rect key="frame" x="60" y="195" width="294" height="45"/>
-                    <animations/>
                     <color key="backgroundColor" red="0.95294117649999999" green="0.78039215689999997" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="Kw9-Zr-GEH"/>
@@ -37,7 +37,6 @@
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bk7-tf-00n">
                     <rect key="frame" x="60" y="285" width="294" height="45"/>
-                    <animations/>
                     <color key="backgroundColor" red="0.95294117649999999" green="0.78039215689999997" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="46" id="KnC-cH-iMl"/>
@@ -50,10 +49,12 @@
                             <exclude reference="duJ-eU-4aM"/>
                         </mask>
                     </variation>
+                    <connections>
+                        <action selector="loginButtonAction:" destination="-1" eventType="touchUpInside" id="crB-HO-Ccf"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRq-Ji-HN1">
                     <rect key="frame" x="294" y="350" width="60" height="30"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="ZVt-bn-NfC"/>
                         <constraint firstAttribute="height" constant="30" id="gL3-dx-6c3"/>
@@ -67,7 +68,6 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIi-dD-A5X">
                     <rect key="frame" x="25" y="30" width="45" height="45"/>
-                    <animations/>
                     <color key="backgroundColor" red="0.95294117649999999" green="0.78039215689999997" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="dJO-c2-e71"/>
@@ -81,7 +81,6 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJO-gm-Qtg">
                     <rect key="frame" x="274" y="255" width="80" height="30"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="UaI-GH-wZR"/>
                         <constraint firstAttribute="height" constant="30" id="m9d-gy-scs"/>
@@ -94,7 +93,6 @@
                     </connections>
                 </button>
             </subviews>
-            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Bk7-tf-00n" firstAttribute="top" secondItem="ods-5j-0td" secondAttribute="bottom" constant="45" id="6we-u7-nBA"/>

@@ -9,5 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface ElForgetPasswordViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UITextField *phoneTextNumber;
+@property (weak, nonatomic) IBOutlet UITextField *passwordText;
+
+@property (weak, nonatomic) IBOutlet UITextField *codeText;
+@property (weak, nonatomic) IBOutlet UIButton *codeButton;
+@property (weak, nonatomic) IBOutlet UIButton *button;
 
 @end

@@ -10,4 +10,8 @@
 
 @interface ElLoginViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *phoneNumberTextField;
+
+@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+
 @end
