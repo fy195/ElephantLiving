@@ -22,10 +22,12 @@
 		493DA3931DC1CA7D0031C317 /* ElLivingTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493DA38F1DC1CA7D0031C317 /* ElLivingTopView.xib */; };
 		493DA3FC1DC217F90031C317 /* ElLeftToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 493DA3FA1DC217F90031C317 /* ElLeftToolView.m */; };
 		493DA3FD1DC217F90031C317 /* ElLeftToolView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493DA3FB1DC217F90031C317 /* ElLeftToolView.xib */; };
+		4942CCAB1DC387DC00EF60EB /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4942CCAA1DC387DC00EF60EB /* libsqlite3.tbd */; };
 		496085EB1DBDEEB6007CD041 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496085E51DBDEEB6007CD041 /* IJKMediaFramework.framework */; };
 		496085EE1DBDEEB6007CD041 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496085E91DBDEEB6007CD041 /* IJKMediaFramework.framework */; };
 		498A10461DB8F233003F86B8 /* ElTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 498A10451DB8F233003F86B8 /* ElTopView.m */; };
 		498A10491DB8F25B003F86B8 /* ElListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498A10481DB8F25B003F86B8 /* ElListViewController.m */; };
+		4996B6291DC43156003189FA /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4996B6281DC43156003189FA /* libicucore.tbd */; };
 		499FBE241DB786CE0015CC1D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 499FBE231DB786CE0015CC1D /* main.m */; };
 		499FBE271DB786CE0015CC1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 499FBE261DB786CE0015CC1D /* AppDelegate.m */; };
 		499FBE2A1DB786CE0015CC1D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 499FBE291DB786CE0015CC1D /* ViewController.m */; };
@@ -122,12 +124,14 @@
 		493DA3F91DC217F90031C317 /* ElLeftToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElLeftToolView.h; sourceTree = "<group>"; };
 		493DA3FA1DC217F90031C317 /* ElLeftToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElLeftToolView.m; sourceTree = "<group>"; };
 		493DA3FB1DC217F90031C317 /* ElLeftToolView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElLeftToolView.xib; sourceTree = "<group>"; };
+		4942CCAA1DC387DC00EF60EB /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		496085E51DBDEEB6007CD041 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		496085E91DBDEEB6007CD041 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		498A10441DB8F233003F86B8 /* ElTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElTopView.h; sourceTree = "<group>"; };
 		498A10451DB8F233003F86B8 /* ElTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElTopView.m; sourceTree = "<group>"; };
 		498A10471DB8F25B003F86B8 /* ElListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElListViewController.h; sourceTree = "<group>"; };
 		498A10481DB8F25B003F86B8 /* ElListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElListViewController.m; sourceTree = "<group>"; };
+		4996B6281DC43156003189FA /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		499FBE1F1DB786CE0015CC1D /* ElephantLiving.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElephantLiving.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		499FBE231DB786CE0015CC1D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		499FBE251DB786CE0015CC1D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -257,6 +261,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4996B6291DC43156003189FA /* libicucore.tbd in Frameworks */,
+				4942CCAB1DC387DC00EF60EB /* libsqlite3.tbd in Frameworks */,
 				49B5F6421DC2FAA8006A3538 /* QuartzCore.framework in Frameworks */,
 				49FE39821DB7912F00FD8A99 /* CoreTelephony.framework in Frameworks */,
 				49FE39801DB7912100FD8A99 /* SystemConfiguration.framework in Frameworks */,
@@ -1264,6 +1270,8 @@
 		FD265F04054B206DD08E33BE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4996B6281DC43156003189FA /* libicucore.tbd */,
+				4942CCAA1DC387DC00EF60EB /* libsqlite3.tbd */,
 				49B5F6411DC2FAA8006A3538 /* QuartzCore.framework */,
 				49FE39771DB790E600FD8A99 /* libz.tbd */,
 				49FE397D1DB7911200FD8A99 /* libstdc++.tbd */,
