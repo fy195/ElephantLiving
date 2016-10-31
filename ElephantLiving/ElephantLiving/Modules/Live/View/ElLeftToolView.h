@@ -9,14 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface ElLeftToolView : UIView
+
 /**
- *  麦克风
+ *  美颜
  */
-@property (weak, nonatomic) IBOutlet UIButton *microphoneButton;
-/**
- *  音乐
- */
-@property (weak, nonatomic) IBOutlet UIButton *musicButton;
+@property (weak, nonatomic) IBOutlet UIButton *skinButton;
 /**
  *  摄像头
  */

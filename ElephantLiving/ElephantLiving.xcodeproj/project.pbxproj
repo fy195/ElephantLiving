@@ -25,6 +25,7 @@
 		4942CCAB1DC387DC00EF60EB /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4942CCAA1DC387DC00EF60EB /* libsqlite3.tbd */; };
 		496085EB1DBDEEB6007CD041 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496085E51DBDEEB6007CD041 /* IJKMediaFramework.framework */; };
 		496085EE1DBDEEB6007CD041 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496085E91DBDEEB6007CD041 /* IJKMediaFramework.framework */; };
+		497AACF41DC48E880041B4A2 /* ElUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 497AACF31DC48E880041B4A2 /* ElUser.m */; };
 		498A10461DB8F233003F86B8 /* ElTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 498A10451DB8F233003F86B8 /* ElTopView.m */; };
 		498A10491DB8F25B003F86B8 /* ElListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498A10481DB8F25B003F86B8 /* ElListViewController.m */; };
 		4996B6291DC43156003189FA /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4996B6281DC43156003189FA /* libicucore.tbd */; };
@@ -128,6 +129,8 @@
 		4942CCAA1DC387DC00EF60EB /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		496085E51DBDEEB6007CD041 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		496085E91DBDEEB6007CD041 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
+		497AACF21DC48E880041B4A2 /* ElUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElUser.h; sourceTree = "<group>"; };
+		497AACF31DC48E880041B4A2 /* ElUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElUser.m; sourceTree = "<group>"; };
 		498A10441DB8F233003F86B8 /* ElTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElTopView.h; sourceTree = "<group>"; };
 		498A10451DB8F233003F86B8 /* ElTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElTopView.m; sourceTree = "<group>"; };
 		498A10471DB8F25B003F86B8 /* ElListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElListViewController.h; sourceTree = "<group>"; };
@@ -306,6 +309,15 @@
 				49CA5A3E1DC03CF1005F2172 /* ViewModel */,
 			);
 			path = Watch;
+			sourceTree = "<group>";
+		};
+		497AACF11DC48E740041B4A2 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				497AACF21DC48E880041B4A2 /* ElUser.h */,
+				497AACF31DC48E880041B4A2 /* ElUser.m */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 		499FBE161DB786CE0015CC1D = {
@@ -728,6 +740,7 @@
 				49FE39FD1DB79CEE00FD8A99 /* Register */,
 				49FE39E91DB79C0400FD8A99 /* Search */,
 				49F2C96A1DB9AFE8000589A7 /* Setting */,
+				497AACF11DC48E740041B4A2 /* User */,
 				4916D8521DBEEEAF00FAFB68 /* Watch */,
 				49DF2C581DC372EF0096E935 /* text */,
 			);
@@ -1479,6 +1492,7 @@
 				49FE39CB1DB79A4C00FD8A99 /* FileManagerUtils.m in Sources */,
 				4916D8561DBEF02700FAFB68 /* ElWatchViewController.m in Sources */,
 				49FE39BD1DB79A4C00FD8A99 /* NSDate+Categories.m in Sources */,
+				497AACF41DC48E880041B4A2 /* ElUser.m in Sources */,
 				499FBE241DB786CE0015CC1D /* main.m in Sources */,
 				493DA3891DC188E90031C317 /* ElMainTabBar.m in Sources */,
 				49FE3A171DB7A1FE00FD8A99 /* ElHomePageViewController.m in Sources */,

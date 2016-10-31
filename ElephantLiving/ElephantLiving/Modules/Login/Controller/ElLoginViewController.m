@@ -30,9 +30,8 @@
 }
 
 - (IBAction)loginButtonAction:(id)sender {
-    
-    NSString *phoneNumber = self.phoneNumberTextField.text;
-    NSString *password = self.passwordTextField.text;
+    NSString *phoneNumber =_phoneNumberTextField.text;
+    NSString *password = _passwordTextField.text;
     
     if (phoneNumber && password) {
         [AVUser logInWithMobilePhoneNumberInBackground:phoneNumber password:password block:^(AVUser * _Nullable user, NSError * _Nullable error) {
@@ -44,18 +43,18 @@
                 [alertController addAction:cancelAction];
                 [self presentViewController:alertController animated:YES completion:nil];
             } else {
-                
-                NSLog(@"成功");
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"登录成功" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }];
+                [alertController addAction:cancelAction];
+                [self presentViewController:alertController animated:YES completion:nil];
             }
         }];
     }
-    
-
 }
 
 - (IBAction)ReturnButtonAction:(id)sender {
-    
-    
 //    [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -64,8 +63,6 @@
     ElForgetPasswordViewController *forgetPasswordView = [[ElForgetPasswordViewController alloc] init];
     [self.navigationController pushViewController:forgetPasswordView animated:YES];
 }
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -157,13 +157,23 @@
     [exitButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.view addSubview:exitButton];
     
-    [exitButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
-        ElLoginViewController *loginView = [[ElLoginViewController alloc] init];
-        [self.navigationController pushViewController:loginView animated:YES];
-    }];
+    [exitButton addTarget:self action:@selector(exitButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     
     
     // Do any additional setup after loading the view.
+}
+
+- (void)exitButtonAction:(UIButton *)button {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:@"乃确定不是手滑了嘛？" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"手滑了" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"退出登录" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+        ElLoginViewController *loginView = [[ElLoginViewController alloc] init];
+        [self.navigationController pushViewController:loginView animated:YES];
+    }];
+    [alert addAction:action1];
+    [alert addAction:action2];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

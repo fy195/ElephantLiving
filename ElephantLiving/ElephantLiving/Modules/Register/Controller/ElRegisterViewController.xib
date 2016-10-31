@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -9,7 +9,9 @@
             <connections>
                 <outlet property="passwordTextField" destination="OCS-JY-flF" id="DLD-Um-1pR"/>
                 <outlet property="phoneNumberTextField" destination="RwP-IE-qWj" id="NrH-dJ-5VA"/>
+                <outlet property="smscodeTextField" destination="G9n-q6-U68" id="SFN-3P-aMy"/>
                 <outlet property="userNameTextField" destination="w3y-u5-DD0" id="rXM-Hk-5ja"/>
+                <outlet property="verifyButton" destination="U12-Mg-TnP" id="36X-ha-9Au"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,26 +20,26 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入您的昵称" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w3y-u5-DD0">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入您的昵称" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="w3y-u5-DD0">
                     <rect key="frame" x="60" y="90" width="294" height="45"/>
                     <color key="backgroundColor" red="0.77819720049999996" green="0.71407430750000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="JFx-Ra-ZYe"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RwP-IE-qWj">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="RwP-IE-qWj">
                     <rect key="frame" x="60" y="180" width="294" height="45"/>
                     <color key="backgroundColor" red="0.77819720049999996" green="0.71407430750000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="8Cl-qh-9SI"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMF-py-rMm">
-                    <rect key="frame" x="60" y="360" width="294" height="45"/>
+                    <rect key="frame" x="60" y="495" width="294" height="45"/>
                     <color key="backgroundColor" red="0.77819720049999996" green="0.71407430750000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="注册"/>
                     <connections>
@@ -57,33 +59,58 @@
                         <action selector="ReturnButton:" destination="-1" eventType="touchUpInside" id="h3e-YT-tQ3"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OCS-JY-flF">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OCS-JY-flF">
                     <rect key="frame" x="60" y="270" width="294" height="45"/>
                     <color key="backgroundColor" red="0.77819720049999996" green="0.71407430750000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="namePhonePad" secureTextEntry="YES"/>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G9n-q6-U68">
+                    <rect key="frame" x="60" y="360" width="204" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="rS2-sK-yk1"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U12-Mg-TnP">
+                    <rect key="frame" x="264" y="360" width="90" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="7zV-fD-otn"/>
+                    </constraints>
+                    <state key="normal" title="获取验证码"/>
+                    <connections>
+                        <action selector="RegisterButtonAction:" destination="-1" eventType="touchUpInside" id="PyF-OJ-JdA"/>
+                        <action selector="verifyButtonAction:" destination="-1" eventType="touchUpInside" id="Q9i-Al-Jyz"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="U12-Mg-TnP" firstAttribute="leading" secondItem="G9n-q6-U68" secondAttribute="trailing" id="1SE-iG-Piv"/>
                 <constraint firstItem="t2k-qm-OkC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="76V-oo-sy1"/>
                 <constraint firstItem="WMF-py-rMm" firstAttribute="width" secondItem="RwP-IE-qWj" secondAttribute="width" id="7iO-6w-ghJ"/>
                 <constraint firstItem="OCS-JY-flF" firstAttribute="width" secondItem="RwP-IE-qWj" secondAttribute="width" id="8Et-dW-QBD"/>
                 <constraint firstItem="RwP-IE-qWj" firstAttribute="leading" secondItem="w3y-u5-DD0" secondAttribute="leading" id="9Mc-0D-bZm"/>
-                <constraint firstItem="WMF-py-rMm" firstAttribute="top" secondItem="OCS-JY-flF" secondAttribute="bottom" constant="45" id="Anz-i2-9G2"/>
+                <constraint firstItem="WMF-py-rMm" firstAttribute="top" secondItem="OCS-JY-flF" secondAttribute="bottom" constant="180" id="Anz-i2-9G2"/>
                 <constraint firstItem="RwP-IE-qWj" firstAttribute="height" secondItem="w3y-u5-DD0" secondAttribute="height" id="DdT-mc-RUc"/>
                 <constraint firstItem="RwP-IE-qWj" firstAttribute="width" secondItem="w3y-u5-DD0" secondAttribute="width" id="F1R-u4-hK9"/>
+                <constraint firstItem="U12-Mg-TnP" firstAttribute="top" secondItem="OCS-JY-flF" secondAttribute="bottom" constant="45" id="FpK-KX-Jek"/>
                 <constraint firstItem="OCS-JY-flF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="HXH-4N-jdV"/>
                 <constraint firstItem="w3y-u5-DD0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="I3g-gq-cgQ"/>
+                <constraint firstAttribute="trailing" secondItem="G9n-q6-U68" secondAttribute="trailing" constant="150" id="IPQ-ih-42P"/>
                 <constraint firstItem="t2k-qm-OkC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="LXV-r3-hMn"/>
                 <constraint firstItem="OCS-JY-flF" firstAttribute="top" secondItem="RwP-IE-qWj" secondAttribute="bottom" constant="45" id="O8f-pI-65A"/>
                 <constraint firstItem="RwP-IE-qWj" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="PE6-hU-YPV"/>
                 <constraint firstItem="WMF-py-rMm" firstAttribute="height" secondItem="RwP-IE-qWj" secondAttribute="height" id="RwQ-an-vTl"/>
+                <constraint firstAttribute="trailing" secondItem="U12-Mg-TnP" secondAttribute="trailing" constant="60" id="TGu-mz-3ty"/>
                 <constraint firstItem="RwP-IE-qWj" firstAttribute="centerX" secondItem="w3y-u5-DD0" secondAttribute="centerX" id="V1Z-1T-oOJ"/>
+                <constraint firstItem="G9n-q6-U68" firstAttribute="top" secondItem="OCS-JY-flF" secondAttribute="bottom" constant="45" id="XFd-S2-eWU"/>
                 <constraint firstItem="RwP-IE-qWj" firstAttribute="top" secondItem="w3y-u5-DD0" secondAttribute="top" id="Xxb-fC-u02"/>
                 <constraint firstItem="WMF-py-rMm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="azJ-a3-JyB"/>
                 <constraint firstItem="w3y-u5-DD0" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="90" id="gUD-Pl-OzG"/>
                 <constraint firstItem="RwP-IE-qWj" firstAttribute="top" secondItem="w3y-u5-DD0" secondAttribute="bottom" constant="45" id="kKR-Jr-lYb"/>
+                <constraint firstItem="G9n-q6-U68" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="lbh-4a-hEG"/>
                 <constraint firstItem="OCS-JY-flF" firstAttribute="height" secondItem="RwP-IE-qWj" secondAttribute="height" id="r0C-uR-c1Q"/>
                 <constraint firstAttribute="trailing" secondItem="w3y-u5-DD0" secondAttribute="trailing" constant="60" id="x41-vC-aYn"/>
                 <constraint firstAttribute="trailing" secondItem="WMF-py-rMm" secondAttribute="trailing" constant="60" id="xPb-JK-yQP"/>

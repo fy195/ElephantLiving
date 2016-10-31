@@ -20,22 +20,22 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 
+@property (weak, nonatomic) IBOutlet UIButton *verifyButton;
+
+@property (weak, nonatomic) IBOutlet UITextField *smscodeTextField;
+
 @end
 
 @implementation ElRegisterViewController
 
 - (void)viewWillAppear:(BOOL)animated {
-
     [super viewWillAppear:animated];
     [AVAnalytics beginLogPageView:@"SignUpView"];
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-
     [super viewWillDisappear:animated];
     [AVAnalytics endLogPageView:@"SignUpView"];
-    
 }
 
 - (void)viewDidLoad {
@@ -45,37 +45,51 @@
 
 
 - (IBAction)ReturnButton:(id)sender {
-//    ElLoginViewController *loginView = [[ElLoginViewController alloc] init];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 
 - (IBAction)RegisterButtonAction:(id)sender {
-    
-    
     if (self.userNameTextField.text.length < 1) {
         NSMutableDictionary* details = [NSMutableDictionary dictionary];
         [details setValue:@"用户名不能为空。" forKey:NSLocalizedDescriptionKey];
         NSError *error = [NSError errorWithDomain:@"LeanSMSDemo" code:1024 userInfo:details];
         [ElCommonUtils displayError:error];
         return;
-    }
-    if (self.passwordTextField.text.length < 1) {
+    }else if (self.passwordTextField.text.length < 1) {
         NSMutableDictionary* details = [NSMutableDictionary dictionary];
         [details setValue:@"密码不能为空。" forKey:NSLocalizedDescriptionKey];
         NSError *error = [NSError errorWithDomain:@"LeanSMSDemo" code:1024 userInfo:details];
         [ElCommonUtils displayError:error];
         return;
-    }
-    if (self.phoneNumberTextField.text.length < 1) {
+    }else if (self.phoneNumberTextField.text.length < 1) {
         NSMutableDictionary* details = [NSMutableDictionary dictionary];
         [details setValue:@"手机号码不能为空。" forKey:NSLocalizedDescriptionKey];
         NSError *error = [NSError errorWithDomain:@"LeanSMSDemo" code:1024 userInfo:details];
         [ElCommonUtils displayError:error];
         return;
+    }else if (self.smscodeTextField.text.length < 1) {
+        NSMutableDictionary* details = [NSMutableDictionary dictionary];
+        [details setValue:@"验证码不能为空。" forKey:NSLocalizedDescriptionKey];
+        NSError *error = [NSError errorWithDomain:@"LeanSMSDemo" code:1024 userInfo:details];
+        [ElCommonUtils displayError:error];
+        return;
+    }else {
+        [AVUser verifyMobilePhone:_smscodeTextField.text withBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            if (succeeded) {
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"注册成功" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }];
+                [alertController addAction:cancelAction];
+                [self presentViewController:alertController animated:YES completion:nil];
+            }
+        }];
     }
+}
 
     
+- (IBAction)verifyButtonAction:(id)sender {
     NSString *userName = _userNameTextField.text;
     NSString *phoneNumber = _phoneNumberTextField.text;
     NSString *password = _passwordTextField.text;
@@ -90,31 +104,24 @@
         
         [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
             if (succeeded) {
-                ElTextViewController *textView = [[ElTextViewController alloc] init];
-                [self.navigationController pushViewController:textView animated:YES];
-                
-            } else {
-            
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"发生错误" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+                [AVUser requestMobilePhoneVerify:phoneNumber withBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"验证码发送成功" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                        [self dismissViewControllerAnimated:YES completion:nil];
+                    }];
+                    [alertController addAction:cancelAction];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                }];
+            }else {
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"错误" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                     [self dismissViewControllerAnimated:YES completion:nil];
                 }];
                 [alertController addAction:cancelAction];
                 [self presentViewController:alertController animated:YES completion:nil];
-
-            
             }
-            
         }];
     }
-    
-    
-    
-    
-    
-    
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {

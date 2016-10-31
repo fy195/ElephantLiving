@@ -13,15 +13,11 @@
 #import "ElLivingTopView.h"
 #import "ElLivingBottomToolView.h"
 #import "ElEndLiving.h"
-//#import <CoreTelephony/CTCallCenter.h>
-//#import <CoreTelephony/CTCall.h>
 
 @interface ElLiveViewController ()
 <
 QPLiveSessionDelegate
 >
-
-//@property (nonatomic, strong) CTCallCenter *callCenter;
 
 @property (nonatomic, strong) ElStartLiving *startView;
 
@@ -106,9 +102,11 @@ QPLiveSessionDelegate
     [self.view addSubview:_topToolView];
     
     self.leftToolView = [ElLeftToolView elLeftToolView];
-    _leftToolView.frame = CGRectMake(0, _topToolView.y + _topToolView.height, 50, 290);
+    _leftToolView.frame = CGRectMake(0, _topToolView.y + _topToolView.height, 50, 230);
     _leftToolView.backgroundColor = [UIColor clearColor];
     [_leftToolView.cameraButton addTarget:self action:@selector(cameraButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+    [_leftToolView.skinButton addTarget:self action:@selector(skinButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [_leftToolView.flashlightButton addTarget:self action:@selector(flashButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_leftToolView];
     
     self.bottomToolView = [ElLivingBottomToolView elLivingBottomToolView];
@@ -166,29 +164,6 @@ QPLiveSessionDelegate
     percentPoint.y = point.y / CGRectGetHeight(self.view.bounds);
     [_liveSession focusAtAdjustedPoint:percentPoint autoFocus:YES];
 }
-
-// 监听电话状态
-/*
-- (void)appResignActive{
-    [self destroySession];
-    // 监听电话
-    _callCenter = [[CTCallCenter alloc] init];
-    _isCTCallStateDisconnected = NO;
-    _callCenter.callEventHandler = ^(CTCall* call) {
-        if ([call.callState isEqualToString:CTCallStateDisconnected]) {
-            _isCTCallStateDisconnected = YES;
-        }else if([call.callState isEqualToString:CTCallStateConnected]) {
-            _callCenter = nil;
-        }
-    };
-}
-
-- (void)appBecomeActive{
-    if (_isCTCallStateDisconnected) {
-        sleep(2);
-    }
-    [self createConfiguration];
-}*/
 
 // 请求推拉流地址
 - (void)createRequest {
@@ -437,16 +412,16 @@ QPLiveSessionDelegate
     _liveSession.devicePosition = button.isSelected ? AVCaptureDevicePositionBack : AVCaptureDevicePositionFront;
     _currentPosition = _liveSession.devicePosition;
 }
-//
-//- (IBAction)skinButtonClick:(UIButton *)button {
-//    button.selected = !button.isSelected;
-//    [_liveSession setEnableSkin:button.isSelected];
-//}
-//- (IBAction)flashButtonClick:(UIButton *)button {
-//    button.selected = !button.isSelected;
-//    _liveSession.torchMode = button.isSelected ? AVCaptureTorchModeOn : AVCaptureTorchModeOff;
-//}
 
+- (void)skinButtonAction:(UIButton *)button {
+    button.selected = !button.isSelected;
+    [_liveSession setEnableSkin:button.isSelected];
+}
+
+- (void)flashButtonClick:(UIButton *)button {
+    button.selected = !button.isSelected;
+    _liveSession.torchMode = button.isSelected ? AVCaptureTorchModeOn : AVCaptureTorchModeOff;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
