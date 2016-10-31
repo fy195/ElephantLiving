@@ -13,6 +13,10 @@
 
 
 @interface ElRegisterViewController ()
+{
+    NSTimer *counterDownTimer;
+    int freezeCounter;
+}
 
 @property (weak, nonatomic) IBOutlet UITextField *userNameTextField;
 
@@ -101,28 +105,117 @@
         user.password = password;
         NSError *error = nil;
         [user signUp:&error];
-        
-        [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-            if (succeeded) {
-                [AVUser requestMobilePhoneVerify:phoneNumber withBlock:^(BOOL succeeded, NSError * _Nullable error) {
-                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"验证码发送成功" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+
+        [AVUser requestMobilePhoneVerify:phoneNumber withBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            [self freezeMoreRequest];
+            [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                if (succeeded) {
+                    
+                    [self creatNewUserInfo];
+                    
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"注册成功" message:nil preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                         [self dismissViewControllerAnimated:YES completion:nil];
                     }];
                     [alertController addAction:cancelAction];
                     [self presentViewController:alertController animated:YES completion:nil];
-                }];
-            }else {
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"错误" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                    [self dismissViewControllerAnimated:YES completion:nil];
-                }];
-                [alertController addAction:cancelAction];
-                [self presentViewController:alertController animated:YES completion:nil];
-            }
+
+                }else {
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"错误" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                        [self dismissViewControllerAnimated:YES completion:nil];
+                    }];
+                    [alertController addAction:cancelAction];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                }
+            }];
         }];
     }
 }
+
+- (void)creatNewUserInfo {
+    
+    
+    AVUser *currentUser = [AVUser currentUser];
+    
+    
+    
+    AVObject *userInfo = [AVObject objectWithClassName:@"UserInfo"];
+    /**
+     *  昵称
+     */
+    [userInfo setObject:_userNameTextField.text forKey:@"nickname"];
+    /**
+     *  等级
+     */
+    [userInfo setObject:@"1" forKey:@"level"];
+    /**
+     *  粉丝数
+     */
+    [userInfo setObject:@"0" forKey:@"follower_count"];
+    /**
+     *  关注数
+     */
+    [userInfo setObject:@"0" forKey:@"follow_count"];
+    /**
+     *  收到的礼物
+     */
+    [userInfo setObject:@"" forKey:@"receive_gift"];
+    /**
+     *  送出的礼物
+     */
+    [userInfo setObject:@"" forKey:@"send_gift"];
+    /**
+     *  魅力值
+     */
+    [userInfo setObject:@"" forKey:@"charm"];
+    /**
+     *  当前用户
+     */
+    [userInfo setObject:currentUser forKey:@"owner"];
+    /**
+     *  用户头像
+     */
+    [userInfo setObject:@"" forKey:@"headimage"];
+[userInfo saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+    if (succeeded) {
+        NSLog(@"保存成功");
+    } else {
+        NSLog(@"创建对象出错 %@",error);
+    }
+}];
+
+}
+
+
+
+
+
+- (void)freezeMoreRequest {
+    // 一分钟内禁止再次发送
+    [self.verifyButton setEnabled:NO];
+    freezeCounter = 60;
+    counterDownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(countDownRequestTimer) userInfo:nil repeats:YES];
+    [counterDownTimer fire];
+    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"验证码已发送" message:@"验证码已发送到你请求的手机号码。如果没有收到，可以在一分钟后尝试重新发送。" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alertView show];
+}
+
+- (void)countDownRequestTimer {
+    static NSString *counterFormat = @"%d秒后获取";
+    --freezeCounter;
+    if (freezeCounter<= 0) {
+        [counterDownTimer invalidate];
+        counterDownTimer = nil;
+        [self.verifyButton setTitle:@"获取验证码" forState:UIControlStateNormal];
+        [self.verifyButton setEnabled:YES];
+    } else {
+        [self.verifyButton setTitle:[NSString stringWithFormat:counterFormat, freezeCounter] forState:UIControlStateNormal];
+    }
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

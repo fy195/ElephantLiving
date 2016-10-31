@@ -49,9 +49,26 @@
                 }];
                 [alertController addAction:cancelAction];
                 [self presentViewController:alertController animated:YES completion:nil];
+                [self getUserInfo:user];
+                NSLog(@"%@",user.objectId);
             }
         }];
     }
+}
+
+
+
+- (void)getUserInfo:(id)user {
+    AVQuery *query  = [AVQuery queryWithClassName:@"UserInfo"];
+    [query whereKey:@"owner" equalTo:user];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        if (error) {
+            NSLog(@"%@",error);
+        } else {
+            NSLog(@"%@",objects);
+        }
+    }];
+
 }
 
 - (IBAction)ReturnButtonAction:(id)sender {

@@ -13,6 +13,7 @@
 #import "ElLivingTopView.h"
 #import "ElLivingBottomToolView.h"
 #import "ElEndLiving.h"
+#import <AVOSCloud/AVOSCloud.h>
 
 @interface ElLiveViewController ()
 <
@@ -45,6 +46,8 @@ QPLiveSessionDelegate
 
 @property (nonatomic, strong) QPLConfiguration *configuration;
 
+@property (nonatomic, strong) NSString *timeString;
+
 @end
 
 @implementation ElLiveViewController{
@@ -76,7 +79,7 @@ QPLiveSessionDelegate
     
     self.timeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
     _timeImageView.center = self.view.center;
-    _timeImageView.backgroundColor = [UIColor clearColor];
+    _timeImageView.backgroundColor = [UIColor   clearColor];
     
     // 添加观察者
     /*
@@ -134,6 +137,7 @@ QPLiveSessionDelegate
         [_liveSession disconnectServer];
         [_liveSession stopPreview];
         _endView.hidden = NO;
+        _endView.timeLabel.text = _timeString;
         [self hiddenToolView:YES];
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
@@ -274,8 +278,11 @@ QPLiveSessionDelegate
             dispatch_source_cancel(_timer);
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self countdownEnd];
+                //  创建直播间对象
+                [self creatLiveRoom];
                 // 倒计时结束开始连接服务直播计时
                 [_liveSession connectServer];
+                
             });
         }else{
             int seconds = time % 4;
@@ -334,9 +341,45 @@ QPLiveSessionDelegate
     if (tempSecond < 10) {
         second = [@"0" stringByAppendingString:second];
     }
-    NSLog(@"%@:%@:%@",hour,minute,second);
+    self.timeString = [NSString stringWithFormat:@"%@:%@:%@",hour,minute,second];
     
 }
+
+- (void)creatLiveRoom {
+
+    AVUser *currentUser = [AVUser currentUser];
+    
+    AVObject *liveRoom = [AVObject objectWithClassName:@"LiveRoom"];
+    /**
+     *  拉流地址
+     */
+    [liveRoom setObject:_pullUrl forKey:@"pullUrl"];
+    /**
+     *  主播信息
+     */
+    [liveRoom setObject:currentUser forKey:@"host_info"];
+    /**
+     *  观看人数
+     */
+    [liveRoom setObject:@"0" forKey:@"view_count"];
+    /**
+     *  观众信息
+     */
+    [liveRoom setObject:@"" forKey:@"audience_info"];
+    
+    [liveRoom saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            NSLog(@"保存成功");
+        } else {
+            NSLog(@"创建对象出错 %@", error);
+        }
+    }];
+
+}
+
+
+
+
 
 // session代理方法
 - (void)liveSession:(QPLiveSession *)session error:(NSError *)error{
@@ -356,7 +399,6 @@ QPLiveSessionDelegate
 }
 
 - (void)liveSessionConnectSuccess:(QPLiveSession *)session {
-    
     dispatch_async(dispatch_get_main_queue(), ^{
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"连接成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
         [alertView show];
