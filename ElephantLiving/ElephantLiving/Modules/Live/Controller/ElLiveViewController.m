@@ -136,7 +136,8 @@ QPLiveSessionDelegate
     UIAlertAction *commitAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [_liveSession disconnectServer];
         [_liveSession stopPreview];
-        _endView.hidden = NO;
+        _endView.hidden = NO;        
+        [self timeEnd];
         _endView.timeLabel.text = _timeString;
         [self hiddenToolView:YES];
         [self dismissViewControllerAnimated:YES completion:nil];
@@ -260,7 +261,6 @@ QPLiveSessionDelegate
 - (void)backHomeAction:(UIButton *)button {
     [_liveSession.previewView removeFromSuperview];
     _liveSession = nil;
-    [self timeEnd];
     [self.navigationController popViewControllerAnimated:NO];
 }
 
