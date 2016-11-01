@@ -43,14 +43,14 @@
                 [alertController addAction:cancelAction];
                 [self presentViewController:alertController animated:YES completion:nil];
             } else {
+                [self getUserInfo:user];
+                NSLog(@"%@",user.objectId);
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"登录成功" preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                     [self dismissViewControllerAnimated:YES completion:nil];
                 }];
                 [alertController addAction:cancelAction];
                 [self presentViewController:alertController animated:YES completion:nil];
-                [self getUserInfo:user];
-                NSLog(@"%@",user.objectId);
             }
         }];
     }
