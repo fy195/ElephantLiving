@@ -21,7 +21,8 @@
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
-        self.underLine = [[UIView alloc] initWithFrame:CGRectMake(15, self.height - 4, 70, 2)];
+        self.underLine = [[UIView alloc] init];
+        _underLine.frame = CGRectMake(0, self.height - 4, SCREEN_WIDTH * 0.1 + 20, 2);
         _underLine.centerX = self.centerX;
         _underLine.backgroundColor = [UIColor whiteColor];
         [self addSubview:_underLine];
@@ -49,20 +50,21 @@
     [super layoutSubviews];
     
     _hotButton.centerX = SCREEN_WIDTH / 2;
-    _hotButton.width = 60;
-    _hotButton.height = 30;
-    _hotButton.centerY =( self.height + 20 ) / 2;
+    _hotButton.width = SCREEN_WIDTH * 0.1;
+    _hotButton.height = 20;
+    _hotButton.centerY =( self.height + 20) / 2;
     
-    
-    _newestButton.centerY = ( self.height + 20 ) / 2;
+    _newestButton.centerY = _hotButton.centerY;
     _newestButton.centerX = SCREEN_WIDTH / 4;
     _newestButton.width = _hotButton.width;
-    _newestButton.height = 30;
+    _newestButton.height = _hotButton.width;
     
-    _listButton.centerY = ( self.height + 20 ) / 2;
+    _listButton.centerY = _hotButton.centerY;
     _listButton.width = _hotButton.width;
     _listButton.centerX = SCREEN_WIDTH / 4 * 3;
-    _listButton.height = 30;
+    _listButton.height = _hotButton.width;
+    
+    
 }
 
 
@@ -71,7 +73,7 @@
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.titleLabel.font = [UIFont systemFontOfSize:17];
     [btn setTitle:title forState:UIControlStateNormal];
-    [btn setTitleColor:[[UIColor whiteColor] colorWithAlphaComponent:0.8] forState:UIControlStateNormal];
+    [btn setTitleColor:[[UIColor whiteColor] colorWithAlphaComponent:0.5] forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     [btn addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
     return btn;
@@ -84,7 +86,7 @@
     self.selectedBtn = btn;
     
     [UIView animateWithDuration:0.1f animations:^{
-        self.underLine.x = btn.x - 10 * 0.5;
+        self.underLine.x = btn.x - 20 * 0.5;
     }];
     
 
