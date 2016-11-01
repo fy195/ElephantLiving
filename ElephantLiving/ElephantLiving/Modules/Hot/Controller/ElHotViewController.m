@@ -25,14 +25,12 @@ static NSString *const carousel = @"carousel";
 
 - (void)viewDidLoad {
     [self createCarouselView];
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(100, 300, 100, 100);
-    button.backgroundColor = [UIColor colorWithRed:0.9418 green:1.0 blue:0.7947 alpha:1.0];
-    [self.view addSubview:button];
-    [button handleControlEvent:UIControlEventTouchUpInside withBlock:^{
-        ElWatchViewController *view = [[ElWatchViewController alloc] init];
-        [self presentViewController:view animated:YES completion:nil];
-    }];
+    
+    self.button = [UIButton buttonWithType:UIButtonTypeCustom];
+    _button.frame = CGRectMake(100, 300, 100, 100);
+    _button.backgroundColor = [UIColor colorWithRed:0.9418 green:1.0 blue:0.7947 alpha:1.0];
+    [self.view addSubview:_button];
+
 }
 
 - (void)createCarouselView {

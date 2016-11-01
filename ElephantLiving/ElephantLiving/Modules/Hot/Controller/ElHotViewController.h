@@ -9,5 +9,6 @@
 #import "ElBaseViewController.h"
 
 @interface ElHotViewController : ElBaseViewController
+@property (nonatomic, strong) UIButton *button;
 
 @end
