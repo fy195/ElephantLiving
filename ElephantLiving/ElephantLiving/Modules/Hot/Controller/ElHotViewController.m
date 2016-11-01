@@ -17,13 +17,17 @@ static NSString *const carousel = @"carousel";
 @end
 
 @implementation ElHotViewController
+- (void)viewWillAppear:(BOOL)animated {
+
+    self.navigationController.navigationBarHidden = NO;
+}
+
 
 - (void)viewDidLoad {
     [self createCarouselView];
-    
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(100, 300, 100, 100);
-    button.backgroundColor = [UIColor redColor];
+    button.backgroundColor = [UIColor colorWithRed:0.9418 green:1.0 blue:0.7947 alpha:1.0];
     [self.view addSubview:button];
     [button handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         ElWatchViewController *view = [[ElWatchViewController alloc] init];
