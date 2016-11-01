@@ -75,6 +75,11 @@ UITextFieldDelegate
     
 }
 
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     _startView.hidden = NO;
     [self hiddenToolView:YES];
