@@ -50,7 +50,7 @@ UIScrollViewDelegate
 - (void)creatTopView {
     
     self.topView = [[ElTopView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 64)];
-    _topView.backgroundColor = [UIColor cyanColor];
+    _topView.backgroundColor = [UIColor colorWithRed:1.0 green:0.503 blue:0.0028 alpha:1.0];
     
     [_topView.newestButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         [self.scrollView setContentOffset:CGPointMake(0, 1) animated:YES];

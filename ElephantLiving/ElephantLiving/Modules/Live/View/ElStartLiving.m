@@ -46,7 +46,7 @@ UITextFieldDelegate
         
         
         self.startButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _startButton.backgroundColor = [UIColor orangeColor];
+        _startButton.backgroundColor = [UIColor colorWithRed:0.9843 green:0.4196 blue:0.0 alpha:1.0];
         _startButton.frame = CGRectMake(SCREEN_WIDTH * 0.1, SCREEN_HEIGHT * 0.75, SCREEN_WIDTH * 0.8, SCREEN_HEIGHT * 0.07);
         [_startButton setTitle:@"开始直播" forState:UIControlStateNormal];
         [_startButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
