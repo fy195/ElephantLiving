@@ -8,22 +8,62 @@
 
 #import "ElWatchViewController.h"
 #import <IJKMediaFramework/IJKMediaFramework.h>
-
+#import "ElLivingTopView.h"
+#import "ElLivingBottomToolView.h"
 
 @interface ElWatchViewController ()
 @property (nonatomic, weak) UIView *playView;
 @property (nonatomic, strong)  IJKFFMoviePlayerController *moviePlayer;
+@property (nonatomic, strong) UIButton *closeButton;
 @end
 
 @implementation ElWatchViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
     [self playFlv];
+    [self creatTool];
+    self.view.backgroundColor = [UIColor clearColor];
+    
+    // Do any additional setup after loading the view from its nib.
+
+}
+- (void)creatTool {
+
+    ElLivingTopView *topToolView = [ElLivingTopView elLivingTopView];
+    topToolView.frame = CGRectMake(0, 20, SCREEN_WIDTH, 57);
+    topToolView.backgroundColor = [UIColor clearColor];
+    [_moviePlayer.view addSubview:topToolView];
+    
+    ElLivingBottomToolView *bottomToolView = [ElLivingBottomToolView elLivingBottomToolView];
+    bottomToolView.frame = CGRectMake(0, SCREEN_HEIGHT - 206, SCREEN_WIDTH, 206);
+    bottomToolView.backgroundColor = [UIColor clearColor];
+    [_moviePlayer.view addSubview:bottomToolView];
+    [_moviePlayer.view bringSubviewToFront:bottomToolView];
+    
+    
+    self.closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _closeButton.frame = CGRectMake(SCREEN_WIDTH - 22 - 30, SCREEN_HEIGHT - 20 - 30, 30, 30);
+    _closeButton.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.15];
+    _closeButton.layer.cornerRadius = 15.0;
+    _closeButton.clipsToBounds = YES;
+    [_closeButton setBackgroundImage:[UIImage imageNamed:@"Home"] forState:UIControlStateNormal];
+    [_closeButton addTarget:self action:@selector(closeButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [_moviePlayer.view addSubview:_closeButton];
+    [_moviePlayer.view bringSubviewToFront:_closeButton];
 
 }
 
+- (void)closeButtonAction:(UIButton *)button {
+ 
+    [_moviePlayer shutdown];
+    [_moviePlayer.view removeFromSuperview];
+    _moviePlayer = nil;
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 - (void)playFlv {
     if (_moviePlayer) {
         [_moviePlayer shutdown];
@@ -36,7 +76,7 @@
     [options setPlayerOptionIntValue:1 forKey:@"audiotoolbox"];
     [options setPlayerOptionIntValue:15 forKey:@"r"];
     [options setPlayerOptionIntValue:512 forKey:@"vol"];
-    NSString *flv = @"http://play.lss.qupai.me/elephantliving/elephantliving-20TBE.flv?auth_key=1477730688-0-2783-9b7abe87e1630656d8c8fca4a10ac0d3.flv";
+    NSString *flv = @"http://pull99.a8.com/live/1477963017159850.flv?ikHost=ws&ikOp=1&CodecInfo=8192.flv";
     self.moviePlayer = [[IJKFFMoviePlayerController alloc] initWithContentURLString:flv withOptions:options];
     _moviePlayer.view.frame = self.view.bounds;
     _moviePlayer.scalingMode = IJKMPMovieScalingModeAspectFill;

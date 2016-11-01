@@ -37,8 +37,6 @@ UIScrollViewDelegate
 
 - (void)viewWillAppear:(BOOL)animated {
     self.tabBarController.tabBar.hidden = NO;
-
-
 }
 
 - (void)viewDidLoad {
@@ -100,17 +98,17 @@ UIScrollViewDelegate
     
     self.listVC = [[ElListViewController alloc] init];
     _listVC.view.frame = CGRectMake(SCREEN_WIDTH * 2, 0, _scrollView.width, _scrollView.height);
-    _listVC.view.backgroundColor = [UIColor yellowColor];
+    _listVC.view.backgroundColor = [UIColor clearColor];
     [_scrollView addSubview:_listVC.view];
                          
     self.newestVC = [[ElNewViewController alloc] init];
     _newestVC.view.frame = _listVC.view.frame;
     _newestVC.view.x = 0;
-    _newestVC.view.backgroundColor = [UIColor redColor];
+    _newestVC.view.backgroundColor = [UIColor colorWithRed:0.658 green:0.7359 blue:1.0 alpha:1.0];
     [_scrollView addSubview:_newestVC.view];
     
     self.hotVC = [[ElHotViewController alloc] init];
-    _hotVC.view.backgroundColor = [UIColor greenColor];
+    _hotVC.view.backgroundColor = [UIColor colorWithRed:0.9931 green:0.8483 blue:0.8528 alpha:1.0];
     _hotVC.view.x = SCREEN_WIDTH;
     [_scrollView addSubview:_hotVC.view];
     
