@@ -24,7 +24,7 @@
     
     [self playFlv];
     [self creatTool];
-    self.view.backgroundColor = [UIColor clearColor];
+    self.view.backgroundColor = [UIColor whiteColor];
     
     // Do any additional setup after loading the view from its nib.
 
@@ -64,6 +64,7 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 - (void)playFlv {
     if (_moviePlayer) {
         [_moviePlayer shutdown];

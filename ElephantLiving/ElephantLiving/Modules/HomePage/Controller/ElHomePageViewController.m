@@ -12,6 +12,7 @@
 #import "ElHotViewController.h"
 #import "ElNewViewController.h"
 #import "ElSearchViewController.h"
+#import "ElWatchViewController.h"
 
 
 
@@ -84,7 +85,7 @@ UIScrollViewDelegate
 
 
 - (void)creatScrollView {
-    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, _topView.height, SCREEN_WIDTH, SCREEN_HEIGHT - _topView.height)];
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,_topView.height + _topView.y, SCREEN_WIDTH, SCREEN_HEIGHT - _topView.height)];
     _scrollView.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:_scrollView];
 
@@ -97,7 +98,7 @@ UIScrollViewDelegate
     _scrollView.contentOffset = CGPointMake(SCREEN_WIDTH, 0);
     
     self.listVC = [[ElListViewController alloc] init];
-    _listVC.view.frame = CGRectMake(SCREEN_WIDTH * 2, 0, _scrollView.width, _scrollView.height);
+    _listVC.view.frame = CGRectMake(SCREEN_WIDTH * 2,0, _scrollView.width, SCREEN_HEIGHT);
     _listVC.view.backgroundColor = [UIColor clearColor];
     [_scrollView addSubview:_listVC.view];
                          
@@ -110,6 +111,11 @@ UIScrollViewDelegate
     self.hotVC = [[ElHotViewController alloc] init];
     _hotVC.view.backgroundColor = [UIColor colorWithRed:0.9931 green:0.8483 blue:0.8528 alpha:1.0];
     _hotVC.view.x = SCREEN_WIDTH;
+    __weak typeof(self) weakself = self;
+    [_hotVC.button  handleControlEvent:UIControlEventTouchUpInside withBlock:^{
+        ElWatchViewController *view = [[ElWatchViewController alloc] init];
+        [weakself presentViewController:view animated:YES completion:nil];
+    }];
     [_scrollView addSubview:_hotVC.view];
     
 }
