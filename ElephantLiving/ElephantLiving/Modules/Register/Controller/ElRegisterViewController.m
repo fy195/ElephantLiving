@@ -81,6 +81,7 @@
     }else {
         [AVUser verifyMobilePhone:_smscodeTextField.text withBlock:^(BOOL succeeded, NSError * _Nullable error) {
             if (succeeded) {
+                 [self creatNewUserInfo];
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"注册成功" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                     [self dismissViewControllerAnimated:YES completion:nil];
@@ -111,9 +112,7 @@
             [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                 if (succeeded) {
                     
-                    [self creatNewUserInfo];
-                    
-                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"注册成功" message:nil preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"获取验证码成功" message:nil preferredStyle:UIAlertControllerStyleAlert];
                     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                         [self dismissViewControllerAnimated:YES completion:nil];
                     }];
@@ -136,11 +135,8 @@
 - (void)creatNewUserInfo {
     
     
-    AVUser *currentUser = [AVUser currentUser];
+    AVUser *userInfo = [AVUser currentUser];
     
-    
-    
-    AVObject *userInfo = [AVObject objectWithClassName:@"UserInfo"];
     /**
      *  昵称
      */
@@ -170,13 +166,13 @@
      */
     [userInfo setObject:@"" forKey:@"charm"];
     /**
-     *  当前用户
-     */
-    [userInfo setObject:currentUser forKey:@"owner"];
-    /**
      *  用户头像
      */
     [userInfo setObject:@"" forKey:@"headimage"];
+    /**
+     *  直播封面
+     */
+    [userInfo setObject:@"" forKey:@"coverimage"];
 [userInfo saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
     if (succeeded) {
         NSLog(@"保存成功");
