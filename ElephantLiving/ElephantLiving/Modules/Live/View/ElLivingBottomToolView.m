@@ -8,14 +8,6 @@
 
 #import "ElLivingBottomToolView.h"
 
-@interface ElLivingBottomToolView ()
-<
-UITableViewDelegate,
-UITableViewDataSource
->
-@property (weak, nonatomic) IBOutlet UITableView *commentTableView;
-
-@end
 
 @implementation ElLivingBottomToolView
 

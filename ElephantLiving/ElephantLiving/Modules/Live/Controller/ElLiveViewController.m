@@ -13,7 +13,6 @@
 #import "ElLivingTopView.h"
 #import "ElLivingBottomToolView.h"
 #import "ElEndLiving.h"
-#import <AVOSCloud/AVOSCloud.h>
 #import "AVOSCloudIM.h"
 #import "AVIMConversation.h"
 
@@ -21,16 +20,12 @@
 <
 QPLiveSessionDelegate,
 AVIMClientDelegate,
-UITextFieldDelegate
+UITextFieldDelegate,
+UITableViewDelegate,
+UITableViewDataSource
 >
 
-@property (nonatomic, strong) AVIMClient *client;
-
-@property (nonatomic, strong) AVIMConversation *currentConversation;
-
 @property (nonatomic, strong) AVObject *liveRoom;
-
-@property (nonatomic, strong) NSMutableArray *messageArray;
 
 @property (nonatomic, strong) ElStartLiving *startView;
 
@@ -65,6 +60,14 @@ UITextFieldDelegate
 @property (nonatomic, strong) UIView *keyboardView;
 
 @property (nonatomic, strong) UIButton *keyboardButton;
+
+@property (nonatomic, strong) UITableView *commentTableView;
+
+@property (nonatomic, retain) NSMutableArray *messageArray;
+
+@property (nonatomic, strong) AVIMClient *client;
+
+@property (nonatomic, strong) AVIMConversation *currentConversation;
 
 @end
 
@@ -139,7 +142,7 @@ UITextFieldDelegate
     
     // 底部工具栏
     self.bottomToolView = [ElLivingBottomToolView elLivingBottomToolView];
-    _bottomToolView.frame = CGRectMake(0, SCREEN_HEIGHT - 206, SCREEN_WIDTH, 206);
+    _bottomToolView.frame = CGRectMake(0, SCREEN_HEIGHT - 70, SCREEN_WIDTH, 70);
     _bottomToolView.backgroundColor = [UIColor clearColor];
     [_bottomToolView.commentButton addTarget:self action:@selector(commentButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_bottomToolView];
@@ -153,13 +156,72 @@ UITextFieldDelegate
     [_closeButton addTarget:self action:@selector(closeButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_closeButton];
     [self.view bringSubviewToFront:_closeButton];
+    [self createCommentTableView];
     
     [self hiddenToolView:YES];
+}
+
+// 创建tableView
+- (void)createCommentTableView {
+    self.commentTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 320, SCREEN_WIDTH - 70, 250) style:UITableViewStylePlain];
+    _commentTableView.delegate = self;
+    _commentTableView.dataSource = self;
+    _commentTableView.backgroundColor = [UIColor clearColor];
+    _commentTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.view addSubview:_commentTableView];
+    [self.view bringSubviewToFront:_commentTableView];
+    
+    self.client = [AVIMClient defaultClient];
+    _client.delegate = self;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *dic = @{NSFontAttributeName : [UIFont systemFontOfSize:14.f]};
+    CGSize textSize = CGSizeMake(SCREEN_WIDTH, 1000);
+    CGRect textRect = [_messageArray[indexPath.row] boundingRectWithSize:textSize options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dic context:nil];
+    return textRect.size.height;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return _messageArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    if (nil == cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
+    }
+    cell.textLabel.text = _messageArray[indexPath.row];
+    NSRange range = [_messageArray[indexPath.row] rangeOfString:@":"];
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",_messageArray[indexPath.row]]];
+    NSRange range1 = NSMakeRange(0, range.location + 1);
+    [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:1.000 green:0.559 blue:0.224 alpha:1.000] range:range1];
+    [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:20] range:range1];
+    [cell.textLabel setAttributedText:str];
+    cell.textLabel.font = [UIFont systemFontOfSize:14];
+    cell.backgroundColor = [UIColor clearColor];
+    [cell.textLabel sizeToFit];
+    return cell;
+}
+
+- (void)addMessage {
+    AVIMMessageOption *option = [[AVIMMessageOption alloc] init];
+    option.receipt = YES;
+    AVIMTextMessage *textMessage = [AVIMTextMessage messageWithText:_textField.text attributes:nil];
+    [_currentConversation sendMessage:textMessage option:option callback:^(BOOL succeeded, NSError * _Nullable error) {
+        if (!error) {
+            [_messageArray addObject:[NSString stringWithFormat:@"%@: %@", textMessage.clientId, textMessage.text]];
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:_messageArray.count - 1 inSection:0];
+            [_commentTableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            [_commentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
+        }
+    }];
 }
 
 // 创建输入框
 - (void)createKeyboardView {
     self.keyboardView = [[UIView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, 50)];
+    _keyboardView.userInteractionEnabled = YES;
     _keyboardView.backgroundColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:0.50];
     [self.view addSubview:_keyboardView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowAction:) name:UIKeyboardWillShowNotification object:nil];
@@ -191,6 +253,15 @@ UITextFieldDelegate
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定结束直播吗？" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     UIAlertAction *commitAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//        [_client openWithCallback:^(BOOL succeeded, NSError * _Nullable error) {
+//            AVIMConversationQuery *query = [self.client conversationQuery];
+//            [query whereKey:AVIMAttr(@"topic") equalTo:_liveRoom.objectId];
+//            [query whereKey:@"tr" equalTo:@(YES)];
+//            [query findConversationsWithCallback:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+//                [objects.lastObject deleteInBackground];
+//                NSLog(@"删除聊天室成功");
+//            }];
+//        }];
         [_liveRoom deleteInBackground];
         [_liveSession disconnectServer];
         [_liveSession stopPreview];
@@ -208,11 +279,13 @@ UITextFieldDelegate
 // 隐藏工具栏
 - (void)hiddenToolView:(BOOL)isLiving {
     if (isLiving) {
+        _commentTableView.hidden = YES;
         _topToolView.hidden = YES;
         _leftToolView.hidden = YES;
         _bottomToolView.hidden = YES;
         _closeButton.hidden = YES;
     }else {
+        _commentTableView.hidden = NO;
         _topToolView.hidden = NO;
         _leftToolView.hidden = NO;
         _bottomToolView.hidden = NO;
@@ -340,6 +413,7 @@ UITextFieldDelegate
                 [self countdownEnd];
                 //  创建直播间对象
                 [self creatLiveRoom];
+                [self createChatRoom];
                 // 倒计时结束开始连接服务直播计时
                 [_liveSession connectServer];
                 
@@ -427,7 +501,10 @@ UITextFieldDelegate
      *  观众信息
      */
     [_liveRoom setObject:@"" forKey:@"audience_info"];
-    
+    /**
+     *  直播间标题
+     */
+    [_liveRoom setObject:@"" forKey:@"liveRoom_title"];
     [_liveRoom saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
             NSLog(@"保存成功");
@@ -436,6 +513,22 @@ UITextFieldDelegate
         }
     }];
 
+}
+
+// 创建聊天室
+- (void)createChatRoom {
+    AVUser *user = [AVUser currentUser];
+    self.client = [[AVIMClient alloc] initWithClientId:user.username];
+    _client.delegate = self;
+    [_client openWithCallback:^(BOOL succeeded, NSError * _Nullable error) {
+        NSString *topic = _liveRoom.objectId;
+        NSDictionary *dic = @{@"topic":topic};
+        [_client createConversationWithName:topic clientIds:@[] attributes:dic options:AVIMConversationOptionTransient callback:^(AVIMConversation * _Nullable conversation, NSError * _Nullable error) {
+            if (!error) {
+                self.currentConversation = conversation;
+            }
+        }];
+    }];
 }
 
 // session代理方法
@@ -454,59 +547,6 @@ UITextFieldDelegate
         [alertView show];
     });
 }
-/*
-- (void)liveSessionConnectSuccess:(QPLiveSession *)session {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"连接成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-        [alertView show];
-    });
-}
-
-- (void)openAudioSuccess:(QPLiveSession *)session {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"麦克风打开成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-        [alertView show];
-    });
-}
-
-- (void)openVideoSuccess:(QPLiveSession *)session {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"摄像头打开成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-        [alertView show];
-    });
-}
-
-- (void)liveSession:(QPLiveSession *)session openAudioError:(NSError *)error {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"麦克风获取失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-        [alertView show];
-    });
-}
-
-- (void)liveSession:(QPLiveSession *)session openVideoError:(NSError *)error {
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"摄像头获取失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-        [alertView show];
-    });
-}
-
-- (void)liveSession:(QPLiveSession *)session encodeAudioError:(NSError *)error {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"音频编码初始化失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-        [alertView show];
-    });
-    
-}
-
-- (void)liveSession:(QPLiveSession *)session encodeVideoError:(NSError *)error {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"视频编码初始化失败" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
-        [alertView show];
-    });
-}
-*/
-
 
 // 左侧工具栏按钮
 - (void)cameraButtonClick:(UIButton *)button {
@@ -531,7 +571,10 @@ UITextFieldDelegate
 }
 
 - (void)keyboardButtonAction:(UIButton *)button {
-    
+    if (_textField.text.length > 0) {
+        [self addMessage];
+        [_textField resignFirstResponder];
+    }
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -557,6 +600,7 @@ UITextFieldDelegate
         [UIView setAnimationBeginsFromCurrentState:YES];
         [UIView setAnimationCurve:[curve intValue]];
         _keyboardView.center = CGPointMake(_keyboardView.center.x, keyBoardEndY - _keyboardView.bounds.size.height/2.0);   // keyBoardEndY的坐标包括了状态栏的高度，要减去
+        _commentTableView.center = CGPointMake(_commentTableView.center.x, keyBoardEndY - 50 -_commentTableView.height / 2.0);
     }];
 }
 
@@ -573,11 +617,38 @@ UITextFieldDelegate
         [UIView setAnimationBeginsFromCurrentState:YES];
         [UIView setAnimationCurve:[curve intValue]];
         _keyboardView.center = CGPointMake(_keyboardView.center.x, keyBoardEndY - _keyboardView.bounds.size.height/2.0);   // keyBoardEndY的坐标包括了状态栏的高度，要减去
+        _commentTableView.center = CGPointMake(_commentTableView.center.x, keyBoardEndY - 50 -_commentTableView.height / 2.0);
     }];
     [UIView animateWithDuration:0.2 animations:^{
         _keyboardView.center = CGPointMake(_keyboardView.center.x, SCREEN_HEIGHT + _keyboardView.height / 2);
     }];
 }
+
+// AVIMClient协议方法
+- (void)conversation:(AVIMConversation *)conversation didReceiveCommonMessage:(nonnull AVIMMessage *)message {
+    NSString *str;
+    NSData *jsonData = [message.content dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error = nil;
+    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&error];
+    if (!error) {
+        NSString *msg = [dic objectForKey:@"_lctext"];
+        str = [NSString stringWithFormat:@"%@: %@", message.clientId, msg];
+    }
+    [_messageArray addObject:str];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:_messageArray.count - 1 inSection:0];
+    [_commentTableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    [_commentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
+}
+
+- (void)imClientPaused:(AVIMClient *)imClient {
+    UIAlertController *alerat = [UIAlertController alertControllerWithTitle:@"" message:@"网络太差" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [alerat addAction:action];
+    [self presentViewController:alerat animated:YES completion:nil];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

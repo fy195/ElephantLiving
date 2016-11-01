@@ -53,7 +53,6 @@
     [_viewCountLabel setAttributedText:str];
     _liveLabel.layer.borderWidth = 2.0f;
     _liveLabel.layer.borderColor = [UIColor whiteColor].CGColor;
-
 }
 
 - (void)setCoverImage:(UIImage *)coverImage {

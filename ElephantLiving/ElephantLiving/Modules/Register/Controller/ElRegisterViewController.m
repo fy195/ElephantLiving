@@ -136,11 +136,6 @@
     
     
     AVUser *userInfo = [AVUser currentUser];
-    
-    /**
-     *  昵称
-     */
-    [userInfo setObject:_userNameTextField.text forKey:@"nickname"];
     /**
      *  等级
      */
