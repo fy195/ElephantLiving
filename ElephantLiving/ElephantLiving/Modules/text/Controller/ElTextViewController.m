@@ -38,9 +38,10 @@
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"验证码已发送" message:@"验证码已发送到你请求的手机号码。如果没有收到，可以在一分钟后尝试重新发送。" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        [self.navigationController dismissViewControllerAnimated:alertController completion:nil];
+        [self dismissViewControllerAnimated:alertController completion:nil];
     }];
     [alertController addAction:cancelAction];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 - (void)countDownRequestTimer {
@@ -85,7 +86,7 @@
             
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"成功" message:@"验证码确认有效" preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                [self.navigationController dismissViewControllerAnimated:alertController completion:nil];
+                [self dismissViewControllerAnimated:alertController completion:nil];
             }];
             [alertController addAction:cancelAction];
             [self presentViewController:alertController animated:YES completion:nil];

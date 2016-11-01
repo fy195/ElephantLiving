@@ -20,12 +20,15 @@
 @interface ElLiveViewController ()
 <
 QPLiveSessionDelegate,
-AVIMClientDelegate
+AVIMClientDelegate,
+UITextFieldDelegate
 >
 
 @property (nonatomic, strong) AVIMClient *client;
 
 @property (nonatomic, strong) AVIMConversation *currentConversation;
+
+@property (nonatomic, strong) AVObject *liveRoom;
 
 @property (nonatomic, strong) NSMutableArray *messageArray;
 
@@ -57,6 +60,12 @@ AVIMClientDelegate
 
 @property (nonatomic, strong) NSString *timeString;
 
+@property (nonatomic, strong) UITextField *textField;
+
+@property (nonatomic, strong) UIView *keyboardView;
+
+@property (nonatomic, strong) UIButton *keyboardButton;
+
 @end
 
 @implementation ElLiveViewController{
@@ -72,7 +81,6 @@ AVIMClientDelegate
     _endView.hidden = YES;
     self.tabBarController.tabBar.hidden = YES;
 }
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -92,11 +100,6 @@ AVIMClientDelegate
     _timeImageView.center = self.view.center;
     _timeImageView.backgroundColor = [UIColor   clearColor];
     
-    // 添加观察者
-    /*
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appResignActive) name:UIApplicationWillResignActiveNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appBecomeActive) name:UIApplicationDidBecomeActiveNotification object:nil];*/
-    
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesture:)];
     [self.view addGestureRecognizer:gesture];
     
@@ -105,16 +108,22 @@ AVIMClientDelegate
     
 }
 
+// 创建工具栏
 - (void)createToolView {
+    [self createKeyboardView];
+    
+    // 结束画面
     self.endView = [[ElEndLiving alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     [_endView.backButton addTarget:self action:@selector(backHomeAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_endView];
     
+    // 顶部工具栏
     self.topToolView = [ElLivingTopView elLivingTopView];
-    _topToolView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 57);
+    _topToolView.frame = CGRectMake(0, 20, SCREEN_WIDTH, 57);
     _topToolView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:_topToolView];
     
+    // 左侧工具栏
     self.leftToolView = [ElLeftToolView elLeftToolView];
     _leftToolView.frame = CGRectMake(0, _topToolView.y + _topToolView.height, 50, 230);
     _leftToolView.backgroundColor = [UIColor clearColor];
@@ -123,9 +132,11 @@ AVIMClientDelegate
     [_leftToolView.flashlightButton addTarget:self action:@selector(flashButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_leftToolView];
     
+    // 底部工具栏
     self.bottomToolView = [ElLivingBottomToolView elLivingBottomToolView];
     _bottomToolView.frame = CGRectMake(0, SCREEN_HEIGHT - 206, SCREEN_WIDTH, 206);
     _bottomToolView.backgroundColor = [UIColor clearColor];
+    [_bottomToolView.commentButton addTarget:self action:@selector(commentButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_bottomToolView];
     
     self.closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -141,10 +152,41 @@ AVIMClientDelegate
     [self hiddenToolView:YES];
 }
 
+// 创建输入框
+- (void)createKeyboardView {
+    self.keyboardView = [[UIView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, 50)];
+    _keyboardView.backgroundColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:0.50];
+    [self.view addSubview:_keyboardView];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowAction:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHideAction:) name:UIKeyboardWillHideNotification object:nil];
+    
+    self.textField = [[UITextField alloc] initWithFrame:CGRectMake(20, 10, SCREEN_WIDTH - 20 - 80, 30)];
+    _textField.delegate = self;
+    _textField.placeholder = @"和大家说点什么";
+    _textField.borderStyle = UITextBorderStyleRoundedRect;
+    _textField.clearsOnBeginEditing = YES;
+    _textField.keyboardType = UIKeyboardTypeNamePhonePad;
+    [_keyboardView addSubview:_textField];
+    
+    self.keyboardButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _keyboardButton.frame = CGRectMake(_textField.x + _textField.width + 10, 10, 50, 30);
+    [_keyboardView addSubview:_keyboardButton];
+    [_keyboardButton setTitle:@"发送" forState:UIControlStateNormal];
+    [_keyboardButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+    _keyboardButton.backgroundColor = [UIColor clearColor];
+    _keyboardButton.layer.borderWidth = 1.0f;
+    _keyboardButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _keyboardButton.clipsToBounds = YES;
+    _keyboardButton.layer.cornerRadius = 7.0;
+    [_keyboardButton addTarget:self action:@selector(keyboardButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+// 主播结束直播按钮
 - (void)closeButtonAction:(UIButton *)button {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定结束直播吗？" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     UIAlertAction *commitAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [_liveRoom deleteInBackground];
         [_liveSession disconnectServer];
         [_liveSession stopPreview];
         _endView.hidden = NO;        
@@ -158,6 +200,7 @@ AVIMClientDelegate
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+// 隐藏工具栏
 - (void)hiddenToolView:(BOOL)isLiving {
     if (isLiving) {
         _topToolView.hidden = YES;
@@ -195,6 +238,7 @@ AVIMClientDelegate
             [self dismissViewControllerAnimated:YES completion:nil];
         }];
         [alerat addAction:action];
+        [self presentViewController:alerat animated:YES completion:nil];
     }];
 }
 
@@ -356,29 +400,30 @@ AVIMClientDelegate
     
 }
 
+// 创建直播间
 - (void)creatLiveRoom {
 
     AVUser *currentUser = [AVUser currentUser];
     
-    AVObject *liveRoom = [AVObject objectWithClassName:@"LiveRoom"];
+    self.liveRoom = [AVObject objectWithClassName:@"LiveRoom"];
     /**
      *  拉流地址
      */
-    [liveRoom setObject:_pullUrl forKey:@"pullUrl"];
+    [_liveRoom setObject:_pullUrl forKey:@"pullUrl"];
     /**
      *  主播信息
      */
-    [liveRoom setObject:currentUser forKey:@"host_info"];
+    [_liveRoom setObject:currentUser forKey:@"host_info"];
     /**
      *  观看人数
      */
-    [liveRoom setObject:@"0" forKey:@"view_count"];
+    [_liveRoom setObject:@"0" forKey:@"view_count"];
     /**
      *  观众信息
      */
-    [liveRoom setObject:@"" forKey:@"audience_info"];
+    [_liveRoom setObject:@"" forKey:@"audience_info"];
     
-    [liveRoom saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+    [_liveRoom saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
             NSLog(@"保存成功");
         } else {
@@ -387,10 +432,6 @@ AVIMClientDelegate
     }];
 
 }
-
-
-
-
 
 // session代理方法
 - (void)liveSession:(QPLiveSession *)session error:(NSError *)error{
@@ -408,7 +449,7 @@ AVIMClientDelegate
         [alertView show];
     });
 }
-
+/*
 - (void)liveSessionConnectSuccess:(QPLiveSession *)session {
     dispatch_async(dispatch_get_main_queue(), ^{
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"连接成功" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
@@ -459,7 +500,10 @@ AVIMClientDelegate
         [alertView show];
     });
 }
+*/
 
+
+// 左侧工具栏按钮
 - (void)cameraButtonClick:(UIButton *)button {
     button.selected = !button.isSelected;
     _liveSession.devicePosition = button.isSelected ? AVCaptureDevicePositionBack : AVCaptureDevicePositionFront;
@@ -474,6 +518,60 @@ AVIMClientDelegate
 - (void)flashButtonClick:(UIButton *)button {
     button.selected = !button.isSelected;
     _liveSession.torchMode = button.isSelected ? AVCaptureTorchModeOn : AVCaptureTorchModeOff;
+}
+
+// 底部工具栏按钮
+- (void)commentButtonAction:(UIButton *)button {
+    [_textField becomeFirstResponder];
+}
+
+- (void)keyboardButtonAction:(UIButton *)button {
+    
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [_textField resignFirstResponder];
+    return YES;
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [_textField resignFirstResponder];
+}
+
+// textField跟随键盘
+- (void) keyboardWillShowAction:(NSNotification *)notification{
+    NSDictionary *userInfo = [notification userInfo];
+    NSValue *value = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGFloat keyBoardEndY = value.CGRectValue.origin.y;  // 得到键盘弹出后的键盘视图所在y坐标
+    
+    NSNumber *duration = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    NSNumber *curve = [userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
+    
+    // 添加移动动画，使视图跟随键盘移动
+    [UIView animateWithDuration:duration.doubleValue animations:^{
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        [UIView setAnimationCurve:[curve intValue]];
+        _keyboardView.center = CGPointMake(_keyboardView.center.x, keyBoardEndY - _keyboardView.bounds.size.height/2.0);   // keyBoardEndY的坐标包括了状态栏的高度，要减去
+    }];
+}
+
+- (void) keyboardWillHideAction:(NSNotification *)notification{
+    NSDictionary *userInfo = [notification userInfo];
+    NSValue *value = [userInfo objectForKey:UIKeyboardFrameEndUserInfoKey];
+    CGFloat keyBoardEndY = value.CGRectValue.origin.y;  // 得到键盘弹出后的键盘视图所在y坐标
+    
+    NSNumber *duration = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
+    NSNumber *curve = [userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
+    
+    // 添加移动动画，使视图跟随键盘移动
+    [UIView animateWithDuration:duration.doubleValue animations:^{
+        [UIView setAnimationBeginsFromCurrentState:YES];
+        [UIView setAnimationCurve:[curve intValue]];
+        _keyboardView.center = CGPointMake(_keyboardView.center.x, keyBoardEndY - _keyboardView.bounds.size.height/2.0);   // keyBoardEndY的坐标包括了状态栏的高度，要减去
+    }];
+    [UIView animateWithDuration:0.2 animations:^{
+        _keyboardView.center = CGPointMake(_keyboardView.center.x, SCREEN_HEIGHT + _keyboardView.height / 2);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
