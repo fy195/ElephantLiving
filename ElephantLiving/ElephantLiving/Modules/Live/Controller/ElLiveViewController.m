@@ -14,11 +14,20 @@
 #import "ElLivingBottomToolView.h"
 #import "ElEndLiving.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import "AVOSCloudIM.h"
+#import "AVIMConversation.h"
 
 @interface ElLiveViewController ()
 <
-QPLiveSessionDelegate
+QPLiveSessionDelegate,
+AVIMClientDelegate
 >
+
+@property (nonatomic, strong) AVIMClient *client;
+
+@property (nonatomic, strong) AVIMConversation *currentConversation;
+
+@property (nonatomic, strong) NSMutableArray *messageArray;
 
 @property (nonatomic, strong) ElStartLiving *startView;
 
@@ -69,6 +78,8 @@ QPLiveSessionDelegate
     [super viewDidLoad];
     
     self.tabBarController.tabBar.hidden = YES;
+    
+    self.messageArray = [NSMutableArray array];
     
     self.startView = [[ElStartLiving alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:_startView];

@@ -59,15 +59,16 @@
 
 
 - (void)getUserInfo:(id)user {
-    AVQuery *query  = [AVQuery queryWithClassName:@"UserInfo"];
-    [query whereKey:@"owner" equalTo:user];
-    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"%@",error);
-        } else {
-            NSLog(@"%@",objects);
-        }
-    }];
+//    AVQuery *query  = [AVQuery queryWithClassName:@"UserInfo"];
+//    [query whereKey:@"owner" equalTo:user];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+//        if (error) {
+//            NSLog(@"%@",error);
+//        } else {
+//            NSLog(@"%@",objects);
+//        }
+//    }];
+    user = [AVUser currentUser];
 
 }
 
