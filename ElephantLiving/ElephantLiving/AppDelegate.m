@@ -40,8 +40,11 @@
     // Override point for customization after application launch.
     
     // 登录注册
-    [AVOSCloudCrashReporting enable];
+//    [AVOSCloudCrashReporting enable];
     [AVOSCloud setApplicationId:APP_ID clientKey:APP_KEY];
+    [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    [AVOSCloud setAllLogsEnabled:YES];
+
     
     
     
