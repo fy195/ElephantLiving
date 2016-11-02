@@ -9,5 +9,6 @@
 #import "ElBaseViewController.h"
 
 @interface ElWatchViewController : ElBaseViewController
-
+@property (nonatomic, strong) AVObject *liveRoom;
+@property (nonatomic, strong) UIImage *placeholderImage;
 @end

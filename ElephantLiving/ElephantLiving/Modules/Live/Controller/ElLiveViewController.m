@@ -74,8 +74,6 @@ UITableViewDataSource
 @implementation ElLiveViewController{
     QPLiveSession *_liveSession;
     AVCaptureDevicePosition _currentPosition;
-//    BOOL _isCTCallStateDisconnected;
-    
 }
 
 - (void)dealloc {
