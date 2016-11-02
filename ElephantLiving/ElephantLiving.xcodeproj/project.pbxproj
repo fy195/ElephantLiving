@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4904FB461DC9899800F68866 /* ElOtherLiveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4904FB451DC9899800F68866 /* ElOtherLiveModel.m */; };
+		4904FB491DC98ECF00F68866 /* ElOtherHostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4904FB481DC98ECF00F68866 /* ElOtherHostModel.m */; };
 		4916D8561DBEF02700FAFB68 /* ElWatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4916D8541DBEF02700FAFB68 /* ElWatchViewController.m */; };
 		492709CA1DB9C4B000D6F550 /* ElHotCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 492709C91DB9C4B000D6F550 /* ElHotCollectionViewCell.m */; };
 		492709CD1DB9C60D00D6F550 /* ElHotCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 492709CC1DB9C60D00D6F550 /* ElHotCarouselView.m */; };
@@ -111,6 +113,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4904FB441DC9899800F68866 /* ElOtherLiveModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ElOtherLiveModel.h; path = ../../../../../../Documents/ElOtherLiveModel.h; sourceTree = "<group>"; };
+		4904FB451DC9899800F68866 /* ElOtherLiveModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ElOtherLiveModel.m; path = ../../../../../../Documents/ElOtherLiveModel.m; sourceTree = "<group>"; };
+		4904FB471DC98ECF00F68866 /* ElOtherHostModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElOtherHostModel.h; sourceTree = "<group>"; };
+		4904FB481DC98ECF00F68866 /* ElOtherHostModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElOtherHostModel.m; sourceTree = "<group>"; };
 		4916D8531DBEF02700FAFB68 /* ElWatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElWatchViewController.h; sourceTree = "<group>"; };
 		4916D8541DBEF02700FAFB68 /* ElWatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElWatchViewController.m; sourceTree = "<group>"; };
 		492709C81DB9C4B000D6F550 /* ElHotCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElHotCollectionViewCell.h; sourceTree = "<group>"; };
@@ -844,6 +850,10 @@
 		49FE39DC1DB79BBE00FD8A99 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4904FB471DC98ECF00F68866 /* ElOtherHostModel.h */,
+				4904FB481DC98ECF00F68866 /* ElOtherHostModel.m */,
+				4904FB441DC9899800F68866 /* ElOtherLiveModel.h */,
+				4904FB451DC9899800F68866 /* ElOtherLiveModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1537,12 +1547,14 @@
 				498A10491DB8F25B003F86B8 /* ElListViewController.m in Sources */,
 				49FE39D21DB79B7200FD8A99 /* AboutMe.text in Sources */,
 				49DF2C601DC373600096E935 /* ElTextViewController.m in Sources */,
+				4904FB461DC9899800F68866 /* ElOtherLiveModel.m in Sources */,
 				49FE39911DB797E500FD8A99 /* ElBaseViewController.m in Sources */,
 				49FE39C81DB79A4C00FD8A99 /* DataBaseManager.m in Sources */,
 				49FE39C01DB79A4C00FD8A99 /* NSNumber+Extend.m in Sources */,
 				49FE39C71DB79A4C00FD8A99 /* UIView+Frame.m in Sources */,
 				49FE39C31DB79A4C00FD8A99 /* NSUserDefaults+Categories.m in Sources */,
 				49E759981DB8EE3100BDCB3C /* ElNormalListTableViewCell.m in Sources */,
+				4904FB491DC98ECF00F68866 /* ElOtherHostModel.m in Sources */,
 				492709CA1DB9C4B000D6F550 /* ElHotCollectionViewCell.m in Sources */,
 				49F2C95E1DB9AAED000589A7 /* ElPersonCharmTableViewCell.m in Sources */,
 				49FE39C61DB79A4C00FD8A99 /* UIImage+Categories.m in Sources */,

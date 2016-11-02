@@ -484,7 +484,6 @@ UITableViewDataSource
 - (void)creatLiveRoom {
 
     AVUser *currentUser = [AVUser currentUser];
-    
     self.liveRoom = [AVObject objectWithClassName:@"LiveRoom"];
     /**
      *  拉流地址
