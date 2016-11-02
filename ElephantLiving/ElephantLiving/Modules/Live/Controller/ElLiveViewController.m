@@ -15,6 +15,7 @@
 #import "ElEndLiving.h"
 #import "AVOSCloudIM.h"
 #import "AVIMConversation.h"
+#import "ElGiftView.h"
 
 @interface ElLiveViewController ()
 <
@@ -74,8 +75,6 @@ UITableViewDataSource
 @implementation ElLiveViewController{
     QPLiveSession *_liveSession;
     AVCaptureDevicePosition _currentPosition;
-//    BOOL _isCTCallStateDisconnected;
-    
 }
 
 - (void)dealloc {
@@ -145,6 +144,7 @@ UITableViewDataSource
     _bottomToolView.frame = CGRectMake(0, SCREEN_HEIGHT - 70, SCREEN_WIDTH, 70);
     _bottomToolView.backgroundColor = [UIColor clearColor];
     [_bottomToolView.commentButton addTarget:self action:@selector(commentButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [_bottomToolView.giftButton addTarget:self action:@selector(giftButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_bottomToolView];
     
     self.closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -192,6 +192,7 @@ UITableViewDataSource
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     cell.textLabel.text = _messageArray[indexPath.row];
+    cell.textLabel.textColor = [UIColor whiteColor];
     NSRange range = [_messageArray[indexPath.row] rangeOfString:@":"];
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",_messageArray[indexPath.row]]];
     NSRange range1 = NSMakeRange(0, range.location + 1);
@@ -647,6 +648,15 @@ UITableViewDataSource
     }];
     [alerat addAction:action];
     [self presentViewController:alerat animated:YES completion:nil];
+}
+
+// 礼物
+- (void)giftButtonAction:(UIButton *)giftButton {
+
+    ElGiftView *giftView = [[ElGiftView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT * 0.6, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4)];
+    [self.view addSubview:giftView];
+    
+
 }
 
 
