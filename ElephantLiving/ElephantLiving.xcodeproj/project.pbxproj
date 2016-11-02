@@ -38,6 +38,13 @@
 		499FBE321DB786CE0015CC1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 499FBE301DB786CE0015CC1D /* LaunchScreen.storyboard */; };
 		49B5F6421DC2FAA8006A3538 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B5F6411DC2FAA8006A3538 /* QuartzCore.framework */; };
 		49CA28531DC99AA900654B7C /* ElLivingRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CA28521DC99AA900654B7C /* ElLivingRoom.m */; };
+		49CA285B1DC9E25800654B7C /* xinyiba_riva_Dolphin01.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CA28541DC9E25800654B7C /* xinyiba_riva_Dolphin01.png */; };
+		49CA285C1DC9E25800654B7C /* xinyiba_riva_Dolphin02.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CA28551DC9E25800654B7C /* xinyiba_riva_Dolphin02.png */; };
+		49CA285D1DC9E25800654B7C /* xinyiba_riva_Dolphin03.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CA28561DC9E25800654B7C /* xinyiba_riva_Dolphin03.png */; };
+		49CA285E1DC9E25800654B7C /* xinyiba_riva_Dolphin04.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CA28571DC9E25800654B7C /* xinyiba_riva_Dolphin04.png */; };
+		49CA285F1DC9E25800654B7C /* xinyiba_riva_Dolphin05.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CA28581DC9E25800654B7C /* xinyiba_riva_Dolphin05.png */; };
+		49CA28601DC9E25800654B7C /* xinyiba_riva_Dolphin06.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CA28591DC9E25800654B7C /* xinyiba_riva_Dolphin06.png */; };
+		49CA28611DC9E25800654B7C /* xinyiba_riva_Dolphin08.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CA285A1DC9E25800654B7C /* xinyiba_riva_Dolphin08.png */; };
 		49DF2C201DC2DA040096E935 /* ElLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DF2C1E1DC2DA040096E935 /* ElLoginViewController.m */; };
 		49DF2C211DC2DA040096E935 /* ElLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49DF2C1F1DC2DA040096E935 /* ElLoginViewController.xib */; };
 		49DF2C251DC2DA220096E935 /* ElRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DF2C231DC2DA220096E935 /* ElRegisterViewController.m */; };
@@ -95,13 +102,6 @@
 		EB3347A11DC08D4D00AB0D18 /* ElStartLiving.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3347A01DC08D4D00AB0D18 /* ElStartLiving.m */; };
 		EB3347A51DC1889200AB0D18 /* ElEndLiving.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3347A41DC1889200AB0D18 /* ElEndLiving.m */; };
 		EB3347A71DC190C400AB0D18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB3347A61DC190C400AB0D18 /* Assets.xcassets */; };
-		EB5176251DC9D4660047DD49 /* xinyiba_riva_Dolphin01.png in Resources */ = {isa = PBXBuildFile; fileRef = EB51761E1DC9D4660047DD49 /* xinyiba_riva_Dolphin01.png */; };
-		EB5176261DC9D4660047DD49 /* xinyiba_riva_Dolphin02.png in Resources */ = {isa = PBXBuildFile; fileRef = EB51761F1DC9D4660047DD49 /* xinyiba_riva_Dolphin02.png */; };
-		EB5176271DC9D4660047DD49 /* xinyiba_riva_Dolphin03.png in Resources */ = {isa = PBXBuildFile; fileRef = EB5176201DC9D4660047DD49 /* xinyiba_riva_Dolphin03.png */; };
-		EB5176281DC9D4660047DD49 /* xinyiba_riva_Dolphin04.png in Resources */ = {isa = PBXBuildFile; fileRef = EB5176211DC9D4660047DD49 /* xinyiba_riva_Dolphin04.png */; };
-		EB5176291DC9D4660047DD49 /* xinyiba_riva_Dolphin05.png in Resources */ = {isa = PBXBuildFile; fileRef = EB5176221DC9D4660047DD49 /* xinyiba_riva_Dolphin05.png */; };
-		EB51762A1DC9D4660047DD49 /* xinyiba_riva_Dolphin06.png in Resources */ = {isa = PBXBuildFile; fileRef = EB5176231DC9D4660047DD49 /* xinyiba_riva_Dolphin06.png */; };
-		EB51762B1DC9D4660047DD49 /* xinyiba_riva_Dolphin08.png in Resources */ = {isa = PBXBuildFile; fileRef = EB5176241DC9D4660047DD49 /* xinyiba_riva_Dolphin08.png */; };
 		EB5233001DC4749E00B35743 /* ElCommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5232FF1DC4749E00B35743 /* ElCommonUtils.m */; };
 		EB70D63A1DBA06A1009D9E34 /* ElAlbumCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB70D6391DBA06A1009D9E34 /* ElAlbumCollectionViewCell.m */; };
 		EB70D63D1DBA0756009D9E34 /* ElGiftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB70D63C1DBA0756009D9E34 /* ElGiftTableViewCell.m */; };
@@ -164,6 +164,13 @@
 		49B5F6411DC2FAA8006A3538 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		49CA28511DC99AA900654B7C /* ElLivingRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElLivingRoom.h; sourceTree = "<group>"; };
 		49CA28521DC99AA900654B7C /* ElLivingRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElLivingRoom.m; sourceTree = "<group>"; };
+		49CA28541DC9E25800654B7C /* xinyiba_riva_Dolphin01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin01.png; sourceTree = "<group>"; };
+		49CA28551DC9E25800654B7C /* xinyiba_riva_Dolphin02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin02.png; sourceTree = "<group>"; };
+		49CA28561DC9E25800654B7C /* xinyiba_riva_Dolphin03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin03.png; sourceTree = "<group>"; };
+		49CA28571DC9E25800654B7C /* xinyiba_riva_Dolphin04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin04.png; sourceTree = "<group>"; };
+		49CA28581DC9E25800654B7C /* xinyiba_riva_Dolphin05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin05.png; sourceTree = "<group>"; };
+		49CA28591DC9E25800654B7C /* xinyiba_riva_Dolphin06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin06.png; sourceTree = "<group>"; };
+		49CA285A1DC9E25800654B7C /* xinyiba_riva_Dolphin08.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin08.png; sourceTree = "<group>"; };
 		49DF2C1D1DC2DA040096E935 /* ElLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElLoginViewController.h; sourceTree = "<group>"; };
 		49DF2C1E1DC2DA040096E935 /* ElLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElLoginViewController.m; sourceTree = "<group>"; };
 		49DF2C1F1DC2DA040096E935 /* ElLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElLoginViewController.xib; sourceTree = "<group>"; };
@@ -268,13 +275,6 @@
 		EB3347A31DC1889200AB0D18 /* ElEndLiving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElEndLiving.h; sourceTree = "<group>"; };
 		EB3347A41DC1889200AB0D18 /* ElEndLiving.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElEndLiving.m; sourceTree = "<group>"; };
 		EB3347A61DC190C400AB0D18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EB51761E1DC9D4660047DD49 /* xinyiba_riva_Dolphin01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin01.png; sourceTree = "<group>"; };
-		EB51761F1DC9D4660047DD49 /* xinyiba_riva_Dolphin02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin02.png; sourceTree = "<group>"; };
-		EB5176201DC9D4660047DD49 /* xinyiba_riva_Dolphin03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin03.png; sourceTree = "<group>"; };
-		EB5176211DC9D4660047DD49 /* xinyiba_riva_Dolphin04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin04.png; sourceTree = "<group>"; };
-		EB5176221DC9D4660047DD49 /* xinyiba_riva_Dolphin05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin05.png; sourceTree = "<group>"; };
-		EB5176231DC9D4660047DD49 /* xinyiba_riva_Dolphin06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin06.png; sourceTree = "<group>"; };
-		EB5176241DC9D4660047DD49 /* xinyiba_riva_Dolphin08.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin08.png; sourceTree = "<group>"; };
 		EB5232FE1DC4749E00B35743 /* ElCommonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElCommonUtils.h; sourceTree = "<group>"; };
 		EB5232FF1DC4749E00B35743 /* ElCommonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElCommonUtils.m; sourceTree = "<group>"; };
 		EB70D6381DBA06A1009D9E34 /* ElAlbumCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElAlbumCollectionViewCell.h; sourceTree = "<group>"; };
@@ -1301,13 +1301,13 @@
 		EB51761D1DC9D4660047DD49 /* haitun */ = {
 			isa = PBXGroup;
 			children = (
-				EB51761E1DC9D4660047DD49 /* xinyiba_riva_Dolphin01.png */,
-				EB51761F1DC9D4660047DD49 /* xinyiba_riva_Dolphin02.png */,
-				EB5176201DC9D4660047DD49 /* xinyiba_riva_Dolphin03.png */,
-				EB5176211DC9D4660047DD49 /* xinyiba_riva_Dolphin04.png */,
-				EB5176221DC9D4660047DD49 /* xinyiba_riva_Dolphin05.png */,
-				EB5176231DC9D4660047DD49 /* xinyiba_riva_Dolphin06.png */,
-				EB5176241DC9D4660047DD49 /* xinyiba_riva_Dolphin08.png */,
+				49CA28541DC9E25800654B7C /* xinyiba_riva_Dolphin01.png */,
+				49CA28551DC9E25800654B7C /* xinyiba_riva_Dolphin02.png */,
+				49CA28561DC9E25800654B7C /* xinyiba_riva_Dolphin03.png */,
+				49CA28571DC9E25800654B7C /* xinyiba_riva_Dolphin04.png */,
+				49CA28581DC9E25800654B7C /* xinyiba_riva_Dolphin05.png */,
+				49CA28591DC9E25800654B7C /* xinyiba_riva_Dolphin06.png */,
+				49CA285A1DC9E25800654B7C /* xinyiba_riva_Dolphin08.png */,
 			);
 			path = haitun;
 			sourceTree = "<group>";
@@ -1428,7 +1428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49DF2C211DC2DA040096E935 /* ElLoginViewController.xib in Resources */,
-				EB5176261DC9D4660047DD49 /* xinyiba_riva_Dolphin02.png in Resources */,
+				49CA285C1DC9E25800654B7C /* xinyiba_riva_Dolphin02.png in Resources */,
 				499FBE321DB786CE0015CC1D /* LaunchScreen.storyboard in Resources */,
 				49DF2C611DC373600096E935 /* ElTextViewController.xib in Resources */,
 				493907561DB8EEF000F06D40 /* ElNewCollectionViewCell.xib in Resources */,
@@ -1436,18 +1436,18 @@
 				493DA3FD1DC217F90031C317 /* ElLeftToolView.xib in Resources */,
 				493DA3931DC1CA7D0031C317 /* ElLivingTopView.xib in Resources */,
 				49F2C95F1DB9AAED000589A7 /* ElPersonCharmTableViewCell.xib in Resources */,
-				EB5176251DC9D4660047DD49 /* xinyiba_riva_Dolphin01.png in Resources */,
+				49CA285B1DC9E25800654B7C /* xinyiba_riva_Dolphin01.png in Resources */,
 				49DF2C261DC2DA220096E935 /* ElRegisterViewController.xib in Resources */,
 				493DA3911DC1CA7D0031C317 /* ElLivingBottomToolView.xib in Resources */,
-				EB5176271DC9D4660047DD49 /* xinyiba_riva_Dolphin03.png in Resources */,
-				EB51762B1DC9D4660047DD49 /* xinyiba_riva_Dolphin08.png in Resources */,
-				EB51762A1DC9D4660047DD49 /* xinyiba_riva_Dolphin06.png in Resources */,
+				49CA285D1DC9E25800654B7C /* xinyiba_riva_Dolphin03.png in Resources */,
+				49CA28611DC9E25800654B7C /* xinyiba_riva_Dolphin08.png in Resources */,
+				49CA28601DC9E25800654B7C /* xinyiba_riva_Dolphin06.png in Resources */,
 				49F2C95A1DB99F9E000589A7 /* ElPersonTableViewCell.xib in Resources */,
-				EB5176291DC9D4660047DD49 /* xinyiba_riva_Dolphin05.png in Resources */,
+				49CA285F1DC9E25800654B7C /* xinyiba_riva_Dolphin05.png in Resources */,
 				EB3347A71DC190C400AB0D18 /* Assets.xcassets in Resources */,
 				493907511DB8EED400F06D40 /* ElHotTableViewCell.xib in Resources */,
 				499FBE2D1DB786CE0015CC1D /* Main.storyboard in Resources */,
-				EB5176281DC9D4660047DD49 /* xinyiba_riva_Dolphin04.png in Resources */,
+				49CA285E1DC9E25800654B7C /* xinyiba_riva_Dolphin04.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
