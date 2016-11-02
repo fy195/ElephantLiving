@@ -15,6 +15,7 @@
 #import "ElEndLiving.h"
 #import "AVOSCloudIM.h"
 #import "AVIMConversation.h"
+#import "ElGiftView.h"
 
 @interface ElLiveViewController ()
 <
@@ -145,6 +146,7 @@ UITableViewDataSource
     _bottomToolView.frame = CGRectMake(0, SCREEN_HEIGHT - 70, SCREEN_WIDTH, 70);
     _bottomToolView.backgroundColor = [UIColor clearColor];
     [_bottomToolView.commentButton addTarget:self action:@selector(commentButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [_bottomToolView.giftButton addTarget:self action:@selector(giftButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_bottomToolView];
     
     self.closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -648,6 +650,15 @@ UITableViewDataSource
     }];
     [alerat addAction:action];
     [self presentViewController:alerat animated:YES completion:nil];
+}
+
+// 礼物
+- (void)giftButtonAction:(UIButton *)giftButton {
+
+    ElGiftView *giftView = [[ElGiftView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT * 0.6, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4)];
+    [self.view addSubview:giftView];
+    
+
 }
 
 

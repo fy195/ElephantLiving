@@ -92,9 +92,18 @@
 		EB3347A11DC08D4D00AB0D18 /* ElStartLiving.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3347A01DC08D4D00AB0D18 /* ElStartLiving.m */; };
 		EB3347A51DC1889200AB0D18 /* ElEndLiving.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3347A41DC1889200AB0D18 /* ElEndLiving.m */; };
 		EB3347A71DC190C400AB0D18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB3347A61DC190C400AB0D18 /* Assets.xcassets */; };
+		EB5176251DC9D4660047DD49 /* xinyiba_riva_Dolphin01.png in Resources */ = {isa = PBXBuildFile; fileRef = EB51761E1DC9D4660047DD49 /* xinyiba_riva_Dolphin01.png */; };
+		EB5176261DC9D4660047DD49 /* xinyiba_riva_Dolphin02.png in Resources */ = {isa = PBXBuildFile; fileRef = EB51761F1DC9D4660047DD49 /* xinyiba_riva_Dolphin02.png */; };
+		EB5176271DC9D4660047DD49 /* xinyiba_riva_Dolphin03.png in Resources */ = {isa = PBXBuildFile; fileRef = EB5176201DC9D4660047DD49 /* xinyiba_riva_Dolphin03.png */; };
+		EB5176281DC9D4660047DD49 /* xinyiba_riva_Dolphin04.png in Resources */ = {isa = PBXBuildFile; fileRef = EB5176211DC9D4660047DD49 /* xinyiba_riva_Dolphin04.png */; };
+		EB5176291DC9D4660047DD49 /* xinyiba_riva_Dolphin05.png in Resources */ = {isa = PBXBuildFile; fileRef = EB5176221DC9D4660047DD49 /* xinyiba_riva_Dolphin05.png */; };
+		EB51762A1DC9D4660047DD49 /* xinyiba_riva_Dolphin06.png in Resources */ = {isa = PBXBuildFile; fileRef = EB5176231DC9D4660047DD49 /* xinyiba_riva_Dolphin06.png */; };
+		EB51762B1DC9D4660047DD49 /* xinyiba_riva_Dolphin08.png in Resources */ = {isa = PBXBuildFile; fileRef = EB5176241DC9D4660047DD49 /* xinyiba_riva_Dolphin08.png */; };
 		EB5233001DC4749E00B35743 /* ElCommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5232FF1DC4749E00B35743 /* ElCommonUtils.m */; };
 		EB70D63A1DBA06A1009D9E34 /* ElAlbumCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB70D6391DBA06A1009D9E34 /* ElAlbumCollectionViewCell.m */; };
 		EB70D63D1DBA0756009D9E34 /* ElGiftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB70D63C1DBA0756009D9E34 /* ElGiftTableViewCell.m */; };
+		EB93C5AF1DC9793C005C8E7B /* ElGiftView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB93C5AE1DC9793C005C8E7B /* ElGiftView.m */; };
+		EB93C5B21DC98581005C8E7B /* ElGiftCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB93C5B11DC98581005C8E7B /* ElGiftCollectionViewCell.m */; };
 		EB99EAF61DC0506000621EF3 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB99EAF11DC0506000621EF3 /* IJKMediaFramework.framework */; };
 		EB99EAF81DC0506000621EF3 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = EB99EAF31DC0506000621EF3 /* README.md */; };
 		EB99EAF91DC0506000621EF3 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB99EAF51DC0506000621EF3 /* IJKMediaFramework.framework */; };
@@ -250,12 +259,23 @@
 		EB3347A31DC1889200AB0D18 /* ElEndLiving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElEndLiving.h; sourceTree = "<group>"; };
 		EB3347A41DC1889200AB0D18 /* ElEndLiving.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElEndLiving.m; sourceTree = "<group>"; };
 		EB3347A61DC190C400AB0D18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EB51761E1DC9D4660047DD49 /* xinyiba_riva_Dolphin01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin01.png; sourceTree = "<group>"; };
+		EB51761F1DC9D4660047DD49 /* xinyiba_riva_Dolphin02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin02.png; sourceTree = "<group>"; };
+		EB5176201DC9D4660047DD49 /* xinyiba_riva_Dolphin03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin03.png; sourceTree = "<group>"; };
+		EB5176211DC9D4660047DD49 /* xinyiba_riva_Dolphin04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin04.png; sourceTree = "<group>"; };
+		EB5176221DC9D4660047DD49 /* xinyiba_riva_Dolphin05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin05.png; sourceTree = "<group>"; };
+		EB5176231DC9D4660047DD49 /* xinyiba_riva_Dolphin06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin06.png; sourceTree = "<group>"; };
+		EB5176241DC9D4660047DD49 /* xinyiba_riva_Dolphin08.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin08.png; sourceTree = "<group>"; };
 		EB5232FE1DC4749E00B35743 /* ElCommonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElCommonUtils.h; sourceTree = "<group>"; };
 		EB5232FF1DC4749E00B35743 /* ElCommonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElCommonUtils.m; sourceTree = "<group>"; };
 		EB70D6381DBA06A1009D9E34 /* ElAlbumCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElAlbumCollectionViewCell.h; sourceTree = "<group>"; };
 		EB70D6391DBA06A1009D9E34 /* ElAlbumCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElAlbumCollectionViewCell.m; sourceTree = "<group>"; };
 		EB70D63B1DBA0756009D9E34 /* ElGiftTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElGiftTableViewCell.h; sourceTree = "<group>"; };
 		EB70D63C1DBA0756009D9E34 /* ElGiftTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElGiftTableViewCell.m; sourceTree = "<group>"; };
+		EB93C5AD1DC9793C005C8E7B /* ElGiftView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElGiftView.h; sourceTree = "<group>"; };
+		EB93C5AE1DC9793C005C8E7B /* ElGiftView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElGiftView.m; sourceTree = "<group>"; };
+		EB93C5B01DC98581005C8E7B /* ElGiftCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElGiftCollectionViewCell.h; sourceTree = "<group>"; };
+		EB93C5B11DC98581005C8E7B /* ElGiftCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElGiftCollectionViewCell.m; sourceTree = "<group>"; };
 		EB99EAF11DC0506000621EF3 /* IJKMediaFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFramework.framework; sourceTree = "<group>"; };
 		EB99EAF21DC0506000621EF3 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		EB99EAF31DC0506000621EF3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -725,6 +745,7 @@
 		49FE39D41DB79B8C00FD8A99 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EB51761C1DC9D4530047DD49 /* Image */,
 				49F2C9651DB9AFA0000589A7 /* Album */,
 				49FE3A021DB79D0F00FD8A99 /* ForgetPassword */,
 				49F2C9601DB9AF3E000589A7 /* Gift */,
@@ -1044,6 +1065,10 @@
 				493DA38F1DC1CA7D0031C317 /* ElLivingTopView.xib */,
 				EB33479F1DC08D4D00AB0D18 /* ElStartLiving.h */,
 				EB3347A01DC08D4D00AB0D18 /* ElStartLiving.m */,
+				EB93C5AD1DC9793C005C8E7B /* ElGiftView.h */,
+				EB93C5AE1DC9793C005C8E7B /* ElGiftView.m */,
+				EB93C5B01DC98581005C8E7B /* ElGiftCollectionViewCell.h */,
+				EB93C5B11DC98581005C8E7B /* ElGiftCollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1250,6 +1275,28 @@
 			path = lib;
 			sourceTree = "<group>";
 		};
+		EB51761C1DC9D4530047DD49 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				EB51761D1DC9D4660047DD49 /* haitun */,
+			);
+			name = Image;
+			sourceTree = "<group>";
+		};
+		EB51761D1DC9D4660047DD49 /* haitun */ = {
+			isa = PBXGroup;
+			children = (
+				EB51761E1DC9D4660047DD49 /* xinyiba_riva_Dolphin01.png */,
+				EB51761F1DC9D4660047DD49 /* xinyiba_riva_Dolphin02.png */,
+				EB5176201DC9D4660047DD49 /* xinyiba_riva_Dolphin03.png */,
+				EB5176211DC9D4660047DD49 /* xinyiba_riva_Dolphin04.png */,
+				EB5176221DC9D4660047DD49 /* xinyiba_riva_Dolphin05.png */,
+				EB5176231DC9D4660047DD49 /* xinyiba_riva_Dolphin06.png */,
+				EB5176241DC9D4660047DD49 /* xinyiba_riva_Dolphin08.png */,
+			);
+			path = haitun;
+			sourceTree = "<group>";
+		};
 		EB99EAEE1DC0506000621EF3 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
@@ -1366,6 +1413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				49DF2C211DC2DA040096E935 /* ElLoginViewController.xib in Resources */,
+				EB5176261DC9D4660047DD49 /* xinyiba_riva_Dolphin02.png in Resources */,
 				499FBE321DB786CE0015CC1D /* LaunchScreen.storyboard in Resources */,
 				49DF2C611DC373600096E935 /* ElTextViewController.xib in Resources */,
 				493907561DB8EEF000F06D40 /* ElNewCollectionViewCell.xib in Resources */,
@@ -1373,12 +1421,18 @@
 				493DA3FD1DC217F90031C317 /* ElLeftToolView.xib in Resources */,
 				493DA3931DC1CA7D0031C317 /* ElLivingTopView.xib in Resources */,
 				49F2C95F1DB9AAED000589A7 /* ElPersonCharmTableViewCell.xib in Resources */,
+				EB5176251DC9D4660047DD49 /* xinyiba_riva_Dolphin01.png in Resources */,
 				49DF2C261DC2DA220096E935 /* ElRegisterViewController.xib in Resources */,
 				493DA3911DC1CA7D0031C317 /* ElLivingBottomToolView.xib in Resources */,
+				EB5176271DC9D4660047DD49 /* xinyiba_riva_Dolphin03.png in Resources */,
+				EB51762B1DC9D4660047DD49 /* xinyiba_riva_Dolphin08.png in Resources */,
+				EB51762A1DC9D4660047DD49 /* xinyiba_riva_Dolphin06.png in Resources */,
 				49F2C95A1DB99F9E000589A7 /* ElPersonTableViewCell.xib in Resources */,
+				EB5176291DC9D4660047DD49 /* xinyiba_riva_Dolphin05.png in Resources */,
 				EB3347A71DC190C400AB0D18 /* Assets.xcassets in Resources */,
 				493907511DB8EED400F06D40 /* ElHotTableViewCell.xib in Resources */,
 				499FBE2D1DB786CE0015CC1D /* Main.storyboard in Resources */,
+				EB5176281DC9D4660047DD49 /* xinyiba_riva_Dolphin04.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1460,6 +1514,7 @@
 				EB5233001DC4749E00B35743 /* ElCommonUtils.m in Sources */,
 				49F2C97F1DB9B0CA000589A7 /* ElManageViewController.m in Sources */,
 				EB3347A51DC1889200AB0D18 /* ElEndLiving.m in Sources */,
+				EB93C5B21DC98581005C8E7B /* ElGiftCollectionViewCell.m in Sources */,
 				49FE398E1DB797D500FD8A99 /* ElBaseView.m in Sources */,
 				EB99EAF81DC0506000621EF3 /* README.md in Sources */,
 				49FE87241DB8BDD2000092C2 /* ElNewViewController.m in Sources */,
@@ -1496,6 +1551,7 @@
 				499FBE241DB786CE0015CC1D /* main.m in Sources */,
 				493DA3891DC188E90031C317 /* ElMainTabBar.m in Sources */,
 				49FE3A171DB7A1FE00FD8A99 /* ElHomePageViewController.m in Sources */,
+				EB93C5AF1DC9793C005C8E7B /* ElGiftView.m in Sources */,
 				EB70D63D1DBA0756009D9E34 /* ElGiftTableViewCell.m in Sources */,
 				EB70D63A1DBA06A1009D9E34 /* ElAlbumCollectionViewCell.m in Sources */,
 				49DF2C201DC2DA040096E935 /* ElLoginViewController.m in Sources */,
