@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4904FB461DC9899800F68866 /* ElOtherLiveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4904FB451DC9899800F68866 /* ElOtherLiveModel.m */; };
-		4904FB491DC98ECF00F68866 /* ElOtherHostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4904FB481DC98ECF00F68866 /* ElOtherHostModel.m */; };
 		4916D8561DBEF02700FAFB68 /* ElWatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4916D8541DBEF02700FAFB68 /* ElWatchViewController.m */; };
 		492709CA1DB9C4B000D6F550 /* ElHotCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 492709C91DB9C4B000D6F550 /* ElHotCollectionViewCell.m */; };
 		492709CD1DB9C60D00D6F550 /* ElHotCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 492709CC1DB9C60D00D6F550 /* ElHotCarouselView.m */; };
@@ -115,8 +114,6 @@
 /* Begin PBXFileReference section */
 		4904FB441DC9899800F68866 /* ElOtherLiveModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ElOtherLiveModel.h; path = ../../../../../../Documents/ElOtherLiveModel.h; sourceTree = "<group>"; };
 		4904FB451DC9899800F68866 /* ElOtherLiveModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ElOtherLiveModel.m; path = ../../../../../../Documents/ElOtherLiveModel.m; sourceTree = "<group>"; };
-		4904FB471DC98ECF00F68866 /* ElOtherHostModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElOtherHostModel.h; sourceTree = "<group>"; };
-		4904FB481DC98ECF00F68866 /* ElOtherHostModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElOtherHostModel.m; sourceTree = "<group>"; };
 		4916D8531DBEF02700FAFB68 /* ElWatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElWatchViewController.h; sourceTree = "<group>"; };
 		4916D8541DBEF02700FAFB68 /* ElWatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElWatchViewController.m; sourceTree = "<group>"; };
 		492709C81DB9C4B000D6F550 /* ElHotCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElHotCollectionViewCell.h; sourceTree = "<group>"; };
@@ -754,13 +751,13 @@
 		49FE39D41DB79B8C00FD8A99 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				EB51761C1DC9D4530047DD49 /* Image */,
 				49F2C9651DB9AFA0000589A7 /* Album */,
 				49FE3A021DB79D0F00FD8A99 /* ForgetPassword */,
 				49F2C9601DB9AF3E000589A7 /* Gift */,
 				49FE39D51DB79B9900FD8A99 /* Home */,
 				49FE3A101DB7A19200FD8A99 /* HomePage */,
 				49FE39DA1DB79BB300FD8A99 /* Hot */,
+				EB51761C1DC9D4530047DD49 /* Image */,
 				49FE39EE1DB79C6100FD8A99 /* List */,
 				49FE39F31DB79CA100FD8A99 /* Live */,
 				49FE39F81DB79CC200FD8A99 /* Login */,
@@ -852,8 +849,6 @@
 			children = (
 				4904FB441DC9899800F68866 /* ElOtherLiveModel.h */,
 				4904FB451DC9899800F68866 /* ElOtherLiveModel.m */,
-				4904FB471DC98ECF00F68866 /* ElOtherHostModel.h */,
-				4904FB481DC98ECF00F68866 /* ElOtherHostModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1067,6 +1062,10 @@
 			children = (
 				EB3347A31DC1889200AB0D18 /* ElEndLiving.h */,
 				EB3347A41DC1889200AB0D18 /* ElEndLiving.m */,
+				EB93C5B01DC98581005C8E7B /* ElGiftCollectionViewCell.h */,
+				EB93C5B11DC98581005C8E7B /* ElGiftCollectionViewCell.m */,
+				EB93C5AD1DC9793C005C8E7B /* ElGiftView.h */,
+				EB93C5AE1DC9793C005C8E7B /* ElGiftView.m */,
 				493DA3F91DC217F90031C317 /* ElLeftToolView.h */,
 				493DA3FA1DC217F90031C317 /* ElLeftToolView.m */,
 				493DA3FB1DC217F90031C317 /* ElLeftToolView.xib */,
@@ -1078,10 +1077,6 @@
 				493DA38F1DC1CA7D0031C317 /* ElLivingTopView.xib */,
 				EB33479F1DC08D4D00AB0D18 /* ElStartLiving.h */,
 				EB3347A01DC08D4D00AB0D18 /* ElStartLiving.m */,
-				EB93C5AD1DC9793C005C8E7B /* ElGiftView.h */,
-				EB93C5AE1DC9793C005C8E7B /* ElGiftView.m */,
-				EB93C5B01DC98581005C8E7B /* ElGiftCollectionViewCell.h */,
-				EB93C5B11DC98581005C8E7B /* ElGiftCollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1295,7 +1290,7 @@
 			children = (
 				EB51761D1DC9D4660047DD49 /* haitun */,
 			);
-			name = Image;
+			path = Image;
 			sourceTree = "<group>";
 		};
 		EB51761D1DC9D4660047DD49 /* haitun */ = {
@@ -1554,7 +1549,6 @@
 				49FE39C71DB79A4C00FD8A99 /* UIView+Frame.m in Sources */,
 				49FE39C31DB79A4C00FD8A99 /* NSUserDefaults+Categories.m in Sources */,
 				49E759981DB8EE3100BDCB3C /* ElNormalListTableViewCell.m in Sources */,
-				4904FB491DC98ECF00F68866 /* ElOtherHostModel.m in Sources */,
 				492709CA1DB9C4B000D6F550 /* ElHotCollectionViewCell.m in Sources */,
 				49F2C95E1DB9AAED000589A7 /* ElPersonCharmTableViewCell.m in Sources */,
 				49FE39C61DB79A4C00FD8A99 /* UIImage+Categories.m in Sources */,
