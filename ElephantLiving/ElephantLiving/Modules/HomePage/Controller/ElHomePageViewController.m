@@ -18,7 +18,8 @@
 
 @interface ElHomePageViewController ()
 <
-UIScrollViewDelegate
+UIScrollViewDelegate,
+ElHotViewControllerDelegate
 >
 @property (nonatomic, strong) ElTopView *topView;
 
@@ -111,15 +112,22 @@ UIScrollViewDelegate
     self.hotVC = [[ElHotViewController alloc] init];
     _hotVC.view.backgroundColor = [UIColor colorWithRed:0.9931 green:0.8483 blue:0.8528 alpha:1.0];
     _hotVC.view.x = SCREEN_WIDTH;
+    _hotVC.delegate = self;
+    
     __weak typeof(self) weakself = self;
     [_hotVC.button  handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         ElWatchViewController *view = [[ElWatchViewController alloc] init];
         [weakself presentViewController:view animated:YES completion:nil];
     }];
+    
     [_scrollView addSubview:_hotVC.view];
     
 }
 
+- (void)presentWatchController {
+    ElWatchViewController *watchVC = [[ElWatchViewController alloc] init];
+    [self presentViewController:watchVC animated:YES completion:nil];
+}
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     CGFloat page = scrollView.contentOffset.x / SCREEN_WIDTH;
@@ -138,5 +146,6 @@ UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
         self.topView.underLine.centerX = SCREEN_WIDTH / 2 + (scrollView.contentOffset.x - SCREEN_WIDTH) / 4;
 }
+
 
 @end

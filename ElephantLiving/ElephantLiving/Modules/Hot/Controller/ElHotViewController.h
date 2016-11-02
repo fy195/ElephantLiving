@@ -8,7 +8,14 @@
 
 #import "ElBaseViewController.h"
 
+@protocol ElHotViewControllerDelegate <NSObject>
+
+- (void)presentWatchController;
+
+@end
+
 @interface ElHotViewController : ElBaseViewController
 @property (nonatomic, strong) UIButton *button;
+@property (nonatomic, assign) id<ElHotViewControllerDelegate>delegate;
 
 @end
