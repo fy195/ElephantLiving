@@ -12,7 +12,6 @@
 #import "ElLivingBottomToolView.h"
 
 @interface ElWatchViewController ()
-@property (nonatomic, weak) UIView *playView;
 @property (nonatomic, strong)  IJKFFMoviePlayerController *moviePlayer;
 @property (nonatomic, strong) UIButton *closeButton;
 @end

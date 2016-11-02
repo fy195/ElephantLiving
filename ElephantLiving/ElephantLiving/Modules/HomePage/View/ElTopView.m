@@ -52,14 +52,14 @@
     _hotButton.centerX = SCREEN_WIDTH / 2;
     _hotButton.width = SCREEN_WIDTH * 0.1;
     _hotButton.height = 20;
-    _hotButton.centerY =( self.height + 20) / 2;
+    _hotButton.centerY = (self.height + 20) / 2;
     
-    _newestButton.centerY = _hotButton.centerY;
+    _newestButton.centerY = (self.height + 20) / 2;
     _newestButton.centerX = SCREEN_WIDTH / 4;
     _newestButton.width = _hotButton.width;
     _newestButton.height = _hotButton.width;
     
-    _listButton.centerY = _hotButton.centerY;
+    _listButton.centerY = (self.height + 20) / 2;
     _listButton.width = _hotButton.width;
     _listButton.centerX = SCREEN_WIDTH / 4 * 3;
     _listButton.height = _hotButton.width;

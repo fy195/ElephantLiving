@@ -192,6 +192,7 @@ UITableViewDataSource
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     cell.textLabel.text = _messageArray[indexPath.row];
+    cell.textLabel.textColor = [UIColor whiteColor];
     NSRange range = [_messageArray[indexPath.row] rangeOfString:@":"];
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",_messageArray[indexPath.row]]];
     NSRange range1 = NSMakeRange(0, range.location + 1);
