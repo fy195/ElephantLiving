@@ -43,7 +43,6 @@
                 }];
                 [alertController addAction:cancelAction];
                 [self presentViewController:alertController animated:YES completion:nil];
-                
             } else {
                 [self getUserInfo:user];
                 [self.navigationController popViewControllerAnimated:YES];
