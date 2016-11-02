@@ -12,7 +12,6 @@
 #import "ElWatchViewController.h"
 #import "ElHotTableViewCell.h"
 #import "ElOtherLiveModel.h"
-#import "ElOtherHostModel.h"
 
 static NSString *const identifier = @"cell";
 static NSString *const carousel = @"carousel";
