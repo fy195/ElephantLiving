@@ -124,6 +124,7 @@ AVIMClientDelegate
     if (nil == cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = _messageArray[indexPath.row];
     cell.textLabel.textColor = [UIColor colorWithWhite:0.900 alpha:1.000];
     NSRange range = [_messageArray[indexPath.row] rangeOfString:@":"];
