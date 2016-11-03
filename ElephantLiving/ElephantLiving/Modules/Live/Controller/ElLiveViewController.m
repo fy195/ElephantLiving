@@ -508,7 +508,7 @@ ElGiftViewDelegate
     self.client = [[AVIMClient alloc] initWithClientId:user.username];
     _client.delegate = self;
     [_client openWithCallback:^(BOOL succeeded, NSError * _Nullable error) {
-        NSString *topic = _liveRoom.objectId;
+        NSString *topic = _liveRoom.host_name;
         NSDictionary *dic = @{@"topic":topic};
         [_client createConversationWithName:topic clientIds:@[] attributes:dic options:AVIMConversationOptionTransient callback:^(AVIMConversation * _Nullable conversation, NSError * _Nullable error) {
             if (!error) {
