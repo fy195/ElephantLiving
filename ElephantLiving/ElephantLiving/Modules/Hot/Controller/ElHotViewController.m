@@ -133,7 +133,7 @@ UITableViewDelegate
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 108) style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    _tableView.rowHeight = 450;
+    _tableView.rowHeight = 420;
     [self.view addSubview:_tableView];
     
     self.carouselView = [[ElHotCarouselView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 100)];
@@ -153,6 +153,7 @@ UITableViewDelegate
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ElHotTableViewCell" owner:nil options:nil];
         cell = [nib firstObject];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.name = liveRoom.host_name;
     cell.viewCount = liveRoom.view_count;
     cell.level = liveRoom.level;

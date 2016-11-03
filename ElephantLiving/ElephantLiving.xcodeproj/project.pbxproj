@@ -420,17 +420,17 @@
 		49CA28621DC9EC0800654B7C /* AVObject */ = {
 			isa = PBXGroup;
 			children = (
-				491E05C31DCB2E6C009342BA /* ElAVOSCloud.h */,
 				491E05BF1DCB2B17009342BA /* AVObject+ElClassMap.h */,
 				491E05C01DCB2B17009342BA /* AVObject+ElClassMap.m */,
-				49CA28661DC9EE0500654B7C /* ElGift.h */,
-				49CA28671DC9EE0500654B7C /* ElGift.m */,
-				491E05B91DCB289E009342BA /* LiveRoom.h */,
-				491E05BA1DCB289E009342BA /* LiveRoom.m */,
-				49CA28631DC9EC8900654B7C /* ElUser.h */,
-				49CA28641DC9EC8900654B7C /* ElUser.m */,
+				491E05C31DCB2E6C009342BA /* ElAVOSCloud.h */,
 				491E05C41DCB2EE1009342BA /* ElBaseAVObject.h */,
 				491E05C51DCB2EE1009342BA /* ElBaseAVObject.m */,
+				49CA28661DC9EE0500654B7C /* ElGift.h */,
+				49CA28671DC9EE0500654B7C /* ElGift.m */,
+				49CA28631DC9EC8900654B7C /* ElUser.h */,
+				49CA28641DC9EC8900654B7C /* ElUser.m */,
+				491E05B91DCB289E009342BA /* LiveRoom.h */,
+				491E05BA1DCB289E009342BA /* LiveRoom.m */,
 			);
 			path = AVObject;
 			sourceTree = "<group>";
@@ -1580,11 +1580,8 @@
 				49FE39C21DB79A4C00FD8A99 /* NSString+Regex.m in Sources */,
 				EB1DDAC71DCACFEE0095619C /* AnimOperationManager.m in Sources */,
 				EB5233001DC4749E00B35743 /* ElCommonUtils.m in Sources */,
-
 				491E05BB1DCB289E009342BA /* LiveRoom.m in Sources */,
-
 				EB1DDAC81DCACFEE0095619C /* GiftModel.m in Sources */,
-
 				49CA28681DC9EE0500654B7C /* ElGift.m in Sources */,
 				49F2C97F1DB9B0CA000589A7 /* ElManageViewController.m in Sources */,
 				EB3347A51DC1889200AB0D18 /* ElEndLiving.m in Sources */,
