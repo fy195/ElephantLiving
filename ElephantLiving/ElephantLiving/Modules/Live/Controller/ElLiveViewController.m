@@ -18,6 +18,11 @@
 #import "ElGiftView.h"
 #import "ElLivingRoom.h"
 #import "ElUser.h"
+#import "PresentView.h"
+#import "GiftModel.h"
+#import "AnimOperation.h"
+#import "AnimOperationManager.h"
+#import "GSPChatMessage.h"
 
 @interface ElLiveViewController ()
 <
@@ -641,6 +646,191 @@ ElGiftViewDelegate
 
 - (void)animationWithItemCount:(NSInteger)itemCount {
     NSLog(@"动画编号:%ld", itemCount);
+    
+    if (0 == itemCount) {
+        // IM 消息
+        GSPChatMessage *msg = [[GSPChatMessage alloc] init];
+        msg.text = @"1个【鲜花】";
+        
+        msg.senderChatID = @"亮锅";
+        msg.senderName = msg.senderChatID;
+        NSLog(@"id %@ -------送了1个【鲜花】--------",msg.senderChatID);
+        
+        // 礼物模型
+        GiftModel *giftModel = [[GiftModel alloc] init];
+        giftModel.headImage = [UIImage imageNamed:@"FF885B69C30A56A3D0296F10CFF6D1D8"];
+        giftModel.name = msg.senderName;
+        giftModel.giftImage = [UIImage imageNamed:@"gift_flower"];
+        giftModel.giftName = msg.text;
+        giftModel.giftCount = 1;
+        
+        AnimOperationManager *manager = [AnimOperationManager sharedManager];
+        manager.parentView = self.view;
+        // 用用户唯一标识 msg.senderChatID 存礼物信息,model 传入礼物模型
+        [manager animWithUserID:[NSString stringWithFormat:@"%@",msg.senderChatID] model:giftModel finishedBlock:^(BOOL result) {
+        }];
+    } else if (1 == itemCount) {
+        // IM 消息
+        GSPChatMessage *msg = [[GSPChatMessage alloc] init];
+        msg.text = @"1个【鲜花】";
+        
+        msg.senderChatID = @"班长";
+        msg.senderName = msg.senderChatID;
+        NSLog(@"id %@ -------送了1个【鲜花】--------",msg.senderChatID);
+        
+        // 礼物模型
+        GiftModel *giftModel = [[GiftModel alloc] init];
+        giftModel.headImage = [UIImage imageNamed:@"CFE1DC2535199A7B6437D2805419BF23"];
+        giftModel.name = msg.senderName;
+        giftModel.giftImage = [UIImage imageNamed:@"flower"];
+        giftModel.giftName = msg.text;
+        giftModel.giftCount = 1;
+        
+        AnimOperationManager *manager = [AnimOperationManager sharedManager];
+        manager.parentView = self.view;
+        // 用用户唯一标识 msg.senderChatID 存礼物信息,model 传入礼物模型
+        [manager animWithUserID:[NSString stringWithFormat:@"%@",msg.senderChatID] model:giftModel finishedBlock:^(BOOL result) {
+            
+        }];
+    } else if (2 == itemCount) {
+        // IM 消息
+        GSPChatMessage *msg = [[GSPChatMessage alloc] init];
+        msg.text = @"1个【鲜花】";
+        
+        msg.senderChatID = @"亮锅";
+        msg.senderName = msg.senderChatID;
+        NSLog(@"id %@ -------送了1个【鲜花】--------",msg.senderChatID);
+        
+        // 礼物模型
+        GiftModel *giftModel = [[GiftModel alloc] init];
+        giftModel.headImage = [UIImage imageNamed:@"FF885B69C30A56A3D0296F10CFF6D1D8"];
+        giftModel.name = msg.senderName;
+        giftModel.giftImage = [UIImage imageNamed:@"living_money_icon21"];
+        giftModel.giftName = msg.text;
+        giftModel.giftCount = 1;
+        
+        AnimOperationManager *manager = [AnimOperationManager sharedManager];
+        manager.parentView = self.view;
+        // 用用户唯一标识 msg.senderChatID 存礼物信息,model 传入礼物模型
+        [manager animWithUserID:[NSString stringWithFormat:@"%@",msg.senderChatID] model:giftModel finishedBlock:^(BOOL result) {
+            
+        }];
+    } else if (3 == itemCount) {
+        UIImageView *carImageView1 = [[UIImageView alloc] initWithFrame:CGRectMake(-100, 100, 100, 40)];
+        carImageView1.image = [UIImage imageNamed:@"car"];
+        [self.view addSubview:carImageView1];
+        
+        [UIView animateWithDuration:2.0 animations:^{
+            carImageView1.frame = CGRectMake(80, 250, 250, 130);
+        }];
+        
+        [UIView animateWithDuration:1.0 delay:2.2 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            carImageView1.frame = CGRectMake(self.view.frame.size.width, 400, 250, 130);
+        } completion:^(BOOL finished) {
+            [carImageView1 removeFromSuperview];
+        }];
+    } else if (4 == itemCount) {
+        UIImageView *carImageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width, 100, 100, 40)];
+        carImageView2.image = [UIImage imageNamed:@"ferrari"];
+        [self.view addSubview:carImageView2];
+        
+        [UIView animateWithDuration:2.0 animations:^{
+            carImageView2.frame = CGRectMake(120, 200, 250, 130);
+        }];
+        
+        [UIView animateWithDuration:1.0 delay:2.2 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            carImageView2.frame = CGRectMake(-250, 400, 250, 130);
+        } completion:^(BOOL finished) {
+            [carImageView2 removeFromSuperview];
+        }];
+    } else if (5 == itemCount) {
+        UIImageView *carImageView4 = [[UIImageView alloc] initWithFrame:CGRectMake(-100, 200, 120, 40)];
+        carImageView4.image = [UIImage imageNamed:@"test_6"];
+        [self.view addSubview:carImageView4];
+        
+        [UIView animateWithDuration:2.0 animations:^{
+            carImageView4.frame = CGRectMake(90, 200, 250, 110);
+        }];
+        
+        [UIView animateWithDuration:1.0 delay:2.2 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            carImageView4.frame = CGRectMake(self.view.frame.size.width, 400, 250, 110);
+        } completion:^(BOOL finished) {
+            [carImageView4 removeFromSuperview];
+        }];
+    } else if (6 == itemCount) {
+        UIImageView *carImageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(-100, 100, 100, 40)];
+        carImageView2.image = [UIImage imageNamed:@"porsche_body"];
+        [self.view addSubview:carImageView2];
+        
+        [UIView animateWithDuration:2.0 animations:^{
+            carImageView2.frame = CGRectMake(80, 250, 250, 130);
+        }];
+        
+        [UIView animateWithDuration:1.0 delay:2.2 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            carImageView2.frame = CGRectMake(self.view.frame.size.width, 400, 250, 130);
+        } completion:^(BOOL finished) {
+            [carImageView2 removeFromSuperview];
+        }];
+    } else if (7 == itemCount) {
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 100, 200, 200)];
+        [self.view addSubview:imageView];
+        
+        NSMutableArray *imageArray = [NSMutableArray array];
+        for (int i = 1; i <= 7; i++) {
+            NSString *imageName = [NSString stringWithFormat:@"xinyiba_riva_Dolphin0%d", i];
+            UIImage *image = [UIImage imageNamed:imageName];
+            [imageArray addObject:image];
+        }
+        
+        imageView.animationImages = imageArray;
+        imageView.animationDuration = 0.15 * imageArray.count;
+        imageView.animationRepeatCount = 1;
+        [imageView startAnimating];
+    } else if (8 == itemCount) {
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 200, 200, 200)];
+        [self.view addSubview:imageView];
+        
+        NSMutableArray *imageArray = [NSMutableArray array];
+        for (int i = 1; i <= 14; i++) {
+            NSString *imageName = [NSString stringWithFormat:@"fireworks_%d", i];
+            UIImage *image = [UIImage imageNamed:imageName];
+            [imageArray addObject:image];
+        }
+        
+        imageView.animationImages = imageArray;
+        imageView.animationDuration = 0.15 * imageArray.count;
+        imageView.animationRepeatCount = 1;
+        [imageView startAnimating];
+    } else if (9 == itemCount) {
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 200, 200, 200)];
+        [self.view addSubview:imageView];
+        
+        NSMutableArray *imageArray = [NSMutableArray array];
+        for (int i = 1; i <= 20; i++) {
+            NSString *imageName = [NSString stringWithFormat:@"gift_heart_%d", i];
+            UIImage *image = [UIImage imageNamed:imageName];
+            [imageArray addObject:image];
+        }
+        
+        imageView.animationImages = imageArray;
+        imageView.animationDuration = 0.12 * imageArray.count;
+        imageView.animationRepeatCount = 1;
+        [imageView startAnimating];
+    } else if (10 == itemCount) {
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 250, self.view.frame.size.width - 200, 200)];
+        imageView.image = [UIImage imageNamed:@"18888_anima_img1"];
+        [self.view addSubview:imageView];
+        imageView.alpha = 0;
+        
+        
+        [UIView animateWithDuration:3.0 animations:^{
+            imageView.frame = CGRectMake(40, 190, self.view.frame.size.width  - 80, 320);
+            imageView.alpha = 1;
+            
+        } completion:^(BOOL finished) {
+            [imageView removeFromSuperview];
+        }];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
