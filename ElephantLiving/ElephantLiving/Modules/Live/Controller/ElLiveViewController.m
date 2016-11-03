@@ -23,7 +23,17 @@
 #import "AnimOperation.h"
 #import "AnimOperationManager.h"
 #import "GSPChatMessage.h"
+#import "ElHeartAnimationView.h"
+#import "ElCarAnimationView.h"
+#import "ElCarTwoAnimationView.h"
+#import "ElCarThreeAnimationView.h"
+#import "ElCarFourAnimationView.h"
+#import "ElDolphinAnimationView.h"
+#import "ElFireworksAnimationView.h"
+#import "ElHouseAniamtionView.h"
 
+
+NSInteger i = 1;
 @interface ElLiveViewController ()
 <
 QPLiveSessionDelegate,
@@ -56,6 +66,8 @@ ElGiftViewDelegate
 @property (nonatomic, strong) AVIMClient *client;
 @property (nonatomic, strong) AVIMConversation *currentConversation;
 @property (nonatomic, strong) ElGiftView *giftView;
+@property (nonatomic, strong) NSMutableArray *animationImageViews;
+
 @end
 
 @implementation ElLiveViewController{
@@ -73,6 +85,13 @@ ElGiftViewDelegate
     [self hiddenToolView:YES];
     _endView.hidden = YES;
     self.tabBarController.tabBar.hidden = YES;
+}
+
+- (NSMutableArray *)animationImageViews {
+    if (nil == _animationImageViews) {
+        _animationImageViews = [NSMutableArray array];
+    }
+    return _animationImageViews;
 }
 
 - (void)viewDidLoad {
@@ -640,7 +659,11 @@ ElGiftViewDelegate
 }
 
 - (void)animationWithItemCount:(NSInteger)itemCount {
-    NSLog(@"动画编号:%ld", itemCount);
+//    NSLog(@"动画编号:%ld", itemCount);
+    
+    NSLog(@"%ld", i);
+    
+    i++;
     
     if (0 == itemCount) {
         // IM 消息
@@ -711,121 +734,78 @@ ElGiftViewDelegate
             
         }];
     } else if (3 == itemCount) {
-        UIImageView *carImageView1 = [[UIImageView alloc] initWithFrame:CGRectMake(-100, 100, 100, 40)];
-        carImageView1.image = [UIImage imageNamed:@"car"];
-        [self.view addSubview:carImageView1];
         
-        [UIView animateWithDuration:2.0 animations:^{
-            carImageView1.frame = CGRectMake(80, 250, 250, 130);
-        }];
-        
-        [UIView animateWithDuration:1.0 delay:2.2 options:UIViewAnimationOptionCurveEaseOut animations:^{
-            carImageView1.frame = CGRectMake(self.view.frame.size.width, 400, 250, 130);
-        } completion:^(BOOL finished) {
-            [carImageView1 removeFromSuperview];
-        }];
-    } else if (4 == itemCount) {
-        UIImageView *carImageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width, 100, 100, 40)];
-        carImageView2.image = [UIImage imageNamed:@"ferrari"];
+        ElCarTwoAnimationView *carImageView2 = [[ElCarTwoAnimationView alloc] initWithFrame:CGRectMake(-100, 100, 100, 40)];
         [self.view addSubview:carImageView2];
-        
-        [UIView animateWithDuration:2.0 animations:^{
-            carImageView2.frame = CGRectMake(120, 200, 250, 130);
-        }];
-        
-        [UIView animateWithDuration:1.0 delay:2.2 options:UIViewAnimationOptionCurveEaseOut animations:^{
-            carImageView2.frame = CGRectMake(-250, 400, 250, 130);
-        } completion:^(BOOL finished) {
-            [carImageView2 removeFromSuperview];
-        }];
-    } else if (5 == itemCount) {
-        UIImageView *carImageView4 = [[UIImageView alloc] initWithFrame:CGRectMake(-100, 200, 120, 40)];
-        carImageView4.image = [UIImage imageNamed:@"test_6"];
-        [self.view addSubview:carImageView4];
-        
-        [UIView animateWithDuration:2.0 animations:^{
-            carImageView4.frame = CGRectMake(90, 200, 250, 110);
-        }];
-        
-        [UIView animateWithDuration:1.0 delay:2.2 options:UIViewAnimationOptionCurveEaseOut animations:^{
-            carImageView4.frame = CGRectMake(self.view.frame.size.width, 400, 250, 110);
-        } completion:^(BOOL finished) {
-            [carImageView4 removeFromSuperview];
-        }];
-    } else if (6 == itemCount) {
-        UIImageView *carImageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(-100, 100, 100, 40)];
-        carImageView2.image = [UIImage imageNamed:@"porsche_body"];
-        [self.view addSubview:carImageView2];
-        
-        [UIView animateWithDuration:2.0 animations:^{
-            carImageView2.frame = CGRectMake(80, 250, 250, 130);
-        }];
-        
-        [UIView animateWithDuration:1.0 delay:2.2 options:UIViewAnimationOptionCurveEaseOut animations:^{
-            carImageView2.frame = CGRectMake(self.view.frame.size.width, 400, 250, 130);
-        } completion:^(BOOL finished) {
-            [carImageView2 removeFromSuperview];
-        }];
-    } else if (7 == itemCount) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 100, 200, 200)];
-        [self.view addSubview:imageView];
-        
-        NSMutableArray *imageArray = [NSMutableArray array];
-        for (int i = 1; i <= 7; i++) {
-            NSString *imageName = [NSString stringWithFormat:@"xinyiba_riva_Dolphin0%d", i];
-            UIImage *image = [UIImage imageNamed:imageName];
-            [imageArray addObject:image];
-        }
-        
-        imageView.animationImages = imageArray;
-        imageView.animationDuration = 0.15 * imageArray.count;
-        imageView.animationRepeatCount = 1;
-        [imageView startAnimating];
-    } else if (8 == itemCount) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 200, 200, 200)];
-        [self.view addSubview:imageView];
-        
-        NSMutableArray *imageArray = [NSMutableArray array];
-        for (int i = 1; i <= 14; i++) {
-            NSString *imageName = [NSString stringWithFormat:@"fireworks_%d", i];
-            UIImage *image = [UIImage imageNamed:imageName];
-            [imageArray addObject:image];
-        }
-        
-        imageView.animationImages = imageArray;
-        imageView.animationDuration = 0.15 * imageArray.count;
-        imageView.animationRepeatCount = 1;
-        [imageView startAnimating];
-    } else if (9 == itemCount) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 200, 200, 200)];
-        [self.view addSubview:imageView];
-        
-        NSMutableArray *imageArray = [NSMutableArray array];
-        for (int i = 1; i <= 20; i++) {
-            NSString *imageName = [NSString stringWithFormat:@"gift_heart_%d", i];
-            UIImage *image = [UIImage imageNamed:imageName];
-            [imageArray addObject:image];
-        }
-        
-        imageView.animationImages = imageArray;
-        imageView.animationDuration = 0.12 * imageArray.count;
-        imageView.animationRepeatCount = 1;
-        [imageView startAnimating];
-    } else if (10 == itemCount) {
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 250, self.view.frame.size.width - 200, 200)];
-        imageView.image = [UIImage imageNamed:@"18888_anima_img1"];
-        [self.view addSubview:imageView];
-        imageView.alpha = 0;
-        
-        
-        [UIView animateWithDuration:3.0 animations:^{
-            imageView.frame = CGRectMake(40, 190, self.view.frame.size.width  - 80, 320);
-            imageView.alpha = 1;
+        [self.animationImageViews addObject:carImageView2];
+        [self playGiftAnimation];
             
-        } completion:^(BOOL finished) {
-            [imageView removeFromSuperview];
-        }];
+
+    } else if (4 == itemCount) {
+        ElCarThreeAnimationView *carImageView3 = [[ElCarThreeAnimationView alloc] initWithFrame:CGRectMake(self.view.frame.size.width, 100, 100, 40)];
+        [self.view addSubview:carImageView3];
+        [self.animationImageViews addObject:carImageView3];
+        [self playGiftAnimation];
+    
+    } else if (5 == itemCount) {
+        ElCarFourAnimationView *carImageView4 = [[ElCarFourAnimationView alloc] initWithFrame:CGRectMake(-100, 200, 120, 40)];
+        [self.view addSubview:carImageView4];
+        [self.animationImageViews addObject:carImageView4];
+        [self playGiftAnimation];
+    
+    } else if (6 == itemCount) {
+        ElDolphinAnimationView *imageView = [[ElDolphinAnimationView alloc] initWithFrame:CGRectMake(100, SCREEN_HEIGHT * 0.6 - 200, 200, 200)];
+        [self.view addSubview:imageView];
+        [self.animationImageViews addObject:imageView];
+        [self playGiftAnimation];
+        
+    } else if (7 == itemCount) {
+        ElFireworksAnimationView *imageView = [[ElFireworksAnimationView alloc] initWithFrame:CGRectMake(100, SCREEN_HEIGHT * 0.6 - 200, 200, 200)];
+        [self.view addSubview:imageView];
+        [self.animationImageViews addObject:imageView];
+        [self playGiftAnimation];
+        
+        
+    } else if (8 == itemCount) {
+        
+        ElHeartAnimationView *heartImageView = [[ElHeartAnimationView alloc] initWithFrame:CGRectMake(100, 200, 200, 200)];
+        [self.view addSubview:heartImageView];
+        [self.animationImageViews addObject:heartImageView];
+        [self playGiftAnimation];
+        
+    }  else if (9 == itemCount) {
+        
+        ElCarAnimationView *carImageView2 = [[ElCarAnimationView alloc] initWithFrame:CGRectMake(-100, 100, 100, 40)];
+        [self.view addSubview:carImageView2];
+        [self.animationImageViews addObject:carImageView2];
+        [self playGiftAnimation];
+        
+    } else if (10 == itemCount) {
+        ElHouseAniamtionView *imageView = [[ElHouseAniamtionView alloc] initWithFrame:CGRectMake(100, 250, self.view.frame.size.width - 200, 200)];
+        [self.view addSubview:imageView];
+        [self.animationImageViews addObject:imageView];
+        [self playGiftAnimation];
     }
+}
+
+
+- (void)playGiftAnimation {
+    
+    if (self.animationImageViews.count > 0) {
+        ElBaseGiftAnimationView *giftImageView = [self.animationImageViews firstObject];
+        if (!giftImageView.isGiftAnimating) {
+            [giftImageView animationComplete:^(UIImageView *currentView) {
+//                @synchronized(self) {
+                
+                    [self.animationImageViews removeObjectAtIndex:0];
+                    [currentView removeFromSuperview];
+                    [self playGiftAnimation];
+//                }
+                
+            }];
+        }
+    }
+
 }
 
 - (void)didReceiveMemoryWarning {

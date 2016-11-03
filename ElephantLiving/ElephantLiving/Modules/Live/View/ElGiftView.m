@@ -120,8 +120,8 @@ UICollectionViewDelegate
         return cell;
     } else if (9 == indexPath.item) {
         cell.giftImage = [UIImage imageNamed:@"test_6"];
-        cell.priceText = @"10💎";
-        cell.expericeText = @"+1000经验";
+        cell.priceText = @"3000💎";
+        cell.expericeText = @"+300000经验";
         return cell;
     } else if (10 == indexPath.item) {
         cell.giftImage = [UIImage imageNamed:@"18888_anima_img1"];
