@@ -63,7 +63,7 @@ AVIMClientDelegate
     _client.delegate = self;
     [self.client openWithCallback:^(BOOL succeeded, NSError *error) {
         AVIMConversationQuery *query = [self.client conversationQuery];
-        [query whereKey:AVIMAttr(@"topic") equalTo:_liveRoom.objectId];
+        [query whereKey:AVIMAttr(@"topic") equalTo:_liveRoom.host_name];
         // 额外调用一次确保查询的是聊天室而不是普通对话
         [query whereKey:@"tr" equalTo:@(YES)];
         [query findConversationsWithCallback:^(NSArray *objects, NSError *error) {
@@ -322,6 +322,12 @@ AVIMClientDelegate
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setLiveRoom:(LiveRoom *)liveRoom {
+    if (_liveRoom != liveRoom) {
+        _liveRoom = liveRoom;
+    }
 }
 
 /*
