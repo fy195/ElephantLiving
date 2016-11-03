@@ -19,6 +19,12 @@
 #import "ElUser.h"
 #import "LiveRoom.h"
 #import "AVObject+ElClassMap.h"
+#import "PresentView.h"
+#import "GiftModel.h"
+#import "AnimOperation.h"
+#import "AnimOperationManager.h"
+#import "GSPChatMessage.h"
+
 
 @interface ElLiveViewController ()
 <
@@ -26,55 +32,34 @@ QPLiveSessionDelegate,
 AVIMClientDelegate,
 UITextFieldDelegate,
 UITableViewDelegate,
-UITableViewDataSource
+UITableViewDataSource,
+ElGiftViewDelegate
 >
 
+
 @property (nonatomic, strong) LiveRoom *liveRoom;
-
 @property (nonatomic, strong) ElStartLiving *startView;
-
 @property (nonatomic, strong) UIImageView *timeImageView;
-
 @property (nonatomic, strong) NSTimer *myTimer;
-
 @property (nonatomic, assign) NSInteger timeNumber;
-
 @property (nonatomic, strong) NSString *pushUrl;
-
 @property (nonatomic, strong) NSString *pullUrl;
-
 @property (nonatomic, strong) UIButton *closeButton;
-
 @property (nonatomic, strong) ElLeftToolView *leftToolView;
-
 @property (nonatomic, strong) ElLivingTopView *topToolView;
-
 @property (nonatomic, strong) ElLivingBottomToolView *bottomToolView;
-
 @property (nonatomic, strong) ElEndLiving *endView;
-
 @property (nonatomic, strong) QPLiveSession *liveSession;;
-
 @property (nonatomic, strong) QPLConfiguration *configuration;
-
 @property (nonatomic, strong) NSString *timeString;
-
 @property (nonatomic, strong) UITextField *textField;
-
 @property (nonatomic, strong) UIView *keyboardView;
-
 @property (nonatomic, strong) UIButton *keyboardButton;
-
 @property (nonatomic, strong) UITableView *commentTableView;
-
 @property (nonatomic, retain) NSMutableArray *messageArray;
-
 @property (nonatomic, strong) AVIMClient *client;
-
 @property (nonatomic, strong) AVIMConversation *currentConversation;
-
 @property (nonatomic, strong) ElGiftView *giftView;
-
 @end
 
 @implementation ElLiveViewController{
@@ -112,8 +97,8 @@ UITableViewDataSource
     _timeImageView.center = self.view.center;
     _timeImageView.backgroundColor = [UIColor   clearColor];
     
-    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesture:)];
-    [self.view addGestureRecognizer:gesture];
+//    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesture:)];
+//    [self.view addGestureRecognizer:gesture];
     
     [self createRequest];
     [self createConfiguration];
@@ -150,6 +135,10 @@ UITableViewDataSource
     _bottomToolView.backgroundColor = [UIColor clearColor];
     [_bottomToolView.commentButton addTarget:self action:@selector(commentButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_bottomToolView.giftButton addTarget:self action:@selector(giftButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    self.giftView = [[ElGiftView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4)];
+    [self.view addSubview:_giftView];
+    _giftView.delegate = self;
+
     [self.view addSubview:_bottomToolView];
     
     self.closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -168,7 +157,7 @@ UITableViewDataSource
 
 // 创建tableView
 - (void)createCommentTableView {
-    self.commentTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 320, SCREEN_WIDTH - 70, 250) style:UITableViewStylePlain];
+    self.commentTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 270, SCREEN_WIDTH - 70, 200) style:UITableViewStylePlain];
     _commentTableView.delegate = self;
     _commentTableView.dataSource = self;
     _commentTableView.backgroundColor = [UIColor clearColor];
@@ -179,13 +168,6 @@ UITableViewDataSource
     self.client = [AVIMClient defaultClient];
     _client.delegate = self;
 }
-
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    NSDictionary *dic = @{NSFontAttributeName : [UIFont systemFontOfSize:14.f]};
-//    CGSize textSize = CGSizeMake(SCREEN_WIDTH, 1000);
-//    CGRect textRect = [_messageArray[indexPath.row] boundingRectWithSize:textSize options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dic context:nil];
-//    return textRect.size.height;
-//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _messageArray.count;
@@ -300,13 +282,17 @@ UITableViewDataSource
 }
 
 // 聚焦
-- (void)tapGesture:(UITapGestureRecognizer *)gesture{
-    CGPoint point = [gesture locationInView:self.view];
-    CGPoint percentPoint = CGPointZero;
-    percentPoint.x = point.x / CGRectGetWidth(self.view.bounds);
-    percentPoint.y = point.y / CGRectGetHeight(self.view.bounds);
-    [_liveSession focusAtAdjustedPoint:percentPoint autoFocus:YES];
-}
+//- (void)tapGesture:(UITapGestureRecognizer *)gesture{
+//    CGPoint point = [gesture locationInView:self.view];
+//    CGPoint percentPoint = CGPointZero;
+//    percentPoint.x = point.x / CGRectGetWidth(self.view.bounds);
+//    percentPoint.y = point.y / CGRectGetHeight(self.view.bounds);
+//    [_liveSession focusAtAdjustedPoint:percentPoint autoFocus:YES];
+//    
+//    [UIView animateWithDuration:0.5 animations:^{
+//        _giftView.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4);
+//    }];
+//}
 
 // 请求推拉流地址
 - (void)createRequest {
@@ -315,7 +301,6 @@ UITableViewDataSource
         self.pushUrl = pushUrl;
         _configuration.url = pushUrl;
         self.pullUrl = pullUrl;
-        NSLog(@"%@", pullUrl);
     } failure:^(NSError *error) {
         UIAlertController *alerat = [UIAlertController alertControllerWithTitle:@"" message:@"Create Live Failed" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -572,8 +557,11 @@ UITableViewDataSource
 
 // 礼物
 - (void)giftButtonAction:(UIButton *)giftButton {
-    self.giftView = [[ElGiftView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT * 0.6, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4)];
-    [self.view addSubview:_giftView];
+    [UIView animateWithDuration:0.5 animations:^{
+        _giftView.frame = CGRectMake(0, SCREEN_HEIGHT * 0.6, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4);
+    }];
+    [self.view bringSubviewToFront:_giftView];
+    _giftView.userInteractionEnabled = YES;
 }
 
 - (void)keyboardButtonAction:(UIButton *)button {
@@ -655,6 +643,194 @@ UITableViewDataSource
     [self presentViewController:alerat animated:YES completion:nil];
 }
 
+- (void)animationWithItemCount:(NSInteger)itemCount {
+    NSLog(@"动画编号:%ld", itemCount);
+    
+    if (0 == itemCount) {
+        // IM 消息
+        GSPChatMessage *msg = [[GSPChatMessage alloc] init];
+        msg.text = @"1个【玫瑰花】";
+        
+        msg.senderChatID = @"亮锅";
+        msg.senderName = msg.senderChatID;
+        NSLog(@"id %@ -------送了1个【玫瑰花】--------",msg.senderChatID);
+        
+        // 礼物模型
+        GiftModel *giftModel = [[GiftModel alloc] init];
+        giftModel.headImage = [UIImage imageNamed:@"FF885B69C30A56A3D0296F10CFF6D1D8"];
+        giftModel.name = msg.senderName;
+        giftModel.giftImage = [UIImage imageNamed:@"gift_flower"];
+        giftModel.giftName = msg.text;
+        giftModel.giftCount = 1;
+        
+        AnimOperationManager *manager = [AnimOperationManager sharedManager];
+        manager.parentView = self.view;
+        // 用用户唯一标识 msg.senderChatID 存礼物信息,model 传入礼物模型
+        [manager animWithUserID:[NSString stringWithFormat:@"%@",msg.senderChatID] model:giftModel finishedBlock:^(BOOL result) {
+        }];
+    } else if (1 == itemCount) {
+        // IM 消息
+        GSPChatMessage *msg = [[GSPChatMessage alloc] init];
+        msg.text = @"1个【樱花】";
+        
+        msg.senderChatID = @"班长";
+        msg.senderName = msg.senderChatID;
+        NSLog(@"id %@ -------送了1个【樱花】--------",msg.senderChatID);
+        
+        // 礼物模型
+        GiftModel *giftModel = [[GiftModel alloc] init];
+        giftModel.headImage = [UIImage imageNamed:@"CFE1DC2535199A7B6437D2805419BF23"];
+        giftModel.name = msg.senderName;
+        giftModel.giftImage = [UIImage imageNamed:@"flower"];
+        giftModel.giftName = msg.text;
+        giftModel.giftCount = 1;
+        
+        AnimOperationManager *manager = [AnimOperationManager sharedManager];
+        manager.parentView = self.view;
+        // 用用户唯一标识 msg.senderChatID 存礼物信息,model 传入礼物模型
+        [manager animWithUserID:[NSString stringWithFormat:@"%@",msg.senderChatID] model:giftModel finishedBlock:^(BOOL result) {
+            
+        }];
+    } else if (2 == itemCount) {
+        // IM 消息
+        GSPChatMessage *msg = [[GSPChatMessage alloc] init];
+        msg.text = @"1个【钻石】";
+        
+        msg.senderChatID = @"亮锅";
+        msg.senderName = msg.senderChatID;
+        NSLog(@"id %@ -------送了1个【钻石】--------",msg.senderChatID);
+        
+        // 礼物模型
+        GiftModel *giftModel = [[GiftModel alloc] init];
+        giftModel.headImage = [UIImage imageNamed:@"FF885B69C30A56A3D0296F10CFF6D1D8"];
+        giftModel.name = msg.senderName;
+        giftModel.giftImage = [UIImage imageNamed:@"living_money_icon21"];
+        giftModel.giftName = msg.text;
+        giftModel.giftCount = 1;
+        
+        AnimOperationManager *manager = [AnimOperationManager sharedManager];
+        manager.parentView = self.view;
+        // 用用户唯一标识 msg.senderChatID 存礼物信息,model 传入礼物模型
+        [manager animWithUserID:[NSString stringWithFormat:@"%@",msg.senderChatID] model:giftModel finishedBlock:^(BOOL result) {
+            
+        }];
+    } else if (3 == itemCount) {
+        UIImageView *carImageView1 = [[UIImageView alloc] initWithFrame:CGRectMake(-100, 100, 100, 40)];
+        carImageView1.image = [UIImage imageNamed:@"car"];
+        [self.view addSubview:carImageView1];
+        
+        [UIView animateWithDuration:2.0 animations:^{
+            carImageView1.frame = CGRectMake(80, 250, 250, 130);
+        }];
+        
+        [UIView animateWithDuration:1.0 delay:2.2 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            carImageView1.frame = CGRectMake(self.view.frame.size.width, 400, 250, 130);
+        } completion:^(BOOL finished) {
+            [carImageView1 removeFromSuperview];
+        }];
+    } else if (4 == itemCount) {
+        UIImageView *carImageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(self.view.frame.size.width, 100, 100, 40)];
+        carImageView2.image = [UIImage imageNamed:@"ferrari"];
+        [self.view addSubview:carImageView2];
+        
+        [UIView animateWithDuration:2.0 animations:^{
+            carImageView2.frame = CGRectMake(120, 200, 250, 130);
+        }];
+        
+        [UIView animateWithDuration:1.0 delay:2.2 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            carImageView2.frame = CGRectMake(-250, 400, 250, 130);
+        } completion:^(BOOL finished) {
+            [carImageView2 removeFromSuperview];
+        }];
+    } else if (5 == itemCount) {
+        UIImageView *carImageView4 = [[UIImageView alloc] initWithFrame:CGRectMake(-100, 200, 120, 40)];
+        carImageView4.image = [UIImage imageNamed:@"test_6"];
+        [self.view addSubview:carImageView4];
+        
+        [UIView animateWithDuration:2.0 animations:^{
+            carImageView4.frame = CGRectMake(90, 200, 250, 110);
+        }];
+        
+        [UIView animateWithDuration:1.0 delay:2.2 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            carImageView4.frame = CGRectMake(self.view.frame.size.width, 400, 250, 110);
+        } completion:^(BOOL finished) {
+            [carImageView4 removeFromSuperview];
+        }];
+    } else if (6 == itemCount) {
+        UIImageView *carImageView2 = [[UIImageView alloc] initWithFrame:CGRectMake(-100, 100, 100, 40)];
+        carImageView2.image = [UIImage imageNamed:@"porsche_body"];
+        [self.view addSubview:carImageView2];
+        
+        [UIView animateWithDuration:2.0 animations:^{
+            carImageView2.frame = CGRectMake(80, 250, 250, 130);
+        }];
+        
+        [UIView animateWithDuration:1.0 delay:2.2 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            carImageView2.frame = CGRectMake(self.view.frame.size.width, 400, 250, 130);
+        } completion:^(BOOL finished) {
+            [carImageView2 removeFromSuperview];
+        }];
+    } else if (7 == itemCount) {
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 100, 200, 200)];
+        [self.view addSubview:imageView];
+        
+        NSMutableArray *imageArray = [NSMutableArray array];
+        for (int i = 1; i <= 7; i++) {
+            NSString *imageName = [NSString stringWithFormat:@"xinyiba_riva_Dolphin0%d", i];
+            UIImage *image = [UIImage imageNamed:imageName];
+            [imageArray addObject:image];
+        }
+        
+        imageView.animationImages = imageArray;
+        imageView.animationDuration = 0.15 * imageArray.count;
+        imageView.animationRepeatCount = 1;
+        [imageView startAnimating];
+    } else if (8 == itemCount) {
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 200, 200, 200)];
+        [self.view addSubview:imageView];
+        
+        NSMutableArray *imageArray = [NSMutableArray array];
+        for (int i = 1; i <= 14; i++) {
+            NSString *imageName = [NSString stringWithFormat:@"fireworks_%d", i];
+            UIImage *image = [UIImage imageNamed:imageName];
+            [imageArray addObject:image];
+        }
+        
+        imageView.animationImages = imageArray;
+        imageView.animationDuration = 0.15 * imageArray.count;
+        imageView.animationRepeatCount = 1;
+        [imageView startAnimating];
+    } else if (9 == itemCount) {
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 200, 200, 200)];
+        [self.view addSubview:imageView];
+        
+        NSMutableArray *imageArray = [NSMutableArray array];
+        for (int i = 1; i <= 20; i++) {
+            NSString *imageName = [NSString stringWithFormat:@"gift_heart_%d", i];
+            UIImage *image = [UIImage imageNamed:imageName];
+            [imageArray addObject:image];
+        }
+        
+        imageView.animationImages = imageArray;
+        imageView.animationDuration = 0.12 * imageArray.count;
+        imageView.animationRepeatCount = 1;
+        [imageView startAnimating];
+    } else if (10 == itemCount) {
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 250, self.view.frame.size.width - 200, 200)];
+        imageView.image = [UIImage imageNamed:@"18888_anima_img1"];
+        [self.view addSubview:imageView];
+        imageView.alpha = 0;
+        
+        
+        [UIView animateWithDuration:3.0 animations:^{
+            imageView.frame = CGRectMake(40, 190, self.view.frame.size.width  - 80, 320);
+            imageView.alpha = 1;
+            
+        } completion:^(BOOL finished) {
+            [imageView removeFromSuperview];
+        }];
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

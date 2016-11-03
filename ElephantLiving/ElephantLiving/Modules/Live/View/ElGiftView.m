@@ -17,7 +17,7 @@ static NSString *const string = @"cell";
 UICollectionViewDataSource,
 UICollectionViewDelegate
 >
-
+@property (nonatomic, assign) NSInteger itemCount;
 @end
 
 @implementation ElGiftView
@@ -26,7 +26,7 @@ UICollectionViewDelegate
 {
     self = [super initWithFrame:frame];
     if (self) {
-        
+        self.userInteractionEnabled = YES;
         // 模糊效果
         UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
         UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
@@ -45,7 +45,7 @@ UICollectionViewDelegate
         giftCollectionView.backgroundColor = [UIColor clearColor];
         giftCollectionView.delegate = self;
         giftCollectionView.dataSource = self;
-        giftCollectionView.contentSize = CGSizeMake(self.frame.size.width * 0.2, self.frame.size.height - 20);
+        giftCollectionView.contentSize = CGSizeMake(self.frame.size.width * 2, self.frame.size.height - 20);
         giftCollectionView.showsHorizontalScrollIndicator = NO;
         [self addSubview:giftCollectionView];
         
@@ -54,6 +54,7 @@ UICollectionViewDelegate
         _sendButton.backgroundColor = [UIColor cyanColor];
         _sendButton.layer.cornerRadius = self.frame.size.height * 0.09 / 2;
         [_sendButton setTitle:@"发送" forState:UIControlStateNormal];
+        [_sendButton addTarget:self action:@selector(sendButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_sendButton];
          
         
@@ -66,15 +67,12 @@ UICollectionViewDelegate
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-
     return 11;
-
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 
     ElGiftCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:string forIndexPath:indexPath];
-    
     if (0 == indexPath.item) {
         cell.giftImage = [UIImage imageNamed:@"gift_flower"];
         cell.priceText = @"2💎";
@@ -138,46 +136,18 @@ UICollectionViewDelegate
 
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    self.itemCount = indexPath.item;
+    ElGiftCollectionViewCell *cell = (ElGiftCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    cell.backgroundColor = [UIColor orangeColor];
+}
 
-    if (0 == indexPath.item) {
-        
-    } else if (1 == indexPath.item) {
-    
-    } else if (2 == indexPath.item) {
-        
-    } else if (3 == indexPath.item) {
-        
-    } else if (4 == indexPath.item) {
-        
-    } else if (5 == indexPath.item) {
-        
-    } else if (6 == indexPath.item) {
-        
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(100, 100, 200, 200)];
-        [self addSubview:imageView];
-        
-        NSMutableArray *imageArray = [NSMutableArray array];
-        for (int i = 1; i <= 7; i++) {
-            NSString *imageName = [NSString stringWithFormat:@"xinyiba_riva_Dolphin0%d.png", i];
-            UIImage *image = [UIImage imageNamed:imageName];
-            [imageArray addObject:image];
-        }
-        
-        imageView.animationImages = imageArray;
-        imageView.animationDuration = 0.15 * imageArray.count;
-        imageView.animationRepeatCount = 1;
-        [imageView startAnimating];
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+    ElGiftCollectionViewCell *cell = (ElGiftCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    cell.backgroundColor = [UIColor clearColor];
+}
 
-    } else if (7 == indexPath.item) {
-        
-    } else if (8 == indexPath.item) {
-        
-    } else if (9 == indexPath.item) {
-        
-    } else if (10 == indexPath.item) {
-        
-    }
-    
+- (void)sendButtonAction:(UIButton *)button {
+    [self.delegate animationWithItemCount:_itemCount];
 }
 
 @end

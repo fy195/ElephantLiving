@@ -101,6 +101,12 @@
 		49FE87241DB8BDD2000092C2 /* ElNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FE87231DB8BDD2000092C2 /* ElNewViewController.m */; };
 		49FE87271DB8DA6E000092C2 /* ElSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FE87261DB8DA6E000092C2 /* ElSearchViewController.m */; };
 		73E262811E273442D85341C1 /* Pods_ElephantLiving.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72C3B4E93879647ED95BB357 /* Pods_ElephantLiving.framework */; };
+		EB1DDAC61DCACFEE0095619C /* AnimOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1DDABB1DCACFEE0095619C /* AnimOperation.m */; };
+		EB1DDAC71DCACFEE0095619C /* AnimOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1DDABD1DCACFEE0095619C /* AnimOperationManager.m */; };
+		EB1DDAC81DCACFEE0095619C /* GiftModel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1DDABF1DCACFEE0095619C /* GiftModel.m */; };
+		EB1DDAC91DCACFEE0095619C /* GSPChatMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1DDAC11DCACFEE0095619C /* GSPChatMessage.m */; };
+		EB1DDACA1DCACFEE0095619C /* PresentView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1DDAC31DCACFEE0095619C /* PresentView.m */; };
+		EB1DDACB1DCACFEE0095619C /* ShakeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EB1DDAC51DCACFEE0095619C /* ShakeLabel.m */; };
 		EB3347A11DC08D4D00AB0D18 /* ElStartLiving.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3347A01DC08D4D00AB0D18 /* ElStartLiving.m */; };
 		EB3347A51DC1889200AB0D18 /* ElEndLiving.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3347A41DC1889200AB0D18 /* ElEndLiving.m */; };
 		EB3347A71DC190C400AB0D18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB3347A61DC190C400AB0D18 /* Assets.xcassets */; };
@@ -277,6 +283,18 @@
 		4ED348DAA932E1D700311B69 /* Pods-ElephantLiving.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElephantLiving.release.xcconfig"; path = "Pods/Target Support Files/Pods-ElephantLiving/Pods-ElephantLiving.release.xcconfig"; sourceTree = "<group>"; };
 		72C3B4E93879647ED95BB357 /* Pods_ElephantLiving.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ElephantLiving.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D89B2F47EF8313096B83FF86 /* Pods-ElephantLiving.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ElephantLiving.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ElephantLiving/Pods-ElephantLiving.debug.xcconfig"; sourceTree = "<group>"; };
+		EB1DDABA1DCACFEE0095619C /* AnimOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimOperation.h; sourceTree = "<group>"; };
+		EB1DDABB1DCACFEE0095619C /* AnimOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimOperation.m; sourceTree = "<group>"; };
+		EB1DDABC1DCACFEE0095619C /* AnimOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimOperationManager.h; sourceTree = "<group>"; };
+		EB1DDABD1DCACFEE0095619C /* AnimOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimOperationManager.m; sourceTree = "<group>"; };
+		EB1DDABE1DCACFEE0095619C /* GiftModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftModel.h; sourceTree = "<group>"; };
+		EB1DDABF1DCACFEE0095619C /* GiftModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftModel.m; sourceTree = "<group>"; };
+		EB1DDAC01DCACFEE0095619C /* GSPChatMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSPChatMessage.h; sourceTree = "<group>"; };
+		EB1DDAC11DCACFEE0095619C /* GSPChatMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSPChatMessage.m; sourceTree = "<group>"; };
+		EB1DDAC21DCACFEE0095619C /* PresentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentView.h; sourceTree = "<group>"; };
+		EB1DDAC31DCACFEE0095619C /* PresentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentView.m; sourceTree = "<group>"; };
+		EB1DDAC41DCACFEE0095619C /* ShakeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShakeLabel.h; sourceTree = "<group>"; };
+		EB1DDAC51DCACFEE0095619C /* ShakeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShakeLabel.m; sourceTree = "<group>"; };
 		EB33479F1DC08D4D00AB0D18 /* ElStartLiving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElStartLiving.h; sourceTree = "<group>"; };
 		EB3347A01DC08D4D00AB0D18 /* ElStartLiving.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElStartLiving.m; sourceTree = "<group>"; };
 		EB3347A31DC1889200AB0D18 /* ElEndLiving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElEndLiving.h; sourceTree = "<group>"; };
@@ -1302,6 +1320,25 @@
 			path = lib;
 			sourceTree = "<group>";
 		};
+		EB1DDAB91DCACFEE0095619C /* presentView */ = {
+			isa = PBXGroup;
+			children = (
+				EB1DDABA1DCACFEE0095619C /* AnimOperation.h */,
+				EB1DDABB1DCACFEE0095619C /* AnimOperation.m */,
+				EB1DDABC1DCACFEE0095619C /* AnimOperationManager.h */,
+				EB1DDABD1DCACFEE0095619C /* AnimOperationManager.m */,
+				EB1DDAC01DCACFEE0095619C /* GSPChatMessage.h */,
+				EB1DDAC11DCACFEE0095619C /* GSPChatMessage.m */,
+				EB1DDABE1DCACFEE0095619C /* GiftModel.h */,
+				EB1DDABF1DCACFEE0095619C /* GiftModel.m */,
+				EB1DDAC21DCACFEE0095619C /* PresentView.h */,
+				EB1DDAC31DCACFEE0095619C /* PresentView.m */,
+				EB1DDAC41DCACFEE0095619C /* ShakeLabel.h */,
+				EB1DDAC51DCACFEE0095619C /* ShakeLabel.m */,
+			);
+			path = presentView;
+			sourceTree = "<group>";
+		};
 		EB51761C1DC9D4530047DD49 /* Image */ = {
 			isa = PBXGroup;
 			children = (
@@ -1328,6 +1365,7 @@
 			isa = PBXGroup;
 			children = (
 				EB99EAEF1DC0506000621EF3 /* ijkplayerLib */,
+				EB1DDAB91DCACFEE0095619C /* presentView */,
 			);
 			path = Vendors;
 			sourceTree = "<group>";
@@ -1522,6 +1560,7 @@
 				49F2C97C1DB9B0BF000589A7 /* ElSettingViewController.m in Sources */,
 				49DF2C2A1DC2E4990096E935 /* ElForgetPasswordViewController.m in Sources */,
 				49FE39CC1DB79A4C00FD8A99 /* NSUserDefaultsUtils.m in Sources */,
+				EB1DDACA1DCACFEE0095619C /* PresentView.m in Sources */,
 				493907551DB8EEF000F06D40 /* ElNewCollectionViewCell.m in Sources */,
 				499FBE2A1DB786CE0015CC1D /* ViewController.m in Sources */,
 				49FE39C11DB79A4C00FD8A99 /* NSString+Categories.m in Sources */,
@@ -1539,8 +1578,13 @@
 				49F2C9591DB99F9E000589A7 /* ElPersonTableViewCell.m in Sources */,
 				49FE87211DB8BDB7000092C2 /* ElHotViewController.m in Sources */,
 				49FE39C21DB79A4C00FD8A99 /* NSString+Regex.m in Sources */,
+				EB1DDAC71DCACFEE0095619C /* AnimOperationManager.m in Sources */,
 				EB5233001DC4749E00B35743 /* ElCommonUtils.m in Sources */,
+
 				491E05BB1DCB289E009342BA /* LiveRoom.m in Sources */,
+
+				EB1DDAC81DCACFEE0095619C /* GiftModel.m in Sources */,
+
 				49CA28681DC9EE0500654B7C /* ElGift.m in Sources */,
 				49F2C97F1DB9B0CA000589A7 /* ElManageViewController.m in Sources */,
 				EB3347A51DC1889200AB0D18 /* ElEndLiving.m in Sources */,
@@ -1557,6 +1601,7 @@
 				493DA3901DC1CA7D0031C317 /* ElLivingBottomToolView.m in Sources */,
 				49F2C9761DB9B0A4000589A7 /* ElGiftViewController.m in Sources */,
 				49FE87271DB8DA6E000092C2 /* ElSearchViewController.m in Sources */,
+				EB1DDAC91DCACFEE0095619C /* GSPChatMessage.m in Sources */,
 				49FE39BF1DB79A4C00FD8A99 /* NSDictionary+Categories.m in Sources */,
 				49E7599E1DB8EE8800BDCB3C /* ElPersonHeaderView.m in Sources */,
 				493907501DB8EED400F06D40 /* ElHotTableViewCell.m in Sources */,
@@ -1569,10 +1614,12 @@
 				49FE39C01DB79A4C00FD8A99 /* NSNumber+Extend.m in Sources */,
 				49FE39C71DB79A4C00FD8A99 /* UIView+Frame.m in Sources */,
 				49FE39C31DB79A4C00FD8A99 /* NSUserDefaults+Categories.m in Sources */,
+				EB1DDAC61DCACFEE0095619C /* AnimOperation.m in Sources */,
 				49E759981DB8EE3100BDCB3C /* ElNormalListTableViewCell.m in Sources */,
 				492709CA1DB9C4B000D6F550 /* ElHotCollectionViewCell.m in Sources */,
 				49F2C95E1DB9AAED000589A7 /* ElPersonCharmTableViewCell.m in Sources */,
 				49FE39C61DB79A4C00FD8A99 /* UIImage+Categories.m in Sources */,
+				EB1DDACB1DCACFEE0095619C /* ShakeLabel.m in Sources */,
 				49FE39CA1DB79A4C00FD8A99 /* AppStoreUtils.m in Sources */,
 				49FE39C51DB79A4C00FD8A99 /* UIColor+Categories.m in Sources */,
 				493DA3FC1DC217F90031C317 /* ElLeftToolView.m in Sources */,

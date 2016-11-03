@@ -76,6 +76,7 @@ UITableViewDelegate
                 for (NSDictionary *dic in listArray) {
                     ElOtherLiveModel *model = [[ElOtherLiveModel alloc] initWithDic:dic];
                     [self saveElLiveInfo:model array:_otherLiveArray];
+
                 }
             }
         });
