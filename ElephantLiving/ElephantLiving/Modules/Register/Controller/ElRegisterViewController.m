@@ -7,7 +7,6 @@
 //
 
 #import "ElRegisterViewController.h"
-#import "ElTextViewController.h"
 #import <AVOSCloud/AVOSCloud.h>
 #import "ElCommonUtils.h"
 #import "ElUser.h"
