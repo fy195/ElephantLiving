@@ -11,6 +11,7 @@
 #import "ElForgetPasswordViewController.h"
 #import <AVOSCloud/AVOSCloud.h>
 #import "ElHomePageViewController.h"
+#import "ElUser.h"
 
 
 @interface ElLoginViewController ()
@@ -35,7 +36,7 @@
     NSString *password = _passwordTextField.text;
     
     if (phoneNumber && password) {
-        [AVUser logInWithMobilePhoneNumberInBackground:phoneNumber password:password block:^(AVUser * _Nullable user, NSError * _Nullable error) {
+        [ElUser logInWithMobilePhoneNumberInBackground:phoneNumber password:password block:^(AVUser * _Nullable user, NSError * _Nullable error) {
             if (error) {
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -51,8 +52,6 @@
     }
 }
 
-
-
 - (void)getUserInfo:(id)user {
 //    AVQuery *query  = [AVQuery queryWithClassName:@"UserInfo"];
 //    [query whereKey:@"owner" equalTo:user];
@@ -63,14 +62,9 @@
 //            NSLog(@"%@",objects);
 //        }
 //    }];
-    user = [AVUser currentUser];
+    user = [ElUser currentUser];
 
 }
-
-- (IBAction)ReturnButtonAction:(id)sender {
-//    [self.navigationController popViewControllerAnimated:YES];
-}
-
 
 - (IBAction)ForgetPasswordButtonAction:(id)sender {
     ElForgetPasswordViewController *forgetPasswordView = [[ElForgetPasswordViewController alloc] init];

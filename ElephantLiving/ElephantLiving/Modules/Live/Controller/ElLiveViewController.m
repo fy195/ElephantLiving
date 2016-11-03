@@ -16,6 +16,8 @@
 #import "AVOSCloudIM.h"
 #import "AVIMConversation.h"
 #import "ElGiftView.h"
+#import "ElLivingRoom.h"
+#import "ElUser.h"
 
 @interface ElLiveViewController ()
 <
@@ -26,7 +28,7 @@ UITableViewDelegate,
 UITableViewDataSource
 >
 
-@property (nonatomic, strong) AVObject *liveRoom;
+@property (nonatomic, strong) ElLivingRoom *liveRoom;
 
 @property (nonatomic, strong) ElStartLiving *startView;
 
@@ -69,6 +71,8 @@ UITableViewDataSource
 @property (nonatomic, strong) AVIMClient *client;
 
 @property (nonatomic, strong) AVIMConversation *currentConversation;
+
+@property (nonatomic, strong) ElGiftView *giftView;
 
 @end
 
@@ -175,12 +179,12 @@ UITableViewDataSource
     _client.delegate = self;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *dic = @{NSFontAttributeName : [UIFont systemFontOfSize:14.f]};
-    CGSize textSize = CGSizeMake(SCREEN_WIDTH, 1000);
-    CGRect textRect = [_messageArray[indexPath.row] boundingRectWithSize:textSize options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dic context:nil];
-    return textRect.size.height;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    NSDictionary *dic = @{NSFontAttributeName : [UIFont systemFontOfSize:14.f]};
+//    CGSize textSize = CGSizeMake(SCREEN_WIDTH, 1000);
+//    CGRect textRect = [_messageArray[indexPath.row] boundingRectWithSize:textSize options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dic context:nil];
+//    return textRect.size.height;
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _messageArray.count;
@@ -192,7 +196,7 @@ UITableViewDataSource
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     cell.textLabel.text = _messageArray[indexPath.row];
-    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.textLabel.textColor = [UIColor colorWithWhite:0.900 alpha:1.000];
     NSRange range = [_messageArray[indexPath.row] rangeOfString:@":"];
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",_messageArray[indexPath.row]]];
     NSRange range1 = NSMakeRange(0, range.location + 1);
@@ -325,8 +329,8 @@ UITableViewDataSource
 - (void)createConfiguration {
     QPLConfiguration *configuration = [[QPLConfiguration alloc] init];
     configuration.url = _pushUrl;
-    configuration.videoMaxBitRate = 1500 * 1000;
-    configuration.videoBitRate = 600 * 1000;
+    configuration.videoMaxBitRate = 400 * 1000;
+    configuration.videoBitRate = 400 * 1000;
     configuration.videoMinBitRate = 400 * 1000;
     configuration.audioBitRate = 64 * 1000;
     configuration.videoSize = CGSizeMake(360, 640);// 横屏状态宽高不需要互换
@@ -353,8 +357,8 @@ UITableViewDataSource
     [_liveSession startPreview];
     [_liveSession setEnableSkin:YES];
     [_liveSession updateConfiguration:^(QPLConfiguration *configuration) {
-        configuration.videoMaxBitRate = 1500 * 1000;
-        configuration.videoBitRate = 600 * 1000;
+        configuration.videoMaxBitRate = 400 * 1000;
+        configuration.videoBitRate = 400 * 1000;
         configuration.videoMinBitRate = 400 * 1000;
         configuration.audioBitRate = 64 * 1000;
         configuration.fps = 20;
@@ -483,28 +487,24 @@ UITableViewDataSource
 // 创建直播间
 - (void)creatLiveRoom {
 
-    AVUser *currentUser = [AVUser currentUser];
-    self.liveRoom = [AVObject objectWithClassName:@"LiveRoom"];
+    ElUser *currentUser = [ElUser currentUser];
+    self.liveRoom = [ElLivingRoom objectWithClassName:@"LiveRoom"];
     /**
      *  拉流地址
      */
-    [_liveRoom setObject:_pullUrl forKey:@"pullUrl"];
+    _liveRoom.pullUrl = _pullUrl;
     /**
-     *  主播信息
+     *  主播名称
      */
-    [_liveRoom setObject:currentUser forKey:@"host_info"];
+    _liveRoom.host_name = currentUser.username;
     /**
      *  观看人数
      */
-    [_liveRoom setObject:@"0" forKey:@"view_count"];
-    /**
-     *  观众信息
-     */
-    [_liveRoom setObject:@"" forKey:@"audience_info"];
+    _liveRoom.view_count = @0;
     /**
      *  直播间标题
      */
-    [_liveRoom setObject:@"" forKey:@"liveRoom_title"];
+    _liveRoom.liveRoom_title = _startView.nameTextField.text;
     [_liveRoom saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
             NSLog(@"保存成功");
@@ -512,7 +512,6 @@ UITableViewDataSource
             NSLog(@"创建对象出错 %@", error);
         }
     }];
-
 }
 
 // 创建聊天室
@@ -568,6 +567,12 @@ UITableViewDataSource
 // 底部工具栏按钮
 - (void)commentButtonAction:(UIButton *)button {
     [_textField becomeFirstResponder];
+}
+
+// 礼物
+- (void)giftButtonAction:(UIButton *)giftButton {
+    self.giftView = [[ElGiftView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT * 0.6, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4)];
+    [self.view addSubview:_giftView];
 }
 
 - (void)keyboardButtonAction:(UIButton *)button {
@@ -647,15 +652,6 @@ UITableViewDataSource
     }];
     [alerat addAction:action];
     [self presentViewController:alerat animated:YES completion:nil];
-}
-
-// 礼物
-- (void)giftButtonAction:(UIButton *)giftButton {
-
-    ElGiftView *giftView = [[ElGiftView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT * 0.6, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4)];
-    [self.view addSubview:giftView];
-    
-
 }
 
 

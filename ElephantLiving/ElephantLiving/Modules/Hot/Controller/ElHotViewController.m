@@ -12,6 +12,8 @@
 #import "ElWatchViewController.h"
 #import "ElHotTableViewCell.h"
 #import "ElOtherLiveModel.h"
+#import "ElLivingRoom.h"
+#import "AVIMClient.h"
 
 static NSString *const identifier = @"cell";
 static NSString *const carousel = @"carousel";
@@ -22,11 +24,13 @@ UITableViewDelegate
 >
 @property (nonatomic, strong) ElHotCarouselView *carouselView;
 @property (nonatomic, strong) NSMutableArray *otherLiveArray;
+@property (nonatomic, strong) ElLivingRoom *liveRoom;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) AVIMClient *client;
 @end
 
 @implementation ElHotViewController
 - (void)viewWillAppear:(BOOL)animated {
-
     self.navigationController.navigationBarHidden = NO;
 }
 
@@ -54,21 +58,20 @@ UITableViewDelegate
 }
 
 - (void)setElLiveInfo:(ElOtherLiveModel *)model{
-    
-    AVObject *liveRoom = [AVObject objectWithClassName:@"LiveRoom"];
-    
+
+    self.liveRoom = [[ElLivingRoom alloc] initWithClassName:@"LiveRoom"];
     /**
      *  拉流地址
      */
-    [liveRoom setObject:model.flv forKey:@"pullUrl"];
+    _liveRoom.pullUrl = model.flv;
     /**
      *  观看人数
      */
-    [liveRoom setObject:[NSString stringWithFormat:@"%@",model.allnum] forKey:@"view_count"];
+    _liveRoom.view_count = model.allnum;
     /**
      *  主播昵称
      */
-
+    _liveRoom.host_name = model.myname;
     /**
      *  主播头像
      */
@@ -80,15 +83,16 @@ UITableViewDelegate
     /**
      *  主播等级
      */
-    
-    [liveRoom saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+    _liveRoom.level = model.starlevel;
+    [_liveRoom saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded) {
             NSLog(@"直播间信息保存成功");
         } else {
             NSLog(@"创建直播对象出错 %@", error);
         }
     }];
-
+    [_otherLiveArray addObject:_liveRoom];
+    [_tableView reloadData];
 }
 
 
@@ -99,37 +103,48 @@ UITableViewDelegate
     _button.frame = CGRectMake(100, 300, 100, 100);
     _button.backgroundColor = [UIColor colorWithRed:0.9418 green:1.0 blue:0.7947 alpha:1.0];
     [self.view addSubview:_button];
-    [self getOtherLiveRoomInfo];
     [self createTableView];
-
+    [self getOtherLiveRoomInfo];
 }
 
 - (void)createTableView {
-    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, _carouselView.height + _carouselView.y, SCREEN_WIDTH, SCREEN_HEIGHT - _carouselView.height - _carouselView.y) style:UITableViewStylePlain];
-    tableView.backgroundColor = [UIColor orangeColor];
-    tableView.delegate = self;
-    tableView.dataSource = self;
-    tableView.rowHeight = 200;
-    [self. view addSubview:tableView];
-    
-    
-}
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, _carouselView.height + _carouselView.y, SCREEN_WIDTH, SCREEN_HEIGHT - _carouselView.height - _carouselView.y) style:UITableViewStylePlain];
+    _tableView.backgroundColor = [UIColor orangeColor];
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
+    _tableView.rowHeight = 200;
+    [self.view addSubview:_tableView];
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return _otherLiveArray.count;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    ElLivingRoom *liveRoom = _otherLiveArray[indexPath.row];
     ElHotTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (nil == cell) {
         cell = [[ElHotTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
-
+    cell.backgroundColor = [UIColor colorWithRed:1.000 green:0.934 blue:0.235 alpha:1.000];
+    cell.name = liveRoom.host_name;
+    cell.viewCount = liveRoom.view_count;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.delegate presentWatchController];
+    ElLivingRoom *liveRoom = _otherLiveArray[indexPath.row];
+    self.client = [[AVIMClient alloc] initWithClientId:liveRoom.host_name];
+    [_client openWithCallback:^(BOOL succeeded, NSError * _Nullable error) {
+        NSString *topic = liveRoom.objectId;
+        NSDictionary *dic = @{@"topic":topic};
+        [_client createConversationWithName:topic clientIds:@[] attributes:dic options:AVIMConversationOptionTransient callback:^(AVIMConversation * _Nullable conversation, NSError * _Nullable error) {
+            if (!error) {
+//                self.currentConversation = conversation;
+            }
+        }];
+    }];
+    [self.delegate presentWatchControllerWithLiveRoom:liveRoom];
 }
 
 - (void)createCarouselView {

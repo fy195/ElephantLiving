@@ -41,13 +41,13 @@
     _locationLabel.text = location;
 }
 
-- (void)setViewCount:(NSInteger)viewCount {
+- (void)setViewCount:(NSNumber *)viewCount {
     if (_viewCount != viewCount) {
         _viewCount = viewCount;
     }
-    _viewCountLabel.text = [NSString stringWithFormat:@"%ld人在看",_viewCount];
-    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%ld人在看",_viewCount]];
-    NSRange range = NSMakeRange([[str string] rangeOfString:[NSString stringWithFormat:@"%ld", _viewCount]].location, [[str string] rangeOfString:[NSString stringWithFormat:@"%ld", _viewCount]].length);
+    _viewCountLabel.text = [NSString stringWithFormat:@"%@人在看",_viewCount];
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@人在看",_viewCount]];
+    NSRange range = NSMakeRange([[str string] rangeOfString:[NSString stringWithFormat:@"%@", _viewCount]].location, [[str string] rangeOfString:[NSString stringWithFormat:@"%@", _viewCount]].length);
     [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:1.000 green:0.485 blue:0.598 alpha:1.000] range:range];
     [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:20] range:range];
     [_viewCountLabel setAttributedText:str];

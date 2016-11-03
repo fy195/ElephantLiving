@@ -10,6 +10,7 @@
 #import "ElTextViewController.h"
 #import <AVOSCloud/AVOSCloud.h>
 #import "ElCommonUtils.h"
+#import "ElUser.h"
 
 
 @interface ElRegisterViewController ()
@@ -81,7 +82,7 @@
     }else {
         [AVUser verifyMobilePhone:_smscodeTextField.text withBlock:^(BOOL succeeded, NSError * _Nullable error) {
             if (succeeded) {
-                 [self creatNewUserInfo];
+                [self creatNewUserInfo];
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"注册成功" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                     [self dismissViewControllerAnimated:YES completion:nil];
@@ -100,25 +101,23 @@
     NSString *password = _passwordTextField.text;
     
     if (userName && password && phoneNumber) {
-        AVUser *user = [AVUser user];
+        ElUser *user = [ElUser user];
         user.username = userName;
         user.mobilePhoneNumber = phoneNumber;
         user.password = password;
         NSError *error = nil;
         [user signUp:&error];
 
-        [AVUser requestMobilePhoneVerify:phoneNumber withBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        [ElUser requestMobilePhoneVerify:phoneNumber withBlock:^(BOOL succeeded, NSError * _Nullable error) {
             [self freezeMoreRequest];
             [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                 if (succeeded) {
-                    
                     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"获取验证码成功" message:nil preferredStyle:UIAlertControllerStyleAlert];
                     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                         [self dismissViewControllerAnimated:YES completion:nil];
                     }];
                     [alertController addAction:cancelAction];
                     [self presentViewController:alertController animated:YES completion:nil];
-
                 }else {
                     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"错误" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
                     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -133,42 +132,13 @@
 }
 
 - (void)creatNewUserInfo {
+    ElUser *user = [ElUser currentUser];
+    user.level = @1;
+    user.follow_count = @0;
+    user.follower_count = @0;
+    user.charm = @0;
     
-    
-    AVUser *userInfo = [AVUser currentUser];
-    /**
-     *  等级
-     */
-    [userInfo setObject:@"1" forKey:@"level"];
-    /**
-     *  粉丝数
-     */
-    [userInfo setObject:@"0" forKey:@"follower_count"];
-    /**
-     *  关注数
-     */
-    [userInfo setObject:@"0" forKey:@"follow_count"];
-    /**
-     *  收到的礼物
-     */
-    [userInfo setObject:@"" forKey:@"receive_gift"];
-    /**
-     *  送出的礼物
-     */
-    [userInfo setObject:@"" forKey:@"send_gift"];
-    /**
-     *  魅力值
-     */
-    [userInfo setObject:@"" forKey:@"charm"];
-    /**
-     *  用户头像
-     */
-    [userInfo setObject:@"" forKey:@"headimage"];
-    /**
-     *  直播封面
-     */
-    [userInfo setObject:@"" forKey:@"coverimage"];
-[userInfo saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+    [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
     if (succeeded) {
         NSLog(@"保存成功");
     } else {

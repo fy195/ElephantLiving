@@ -9,6 +9,7 @@
 #import "ElForgetPasswordViewController.h"
 #import "ElCommonUtils.h"
 #import <AVOSCloud/AVOSCloud.h>
+#import "ElUser.h"
 
 @interface ElForgetPasswordViewController ()
 
@@ -27,14 +28,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    [self.phoneTextNumber setText:[AVUser currentUser].mobilePhoneNumber];
-    
+    [self.phoneTextNumber setText:[ElUser currentUser].mobilePhoneNumber];
 }
 - (IBAction)ReturnButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
-
 
 - (void)freezeMoreRequest {
     // 一分钟内禁止再次发送
@@ -42,7 +40,7 @@
     freezeCounter = 60;
     counterDownTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(countDownRequestTimer) userInfo:nil repeats:YES];
     [counterDownTimer fire];
-    
+
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"验证码已发送" message:@"验证码已发送到你请求的手机号码。如果没有收到，可以在一分钟后尝试重新发送。" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
     [alertView show];
 }
@@ -62,7 +60,7 @@
 }
 - (IBAction)codeButton:(id)sender {
     
-    [AVUser requestPasswordResetWithPhoneNumber:[AVUser currentUser].mobilePhoneNumber block:^(BOOL succeeded, NSError *error) {
+    [ElUser requestPasswordResetWithPhoneNumber:[ElUser currentUser].mobilePhoneNumber block:^(BOOL succeeded, NSError *error) {
         if (error) {
             [ElCommonUtils displayError:error];
         } else {
@@ -92,7 +90,7 @@
         [ElCommonUtils displayError:error];
         return;
     }
-    [AVUser resetPasswordWithSmsCode:smsCode newPassword:newPassword block:^(BOOL succeeded, NSError *error) {
+    [ElUser resetPasswordWithSmsCode:smsCode newPassword:newPassword block:^(BOOL succeeded, NSError *error) {
         if (error) {
             [ElCommonUtils displayError:error];
         } else {
@@ -105,10 +103,6 @@
         }
     }];
 }
-
-    
-    
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

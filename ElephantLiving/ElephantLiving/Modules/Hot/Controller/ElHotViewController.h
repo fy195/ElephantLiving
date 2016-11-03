@@ -7,10 +7,10 @@
 //
 
 #import "ElBaseViewController.h"
-
+@class ElLivingRoom;
 @protocol ElHotViewControllerDelegate <NSObject>
 
-- (void)presentWatchController;
+- (void)presentWatchControllerWithLiveRoom:(ElLivingRoom *)liveRoom;
 
 @end
 

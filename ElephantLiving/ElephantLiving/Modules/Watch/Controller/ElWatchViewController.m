@@ -12,6 +12,8 @@
 #import "ElLivingBottomToolView.h"
 #import "AVOSCloudIM.h"
 #import "AVIMConversation.h"
+#import "ElLivingRoom.h"
+#import "ElUser.h"
 
 @interface ElWatchViewController ()
 <
@@ -47,13 +49,15 @@ AVIMClientDelegate
     [self playFlv];
     [self creatTool];
     self.view.backgroundColor = [UIColor whiteColor];
+    self.messageArray = [NSMutableArray array];
+    [self searchChatRoom];
     
     // Do any additional setup after loading the view from its nib.
 }
 
 // 搜索聊天室
 - (void)searchChatRoom {
-    AVUser *user = [AVUser currentUser];
+    ElUser *user = [ElUser currentUser];
     self.client = [[AVIMClient alloc] initWithClientId:user.username];
     _client.delegate = self;
     [self.client openWithCallback:^(BOOL succeeded, NSError *error) {
@@ -117,7 +121,7 @@ AVIMClientDelegate
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     cell.textLabel.text = _messageArray[indexPath.row];
-    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.textLabel.textColor = [UIColor colorWithWhite:0.900 alpha:1.000];
     NSRange range = [_messageArray[indexPath.row] rangeOfString:@":"];
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",_messageArray[indexPath.row]]];
     NSRange range1 = NSMakeRange(0, range.location + 1);
@@ -150,14 +154,13 @@ AVIMClientDelegate
     [options setPlayerOptionIntValue:1 forKey:@"audiotoolbox"];
     [options setPlayerOptionIntValue:15 forKey:@"r"];
     [options setPlayerOptionIntValue:512 forKey:@"vol"];
-    self.moviePlayer = [[IJKFFMoviePlayerController alloc] initWithContentURLString:_liveRoom withOptions:options];
+    self.moviePlayer = [[IJKFFMoviePlayerController alloc] initWithContentURLString:_liveRoom.pullUrl withOptions:options];
     _moviePlayer.view.frame = self.view.bounds;
     _moviePlayer.scalingMode = IJKMPMovieScalingModeAspectFill;
     _moviePlayer.shouldAutoplay = NO;
     _moviePlayer.shouldShowHudView = NO;
     
     [_moviePlayer prepareToPlay];
-    NSLog(@"播放");
     [self initObserver];
     [self.view addSubview:_moviePlayer.view];
     

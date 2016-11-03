@@ -32,9 +32,10 @@
 /**
  *  观看人数
  */
-@property (nonatomic, assign) NSInteger view_count;
+@property (nonatomic, strong) NSNumber *view_count;
 /**
  *  直播间标题
  */
 @property (nonatomic, strong) NSString *liveRoom_title;
+
 @end

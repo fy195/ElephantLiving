@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ElLoginViewController">
@@ -19,6 +19,7 @@
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入手机号" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OQz-71-xcs">
                     <rect key="frame" x="60" y="90" width="294" height="45"/>
+                    <animations/>
                     <color key="backgroundColor" red="0.95294117649999999" green="0.78039215689999997" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="Qjk-hS-N95"/>
@@ -28,6 +29,7 @@
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ods-5j-0td">
                     <rect key="frame" x="60" y="195" width="294" height="45"/>
+                    <animations/>
                     <color key="backgroundColor" red="0.95294117649999999" green="0.78039215689999997" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="Kw9-Zr-GEH"/>
@@ -37,6 +39,7 @@
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bk7-tf-00n">
                     <rect key="frame" x="60" y="285" width="294" height="45"/>
+                    <animations/>
                     <color key="backgroundColor" red="0.95294117649999999" green="0.78039215689999997" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="46" id="KnC-cH-iMl"/>
@@ -55,6 +58,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRq-Ji-HN1">
                     <rect key="frame" x="294" y="350" width="60" height="30"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="ZVt-bn-NfC"/>
                         <constraint firstAttribute="height" constant="30" id="gL3-dx-6c3"/>
@@ -66,21 +70,9 @@
                         <action selector="RegisterButton:" destination="-1" eventType="touchUpInside" id="yXp-xc-zvd"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIi-dD-A5X">
-                    <rect key="frame" x="25" y="30" width="45" height="45"/>
-                    <color key="backgroundColor" red="0.95294117649999999" green="0.78039215689999997" blue="0.81568627449999997" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="45" id="dJO-c2-e71"/>
-                        <constraint firstAttribute="width" constant="45" id="dm9-sX-vFh"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <state key="normal" title="返回"/>
-                    <connections>
-                        <action selector="ReturnButtonAction:" destination="-1" eventType="touchUpInside" id="jmV-sC-HMr"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kJO-gm-Qtg">
                     <rect key="frame" x="274" y="255" width="80" height="30"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="80" id="UaI-GH-wZR"/>
                         <constraint firstAttribute="height" constant="30" id="m9d-gy-scs"/>
@@ -93,6 +85,7 @@
                     </connections>
                 </button>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Bk7-tf-00n" firstAttribute="top" secondItem="ods-5j-0td" secondAttribute="bottom" constant="45" id="6we-u7-nBA"/>
@@ -107,8 +100,6 @@
                 <constraint firstAttribute="trailing" secondItem="OQz-71-xcs" secondAttribute="trailing" constant="60" id="fk5-Gq-l8f"/>
                 <constraint firstItem="kJO-gm-Qtg" firstAttribute="top" secondItem="ods-5j-0td" secondAttribute="bottom" constant="15" id="gKZ-vV-6wc"/>
                 <constraint firstItem="OQz-71-xcs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="gfb-1E-RwP"/>
-                <constraint firstItem="nIi-dD-A5X" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="ntT-Mv-CxU"/>
-                <constraint firstItem="nIi-dD-A5X" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="25" id="p6e-yO-CvF"/>
                 <constraint firstItem="ods-5j-0td" firstAttribute="trailing" secondItem="OQz-71-xcs" secondAttribute="trailing" id="pAW-0r-BgT"/>
                 <constraint firstItem="ods-5j-0td" firstAttribute="width" secondItem="OQz-71-xcs" secondAttribute="width" id="swi-eG-pfb"/>
                 <constraint firstItem="Bk7-tf-00n" firstAttribute="centerY" secondItem="ods-5j-0td" secondAttribute="centerY" id="wvq-0q-Z36"/>

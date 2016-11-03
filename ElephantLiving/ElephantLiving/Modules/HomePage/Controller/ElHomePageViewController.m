@@ -124,8 +124,9 @@ ElHotViewControllerDelegate
     
 }
 
-- (void)presentWatchController {
+- (void)presentWatchControllerWithLiveRoom:(ElLivingRoom *)liveRoom {
     ElWatchViewController *watchVC = [[ElWatchViewController alloc] init];
+    watchVC.liveRoom = liveRoom;
     [self presentViewController:watchVC animated:YES completion:nil];
 }
 
