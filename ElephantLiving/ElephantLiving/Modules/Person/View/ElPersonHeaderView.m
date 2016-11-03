@@ -18,7 +18,6 @@
         
         self.backgroundImageView = [[UIImageView alloc] initWithFrame:self.bounds];
         _backgroundImageView.backgroundColor = [UIColor cyanColor];
-//        _backgroundImageView.image = [UIImage imageNamed:@""];
         [self addSubview:_backgroundImageView];
         
         

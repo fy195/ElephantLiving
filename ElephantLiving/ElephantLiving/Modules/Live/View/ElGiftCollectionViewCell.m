@@ -15,7 +15,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.giftImageView = [[UIImageView alloc] initWithFrame:CGRectMake(self.frame.size.width * 0.2, self.frame.size.height * 0.2, self.frame.size.width * 0.6, self.frame.size.height * 0.4)];
-        _giftImageView.image = [UIImage imageNamed:@""];
         [self addSubview:_giftImageView];
         
         

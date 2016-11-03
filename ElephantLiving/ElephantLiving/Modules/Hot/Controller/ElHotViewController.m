@@ -48,7 +48,7 @@ UITableViewDelegate
                 NSArray *listArray = [data objectForKey:@"list"];
                 for (NSDictionary *dic in listArray) {
                     ElOtherLiveModel *model = [[ElOtherLiveModel alloc] initWithDic:dic];
-                    [self setElLiveInfo:model];
+//                    [self setElLiveInfo:model];
                 }
             }
         });

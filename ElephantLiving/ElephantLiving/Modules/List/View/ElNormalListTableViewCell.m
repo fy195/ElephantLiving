@@ -27,7 +27,6 @@
         
         // 排名头像
         self.headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.12, SCREEN_WIDTH * 0.02, SCREEN_WIDTH * 0.17, SCREEN_WIDTH * 0.17)];
-//        _headerImageView.image = [UIImage imageNamed:@""];
         _headerImageView.layer.cornerRadius = 35;
         _headerImageView.backgroundColor = [UIColor yellowColor];
         _headerImageView.clipsToBounds = YES;

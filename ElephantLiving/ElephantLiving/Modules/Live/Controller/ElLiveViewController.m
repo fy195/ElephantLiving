@@ -25,55 +25,32 @@ QPLiveSessionDelegate,
 AVIMClientDelegate,
 UITextFieldDelegate,
 UITableViewDelegate,
-UITableViewDataSource
+UITableViewDataSource,
+ElGiftViewDelegate
 >
-
 @property (nonatomic, strong) ElLivingRoom *liveRoom;
-
 @property (nonatomic, strong) ElStartLiving *startView;
-
 @property (nonatomic, strong) UIImageView *timeImageView;
-
 @property (nonatomic, strong) NSTimer *myTimer;
-
 @property (nonatomic, assign) NSInteger timeNumber;
-
 @property (nonatomic, strong) NSString *pushUrl;
-
 @property (nonatomic, strong) NSString *pullUrl;
-
 @property (nonatomic, strong) UIButton *closeButton;
-
 @property (nonatomic, strong) ElLeftToolView *leftToolView;
-
 @property (nonatomic, strong) ElLivingTopView *topToolView;
-
 @property (nonatomic, strong) ElLivingBottomToolView *bottomToolView;
-
 @property (nonatomic, strong) ElEndLiving *endView;
-
 @property (nonatomic, strong) QPLiveSession *liveSession;;
-
 @property (nonatomic, strong) QPLConfiguration *configuration;
-
 @property (nonatomic, strong) NSString *timeString;
-
 @property (nonatomic, strong) UITextField *textField;
-
 @property (nonatomic, strong) UIView *keyboardView;
-
 @property (nonatomic, strong) UIButton *keyboardButton;
-
 @property (nonatomic, strong) UITableView *commentTableView;
-
 @property (nonatomic, retain) NSMutableArray *messageArray;
-
 @property (nonatomic, strong) AVIMClient *client;
-
 @property (nonatomic, strong) AVIMConversation *currentConversation;
-
 @property (nonatomic, strong) ElGiftView *giftView;
-
 @end
 
 @implementation ElLiveViewController{
@@ -149,6 +126,9 @@ UITableViewDataSource
     _bottomToolView.backgroundColor = [UIColor clearColor];
     [_bottomToolView.commentButton addTarget:self action:@selector(commentButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_bottomToolView.giftButton addTarget:self action:@selector(giftButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    self.giftView = [[ElGiftView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4)];
+    [self.view addSubview:_giftView];
+
     [self.view addSubview:_bottomToolView];
     
     self.closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -167,7 +147,7 @@ UITableViewDataSource
 
 // 创建tableView
 - (void)createCommentTableView {
-    self.commentTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 320, SCREEN_WIDTH - 70, 250) style:UITableViewStylePlain];
+    self.commentTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 270, SCREEN_WIDTH - 70, 200) style:UITableViewStylePlain];
     _commentTableView.delegate = self;
     _commentTableView.dataSource = self;
     _commentTableView.backgroundColor = [UIColor clearColor];
@@ -571,8 +551,10 @@ UITableViewDataSource
 
 // 礼物
 - (void)giftButtonAction:(UIButton *)giftButton {
-    self.giftView = [[ElGiftView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT * 0.6, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4)];
-    [self.view addSubview:_giftView];
+    [UIView animateWithDuration:0.5 animations:^{
+        _giftView.frame = CGRectMake(0, SCREEN_HEIGHT * 0.6, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4);
+    }];
+    [self.view bringSubviewToFront:_giftView];
 }
 
 - (void)keyboardButtonAction:(UIButton *)button {
@@ -589,6 +571,9 @@ UITableViewDataSource
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [_textField resignFirstResponder];
+    [UIView animateWithDuration:0.5 animations:^{
+        _giftView.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4);
+    }];
 }
 
 // textField跟随键盘
@@ -654,6 +639,9 @@ UITableViewDataSource
     [self presentViewController:alerat animated:YES completion:nil];
 }
 
+- (void)animationWithItemCount:(NSInteger)itemCount {
+    NSLog(@"动画编号:%ld", itemCount);
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
