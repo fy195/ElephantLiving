@@ -93,8 +93,8 @@ ElGiftViewDelegate
     _timeImageView.center = self.view.center;
     _timeImageView.backgroundColor = [UIColor   clearColor];
     
-    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesture:)];
-    [self.view addGestureRecognizer:gesture];
+//    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesture:)];
+//    [self.view addGestureRecognizer:gesture];
     
     [self createRequest];
     [self createConfiguration];
@@ -133,6 +133,7 @@ ElGiftViewDelegate
     [_bottomToolView.giftButton addTarget:self action:@selector(giftButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     self.giftView = [[ElGiftView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4)];
     [self.view addSubview:_giftView];
+    _giftView.delegate = self;
 
     [self.view addSubview:_bottomToolView];
     
@@ -163,13 +164,6 @@ ElGiftViewDelegate
     self.client = [AVIMClient defaultClient];
     _client.delegate = self;
 }
-
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    NSDictionary *dic = @{NSFontAttributeName : [UIFont systemFontOfSize:14.f]};
-//    CGSize textSize = CGSizeMake(SCREEN_WIDTH, 1000);
-//    CGRect textRect = [_messageArray[indexPath.row] boundingRectWithSize:textSize options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dic context:nil];
-//    return textRect.size.height;
-//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _messageArray.count;
@@ -284,13 +278,17 @@ ElGiftViewDelegate
 }
 
 // 聚焦
-- (void)tapGesture:(UITapGestureRecognizer *)gesture{
-    CGPoint point = [gesture locationInView:self.view];
-    CGPoint percentPoint = CGPointZero;
-    percentPoint.x = point.x / CGRectGetWidth(self.view.bounds);
-    percentPoint.y = point.y / CGRectGetHeight(self.view.bounds);
-    [_liveSession focusAtAdjustedPoint:percentPoint autoFocus:YES];
-}
+//- (void)tapGesture:(UITapGestureRecognizer *)gesture{
+//    CGPoint point = [gesture locationInView:self.view];
+//    CGPoint percentPoint = CGPointZero;
+//    percentPoint.x = point.x / CGRectGetWidth(self.view.bounds);
+//    percentPoint.y = point.y / CGRectGetHeight(self.view.bounds);
+//    [_liveSession focusAtAdjustedPoint:percentPoint autoFocus:YES];
+//    
+//    [UIView animateWithDuration:0.5 animations:^{
+//        _giftView.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4);
+//    }];
+//}
 
 // 请求推拉流地址
 - (void)createRequest {
@@ -299,7 +297,6 @@ ElGiftViewDelegate
         self.pushUrl = pushUrl;
         _configuration.url = pushUrl;
         self.pullUrl = pullUrl;
-        NSLog(@"%@", pullUrl);
     } failure:^(NSError *error) {
         UIAlertController *alerat = [UIAlertController alertControllerWithTitle:@"" message:@"Create Live Failed" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *action = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -560,6 +557,7 @@ ElGiftViewDelegate
         _giftView.frame = CGRectMake(0, SCREEN_HEIGHT * 0.6, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4);
     }];
     [self.view bringSubviewToFront:_giftView];
+    _giftView.userInteractionEnabled = YES;
 }
 
 - (void)keyboardButtonAction:(UIButton *)button {
@@ -576,9 +574,6 @@ ElGiftViewDelegate
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [_textField resignFirstResponder];
-    [UIView animateWithDuration:0.5 animations:^{
-        _giftView.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4);
-    }];
 }
 
 // textField跟随键盘
@@ -650,11 +645,11 @@ ElGiftViewDelegate
     if (0 == itemCount) {
         // IM 消息
         GSPChatMessage *msg = [[GSPChatMessage alloc] init];
-        msg.text = @"1个【鲜花】";
+        msg.text = @"1个【玫瑰花】";
         
         msg.senderChatID = @"亮锅";
         msg.senderName = msg.senderChatID;
-        NSLog(@"id %@ -------送了1个【鲜花】--------",msg.senderChatID);
+        NSLog(@"id %@ -------送了1个【玫瑰花】--------",msg.senderChatID);
         
         // 礼物模型
         GiftModel *giftModel = [[GiftModel alloc] init];
@@ -672,11 +667,11 @@ ElGiftViewDelegate
     } else if (1 == itemCount) {
         // IM 消息
         GSPChatMessage *msg = [[GSPChatMessage alloc] init];
-        msg.text = @"1个【鲜花】";
+        msg.text = @"1个【樱花】";
         
         msg.senderChatID = @"班长";
         msg.senderName = msg.senderChatID;
-        NSLog(@"id %@ -------送了1个【鲜花】--------",msg.senderChatID);
+        NSLog(@"id %@ -------送了1个【樱花】--------",msg.senderChatID);
         
         // 礼物模型
         GiftModel *giftModel = [[GiftModel alloc] init];
@@ -695,11 +690,11 @@ ElGiftViewDelegate
     } else if (2 == itemCount) {
         // IM 消息
         GSPChatMessage *msg = [[GSPChatMessage alloc] init];
-        msg.text = @"1个【鲜花】";
+        msg.text = @"1个【钻石】";
         
         msg.senderChatID = @"亮锅";
         msg.senderName = msg.senderChatID;
-        NSLog(@"id %@ -------送了1个【鲜花】--------",msg.senderChatID);
+        NSLog(@"id %@ -------送了1个【钻石】--------",msg.senderChatID);
         
         // 礼物模型
         GiftModel *giftModel = [[GiftModel alloc] init];

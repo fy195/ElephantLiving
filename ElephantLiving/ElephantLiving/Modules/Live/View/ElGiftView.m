@@ -26,6 +26,7 @@ UICollectionViewDelegate
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.userInteractionEnabled = YES;
         // 模糊效果
         UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
         UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
@@ -72,7 +73,6 @@ UICollectionViewDelegate
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 
     ElGiftCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:string forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor orangeColor];
     if (0 == indexPath.item) {
         cell.giftImage = [UIImage imageNamed:@"gift_flower"];
         cell.priceText = @"2💎";
@@ -136,7 +136,6 @@ UICollectionViewDelegate
 
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"点击了%ld", indexPath.item);
     self.itemCount = indexPath.item;
     ElGiftCollectionViewCell *cell = (ElGiftCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
     cell.backgroundColor = [UIColor orangeColor];
@@ -149,9 +148,6 @@ UICollectionViewDelegate
 
 - (void)sendButtonAction:(UIButton *)button {
     [self.delegate animationWithItemCount:_itemCount];
-    [UIView animateWithDuration:0.5 animations:^{
-        self.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_HEIGHT, SCREEN_HEIGHT * 0.4);
-    }];
 }
 
 @end

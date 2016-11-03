@@ -8,6 +8,12 @@
 
 #import "ElGiftCollectionViewCell.h"
 
+@interface ElGiftCollectionViewCell ()
+@property (nonatomic, strong)UIImageView *giftImageView;
+@property (nonatomic, strong)UILabel *priceLabel;
+@property (nonatomic, strong)UILabel *experienceLabel;
+@end
+
 @implementation ElGiftCollectionViewCell
 
 - (instancetype)initWithFrame:(CGRect)frame
