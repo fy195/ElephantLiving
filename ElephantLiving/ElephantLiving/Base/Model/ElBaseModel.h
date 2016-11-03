@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+@class AVObject;
 
 @interface ElBaseModel : NSObject
+
+@property (nonatomic, strong)AVObject *mapAVObject;
 /**
  *  基类初始化方法
  *
@@ -25,4 +28,6 @@
  *  @return
  */
 + (instancetype)modelWithDic:(NSDictionary *)dic;
+
++ (NSArray *)modelArrayWithArray:(NSArray *)avObjectArray;
 @end

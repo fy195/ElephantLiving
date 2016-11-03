@@ -9,7 +9,7 @@
 #import "ElLoginViewController.h"
 #import "ElRegisterViewController.h"
 #import "ElForgetPasswordViewController.h"
-#import <AVOSCloud/AVOSCloud.h>
+#import "AVOSCloud/AVOSCloud.h"
 #import "ElHomePageViewController.h"
 #import "ElUser.h"
 

@@ -29,7 +29,19 @@
     self.headerImageView.layer.borderColor = [UIColor whiteColor].CGColor;
 }
 
+- (void)setHeaderImage:(UIImage *)headerImage {
+    if (_headerImage != headerImage) {
+        _headerImage = headerImage;
+    }
+    _headerImageView.image = headerImage;
+}
 
+- (void)setWatchCount:(NSNumber *)watchCount {
+    if (_watchCount != watchCount) {
+        _watchCount = watchCount;
+    }
+    _watchCountLabel.text = [NSString stringWithFormat:@"%@人在观看", watchCount];
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

@@ -12,8 +12,9 @@
 #import "ElLivingBottomToolView.h"
 #import "AVOSCloudIM.h"
 #import "AVIMConversation.h"
-#import "ElLivingRoom.h"
 #import "ElUser.h"
+#import "LiveRoom.h"
+#import "AVObject+ElClassMap.h"
 
 @interface ElWatchViewController ()
 <
@@ -62,7 +63,7 @@ AVIMClientDelegate
     _client.delegate = self;
     [self.client openWithCallback:^(BOOL succeeded, NSError *error) {
         AVIMConversationQuery *query = [self.client conversationQuery];
-        [query whereKey:AVIMAttr(@"topic") equalTo:_liveRoom.objectId];
+        [query whereKey:AVIMAttr(@"topic") equalTo:_liveRoom.host_name];
         // 额外调用一次确保查询的是聊天室而不是普通对话
         [query whereKey:@"tr" equalTo:@(YES)];
         [query findConversationsWithCallback:^(NSArray *objects, NSError *error) {
@@ -81,6 +82,8 @@ AVIMClientDelegate
     ElLivingTopView *topToolView = [ElLivingTopView elLivingTopView];
     topToolView.frame = CGRectMake(0, 20, SCREEN_WIDTH, 57);
     topToolView.backgroundColor = [UIColor clearColor];
+    topToolView.headerImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_liveRoom.headerImage]]];
+    topToolView.watchCount = _liveRoom.view_count;
     [_moviePlayer.view addSubview:topToolView];
     
     ElLivingBottomToolView *bottomToolView = [ElLivingBottomToolView elLivingBottomToolView];
@@ -100,9 +103,10 @@ AVIMClientDelegate
     [_moviePlayer.view addSubview:_closeButton];
     [_moviePlayer.view bringSubviewToFront:_closeButton];
     
-    self.commentTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 320, SCREEN_WIDTH - 70, 250) style:UITableViewStylePlain];
+    self.commentTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 270, SCREEN_WIDTH - 70, 200) style:UITableViewStylePlain];
     _commentTableView.delegate = self;
     _commentTableView.dataSource = self;
+    _commentTableView.rowHeight = 15;
     _commentTableView.backgroundColor = [UIColor clearColor];
     _commentTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_commentTableView];
@@ -120,6 +124,7 @@ AVIMClientDelegate
     if (nil == cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = _messageArray[indexPath.row];
     cell.textLabel.textColor = [UIColor colorWithWhite:0.900 alpha:1.000];
     NSRange range = [_messageArray[indexPath.row] rangeOfString:@":"];
@@ -319,6 +324,12 @@ AVIMClientDelegate
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setLiveRoom:(LiveRoom *)liveRoom {
+    if (_liveRoom != liveRoom) {
+        _liveRoom = liveRoom;
+    }
 }
 
 /*

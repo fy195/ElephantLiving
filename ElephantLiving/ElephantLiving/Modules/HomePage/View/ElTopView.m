@@ -22,7 +22,7 @@
 {
     if (self = [super initWithFrame:frame]) {
         self.underLine = [[UIView alloc] init];
-        _underLine.frame = CGRectMake(0, self.height - 4, SCREEN_WIDTH * 0.1 + 20, 2);
+        _underLine.frame = CGRectMake(0, self.height - 4, SCREEN_WIDTH * 0.15 + 20, 2);
         
         _underLine.backgroundColor = [UIColor whiteColor];
         [self addSubview:_underLine];
@@ -55,7 +55,7 @@
     CGFloat height = self.height;
     
     
-    _hotButton.width = SCREEN_WIDTH * 0.1;
+    _hotButton.width = SCREEN_WIDTH * 0.15;
     _hotButton.height = 20;
     _hotButton.y = (height + 20) / 2 - 10;
     _hotButton.x = SCREEN_WIDTH / 2 - _hotButton.width / 2;

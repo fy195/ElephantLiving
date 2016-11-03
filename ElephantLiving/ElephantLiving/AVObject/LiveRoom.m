@@ -1,14 +1,14 @@
 //
-//  ElLivingRoom.m
+//  LiveRoom.m
 //  ElephantLiving
 //
-//  Created by dllo on 16/11/2.
+//  Created by dllo on 16/11/3.
 //  Copyright © 2016年 dllo. All rights reserved.
 //
 
-#import "ElLivingRoom.h"
+#import "LiveRoom.h"
 
-@implementation ElLivingRoom
+@implementation LiveRoom
 
 - (void)setLevel:(NSNumber *)level {
     if (_level != level) {

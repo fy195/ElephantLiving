@@ -16,8 +16,9 @@
 #import "AVOSCloudIM.h"
 #import "AVIMConversation.h"
 #import "ElGiftView.h"
-#import "ElLivingRoom.h"
 #import "ElUser.h"
+#import "LiveRoom.h"
+#import "AVObject+ElClassMap.h"
 #import "PresentView.h"
 #import "GiftModel.h"
 #import "AnimOperation.h"
@@ -32,8 +33,6 @@
 #import "ElFireworksAnimationView.h"
 #import "ElHouseAniamtionView.h"
 
-
-NSInteger i = 1;
 @interface ElLiveViewController ()
 <
 QPLiveSessionDelegate,
@@ -43,7 +42,9 @@ UITableViewDelegate,
 UITableViewDataSource,
 ElGiftViewDelegate
 >
-@property (nonatomic, strong) ElLivingRoom *liveRoom;
+
+
+@property (nonatomic, strong) LiveRoom *liveRoom;
 @property (nonatomic, strong) ElStartLiving *startView;
 @property (nonatomic, strong) UIImageView *timeImageView;
 @property (nonatomic, strong) NSTimer *myTimer;
@@ -175,6 +176,7 @@ ElGiftViewDelegate
     self.commentTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 270, SCREEN_WIDTH - 70, 200) style:UITableViewStylePlain];
     _commentTableView.delegate = self;
     _commentTableView.dataSource = self;
+    _commentTableView.rowHeight = 15;
     _commentTableView.backgroundColor = [UIColor clearColor];
     _commentTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_commentTableView];
@@ -193,6 +195,7 @@ ElGiftViewDelegate
     if (nil == cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = _messageArray[indexPath.row];
     cell.textLabel.textColor = [UIColor colorWithWhite:0.900 alpha:1.000];
     NSRange range = [_messageArray[indexPath.row] rangeOfString:@":"];
@@ -489,7 +492,7 @@ ElGiftViewDelegate
 - (void)creatLiveRoom {
 
     ElUser *currentUser = [ElUser currentUser];
-    self.liveRoom = [ElLivingRoom objectWithClassName:@"LiveRoom"];
+    self.liveRoom = [[LiveRoom alloc] initWithClassName:NSStringFromClass([LiveRoom class])];
     /**
      *  拉流地址
      */
@@ -521,7 +524,7 @@ ElGiftViewDelegate
     self.client = [[AVIMClient alloc] initWithClientId:user.username];
     _client.delegate = self;
     [_client openWithCallback:^(BOOL succeeded, NSError * _Nullable error) {
-        NSString *topic = _liveRoom.objectId;
+        NSString *topic = _liveRoom.host_name;
         NSDictionary *dic = @{@"topic":topic};
         [_client createConversationWithName:topic clientIds:@[] attributes:dic options:AVIMConversationOptionTransient callback:^(AVIMConversation * _Nullable conversation, NSError * _Nullable error) {
             if (!error) {
@@ -660,10 +663,6 @@ ElGiftViewDelegate
 
 - (void)animationWithItemCount:(NSInteger)itemCount {
 //    NSLog(@"动画编号:%ld", itemCount);
-    
-    NSLog(@"%ld", i);
-    
-    i++;
     
     if (0 == itemCount) {
         // IM 消息

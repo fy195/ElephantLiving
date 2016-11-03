@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong) UIImage *headerImage;
 
-@property (nonatomic, strong) NSString *watchCount;
+@property (nonatomic, strong) NSNumber *watchCount;
 
 + (instancetype)elLivingTopView;
 

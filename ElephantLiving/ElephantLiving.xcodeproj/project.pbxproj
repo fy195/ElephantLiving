@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4904FB4C1DC9E5F100F68866 /* ElOtherLiveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4904FB4B1DC9E5F100F68866 /* ElOtherLiveModel.m */; };
 		4916D8561DBEF02700FAFB68 /* ElWatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4916D8541DBEF02700FAFB68 /* ElWatchViewController.m */; };
+		491E05BB1DCB289E009342BA /* LiveRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 491E05BA1DCB289E009342BA /* LiveRoom.m */; };
+		491E05C11DCB2B17009342BA /* AVObject+ElClassMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 491E05C01DCB2B17009342BA /* AVObject+ElClassMap.m */; };
+		491E05C61DCB2EE1009342BA /* ElBaseAVObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 491E05C51DCB2EE1009342BA /* ElBaseAVObject.m */; };
 		492709CA1DB9C4B000D6F550 /* ElHotCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 492709C91DB9C4B000D6F550 /* ElHotCollectionViewCell.m */; };
 		492709CD1DB9C60D00D6F550 /* ElHotCarouselView.m in Sources */ = {isa = PBXBuildFile; fileRef = 492709CC1DB9C60D00D6F550 /* ElHotCarouselView.m */; };
 		493907501DB8EED400F06D40 /* ElHotTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4939074E1DB8EED400F06D40 /* ElHotTableViewCell.m */; };
@@ -35,7 +38,6 @@
 		499FBE2D1DB786CE0015CC1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 499FBE2B1DB786CE0015CC1D /* Main.storyboard */; };
 		499FBE321DB786CE0015CC1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 499FBE301DB786CE0015CC1D /* LaunchScreen.storyboard */; };
 		49B5F6421DC2FAA8006A3538 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B5F6411DC2FAA8006A3538 /* QuartzCore.framework */; };
-		49CA28531DC99AA900654B7C /* ElLivingRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CA28521DC99AA900654B7C /* ElLivingRoom.m */; };
 		49CA285B1DC9E25800654B7C /* xinyiba_riva_Dolphin01.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CA28541DC9E25800654B7C /* xinyiba_riva_Dolphin01.png */; };
 		49CA285C1DC9E25800654B7C /* xinyiba_riva_Dolphin02.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CA28551DC9E25800654B7C /* xinyiba_riva_Dolphin02.png */; };
 		49CA285D1DC9E25800654B7C /* xinyiba_riva_Dolphin03.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CA28561DC9E25800654B7C /* xinyiba_riva_Dolphin03.png */; };
@@ -51,8 +53,6 @@
 		49DF2C261DC2DA220096E935 /* ElRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49DF2C241DC2DA220096E935 /* ElRegisterViewController.xib */; };
 		49DF2C2A1DC2E4990096E935 /* ElForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DF2C281DC2E4990096E935 /* ElForgetPasswordViewController.m */; };
 		49DF2C2B1DC2E4990096E935 /* ElForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49DF2C291DC2E4990096E935 /* ElForgetPasswordViewController.xib */; };
-		49DF2C601DC373600096E935 /* ElTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DF2C5E1DC373600096E935 /* ElTextViewController.m */; };
-		49DF2C611DC373600096E935 /* ElTextViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49DF2C5F1DC373600096E935 /* ElTextViewController.xib */; };
 		49E759981DB8EE3100BDCB3C /* ElNormalListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E759971DB8EE3100BDCB3C /* ElNormalListTableViewCell.m */; };
 		49E7599B1DB8EE5100BDCB3C /* ElPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7599A1DB8EE5100BDCB3C /* ElPersonViewController.m */; };
 		49E7599E1DB8EE8800BDCB3C /* ElPersonHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7599D1DB8EE8800BDCB3C /* ElPersonHeaderView.m */; };
@@ -166,6 +166,13 @@
 		4904FB4B1DC9E5F100F68866 /* ElOtherLiveModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElOtherLiveModel.m; sourceTree = "<group>"; };
 		4916D8531DBEF02700FAFB68 /* ElWatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElWatchViewController.h; sourceTree = "<group>"; };
 		4916D8541DBEF02700FAFB68 /* ElWatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElWatchViewController.m; sourceTree = "<group>"; };
+		491E05B91DCB289E009342BA /* LiveRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveRoom.h; sourceTree = "<group>"; };
+		491E05BA1DCB289E009342BA /* LiveRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveRoom.m; sourceTree = "<group>"; };
+		491E05BF1DCB2B17009342BA /* AVObject+ElClassMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVObject+ElClassMap.h"; sourceTree = "<group>"; };
+		491E05C01DCB2B17009342BA /* AVObject+ElClassMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVObject+ElClassMap.m"; sourceTree = "<group>"; };
+		491E05C31DCB2E6C009342BA /* ElAVOSCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElAVOSCloud.h; sourceTree = "<group>"; };
+		491E05C41DCB2EE1009342BA /* ElBaseAVObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElBaseAVObject.h; sourceTree = "<group>"; };
+		491E05C51DCB2EE1009342BA /* ElBaseAVObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElBaseAVObject.m; sourceTree = "<group>"; };
 		492709C81DB9C4B000D6F550 /* ElHotCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElHotCollectionViewCell.h; sourceTree = "<group>"; };
 		492709C91DB9C4B000D6F550 /* ElHotCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElHotCollectionViewCell.m; sourceTree = "<group>"; };
 		492709CB1DB9C60D00D6F550 /* ElHotCarouselView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElHotCarouselView.h; sourceTree = "<group>"; };
@@ -207,8 +214,6 @@
 		499FBE311DB786CE0015CC1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		499FBE331DB786CE0015CC1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49B5F6411DC2FAA8006A3538 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		49CA28511DC99AA900654B7C /* ElLivingRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElLivingRoom.h; sourceTree = "<group>"; };
-		49CA28521DC99AA900654B7C /* ElLivingRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElLivingRoom.m; sourceTree = "<group>"; };
 		49CA28541DC9E25800654B7C /* xinyiba_riva_Dolphin01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin01.png; sourceTree = "<group>"; };
 		49CA28551DC9E25800654B7C /* xinyiba_riva_Dolphin02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin02.png; sourceTree = "<group>"; };
 		49CA28561DC9E25800654B7C /* xinyiba_riva_Dolphin03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin03.png; sourceTree = "<group>"; };
@@ -229,9 +234,6 @@
 		49DF2C271DC2E4990096E935 /* ElForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElForgetPasswordViewController.h; sourceTree = "<group>"; };
 		49DF2C281DC2E4990096E935 /* ElForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElForgetPasswordViewController.m; sourceTree = "<group>"; };
 		49DF2C291DC2E4990096E935 /* ElForgetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElForgetPasswordViewController.xib; sourceTree = "<group>"; };
-		49DF2C5D1DC373600096E935 /* ElTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElTextViewController.h; sourceTree = "<group>"; };
-		49DF2C5E1DC373600096E935 /* ElTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElTextViewController.m; sourceTree = "<group>"; };
-		49DF2C5F1DC373600096E935 /* ElTextViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElTextViewController.xib; sourceTree = "<group>"; };
 		49E759961DB8EE3100BDCB3C /* ElNormalListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElNormalListTableViewCell.h; sourceTree = "<group>"; };
 		49E759971DB8EE3100BDCB3C /* ElNormalListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElNormalListTableViewCell.m; sourceTree = "<group>"; };
 		49E759991DB8EE5100BDCB3C /* ElPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElPersonViewController.h; sourceTree = "<group>"; };
@@ -508,12 +510,17 @@
 		49CA28621DC9EC0800654B7C /* AVObject */ = {
 			isa = PBXGroup;
 			children = (
+				491E05BF1DCB2B17009342BA /* AVObject+ElClassMap.h */,
+				491E05C01DCB2B17009342BA /* AVObject+ElClassMap.m */,
+				491E05C31DCB2E6C009342BA /* ElAVOSCloud.h */,
+				491E05C41DCB2EE1009342BA /* ElBaseAVObject.h */,
+				491E05C51DCB2EE1009342BA /* ElBaseAVObject.m */,
 				49CA28661DC9EE0500654B7C /* ElGift.h */,
 				49CA28671DC9EE0500654B7C /* ElGift.m */,
-				49CA28511DC99AA900654B7C /* ElLivingRoom.h */,
-				49CA28521DC99AA900654B7C /* ElLivingRoom.m */,
 				49CA28631DC9EC8900654B7C /* ElUser.h */,
 				49CA28641DC9EC8900654B7C /* ElUser.m */,
+				491E05B91DCB289E009342BA /* LiveRoom.h */,
+				491E05BA1DCB289E009342BA /* LiveRoom.m */,
 			);
 			path = AVObject;
 			sourceTree = "<group>";
@@ -546,24 +553,6 @@
 			children = (
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		49DF2C581DC372EF0096E935 /* text */ = {
-			isa = PBXGroup;
-			children = (
-				49DF2C5C1DC373160096E935 /* Controller */,
-			);
-			path = text;
-			sourceTree = "<group>";
-		};
-		49DF2C5C1DC373160096E935 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				49DF2C5D1DC373600096E935 /* ElTextViewController.h */,
-				49DF2C5E1DC373600096E935 /* ElTextViewController.m */,
-				49DF2C5F1DC373600096E935 /* ElTextViewController.xib */,
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		49F2C9601DB9AF3E000589A7 /* Gift */ = {
@@ -889,7 +878,6 @@
 				49FE39E91DB79C0400FD8A99 /* Search */,
 				49F2C96A1DB9AFE8000589A7 /* Setting */,
 				4916D8521DBEEEAF00FAFB68 /* Watch */,
-				49DF2C581DC372EF0096E935 /* text */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -1639,7 +1627,6 @@
 				EB1DDB0D1DCAE01F0095619C /* fireworks_5.png in Resources */,
 				EB1DDB0B1DCAE01F0095619C /* fireworks_3.png in Resources */,
 				499FBE321DB786CE0015CC1D /* LaunchScreen.storyboard in Resources */,
-				49DF2C611DC373600096E935 /* ElTextViewController.xib in Resources */,
 				EB1DDAF31DCAE00E0095619C /* gift_heart_8.png in Resources */,
 				493907561DB8EEF000F06D40 /* ElNewCollectionViewCell.xib in Resources */,
 				EB1DDAE71DCAE00E0095619C /* gift_heart_15.png in Resources */,
@@ -1768,6 +1755,7 @@
 				49FE39C21DB79A4C00FD8A99 /* NSString+Regex.m in Sources */,
 				EB1DDAC71DCACFEE0095619C /* AnimOperationManager.m in Sources */,
 				EB5233001DC4749E00B35743 /* ElCommonUtils.m in Sources */,
+				491E05BB1DCB289E009342BA /* LiveRoom.m in Sources */,
 				EB1DDAC81DCACFEE0095619C /* GiftModel.m in Sources */,
 				49CA28681DC9EE0500654B7C /* ElGift.m in Sources */,
 				49F2C97F1DB9B0CA000589A7 /* ElManageViewController.m in Sources */,
@@ -1781,6 +1769,7 @@
 				49FE39C41DB79A4C00FD8A99 /* UIButton+Block.m in Sources */,
 				49FE39BC1DB79A4C00FD8A99 /* NSArray+Categories.m in Sources */,
 				49FE39BE1DB79A4C00FD8A99 /* NSDate+EasyExtend.mm in Sources */,
+				491E05C11DCB2B17009342BA /* AVObject+ElClassMap.m in Sources */,
 				493DA3901DC1CA7D0031C317 /* ElLivingBottomToolView.m in Sources */,
 				49F2C9761DB9B0A4000589A7 /* ElGiftViewController.m in Sources */,
 				49FE87271DB8DA6E000092C2 /* ElSearchViewController.m in Sources */,
@@ -1792,7 +1781,7 @@
 				EBCB053F1DCB5CE300BB2832 /* ElCarTwoAnimationView.m in Sources */,
 				498A10491DB8F25B003F86B8 /* ElListViewController.m in Sources */,
 				49FE39D21DB79B7200FD8A99 /* AboutMe.text in Sources */,
-				49DF2C601DC373600096E935 /* ElTextViewController.m in Sources */,
+				491E05C61DCB2EE1009342BA /* ElBaseAVObject.m in Sources */,
 				49FE39911DB797E500FD8A99 /* ElBaseViewController.m in Sources */,
 				49FE39C81DB79A4C00FD8A99 /* DataBaseManager.m in Sources */,
 				49FE39C01DB79A4C00FD8A99 /* NSNumber+Extend.m in Sources */,
@@ -1807,7 +1796,6 @@
 				49FE39CA1DB79A4C00FD8A99 /* AppStoreUtils.m in Sources */,
 				49FE39C51DB79A4C00FD8A99 /* UIColor+Categories.m in Sources */,
 				493DA3FC1DC217F90031C317 /* ElLeftToolView.m in Sources */,
-				49CA28531DC99AA900654B7C /* ElLivingRoom.m in Sources */,
 				49FE39CB1DB79A4C00FD8A99 /* FileManagerUtils.m in Sources */,
 				4916D8561DBEF02700FAFB68 /* ElWatchViewController.m in Sources */,
 				EBCB053C1DCB4BE700BB2832 /* ElCarAnimationView.m in Sources */,

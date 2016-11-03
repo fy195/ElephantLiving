@@ -1,14 +1,16 @@
 //
-//  ElLivingRoom.h
+//  LiveRoom.h
 //  ElephantLiving
 //
-//  Created by dllo on 16/11/2.
+//  Created by dllo on 16/11/3.
 //  Copyright © 2016年 dllo. All rights reserved.
 //
 
-#import <AVOSCloud/AVOSCloud.h>
+#import "ElBaseAVObject.h"
 
-@interface ElLivingRoom : AVObject
+
+@interface LiveRoom : ElBaseAVObject
+
 /**
  *  拉流地址
  */
@@ -37,5 +39,6 @@
  *  直播间标题
  */
 @property (nonatomic, strong) NSString *liveRoom_title;
+
 
 @end

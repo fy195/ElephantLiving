@@ -87,7 +87,6 @@ ElHotViewControllerDelegate
 
 - (void)creatScrollView {
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0,_topView.height + _topView.y, SCREEN_WIDTH, SCREEN_HEIGHT - _topView.height)];
-    _scrollView.backgroundColor = [UIColor orangeColor];
     [self.view addSubview:_scrollView];
 
     _scrollView.contentSize = CGSizeMake(SCREEN_WIDTH * 3, 0);
@@ -110,21 +109,14 @@ ElHotViewControllerDelegate
     [_scrollView addSubview:_newestVC.view];
     
     self.hotVC = [[ElHotViewController alloc] init];
-    _hotVC.view.backgroundColor = [UIColor colorWithRed:0.9931 green:0.8483 blue:0.8528 alpha:1.0];
     _hotVC.view.x = SCREEN_WIDTH;
     _hotVC.delegate = self;
-    
-    __weak typeof(self) weakself = self;
-    [_hotVC.button  handleControlEvent:UIControlEventTouchUpInside withBlock:^{
-        ElWatchViewController *view = [[ElWatchViewController alloc] init];
-        [weakself presentViewController:view animated:YES completion:nil];
-    }];
     
     [_scrollView addSubview:_hotVC.view];
     
 }
 
-- (void)presentWatchControllerWithLiveRoom:(ElLivingRoom *)liveRoom {
+- (void)presentWatchControllerWithLiveRoom:(LiveRoom *)liveRoom {
     ElWatchViewController *watchVC = [[ElWatchViewController alloc] init];
     watchVC.liveRoom = liveRoom;
     [self presentViewController:watchVC animated:YES completion:nil];

@@ -7,8 +7,8 @@
 //
 
 #import "ElBaseViewController.h"
-@class ElLivingRoom;
+@class LiveRoom;
 @interface ElWatchViewController : ElBaseViewController
-@property (nonatomic, strong) ElLivingRoom *liveRoom;
+@property (nonatomic, strong) LiveRoom *liveRoom;
 @property (nonatomic, strong) UIImage *placeholderImage;
 @end
