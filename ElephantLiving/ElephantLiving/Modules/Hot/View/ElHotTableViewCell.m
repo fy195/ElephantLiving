@@ -20,6 +20,7 @@
 
 @implementation ElHotTableViewCell
 
+
 - (void)setIconImage:(UIImage *)iconImage {
     if (_iconImage != iconImage) {
         _iconImage = iconImage;
@@ -34,11 +35,12 @@
     _nameLabel.text = name;
 }
 
-- (void)setLocation:(NSString *)location {
-    if (_location != location) {
-        _location = location;
+- (void)setLevel:(NSNumber *)level {
+    if (_level != level) {
+        _level = level;
     }
-    _locationLabel.text = location;
+    _locationLabel.text = [NSString stringWithFormat:@"Level %@",level];
+    _locationLabel.textColor = [UIColor colorWithRed:1.0 green:0.503 blue:0.0028 alpha:1.0];
 }
 
 - (void)setViewCount:(NSNumber *)viewCount {

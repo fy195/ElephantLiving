@@ -12,4 +12,5 @@ pod 'AVOSCloud', '~> 3.6.0'
 pod 'AFNetworking', '~> 3.1.0'
 pod 'SDiPhoneVersion', '~> 1.1.2'
 pod 'CocoaLumberjack', '~> 2.4.0'
+pod 'MJExtension', '~> 3.0.13'
 end

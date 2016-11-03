@@ -16,8 +16,9 @@
 #import "AVOSCloudIM.h"
 #import "AVIMConversation.h"
 #import "ElGiftView.h"
-#import "ElLivingRoom.h"
 #import "ElUser.h"
+#import "LiveRoom.h"
+#import "AVObject+ElClassMap.h"
 
 @interface ElLiveViewController ()
 <
@@ -28,7 +29,7 @@ UITableViewDelegate,
 UITableViewDataSource
 >
 
-@property (nonatomic, strong) ElLivingRoom *liveRoom;
+@property (nonatomic, strong) LiveRoom *liveRoom;
 
 @property (nonatomic, strong) ElStartLiving *startView;
 
@@ -488,7 +489,7 @@ UITableViewDataSource
 - (void)creatLiveRoom {
 
     ElUser *currentUser = [ElUser currentUser];
-    self.liveRoom = [ElLivingRoom objectWithClassName:@"LiveRoom"];
+    self.liveRoom = [[LiveRoom alloc] initWithClassName:NSStringFromClass([LiveRoom class])];
     /**
      *  拉流地址
      */

@@ -12,8 +12,9 @@
 #import "ElLivingBottomToolView.h"
 #import "AVOSCloudIM.h"
 #import "AVIMConversation.h"
-#import "ElLivingRoom.h"
 #import "ElUser.h"
+#import "LiveRoom.h"
+#import "AVObject+ElClassMap.h"
 
 @interface ElWatchViewController ()
 <
@@ -81,6 +82,8 @@ AVIMClientDelegate
     ElLivingTopView *topToolView = [ElLivingTopView elLivingTopView];
     topToolView.frame = CGRectMake(0, 20, SCREEN_WIDTH, 57);
     topToolView.backgroundColor = [UIColor clearColor];
+    topToolView.headerImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_liveRoom.headerImage]]];
+    topToolView.watchCount = _liveRoom.view_count;
     [_moviePlayer.view addSubview:topToolView];
     
     ElLivingBottomToolView *bottomToolView = [ElLivingBottomToolView elLivingBottomToolView];
@@ -100,7 +103,7 @@ AVIMClientDelegate
     [_moviePlayer.view addSubview:_closeButton];
     [_moviePlayer.view bringSubviewToFront:_closeButton];
     
-    self.commentTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 320, SCREEN_WIDTH - 70, 250) style:UITableViewStylePlain];
+    self.commentTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 270, SCREEN_WIDTH - 70, 200) style:UITableViewStylePlain];
     _commentTableView.delegate = self;
     _commentTableView.dataSource = self;
     _commentTableView.backgroundColor = [UIColor clearColor];

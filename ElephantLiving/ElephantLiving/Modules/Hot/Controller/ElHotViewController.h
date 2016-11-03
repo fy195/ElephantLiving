@@ -7,15 +7,13 @@
 //
 
 #import "ElBaseViewController.h"
-@class ElLivingRoom;
+@class LiveRoom;
 @protocol ElHotViewControllerDelegate <NSObject>
 
-- (void)presentWatchControllerWithLiveRoom:(ElLivingRoom *)liveRoom;
+- (void)presentWatchControllerWithLiveRoom:(LiveRoom *)liveRoom;
 
 @end
 
 @interface ElHotViewController : ElBaseViewController
-@property (nonatomic, strong) UIButton *button;
 @property (nonatomic, assign) id<ElHotViewControllerDelegate>delegate;
-
 @end

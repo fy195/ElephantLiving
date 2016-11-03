@@ -41,6 +41,7 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.4.0):
     - CocoaLumberjack/Default
+  - MJExtension (3.0.13)
   - SDiPhoneVersion (1.1.2)
 
 DEPENDENCIES:
@@ -49,6 +50,7 @@ DEPENDENCIES:
   - AVOSCloudCrashReporting (~> 3.6.0)
   - AVOSCloudIM (~> 3.6.0)
   - CocoaLumberjack (~> 2.4.0)
+  - MJExtension (~> 3.0.13)
   - SDiPhoneVersion (~> 1.1.2)
 
 SPEC CHECKSUMS:
@@ -57,8 +59,9 @@ SPEC CHECKSUMS:
   AVOSCloudCrashReporting: 0fe2705407f431c0d84465d72ba25b11a62b8dd6
   AVOSCloudIM: 7044ffb9c883fedb8d9055db12e4f28c5160795d
   CocoaLumberjack: aa9dcab71bdf9eaf2a63bbd9ddc87863efe45457
+  MJExtension: 5932755f451458eefa24239358817f8d291240c7
   SDiPhoneVersion: c52245ccaab8142701e2e7fb8f0391ba3f255b76
 
-PODFILE CHECKSUM: c0ec58644039e6d5a0812bb863be9bc5acfc47cf
+PODFILE CHECKSUM: f2b959d3c6e5b320bb46542445ca2ab5e7d1b3e4
 
 COCOAPODS: 1.0.1
