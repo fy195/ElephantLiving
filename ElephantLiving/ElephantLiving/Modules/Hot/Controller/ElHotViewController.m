@@ -165,7 +165,7 @@ UITableViewDelegate
     LiveRoom *liveRoom = _otherLiveArray[indexPath.row];
     self.client = [[AVIMClient alloc] initWithClientId:liveRoom.host_name];
     [_client openWithCallback:^(BOOL succeeded, NSError * _Nullable error) {
-        NSString *topic = liveRoom.objectId;
+        NSString *topic = liveRoom.host_name;
         NSDictionary *dic = @{@"topic":topic};
         [_client createConversationWithName:topic clientIds:@[] attributes:dic options:AVIMConversationOptionTransient callback:^(AVIMConversation * _Nullable conversation, NSError * _Nullable error) {
         }];
