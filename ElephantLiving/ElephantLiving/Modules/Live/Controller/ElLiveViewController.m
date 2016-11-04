@@ -34,6 +34,7 @@
 #import "ElHouseAniamtionView.h"
 #import "ElCommentTableViewCell.h"
 
+
 @interface ElLiveViewController ()
 <
 QPLiveSessionDelegate,
@@ -754,12 +755,12 @@ ElGiftViewDelegate
         [self playGiftAnimation];
         
     } else if (7 == itemCount) {
-        ElFireworksAnimationView *imageView = [[ElFireworksAnimationView alloc] initWithFrame:CGRectMake(100, SCREEN_HEIGHT * 0.6 - 200, 200, 200)];
+        ElFireworksAnimationView *imageView = [[ElFireworksAnimationView alloc] initWithFrame:SCREEN_RECT];
         [self.view addSubview:imageView];
         [self.animationImageViews addObject:imageView];
         [self playGiftAnimation];
         
-        
+         
     } else if (8 == itemCount) {
         
         ElHeartAnimationView *heartImageView = [[ElHeartAnimationView alloc] initWithFrame:CGRectMake(100, 200, 200, 200)];
