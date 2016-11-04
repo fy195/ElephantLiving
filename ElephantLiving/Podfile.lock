@@ -43,9 +43,6 @@ PODS:
     - CocoaLumberjack/Default
   - MJExtension (3.0.13)
   - SDiPhoneVersion (1.1.2)
-  - YYImage (1.0.4):
-    - YYImage/Core (= 1.0.4)
-  - YYImage/Core (1.0.4)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
@@ -55,7 +52,6 @@ DEPENDENCIES:
   - CocoaLumberjack (~> 2.4.0)
   - MJExtension (~> 3.0.13)
   - SDiPhoneVersion (~> 1.1.2)
-  - YYImage (~> 1.0.4)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -65,8 +61,7 @@ SPEC CHECKSUMS:
   CocoaLumberjack: aa9dcab71bdf9eaf2a63bbd9ddc87863efe45457
   MJExtension: 5932755f451458eefa24239358817f8d291240c7
   SDiPhoneVersion: c52245ccaab8142701e2e7fb8f0391ba3f255b76
-  YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
 
-PODFILE CHECKSUM: 39aa8db380d8826145507065a1c39c0b94da3398
+PODFILE CHECKSUM: f2b959d3c6e5b320bb46542445ca2ab5e7d1b3e4
 
 COCOAPODS: 1.0.1
