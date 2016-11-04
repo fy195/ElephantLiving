@@ -34,6 +34,7 @@
 #import "ElHouseAniamtionView.h"
 #import "ElCommentTableViewCell.h"
 
+
 @interface ElLiveViewController ()
 <
 QPLiveSessionDelegate,
@@ -177,7 +178,7 @@ ElGiftViewDelegate
     self.commentTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 270, SCREEN_WIDTH - 70, 200) style:UITableViewStylePlain];
     _commentTableView.delegate = self;
     _commentTableView.dataSource = self;
-//    _commentTableView.backgroundColor = [UIColor clearColor];
+    _commentTableView.backgroundColor = [UIColor clearColor];
     _commentTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_commentTableView];
     [self.view bringSubviewToFront:_commentTableView];
@@ -754,12 +755,12 @@ ElGiftViewDelegate
         [self playGiftAnimation];
         
     } else if (7 == itemCount) {
-        ElFireworksAnimationView *imageView = [[ElFireworksAnimationView alloc] initWithFrame:CGRectMake(100, SCREEN_HEIGHT * 0.6 - 200, 200, 200)];
+        ElFireworksAnimationView *imageView = [[ElFireworksAnimationView alloc] initWithFrame:SCREEN_RECT];
         [self.view addSubview:imageView];
         [self.animationImageViews addObject:imageView];
         [self playGiftAnimation];
         
-        
+         
     } else if (8 == itemCount) {
         
         ElHeartAnimationView *heartImageView = [[ElHeartAnimationView alloc] initWithFrame:CGRectMake(100, 200, 200, 200)];
