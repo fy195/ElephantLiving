@@ -32,6 +32,7 @@
 #import "ElDolphinAnimationView.h"
 #import "ElFireworksAnimationView.h"
 #import "ElHouseAniamtionView.h"
+#import "ElCommentTableViewCell.h"
 
 @interface ElLiveViewController ()
 <
@@ -176,14 +177,21 @@ ElGiftViewDelegate
     self.commentTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 270, SCREEN_WIDTH - 70, 200) style:UITableViewStylePlain];
     _commentTableView.delegate = self;
     _commentTableView.dataSource = self;
-    _commentTableView.rowHeight = 15;
-    _commentTableView.backgroundColor = [UIColor clearColor];
+//    _commentTableView.backgroundColor = [UIColor clearColor];
     _commentTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_commentTableView];
     [self.view bringSubviewToFront:_commentTableView];
+    [_commentTableView registerClass:[ElCommentTableViewCell class] forCellReuseIdentifier:@"cell"];
     
     self.client = [AVIMClient defaultClient];
     _client.delegate = self;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *dic = @{NSFontAttributeName : [UIFont systemFontOfSize:13.f]};
+    CGSize textSize = CGSizeMake(_commentTableView.width - 40, 1000);
+    CGRect textRect = [_messageArray[indexPath.row] boundingRectWithSize:textSize options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dic context:nil];
+    return textRect.size.height;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -191,22 +199,9 @@ ElGiftViewDelegate
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (nil == cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    }
+    ElCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.text = _messageArray[indexPath.row];
-    cell.textLabel.textColor = [UIColor colorWithWhite:0.900 alpha:1.000];
-    NSRange range = [_messageArray[indexPath.row] rangeOfString:@":"];
-    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",_messageArray[indexPath.row]]];
-    NSRange range1 = NSMakeRange(0, range.location + 1);
-    [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:1.000 green:0.559 blue:0.224 alpha:1.000] range:range1];
-    [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:20] range:range1];
-    [cell.textLabel setAttributedText:str];
-    cell.textLabel.font = [UIFont systemFontOfSize:14];
-    cell.backgroundColor = [UIColor clearColor];
-    [cell.textLabel sizeToFit];
+    cell.comment = _messageArray[indexPath.row];
     return cell;
 }
 

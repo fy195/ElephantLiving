@@ -47,6 +47,7 @@
 		49CA28611DC9E25800654B7C /* xinyiba_riva_Dolphin07.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CA285A1DC9E25800654B7C /* xinyiba_riva_Dolphin07.png */; };
 		49CA28651DC9EC8900654B7C /* ElUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CA28641DC9EC8900654B7C /* ElUser.m */; };
 		49CA28681DC9EE0500654B7C /* ElGift.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CA28671DC9EE0500654B7C /* ElGift.m */; };
+		49DEC8061DCC1B13003DD1FB /* ElCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DEC8041DCC1B13003DD1FB /* ElCommentTableViewCell.m */; };
 		49DF2C201DC2DA040096E935 /* ElLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DF2C1E1DC2DA040096E935 /* ElLoginViewController.m */; };
 		49DF2C211DC2DA040096E935 /* ElLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49DF2C1F1DC2DA040096E935 /* ElLoginViewController.xib */; };
 		49DF2C251DC2DA220096E935 /* ElRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DF2C231DC2DA220096E935 /* ElRegisterViewController.m */; };
@@ -225,6 +226,8 @@
 		49CA28641DC9EC8900654B7C /* ElUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElUser.m; sourceTree = "<group>"; };
 		49CA28661DC9EE0500654B7C /* ElGift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElGift.h; sourceTree = "<group>"; };
 		49CA28671DC9EE0500654B7C /* ElGift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElGift.m; sourceTree = "<group>"; };
+		49DEC8031DCC1B13003DD1FB /* ElCommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElCommentTableViewCell.h; sourceTree = "<group>"; };
+		49DEC8041DCC1B13003DD1FB /* ElCommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElCommentTableViewCell.m; sourceTree = "<group>"; };
 		49DF2C1D1DC2DA040096E935 /* ElLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElLoginViewController.h; sourceTree = "<group>"; };
 		49DF2C1E1DC2DA040096E935 /* ElLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElLoginViewController.m; sourceTree = "<group>"; };
 		49DF2C1F1DC2DA040096E935 /* ElLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElLoginViewController.xib; sourceTree = "<group>"; };
@@ -1178,6 +1181,8 @@
 				EBCB05411DCB60BD00BB2832 /* ElCarThreeAnimationView.m */,
 				EBCB053D1DCB5CE300BB2832 /* ElCarTwoAnimationView.h */,
 				EBCB053E1DCB5CE300BB2832 /* ElCarTwoAnimationView.m */,
+				49DEC8031DCC1B13003DD1FB /* ElCommentTableViewCell.h */,
+				49DEC8041DCC1B13003DD1FB /* ElCommentTableViewCell.m */,
 				EBCB05461DCB672B00BB2832 /* ElDolphinAnimationView.h */,
 				EBCB05471DCB672B00BB2832 /* ElDolphinAnimationView.m */,
 				EB3347A31DC1889200AB0D18 /* ElEndLiving.h */,
@@ -1750,6 +1755,7 @@
 				499FBE271DB786CE0015CC1D /* AppDelegate.m in Sources */,
 				EBCB054B1DCB68D100BB2832 /* ElFireworksAnimationView.m in Sources */,
 				49FE3A091DB79EBD00FD8A99 /* ElHomeTabBarController.m in Sources */,
+				49DEC8061DCC1B13003DD1FB /* ElCommentTableViewCell.m in Sources */,
 				49F2C9591DB99F9E000589A7 /* ElPersonTableViewCell.m in Sources */,
 				49FE87211DB8BDB7000092C2 /* ElHotViewController.m in Sources */,
 				49FE39C21DB79A4C00FD8A99 /* NSString+Regex.m in Sources */,
