@@ -42,7 +42,8 @@ AVIMClientDelegate,
 UITextFieldDelegate,
 UITableViewDelegate,
 UITableViewDataSource,
-ElGiftViewDelegate
+ElGiftViewDelegate,
+UIGestureRecognizerDelegate
 >
 
 
@@ -115,8 +116,8 @@ ElGiftViewDelegate
     _timeImageView.center = self.view.center;
     _timeImageView.backgroundColor = [UIColor   clearColor];
     
-//    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGesture:)];
-//    [self.view addGestureRecognizer:gesture];
+    UILongPressGestureRecognizer *gesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGesture:)];
+    [self.view addGestureRecognizer:gesture];
     
     [self createRequest];
     [self createConfiguration];
@@ -180,19 +181,13 @@ ElGiftViewDelegate
     _commentTableView.dataSource = self;
     _commentTableView.backgroundColor = [UIColor clearColor];
     _commentTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _commentTableView.estimatedRowHeight = 30;
     [self.view addSubview:_commentTableView];
     [self.view bringSubviewToFront:_commentTableView];
     [_commentTableView registerClass:[ElCommentTableViewCell class] forCellReuseIdentifier:@"cell"];
     
     self.client = [AVIMClient defaultClient];
     _client.delegate = self;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *dic = @{NSFontAttributeName : [UIFont systemFontOfSize:13.f]};
-    CGSize textSize = CGSizeMake(_commentTableView.width - 40, 1000);
-    CGRect textRect = [_messageArray[indexPath.row] boundingRectWithSize:textSize options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dic context:nil];
-    return textRect.size.height;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -215,6 +210,8 @@ ElGiftViewDelegate
             [_messageArray addObject:[NSString stringWithFormat:@"%@: %@", textMessage.clientId, textMessage.text]];
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:_messageArray.count - 1 inSection:0];
             [_commentTableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            ElCommentTableViewCell *cell = [_commentTableView cellForRowAtIndexPath:indexPath];
+            _commentTableView.rowHeight = cell.height;
             [_commentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
         }
     }];
@@ -255,15 +252,6 @@ ElGiftViewDelegate
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定结束直播吗？" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     UIAlertAction *commitAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//        [_client openWithCallback:^(BOOL succeeded, NSError * _Nullable error) {
-//            AVIMConversationQuery *query = [self.client conversationQuery];
-//            [query whereKey:AVIMAttr(@"topic") equalTo:_liveRoom.objectId];
-//            [query whereKey:@"tr" equalTo:@(YES)];
-//            [query findConversationsWithCallback:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-//                [objects.lastObject deleteInBackground];
-//                NSLog(@"删除聊天室成功");
-//            }];
-//        }];
         [_liveRoom deleteInBackground];
         [_liveSession disconnectServer];
         [_liveSession stopPreview];
@@ -296,17 +284,13 @@ ElGiftViewDelegate
 }
 
 // 聚焦
-//- (void)tapGesture:(UITapGestureRecognizer *)gesture{
-//    CGPoint point = [gesture locationInView:self.view];
-//    CGPoint percentPoint = CGPointZero;
-//    percentPoint.x = point.x / CGRectGetWidth(self.view.bounds);
-//    percentPoint.y = point.y / CGRectGetHeight(self.view.bounds);
-//    [_liveSession focusAtAdjustedPoint:percentPoint autoFocus:YES];
-//    
-//    [UIView animateWithDuration:0.5 animations:^{
-//        _giftView.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4);
-//    }];
-//}
+- (void)longPressGesture:(UILongPressGestureRecognizer *)gesture{
+    CGPoint point = [gesture locationInView:self.view];
+    CGPoint percentPoint = CGPointZero;
+    percentPoint.x = point.x / CGRectGetWidth(self.view.bounds);
+    percentPoint.y = point.y / CGRectGetHeight(self.view.bounds);
+    [_liveSession focusAtAdjustedPoint:percentPoint autoFocus:YES];
+}
 
 // 请求推拉流地址
 - (void)createRequest {
@@ -591,6 +575,9 @@ ElGiftViewDelegate
 }
 
 - (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [UIView animateWithDuration:0.5 animations:^{
+        _giftView.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4);
+    }];
     [_textField resignFirstResponder];
 }
 
@@ -658,7 +645,6 @@ ElGiftViewDelegate
 }
 
 - (void)animationWithItemCount:(NSInteger)itemCount {
-//    NSLog(@"动画编号:%ld", itemCount);
     
     if (0 == itemCount) {
         // IM 消息
@@ -790,13 +776,9 @@ ElGiftViewDelegate
         ElBaseGiftAnimationView *giftImageView = [self.animationImageViews firstObject];
         if (!giftImageView.isGiftAnimating) {
             [giftImageView animationComplete:^(UIImageView *currentView) {
-//                @synchronized(self) {
-                
-                    [self.animationImageViews removeObjectAtIndex:0];
-                    [currentView removeFromSuperview];
-                    [self playGiftAnimation];
-//                }
-                
+                [self.animationImageViews removeObjectAtIndex:0];
+                [currentView removeFromSuperview];
+                [self playGiftAnimation];
             }];
         }
     }
