@@ -16,7 +16,7 @@
 #import "AVOSCloudIM.h"
 #import "AVIMConversation.h"
 #import "ElGiftView.h"
-#import "ElUser.h"
+#import "_User.h"
 #import "LiveRoom.h"
 #import "AVObject+ElClassMap.h"
 #import "PresentView.h"
@@ -33,6 +33,7 @@
 #import "ElFireworksAnimationView.h"
 #import "ElHouseAniamtionView.h"
 #import "ElCommentTableViewCell.h"
+
 
 @interface ElLiveViewController ()
 <
@@ -486,7 +487,7 @@ ElGiftViewDelegate
 // 创建直播间
 - (void)creatLiveRoom {
 
-    ElUser *currentUser = [ElUser currentUser];
+    _User *currentUser = [_User currentUser];
     self.liveRoom = [[LiveRoom alloc] initWithClassName:NSStringFromClass([LiveRoom class])];
     /**
      *  拉流地址
@@ -754,12 +755,12 @@ ElGiftViewDelegate
         [self playGiftAnimation];
         
     } else if (7 == itemCount) {
-        ElFireworksAnimationView *imageView = [[ElFireworksAnimationView alloc] initWithFrame:CGRectMake(100, SCREEN_HEIGHT * 0.6 - 200, 200, 200)];
+        ElFireworksAnimationView *imageView = [[ElFireworksAnimationView alloc] initWithFrame:SCREEN_RECT];
         [self.view addSubview:imageView];
         [self.animationImageViews addObject:imageView];
         [self playGiftAnimation];
         
-        
+         
     } else if (8 == itemCount) {
         
         ElHeartAnimationView *heartImageView = [[ElHeartAnimationView alloc] initWithFrame:CGRectMake(100, 200, 200, 200)];

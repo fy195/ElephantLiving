@@ -1,14 +1,14 @@
 //
-//  ElUser.m
+//  _User.m
 //  ElephantLiving
 //
-//  Created by dllo on 16/11/2.
+//  Created by dllo on 16/11/4.
 //  Copyright © 2016年 dllo. All rights reserved.
 //
 
-#import "ElUser.h"
+#import "_User.h"
 
-@implementation ElUser
+@implementation _User
 
 - (void)setLevel:(NSNumber *)level {
     if (_level != level) {
@@ -31,10 +31,11 @@
     }
 }
 
-- (void)setCharm:(NSNumber *)charm {
+- (void)setCharm:(NSInteger)charm {
     if (_charm != charm) {
         _charm = charm;
+//        [self setObject:_charm forKey:@"charm"];
     }
-    [self setObject:_charm forKey:@"charm"];
 }
+
 @end
