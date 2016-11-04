@@ -14,6 +14,7 @@
 #import "ElAlbumViewController.h"
 #import "ElManageViewController.h"
 #import "ElSettingViewController.h"
+#import "_User.h"
 
 static NSString *const person = @"person";
 static NSString *const charm = @"charm";
@@ -26,6 +27,8 @@ UITableViewDataSource
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *titleArray;
 
+@property (nonatomic, strong) _User *currentUserInfo;
+
 @end
 
 @implementation ElPersonViewController
@@ -33,10 +36,23 @@ UITableViewDataSource
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self getCurrentUserInfo];
+    [self createTableView];
+  
+    
+
+}
+
+- (void)getCurrentUserInfo{
+    self.currentUserInfo = [_User currentUser];
+}
+
+- (void)createTableView {
+    
+    
     UINib *cellNib = [UINib nibWithNibName:@"ElPersonTableViewCell" bundle:nil];
     UINib *charmNib = [UINib nibWithNibName:@"ElPersonCharmTableViewCell" bundle:nil];
     self.titleArray = @[@[@"魅力值", @"收到的礼物", @"送出的礼物"], @[@"相册", @"直播间管理"], @[@"设置"]];
-    
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 44) style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -51,9 +67,15 @@ UITableViewDataSource
     ElPersonHeaderView *headerView = [[ElPersonHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT * 0.45)];
     _tableView.tableHeaderView = headerView;
     
+    headerView.nicknameText = [_currentUserInfo username];
+    headerView.followerNumberLabel.text = [NSString stringWithFormat:@"%@",[_currentUserInfo follower_count]];
+    headerView.gradeNumberLabel.text = [NSString stringWithFormat:@"%@",[_currentUserInfo level]];
+    headerView.viewNumberLabel.text = [NSString stringWithFormat:@"%@",[_currentUserInfo follow_count]];
+    
     UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 30)];
     footerView.backgroundColor = [UIColor colorWithRed:0.97 green:0.97 blue:0.97 alpha:1.00];
     _tableView.tableFooterView = footerView;
+
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -75,7 +97,7 @@ UITableViewDataSource
         if (indexPath.row == 0) {
             ElPersonCharmTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:charm];
             cell.title = array[indexPath.row];
-            cell.count = [NSString stringWithFormat:@"%ld", (NSInteger)9999];
+            cell.count = [NSString stringWithFormat:@"%ld", [_currentUserInfo charm]];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }
