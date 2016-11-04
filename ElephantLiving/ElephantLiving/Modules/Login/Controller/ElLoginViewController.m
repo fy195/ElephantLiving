@@ -11,7 +11,7 @@
 #import "ElForgetPasswordViewController.h"
 #import "AVOSCloud/AVOSCloud.h"
 #import "ElHomePageViewController.h"
-#import "ElUser.h"
+#import "_User.h"
 
 
 @interface ElLoginViewController ()
@@ -36,7 +36,7 @@
     NSString *password = _passwordTextField.text;
     
     if (phoneNumber && password) {
-        [ElUser logInWithMobilePhoneNumberInBackground:phoneNumber password:password block:^(AVUser * _Nullable user, NSError * _Nullable error) {
+        [_User logInWithMobilePhoneNumberInBackground:phoneNumber password:password block:^(AVUser * _Nullable user, NSError * _Nullable error) {
             if (error) {
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -62,7 +62,7 @@
 //            NSLog(@"%@",objects);
 //        }
 //    }];
-    user = [ElUser currentUser];
+    user = [_User currentUser];
 
 }
 

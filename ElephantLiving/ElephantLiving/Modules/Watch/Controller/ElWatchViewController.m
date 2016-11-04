@@ -12,7 +12,7 @@
 #import "ElLivingBottomToolView.h"
 #import "AVOSCloudIM.h"
 #import "AVIMConversation.h"
-#import "ElUser.h"
+#import "_User.h"
 #import "LiveRoom.h"
 #import "AVObject+ElClassMap.h"
 
@@ -58,7 +58,7 @@ AVIMClientDelegate
 
 // 搜索聊天室
 - (void)searchChatRoom {
-    ElUser *user = [ElUser currentUser];
+    _User *user = [_User currentUser];
     self.client = [[AVIMClient alloc] initWithClientId:user.username];
     _client.delegate = self;
     [self.client openWithCallback:^(BOOL succeeded, NSError *error) {

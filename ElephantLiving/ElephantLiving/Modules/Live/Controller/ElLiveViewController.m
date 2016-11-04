@@ -16,7 +16,7 @@
 #import "AVOSCloudIM.h"
 #import "AVIMConversation.h"
 #import "ElGiftView.h"
-#import "ElUser.h"
+#import "_User.h"
 #import "LiveRoom.h"
 #import "AVObject+ElClassMap.h"
 #import "PresentView.h"
@@ -487,7 +487,7 @@ ElGiftViewDelegate
 // 创建直播间
 - (void)creatLiveRoom {
 
-    ElUser *currentUser = [ElUser currentUser];
+    _User *currentUser = [_User currentUser];
     self.liveRoom = [[LiveRoom alloc] initWithClassName:NSStringFromClass([LiveRoom class])];
     /**
      *  拉流地址
