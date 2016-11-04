@@ -6,7 +6,7 @@
 //  Copyright © 2016年 dllo. All rights reserved.
 //
 
-#import "AVOSCloud/AVOSCloud.h"
+#import <AVOSCloud/AVOSCloud.h>
 
 @interface ElUser : AVUser
 /**

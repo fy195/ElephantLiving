@@ -8,7 +8,7 @@
 
 #ifndef ElAVOSCloud_h
 #define ElAVOSCloud_h
-#import "AVOSCloud/AVOSCloud.h"
+#import <AVOSCloud/AVOSCloud.h>
 #import "AVObject+ElClassMap.h"
 
 #endif /* ElAVOSCloud_h */

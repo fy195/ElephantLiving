@@ -9,8 +9,8 @@
 #import "AppDelegate.h"
 #import "ElHomeTabBarController.h"
 #import <QPLive/QPLive.h>
-#import "AVOSCloud/AVOSCloud.h"
-#import "AVOSCloudCrashReporting/AVOSCloudCrashReporting.h"
+#import <AVOSCloud/AVOSCloud.h>
+#import <AVOSCloudCrashReporting/AVOSCloudCrashReporting.h>
 
 @interface AppDelegate ()
 

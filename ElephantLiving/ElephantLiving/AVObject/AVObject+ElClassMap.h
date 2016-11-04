@@ -6,7 +6,7 @@
 //
 //
 
-#import "AVOSCloud/AVOSCloud.h"
+#import <AVOSCloud/AVOSCloud.h>
 
 @interface AVObject (ElClassMap)
 

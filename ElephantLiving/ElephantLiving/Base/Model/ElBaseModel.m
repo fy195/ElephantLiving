@@ -8,7 +8,7 @@
 
 #import "ElBaseModel.h"
 #import "MJExtension.h"
-#import "AVOSCloud/AVOSCloud.h"
+#import <AVOSCloud/AVOSCloud.h>
 
 @implementation ElBaseModel
 

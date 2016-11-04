@@ -8,7 +8,7 @@
 
 #import "ElForgetPasswordViewController.h"
 #import "ElCommonUtils.h"
-//#import <AVOSCloud/AVOSCloud.h>
+#import <AVOSCloud/AVOSCloud.h>
 #import "ElUser.h"
 
 @interface ElForgetPasswordViewController ()
