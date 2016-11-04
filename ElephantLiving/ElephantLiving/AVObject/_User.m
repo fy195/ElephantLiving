@@ -31,11 +31,11 @@
     }
 }
 
-- (void)setCharm:(NSInteger)charm {
-    if (_charm != charm) {
-        _charm = charm;
-//        [self setObject:_charm forKey:@"charm"];
-    }
-}
+//- (void)setCharm:(NSInteger)charm {
+//    if (_charm != charm) {
+//        _charm = charm;
+////        [self setObject:_charm forKey:@"charm"];
+//    }
+//}
 
 @end

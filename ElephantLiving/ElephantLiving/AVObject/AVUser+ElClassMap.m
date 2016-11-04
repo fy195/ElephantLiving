@@ -8,6 +8,7 @@
 
 #import "AVUser+ElClassMap.h"
 
+
 @implementation AVUser (ElClassMap)
 
 
@@ -20,5 +21,10 @@
     Class class = NSClassFromString(@"_User");
     return  [[class  alloc] initWithClassName:[[self class] userTag]];;
 }
+
+
+
+
+
 
 @end

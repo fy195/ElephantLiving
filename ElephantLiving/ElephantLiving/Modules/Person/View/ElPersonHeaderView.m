@@ -17,7 +17,7 @@
     if (self) {
         
         self.backgroundImageView = [[UIImageView alloc] initWithFrame:self.bounds];
-        _backgroundImageView.backgroundColor = [UIColor cyanColor];
+        _backgroundImageView.backgroundColor = [UIColor colorWithRed:1.0 green:0.5441 blue:0.3207 alpha:1.0];
         [self addSubview:_backgroundImageView];
         
         
@@ -29,14 +29,14 @@
         
         
         self.nikenameLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width * 0.35, self.bounds.size.height * 0.61, self.bounds.size.width * 0.3, self.bounds.size.width * 0.08)];
-        _nikenameLabel.text = @"哦哈哈哈";
+        _nikenameLabel.text = @"未知用户";
         _nikenameLabel.textAlignment = NSTextAlignmentCenter;
         _nikenameLabel.numberOfLines = 1;
         [self addSubview:_nikenameLabel];
         
         
         self.followerNumberLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.bounds.size.height * 0.81, self.bounds.size.width * 0.33, self.bounds.size.height * 0.08)];
-        _followerNumberLabel.text = @"99";
+        _followerNumberLabel.text = @"0";
         _followerNumberLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_followerNumberLabel];
         
@@ -53,7 +53,7 @@
         
         
         self.viewNumberLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width * 0.335, self.bounds.size.height * 0.81, self.bounds.size.width * 0.33, self.bounds.size.height * 0.08)];
-        _viewNumberLabel.text = @"9";
+        _viewNumberLabel.text = @"0";
         _viewNumberLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_viewNumberLabel];
         
@@ -71,7 +71,7 @@
 
         
         self.gradeNumberLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width * 0.67, self.bounds.size.height * 0.81, self.bounds.size.width * 0.33, self.bounds.size.height * 0.08)];
-        _gradeNumberLabel.text = @"20";
+        _gradeNumberLabel.text = @"0";
         _gradeNumberLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_gradeNumberLabel];
         

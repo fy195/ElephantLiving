@@ -12,4 +12,6 @@
 
 + (instancetype)user;
 +(NSString *)userTag;
+
+
 @end
