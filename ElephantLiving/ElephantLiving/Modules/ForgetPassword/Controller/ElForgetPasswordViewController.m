@@ -9,7 +9,7 @@
 #import "ElForgetPasswordViewController.h"
 #import "ElCommonUtils.h"
 #import <AVOSCloud/AVOSCloud.h>
-#import "ElUser.h"
+#import "_User.h"
 
 @interface ElForgetPasswordViewController ()
 
@@ -28,7 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self.phoneTextNumber setText:[ElUser currentUser].mobilePhoneNumber];
+    [self.phoneTextNumber setText:[_User currentUser].mobilePhoneNumber];
 }
 - (IBAction)ReturnButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
@@ -60,7 +60,7 @@
 }
 - (IBAction)codeButton:(id)sender {
     
-    [ElUser requestPasswordResetWithPhoneNumber:[ElUser currentUser].mobilePhoneNumber block:^(BOOL succeeded, NSError *error) {
+    [_User requestPasswordResetWithPhoneNumber:[_User currentUser].mobilePhoneNumber block:^(BOOL succeeded, NSError *error) {
         if (error) {
             [ElCommonUtils displayError:error];
         } else {
@@ -90,7 +90,7 @@
         [ElCommonUtils displayError:error];
         return;
     }
-    [ElUser resetPasswordWithSmsCode:smsCode newPassword:newPassword block:^(BOOL succeeded, NSError *error) {
+    [_User resetPasswordWithSmsCode:smsCode newPassword:newPassword block:^(BOOL succeeded, NSError *error) {
         if (error) {
             [ElCommonUtils displayError:error];
         } else {

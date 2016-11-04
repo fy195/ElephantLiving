@@ -9,7 +9,7 @@
 #import "ElRegisterViewController.h"
 #import "AVOSCloud/AVOSCloud.h"
 #import "ElCommonUtils.h"
-#import "ElUser.h"
+#import "_User.h"
 
 
 @interface ElRegisterViewController ()
@@ -100,14 +100,14 @@
     NSString *password = _passwordTextField.text;
     
     if (userName && password && phoneNumber) {
-        ElUser *user = [ElUser user];
+        _User *user = [_User user];
         user.username = userName;
         user.mobilePhoneNumber = phoneNumber;
         user.password = password;
         NSError *error = nil;
         [user signUp:&error];
 
-        [ElUser requestMobilePhoneVerify:phoneNumber withBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        [_User requestMobilePhoneVerify:phoneNumber withBlock:^(BOOL succeeded, NSError * _Nullable error) {
             [self freezeMoreRequest];
             [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                 if (succeeded) {
@@ -131,11 +131,11 @@
 }
 
 - (void)creatNewUserInfo {
-    ElUser *user = [ElUser currentUser];
+    _User *user = [_User currentUser];
     user.level = @1;
     user.follow_count = @0;
     user.follower_count = @0;
-    user.charm = @0;
+    user.charm = 0;
     
     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
     if (succeeded) {

@@ -38,6 +38,9 @@
 		499FBE2D1DB786CE0015CC1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 499FBE2B1DB786CE0015CC1D /* Main.storyboard */; };
 		499FBE321DB786CE0015CC1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 499FBE301DB786CE0015CC1D /* LaunchScreen.storyboard */; };
 		49B5F6421DC2FAA8006A3538 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B5F6411DC2FAA8006A3538 /* QuartzCore.framework */; };
+		49C284741DCC363C00ECCD13 /* ElBaseAVUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C284731DCC363C00ECCD13 /* ElBaseAVUser.m */; };
+		49C284771DCC366400ECCD13 /* _User.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C284761DCC366400ECCD13 /* _User.m */; };
+		49C2847A1DCC38F800ECCD13 /* AVUser+ElClassMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C284791DCC38F800ECCD13 /* AVUser+ElClassMap.m */; };
 		49CA285B1DC9E25800654B7C /* xinyiba_riva_Dolphin01.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CA28541DC9E25800654B7C /* xinyiba_riva_Dolphin01.png */; };
 		49CA285C1DC9E25800654B7C /* xinyiba_riva_Dolphin02.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CA28551DC9E25800654B7C /* xinyiba_riva_Dolphin02.png */; };
 		49CA285D1DC9E25800654B7C /* xinyiba_riva_Dolphin03.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CA28561DC9E25800654B7C /* xinyiba_riva_Dolphin03.png */; };
@@ -45,7 +48,6 @@
 		49CA285F1DC9E25800654B7C /* xinyiba_riva_Dolphin05.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CA28581DC9E25800654B7C /* xinyiba_riva_Dolphin05.png */; };
 		49CA28601DC9E25800654B7C /* xinyiba_riva_Dolphin06.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CA28591DC9E25800654B7C /* xinyiba_riva_Dolphin06.png */; };
 		49CA28611DC9E25800654B7C /* xinyiba_riva_Dolphin07.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CA285A1DC9E25800654B7C /* xinyiba_riva_Dolphin07.png */; };
-		49CA28651DC9EC8900654B7C /* ElUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CA28641DC9EC8900654B7C /* ElUser.m */; };
 		49CA28681DC9EE0500654B7C /* ElGift.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CA28671DC9EE0500654B7C /* ElGift.m */; };
 		49DEC8061DCC1B13003DD1FB /* ElCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DEC8041DCC1B13003DD1FB /* ElCommentTableViewCell.m */; };
 		49DF2C201DC2DA040096E935 /* ElLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DF2C1E1DC2DA040096E935 /* ElLoginViewController.m */; };
@@ -215,6 +217,13 @@
 		499FBE311DB786CE0015CC1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		499FBE331DB786CE0015CC1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49B5F6411DC2FAA8006A3538 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		49C284721DCC363C00ECCD13 /* ElBaseAVUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElBaseAVUser.h; sourceTree = "<group>"; };
+		49C284731DCC363C00ECCD13 /* ElBaseAVUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElBaseAVUser.m; sourceTree = "<group>"; };
+		49C284751DCC366400ECCD13 /* _User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _User.h; sourceTree = "<group>"; };
+		49C284761DCC366400ECCD13 /* _User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _User.m; sourceTree = "<group>"; };
+		49C284781DCC38F800ECCD13 /* AVUser+ElClassMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVUser+ElClassMap.h"; sourceTree = "<group>"; };
+		49C284791DCC38F800ECCD13 /* AVUser+ElClassMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVUser+ElClassMap.m"; sourceTree = "<group>"; };
+		49C2847B1DCC394500ECCD13 /* ElAVUserCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElAVUserCloud.h; sourceTree = "<group>"; };
 		49CA28541DC9E25800654B7C /* xinyiba_riva_Dolphin01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin01.png; sourceTree = "<group>"; };
 		49CA28551DC9E25800654B7C /* xinyiba_riva_Dolphin02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin02.png; sourceTree = "<group>"; };
 		49CA28561DC9E25800654B7C /* xinyiba_riva_Dolphin03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin03.png; sourceTree = "<group>"; };
@@ -222,8 +231,6 @@
 		49CA28581DC9E25800654B7C /* xinyiba_riva_Dolphin05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin05.png; sourceTree = "<group>"; };
 		49CA28591DC9E25800654B7C /* xinyiba_riva_Dolphin06.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin06.png; sourceTree = "<group>"; };
 		49CA285A1DC9E25800654B7C /* xinyiba_riva_Dolphin07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin07.png; sourceTree = "<group>"; };
-		49CA28631DC9EC8900654B7C /* ElUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElUser.h; sourceTree = "<group>"; };
-		49CA28641DC9EC8900654B7C /* ElUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElUser.m; sourceTree = "<group>"; };
 		49CA28661DC9EE0500654B7C /* ElGift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElGift.h; sourceTree = "<group>"; };
 		49CA28671DC9EE0500654B7C /* ElGift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElGift.m; sourceTree = "<group>"; };
 		49DEC8031DCC1B13003DD1FB /* ElCommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElCommentTableViewCell.h; sourceTree = "<group>"; };
@@ -513,17 +520,22 @@
 		49CA28621DC9EC0800654B7C /* AVObject */ = {
 			isa = PBXGroup;
 			children = (
+				49CA28661DC9EE0500654B7C /* ElGift.h */,
+				49CA28671DC9EE0500654B7C /* ElGift.m */,
 				491E05BF1DCB2B17009342BA /* AVObject+ElClassMap.h */,
 				491E05C01DCB2B17009342BA /* AVObject+ElClassMap.m */,
 				491E05C31DCB2E6C009342BA /* ElAVOSCloud.h */,
 				491E05C41DCB2EE1009342BA /* ElBaseAVObject.h */,
 				491E05C51DCB2EE1009342BA /* ElBaseAVObject.m */,
-				49CA28661DC9EE0500654B7C /* ElGift.h */,
-				49CA28671DC9EE0500654B7C /* ElGift.m */,
-				49CA28631DC9EC8900654B7C /* ElUser.h */,
-				49CA28641DC9EC8900654B7C /* ElUser.m */,
 				491E05B91DCB289E009342BA /* LiveRoom.h */,
 				491E05BA1DCB289E009342BA /* LiveRoom.m */,
+				49C284781DCC38F800ECCD13 /* AVUser+ElClassMap.h */,
+				49C284791DCC38F800ECCD13 /* AVUser+ElClassMap.m */,
+				49C2847B1DCC394500ECCD13 /* ElAVUserCloud.h */,
+				49C284721DCC363C00ECCD13 /* ElBaseAVUser.h */,
+				49C284731DCC363C00ECCD13 /* ElBaseAVUser.m */,
+				49C284751DCC366400ECCD13 /* _User.h */,
+				49C284761DCC366400ECCD13 /* _User.m */,
 			);
 			path = AVObject;
 			sourceTree = "<group>";
@@ -1733,6 +1745,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49C284771DCC366400ECCD13 /* _User.m in Sources */,
 				49DF2C251DC2DA220096E935 /* ElRegisterViewController.m in Sources */,
 				49F2C97C1DB9B0BF000589A7 /* ElSettingViewController.m in Sources */,
 				49DF2C2A1DC2E4990096E935 /* ElForgetPasswordViewController.m in Sources */,
@@ -1742,9 +1755,9 @@
 				493907551DB8EEF000F06D40 /* ElNewCollectionViewCell.m in Sources */,
 				499FBE2A1DB786CE0015CC1D /* ViewController.m in Sources */,
 				49FE39C11DB79A4C00FD8A99 /* NSString+Categories.m in Sources */,
-				49CA28651DC9EC8900654B7C /* ElUser.m in Sources */,
 				493DA3861DC188D20031C317 /* ElMainTabBarButton.m in Sources */,
 				49FE39C91DB79A4C00FD8A99 /* HttpClient.m in Sources */,
+				49C2847A1DCC38F800ECCD13 /* AVUser+ElClassMap.m in Sources */,
 				49E7599B1DB8EE5100BDCB3C /* ElPersonViewController.m in Sources */,
 				49FE398B1DB797C100FD8A99 /* ElBaseModel.m in Sources */,
 				493DA3921DC1CA7D0031C317 /* ElLivingTopView.m in Sources */,
@@ -1792,6 +1805,7 @@
 				49FE39C81DB79A4C00FD8A99 /* DataBaseManager.m in Sources */,
 				49FE39C01DB79A4C00FD8A99 /* NSNumber+Extend.m in Sources */,
 				49FE39C71DB79A4C00FD8A99 /* UIView+Frame.m in Sources */,
+				49C284741DCC363C00ECCD13 /* ElBaseAVUser.m in Sources */,
 				49FE39C31DB79A4C00FD8A99 /* NSUserDefaults+Categories.m in Sources */,
 				EB1DDAC61DCACFEE0095619C /* AnimOperation.m in Sources */,
 				49E759981DB8EE3100BDCB3C /* ElNormalListTableViewCell.m in Sources */,
