@@ -146,8 +146,7 @@ UIImagePickerControllerDelegate
             NSLog(@"%@",error);
         }
     }];
-    
-    
+        
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

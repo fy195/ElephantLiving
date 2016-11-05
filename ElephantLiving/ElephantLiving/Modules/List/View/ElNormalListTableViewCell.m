@@ -60,8 +60,8 @@
 - (void)setHeaderImage:(UIImage *)headerImage {
     if (_headerImage != headerImage) {
         _headerImage = headerImage;
-//        _headerImageView.image = headerImage;
     }
+    _headerImageView.image = headerImage;
 }
 
 
