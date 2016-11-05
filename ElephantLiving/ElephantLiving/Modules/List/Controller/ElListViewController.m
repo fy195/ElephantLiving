@@ -177,7 +177,7 @@ UITableViewDelegate
     cell.listNumber = indexPath.row + 4;
     cell.nikenameText = [_userInfoArray[indexPath.row + 3] username];
     cell.charmText = [NSString stringWithFormat: @"%ld",[_userInfoArray[indexPath.row + 3] charm]];
-    
+    cell.headerImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[_userInfoArray[indexPath.row + 3] headImage]]]];
     return cell;
     
 }
