@@ -22,12 +22,16 @@ static NSString *const charm = @"charm";
 @interface ElPersonViewController()
 <
 UITableViewDelegate,
-UITableViewDataSource
+UITableViewDataSource,
+UINavigationControllerDelegate,
+UIImagePickerControllerDelegate
 >
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSArray *titleArray;
 
 @property (nonatomic, strong) _User *currentUserInfo;
+
+@property (nonatomic, strong) ElPersonHeaderView *headerView;
 
 @end
 
@@ -65,19 +69,92 @@ UITableViewDataSource
     [_tableView registerNib:cellNib forCellReuseIdentifier:person];
     [_tableView registerNib:charmNib forCellReuseIdentifier:charm];
     
-    ElPersonHeaderView *headerView = [[ElPersonHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT * 0.45)];
-    _tableView.tableHeaderView = headerView;
     
-    headerView.nicknameText = [_currentUserInfo username];
-    headerView.followerNumberLabel.text = [NSString stringWithFormat:@"%@",[_currentUserInfo follower_count]];
-    headerView.gradeNumberLabel.text = [NSString stringWithFormat:@"%@",[_currentUserInfo level]];
-    headerView.viewNumberLabel.text = [NSString stringWithFormat:@"%@",[_currentUserInfo follow_count]];
+    
+    
+    
+    self.headerView = [[ElPersonHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT * 0.45)];
+    _tableView.tableHeaderView = _headerView;
+    
+    _headerView.nicknameText = [_currentUserInfo username];
+    _headerView.followerNumberLabel.text = [NSString stringWithFormat:@"%@",[_currentUserInfo follower_count]];
+    _headerView.gradeNumberLabel.text = [NSString stringWithFormat:@"%@",[_currentUserInfo level]];
+    _headerView.viewNumberLabel.text = [NSString stringWithFormat:@"%@",[_currentUserInfo follow_count]];
+    
+    _headerView.headerImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_currentUserInfo.headImage]]];;
+    _headerView.headerImageView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(alterHeadImageAction:)];
+    [_headerView.headerImageView addGestureRecognizer:singleTap];
+    
     
     UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 30)];
     footerView.backgroundColor = [UIColor colorWithRed:0.97 green:0.97 blue:0.97 alpha:1.00];
     _tableView.tableFooterView = footerView;
 
 }
+
+
+
+- (void)alterHeadImageAction:(UITapGestureRecognizer *)gesture {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    //按钮：从相册选择，类型：UIAlertActionStyleDefault
+    [alert addAction:[UIAlertAction actionWithTitle:@"从相册选择" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        //初始化UIImagePickerController
+        UIImagePickerController *PickerImage = [[UIImagePickerController alloc]init];
+        //获取方式1：通过相册（呈现全部相册），UIImagePickerControllerSourceTypePhotoLibrary
+        //获取方式2，通过相机，UIImagePickerControllerSourceTypeCamera
+        //获取方法3，通过相册（呈现全部图片），UIImagePickerControllerSourceTypeSavedPhotosAlbum
+        PickerImage.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        //允许编辑，即放大裁剪
+        PickerImage.allowsEditing = YES;
+        //自代理
+        PickerImage.delegate = self;
+        //页面跳转
+        [self presentViewController:PickerImage animated:YES completion:nil];
+    }]];
+    //按钮：拍照，类型：UIAlertActionStyleDefault
+    [alert addAction:[UIAlertAction actionWithTitle:@"拍照" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action){
+        /**
+         其实和从相册选择一样，只是获取方式不同，前面是通过相册，而现在，我们要通过相机的方式
+         */
+        UIImagePickerController *PickerImage = [[UIImagePickerController alloc]init];
+        //获取方式:通过相机
+        PickerImage.sourceType = UIImagePickerControllerSourceTypeCamera;
+        PickerImage.allowsEditing = YES;
+        PickerImage.delegate = self;
+        [self presentViewController:PickerImage animated:YES completion:nil];
+    }]];
+    //按钮：取消，类型：UIAlertActionStyleCancel
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
+    
+    
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    UIImage *newPhoto = [info objectForKey:@"UIImagePickerControllerEditedImage"];
+    NSData *data = UIImagePNGRepresentation(newPhoto);
+    AVFile *file = [AVFile fileWithName:@"headImage.png" data:data];
+    [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if (!error) {
+            _User *user = [_User currentUser];
+            user.headImage = file.url;
+            [user saveInBackground];
+
+            _headerView.headerImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_currentUserInfo.headImage]]];
+        } else {
+            NSLog(@"%@",error);
+        }
+    }];
+    
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+
+
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return _titleArray.count;
