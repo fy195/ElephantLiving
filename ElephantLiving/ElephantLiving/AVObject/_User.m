@@ -30,6 +30,14 @@
         [self setObject:_follow_count forKey:@"follow_count"];
     }
 }
+- (void)setHeadImage:(NSString *)headImage {
+    if (_headImage != headImage) {
+        _headImage = headImage;
+        [self setObject:_headImage forKey:@"headImage"];
+    }
+}
+
+
 
 //- (void)setCharm:(NSInteger)charm {
 //    if (_charm != charm) {
