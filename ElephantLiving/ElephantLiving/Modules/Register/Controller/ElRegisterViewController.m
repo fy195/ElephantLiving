@@ -45,6 +45,45 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    [_userNameTextField setValue:[UIColor colorWithRed:1 green:0.74 blue:0.15 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
+    [_phoneNumberTextField setValue:[UIColor colorWithRed:1 green:0.74 blue:0.15 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
+    [_passwordTextField setValue:[UIColor colorWithRed:1 green:0.74 blue:0.15 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
+    [_smscodeTextField setValue:[UIColor colorWithRed:1 green:0.74 blue:0.15 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
+    
+    
+    UIImageView *imageViewOne = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH, SCREEN_HEIGHT * 0.2, SCREEN_WIDTH * 0.3, SCREEN_HEIGHT * 0.1)];
+    imageViewOne.image = [UIImage imageNamed:@"xingxing1"];
+    [self.view addSubview:imageViewOne];
+    
+    [UIView animateWithDuration:2.5 delay:0 options:UIViewAnimationOptionRepeat animations:^{
+        imageViewOne.frame = CGRectMake(-SCREEN_WIDTH * 0.3, SCREEN_HEIGHT * 0.6, SCREEN_WIDTH * 0.25, SCREEN_HEIGHT * 0.08);
+    } completion:^(BOOL finished) {
+        [imageViewOne removeFromSuperview];
+    }];
+    
+    
+    UIImageView *imageViewTwo = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH, SCREEN_HEIGHT * 0.1, SCREEN_WIDTH * 0.3, SCREEN_HEIGHT * 0.1)];
+    imageViewTwo.image = [UIImage imageNamed:@"xingxing2"];
+    [self.view addSubview:imageViewTwo];
+    
+    [UIView animateWithDuration:2.0 delay:0.8 options:UIViewAnimationOptionRepeat animations:^{
+        imageViewTwo.frame = CGRectMake(-SCREEN_WIDTH * 0.3, SCREEN_HEIGHT * 0.5, SCREEN_WIDTH * 0.25, SCREEN_HEIGHT * 0.08);
+    } completion:^(BOOL finished) {
+        [imageViewTwo removeFromSuperview];
+    }];
+    
+    
+    UIImageView *imageViewThree = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH, SCREEN_HEIGHT * 0.3, SCREEN_WIDTH * 0.3, SCREEN_HEIGHT * 0.1)];
+    imageViewThree.image = [UIImage imageNamed:@"xingxing3"];
+    [self.view addSubview:imageViewThree];
+    
+    [UIView animateWithDuration:1.8 delay:1.5 options:UIViewAnimationOptionRepeat animations:^{
+        imageViewThree.frame = CGRectMake(-SCREEN_WIDTH * 0.3, SCREEN_HEIGHT * 0.7, SCREEN_WIDTH * 0.25, SCREEN_HEIGHT * 0.08);
+    } completion:^(BOOL finished) {
+        [imageViewThree removeFromSuperview];
+    }];
+    
 }
 
 
