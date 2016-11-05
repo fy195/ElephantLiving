@@ -21,6 +21,9 @@
                     <state key="normal" title="举报">
                         <color key="titleColor" red="1" green="0.19374732859999999" blue="0.42810997169999998" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="reportButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="rCa-yX-2rf"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2eV-oe-o6U">
                     <rect key="frame" x="272" y="8" width="30" height="30"/>
@@ -30,6 +33,9 @@
                         <constraint firstAttribute="width" constant="30" id="ceB-Ha-Fn0"/>
                     </constraints>
                     <state key="normal" backgroundImage="关闭"/>
+                    <connections>
+                        <action selector="backButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="PsW-NX-zEY"/>
+                    </connections>
                 </button>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="大象头像" translatesAutoresizingMaskIntoConstraints="NO" id="VQo-aE-Xsv">
                     <rect key="frame" x="125" y="30" width="60" height="60"/>
@@ -90,12 +96,15 @@
                             <integer key="value" value="5"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="followButtonAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Qbi-12-sKd"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UL2-d5-wsd">
                     <rect key="frame" x="0.0" y="225" width="310" height="74"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关注:4" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9P-IX-QSg">
-                            <rect key="frame" x="20" y="27" width="100" height="20"/>
+                            <rect key="frame" x="35" y="27" width="100" height="20"/>
                             <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="GFs-Ga-Zh5"/>
@@ -106,7 +115,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="粉丝:13256" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxc-E9-dQv">
-                            <rect key="frame" x="190" y="27" width="100" height="20"/>
+                            <rect key="frame" x="176" y="27" width="100" height="20"/>
                             <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="100" id="og7-GL-ERr"/>
@@ -131,9 +140,9 @@
                     <constraints>
                         <constraint firstItem="s9P-IX-QSg" firstAttribute="centerY" secondItem="UL2-d5-wsd" secondAttribute="centerY" id="2k4-0k-Kjx"/>
                         <constraint firstItem="jwm-td-BNH" firstAttribute="centerX" secondItem="UL2-d5-wsd" secondAttribute="centerX" id="E3L-TU-zKI"/>
-                        <constraint firstAttribute="trailing" secondItem="fxc-E9-dQv" secondAttribute="trailing" constant="20" id="EIx-4Q-Vjw"/>
+                        <constraint firstItem="fxc-E9-dQv" firstAttribute="leading" secondItem="jwm-td-BNH" secondAttribute="trailing" constant="20" id="HMA-DY-2Wd"/>
                         <constraint firstItem="jwm-td-BNH" firstAttribute="centerY" secondItem="UL2-d5-wsd" secondAttribute="centerY" id="VXb-xJ-wp1"/>
-                        <constraint firstItem="s9P-IX-QSg" firstAttribute="leading" secondItem="UL2-d5-wsd" secondAttribute="leading" constant="20" id="jb8-xS-uDy"/>
+                        <constraint firstItem="jwm-td-BNH" firstAttribute="leading" secondItem="s9P-IX-QSg" secondAttribute="trailing" constant="20" id="xFU-un-ZYv"/>
                         <constraint firstItem="fxc-E9-dQv" firstAttribute="centerY" secondItem="UL2-d5-wsd" secondAttribute="centerY" id="zwt-AC-x5m"/>
                     </constraints>
                 </view>
@@ -170,6 +179,14 @@
                     <integer key="value" value="10"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="followeeLabel" destination="s9P-IX-QSg" id="GV2-NF-3E7"/>
+                <outlet property="followerLabel" destination="fxc-E9-dQv" id="wRn-iz-XR4"/>
+                <outlet property="headerImageView" destination="VQo-aE-Xsv" id="XWC-Ar-dBk"/>
+                <outlet property="levelLabel" destination="bTZ-gc-A12" id="tWy-4s-808"/>
+                <outlet property="locationLabel" destination="z3G-5U-92R" id="TXF-3C-w4i"/>
+                <outlet property="nameLabel" destination="bTZ-gc-A12" id="5Ud-np-ipO"/>
+            </connections>
             <point key="canvasLocation" x="272" y="207.5"/>
         </view>
     </objects>

@@ -9,6 +9,10 @@
 #import "ElEndLiving.h"
 #import "ElMacro.h"
 
+@interface ElEndLiving ()
+@property (nonatomic, strong) UILabel *timeLabel;
+@end
+
 @implementation ElEndLiving
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -23,26 +27,17 @@
         [self addSubview:effectView];
         
         
-        self.endLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.3, SCREEN_HEIGHT * 0.15, SCREEN_WIDTH * 0.4, SCREEN_HEIGHT * 0.08)];
+        self.endLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.3, SCREEN_HEIGHT * 0.15, SCREEN_WIDTH * 0.5, SCREEN_HEIGHT * 0.08)];
+        _endLabel.center = CGPointMake(SCREEN_WIDTH * 0.5, SCREEN_HEIGHT * 0.19);
         _endLabel.text = @"直播已结束";
-        _endLabel.font = [UIFont systemFontOfSize:30];
+        _endLabel.font = [UIFont systemFontOfSize:28];
         _endLabel.textColor = [UIColor cyanColor];
         _endLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_endLabel];
         
-        
-        self.timeTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.25, SCREEN_HEIGHT * 0.23, SCREEN_WIDTH * 0.245, SCREEN_HEIGHT * 0.05)];
-        _timeTextLabel.text = @"直播时长";
-        _timeTextLabel.font = [UIFont systemFontOfSize:20];
-        _timeTextLabel.textColor = [UIColor lightGrayColor];
-        _timeTextLabel.textAlignment = NSTextAlignmentRight;
-        [self addSubview:_timeTextLabel];
-        
-        
-        self.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.505, SCREEN_HEIGHT * 0.23, SCREEN_WIDTH * 0.245, SCREEN_HEIGHT * 0.05)];
+        self.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH * 0.7, SCREEN_HEIGHT * 0.05)];
         _timeLabel.textColor = [UIColor cyanColor];
         _timeLabel.font = [UIFont systemFontOfSize:20];
-        _timeLabel.text = @"00:00:00";
         _timeLabel.textAlignment = NSTextAlignmentLeft;
         [self addSubview:_timeLabel];
         
@@ -55,9 +50,12 @@
         [self addSubview:_viewLabel];
         
         
-        self.viewTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.2, SCREEN_HEIGHT * 0.38, SCREEN_WIDTH * 0.6, SCREEN_WIDTH * 0.08)];
+        self.viewTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH * 0.7, SCREEN_WIDTH * 0.08)];
         _viewTextLabel.text = @"看过宝宝的直播，棒棒哒！";
-        _viewTextLabel.font = [UIFont systemFontOfSize:19];
+        _viewTextLabel.numberOfLines = 0;
+        [_viewTextLabel sizeToFit];
+        _viewTextLabel.center = CGPointMake(SCREEN_WIDTH * 0.5, SCREEN_HEIGHT * 0.42);
+        _viewTextLabel.font = [UIFont systemFontOfSize:17];
         _viewTextLabel.textAlignment = NSTextAlignmentCenter;
         _viewTextLabel.textColor = [UIColor lightGrayColor];
         [self addSubview:_viewTextLabel];
@@ -89,7 +87,6 @@
         
         UIButton *weixinButton = [UIButton buttonWithType:UIButtonTypeCustom];
         weixinButton.frame = CGRectMake(SCREEN_WIDTH * 0.56, SCREEN_HEIGHT * 0.52, SCREEN_WIDTH * 0.12, SCREEN_WIDTH * 0.12);
-//        weixinButton.backgroundColor = [UIColor redColor];
         [weixinButton setImage:[UIImage imageNamed:@"share_weixin"] forState:UIControlStateNormal];
         [self addSubview:weixinButton];
         
@@ -97,7 +94,6 @@
         
         UIButton *momentsButton = [UIButton buttonWithType:UIButtonTypeCustom];
         momentsButton.frame = CGRectMake(SCREEN_WIDTH * 0.68, SCREEN_HEIGHT * 0.52, SCREEN_WIDTH * 0.12, SCREEN_WIDTH * 0.12);
-//        momentsButton.backgroundColor = [UIColor redColor];
         [momentsButton setImage:[UIImage imageNamed:@"share_moments"] forState:UIControlStateNormal];
         [self addSubview:momentsButton];
         
@@ -110,6 +106,22 @@
         [self addSubview:_backButton];  
     }
     return self;
+}
+
+- (void)setTime:(NSString *)time {
+    if (_time != time) {
+        _time = time;
+    }
+    _timeLabel.text = [NSString stringWithFormat:@"直播时长:%@", time];
+    _timeLabel.numberOfLines = 0;
+    [_timeLabel sizeToFit];
+    _timeLabel.center = CGPointMake(SCREEN_WIDTH * 0.5, SCREEN_HEIGHT * 0.255);
+    NSRange range = [_timeLabel.text rangeOfString:@":"];
+    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",_timeLabel.text]];
+    NSRange range1 = NSMakeRange(0, range.location + 1);
+    [str addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:range1];
+    [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:20] range:range1];
+    [_timeLabel setAttributedText:str];
 }
 
 @end

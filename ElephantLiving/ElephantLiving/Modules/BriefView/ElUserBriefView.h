@@ -8,8 +8,16 @@
 
 #import "ElBaseView.h"
 
-@interface ElUserBriefView : ElBaseView
+@protocol ElUserBriefViewDelegate <NSObject>
 
+- (void)report;
+
+- (void)follow;
+
+@end
+
+@interface ElUserBriefView : ElBaseView
+@property (nonatomic, assign) id<ElUserBriefViewDelegate>delegate;
 + (instancetype)elUserBriefView;
 
 @end

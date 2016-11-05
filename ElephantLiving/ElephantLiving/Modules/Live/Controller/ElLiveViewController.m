@@ -44,7 +44,8 @@ UITextFieldDelegate,
 UITableViewDelegate,
 UITableViewDataSource,
 ElGiftViewDelegate,
-ElLivingTopViewDelegate
+ElLivingTopViewDelegate,
+ElUserBriefViewDelegate
 >
 
 
@@ -113,8 +114,9 @@ ElLivingTopViewDelegate
     [_startView.backButton addTarget:self action:@selector(backButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     
     self.userBriefView = [ElUserBriefView elUserBriefView];
-    _userBriefView.frame = CGRectMake(60, SCREEN_HEIGHT, SCREEN_WIDTH - 120, SCREEN_HEIGHT * 0.5);
+    _userBriefView.frame = CGRectMake(SCREEN_WIDTH * 0.15, SCREEN_HEIGHT, SCREEN_WIDTH * 0.7, SCREEN_HEIGHT * 0.45);
     _userBriefView.backgroundColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:0.85];
+    _userBriefView.delegate = self;
     [self.view addSubview:_userBriefView];
     
     [self createToolView];
@@ -265,7 +267,7 @@ ElLivingTopViewDelegate
         [_liveSession stopPreview];
         _endView.hidden = NO;        
         [self timeEnd];
-        _endView.timeLabel.text = _timeString;
+        _endView.time = _timeString;
         [self hiddenToolView:YES];
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
@@ -789,9 +791,17 @@ ElLivingTopViewDelegate
 }
 
 - (void)presentBriefView {
-    [UIView animateWithDuration:1.0 animations:^{
-        _userBriefView.frame = CGRectMake(60, SCREEN_HEIGHT * 0.25, SCREEN_WIDTH - 120, SCREEN_HEIGHT * 0.4);
-    }];
+    [UIView animateWithDuration:0.5 delay:0.0f usingSpringWithDamping:0.7 initialSpringVelocity:-3 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        _userBriefView.frame = CGRectMake(SCREEN_WIDTH * 0.15, SCREEN_HEIGHT * 0.25, SCREEN_WIDTH * 0.7, SCREEN_HEIGHT * 0.45);
+    } completion:nil];
+}
+
+- (void)report {
+
+}
+
+- (void)follow {
+    
 }
 
 - (void)didReceiveMemoryWarning {
