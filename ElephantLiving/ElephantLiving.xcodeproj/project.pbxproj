@@ -165,6 +165,8 @@
 		EBCB054B1DCB68D100BB2832 /* ElFireworksAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCB054A1DCB68D100BB2832 /* ElFireworksAnimationView.m */; };
 		EBCB054E1DCB697C00BB2832 /* ElHouseAniamtionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCB054D1DCB697C00BB2832 /* ElHouseAniamtionView.m */; };
 		EBD4C0921DCDDD5700F81382 /* hahaha.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EBD4C0911DCDDD5700F81382 /* hahaha.jpeg */; };
+		EBD4C0941DCDFDB500F81382 /* xiong.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EBD4C0931DCDFDB500F81382 /* xiong.jpeg */; };
+		EBD4C0981DCE0C9600F81382 /* 对号气泡2.png in Resources */ = {isa = PBXBuildFile; fileRef = EBD4C0971DCE0C9600F81382 /* 对号气泡2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -421,6 +423,8 @@
 		EBCB054C1DCB697C00BB2832 /* ElHouseAniamtionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElHouseAniamtionView.h; sourceTree = "<group>"; };
 		EBCB054D1DCB697C00BB2832 /* ElHouseAniamtionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElHouseAniamtionView.m; sourceTree = "<group>"; };
 		EBD4C0911DCDDD5700F81382 /* hahaha.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hahaha.jpeg; sourceTree = "<group>"; };
+		EBD4C0931DCDFDB500F81382 /* xiong.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xiong.jpeg; sourceTree = "<group>"; };
+		EBD4C0971DCE0C9600F81382 /* 对号气泡2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "对号气泡2.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -493,6 +497,10 @@
 		499FBE211DB786CE0015CC1D /* ElephantLiving */ = {
 			isa = PBXGroup;
 			children = (
+
+				EBD4C0931DCDFDB500F81382 /* xiong.jpeg */,
+				EBD4C0911DCDDD5700F81382 /* hahaha.jpeg */,
+				EBD4C0971DCE0C9600F81382 /* 对号气泡2.png */,
 				49CA28621DC9EC0800654B7C /* AVObject */,
 				49FE39841DB7974B00FD8A99 /* Base */,
 				49FE39931DB79A4C00FD8A99 /* Common */,
@@ -1663,6 +1671,7 @@
 				EB1DDB111DCAE01F0095619C /* fireworks_9.png in Resources */,
 				EB1DDB0D1DCAE01F0095619C /* fireworks_5.png in Resources */,
 				EB1DDB0B1DCAE01F0095619C /* fireworks_3.png in Resources */,
+				EBD4C0981DCE0C9600F81382 /* 对号气泡2.png in Resources */,
 				499FBE321DB786CE0015CC1D /* LaunchScreen.storyboard in Resources */,
 				EB1DDAF31DCAE00E0095619C /* gift_heart_8.png in Resources */,
 				493907561DB8EEF000F06D40 /* ElNewCollectionViewCell.xib in Resources */,
@@ -1694,6 +1703,7 @@
 				49F2C95A1DB99F9E000589A7 /* ElPersonTableViewCell.xib in Resources */,
 				49CA285F1DC9E25800654B7C /* xinyiba_riva_Dolphin05.png in Resources */,
 				EB1DDAEF1DCAE00E0095619C /* gift_heart_4.png in Resources */,
+				EBD4C0941DCDFDB500F81382 /* xiong.jpeg in Resources */,
 				EB1DDAF11DCAE00E0095619C /* gift_heart_6.png in Resources */,
 				EB1DDAF21DCAE00E0095619C /* gift_heart_7.png in Resources */,
 				EB1DDAEE1DCAE00E0095619C /* gift_heart_3.png in Resources */,

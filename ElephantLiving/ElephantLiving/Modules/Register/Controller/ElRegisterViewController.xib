@@ -28,7 +28,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="JFx-Ra-ZYe"/>
                     </constraints>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="textColor" red="1" green="0.77734128410000003" blue="0.29667979820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
                 </textField>
@@ -37,7 +37,8 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="8Cl-qh-9SI"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="1" green="0.77734128410000003" blue="0.29667979820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <textInputTraits key="textInputTraits" keyboardType="namePhonePad"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMF-py-rMm">
@@ -57,13 +58,15 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t2k-qm-OkC">
-                    <rect key="frame" x="30" y="30" width="45" height="45"/>
-                    <color key="backgroundColor" red="0.77819720049999996" green="0.71407430750000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="10" y="20" width="45" height="45"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="mfi-7r-pXE"/>
                         <constraint firstAttribute="width" constant="45" id="zHB-s5-99w"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <state key="normal" title="⇦">
+                        <color key="titleColor" red="1" green="0.77734128410000003" blue="0.29667979820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
                     <connections>
                         <action selector="ReturnButton:" destination="-1" eventType="touchUpInside" id="h3e-YT-tQ3"/>
                     </connections>
@@ -73,7 +76,8 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="uoP-RX-1vn"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="1" green="0.77734128410000003" blue="0.29667979820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <textInputTraits key="textInputTraits" keyboardType="namePhonePad" secureTextEntry="YES"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="输入验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G9n-q6-U68">
@@ -81,7 +85,8 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="rS2-sK-yk1"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="1" green="0.77734128410000003" blue="0.29667979820000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U12-Mg-TnP">
@@ -155,14 +160,14 @@
                 <constraint firstItem="G9n-q6-U68" firstAttribute="top" secondItem="OCS-JY-flF" secondAttribute="bottom" constant="5" id="0mG-59-7HX"/>
                 <constraint firstAttribute="trailing" secondItem="RwP-IE-qWj" secondAttribute="trailing" constant="60" id="1qQ-nj-qMV"/>
                 <constraint firstItem="pEk-xd-z11" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5Sv-jb-7Rf"/>
-                <constraint firstItem="t2k-qm-OkC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="76V-oo-sy1"/>
+                <constraint firstItem="t2k-qm-OkC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="76V-oo-sy1"/>
                 <constraint firstItem="RwP-IE-qWj" firstAttribute="leading" secondItem="w3y-u5-DD0" secondAttribute="leading" id="9Mc-0D-bZm"/>
                 <constraint firstItem="WMF-py-rMm" firstAttribute="top" secondItem="G9n-q6-U68" secondAttribute="bottom" constant="50" id="BMn-W6-kRU"/>
                 <constraint firstItem="LOv-Hp-tN2" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="DGh-cp-xx8"/>
                 <constraint firstItem="OCS-JY-flF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="HXH-4N-jdV"/>
                 <constraint firstItem="w3y-u5-DD0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="I3g-gq-cgQ"/>
                 <constraint firstAttribute="trailing" secondItem="G9n-q6-U68" secondAttribute="trailing" constant="60" id="IPQ-ih-42P"/>
-                <constraint firstItem="t2k-qm-OkC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="LXV-r3-hMn"/>
+                <constraint firstItem="t2k-qm-OkC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="LXV-r3-hMn"/>
                 <constraint firstItem="OCS-JY-flF" firstAttribute="top" secondItem="RwP-IE-qWj" secondAttribute="bottom" constant="5" id="O8f-pI-65A"/>
                 <constraint firstItem="lUu-Uh-aDT" firstAttribute="top" secondItem="fIw-51-UP8" secondAttribute="bottom" constant="10" id="PBv-WY-C1b"/>
                 <constraint firstItem="RwP-IE-qWj" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="PE6-hU-YPV"/>
