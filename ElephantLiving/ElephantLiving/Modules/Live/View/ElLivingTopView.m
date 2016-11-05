@@ -27,6 +27,13 @@
     [super awakeFromNib];
     self.headerImageView.layer.borderWidth = 1.0f;
     self.headerImageView.layer.borderColor = [UIColor whiteColor].CGColor;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
+    [_headerImageView addGestureRecognizer:tap];
+}
+
+- (void)tapAction:(UITapGestureRecognizer *)tapGesture {
+    
 }
 
 - (void)setHeaderImage:(UIImage *)headerImage {

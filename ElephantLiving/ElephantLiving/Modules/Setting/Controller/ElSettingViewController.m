@@ -8,6 +8,7 @@
 
 #import "ElSettingViewController.h"
 #import "ElLoginViewController.h"
+#import "ElAVOSCloud.h"
 
 @interface ElSettingViewController ()
 
@@ -168,6 +169,7 @@
     UIAlertAction *action1 = [UIAlertAction actionWithTitle:@"手滑了" style:UIAlertActionStyleCancel handler:nil];
     UIAlertAction *action2 = [UIAlertAction actionWithTitle:@"退出登录" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self dismissViewControllerAnimated:YES completion:nil];
+        [AVUser logOut];
         ElLoginViewController *loginView = [[ElLoginViewController alloc] init];
         [self.navigationController pushViewController:loginView animated:YES];
     }];

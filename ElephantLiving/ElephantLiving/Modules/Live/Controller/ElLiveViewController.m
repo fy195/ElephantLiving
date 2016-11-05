@@ -481,6 +481,8 @@ UIGestureRecognizerDelegate
      *  主播名称
      */
     _liveRoom.host_name = currentUser.username;
+    _liveRoom.level = currentUser.level;
+    _liveRoom.headerImage = currentUser.headImage;
     /**
      *  观看人数
      */
@@ -650,11 +652,9 @@ UIGestureRecognizerDelegate
         // IM 消息
         GSPChatMessage *msg = [[GSPChatMessage alloc] init];
         msg.text = @"1个【玫瑰花】";
-        
         msg.senderChatID = @"亮锅";
         msg.senderName = msg.senderChatID;
-        NSLog(@"id %@ -------送了1个【玫瑰花】--------",msg.senderChatID);
-        
+    
         // 礼物模型
         GiftModel *giftModel = [[GiftModel alloc] init];
         giftModel.headImage = [UIImage imageNamed:@"FF885B69C30A56A3D0296F10CFF6D1D8"];
@@ -672,10 +672,8 @@ UIGestureRecognizerDelegate
         // IM 消息
         GSPChatMessage *msg = [[GSPChatMessage alloc] init];
         msg.text = @"1个【樱花】";
-        
         msg.senderChatID = @"班长";
         msg.senderName = msg.senderChatID;
-        NSLog(@"id %@ -------送了1个【樱花】--------",msg.senderChatID);
         
         // 礼物模型
         GiftModel *giftModel = [[GiftModel alloc] init];
@@ -695,10 +693,8 @@ UIGestureRecognizerDelegate
         // IM 消息
         GSPChatMessage *msg = [[GSPChatMessage alloc] init];
         msg.text = @"1个【钻石】";
-        
         msg.senderChatID = @"亮锅";
         msg.senderName = msg.senderChatID;
-        NSLog(@"id %@ -------送了1个【钻石】--------",msg.senderChatID);
         
         // 礼物模型
         GiftModel *giftModel = [[GiftModel alloc] init];
@@ -712,7 +708,7 @@ UIGestureRecognizerDelegate
         manager.parentView = self.view;
         // 用用户唯一标识 msg.senderChatID 存礼物信息,model 传入礼物模型
         [manager animWithUserID:[NSString stringWithFormat:@"%@",msg.senderChatID] model:giftModel finishedBlock:^(BOOL result) {
-            
+ 
         }];
     } else if (3 == itemCount) {
         
