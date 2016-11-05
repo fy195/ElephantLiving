@@ -49,8 +49,6 @@
 		49CA28601DC9E25800654B7C /* xinyiba_riva_Dolphin06.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CA28591DC9E25800654B7C /* xinyiba_riva_Dolphin06.png */; };
 		49CA28611DC9E25800654B7C /* xinyiba_riva_Dolphin07.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CA285A1DC9E25800654B7C /* xinyiba_riva_Dolphin07.png */; };
 		49CA28681DC9EE0500654B7C /* ElGift.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CA28671DC9EE0500654B7C /* ElGift.m */; };
-		49CB89FD1DCD7567002CAA6A /* ElPersonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CB89FC1DCD7567002CAA6A /* ElPersonView.m */; };
-		49CB89FF1DCD7586002CAA6A /* ElPersonView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CB89FE1DCD7586002CAA6A /* ElPersonView.xib */; };
 		49DEC8061DCC1B13003DD1FB /* ElCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DEC8041DCC1B13003DD1FB /* ElCommentTableViewCell.m */; };
 		49DF2C201DC2DA040096E935 /* ElLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DF2C1E1DC2DA040096E935 /* ElLoginViewController.m */; };
 		49DF2C211DC2DA040096E935 /* ElLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49DF2C1F1DC2DA040096E935 /* ElLoginViewController.xib */; };
@@ -235,9 +233,6 @@
 		49CA285A1DC9E25800654B7C /* xinyiba_riva_Dolphin07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin07.png; sourceTree = "<group>"; };
 		49CA28661DC9EE0500654B7C /* ElGift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElGift.h; sourceTree = "<group>"; };
 		49CA28671DC9EE0500654B7C /* ElGift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElGift.m; sourceTree = "<group>"; };
-		49CB89FB1DCD7567002CAA6A /* ElPersonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElPersonView.h; sourceTree = "<group>"; };
-		49CB89FC1DCD7567002CAA6A /* ElPersonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElPersonView.m; sourceTree = "<group>"; };
-		49CB89FE1DCD7586002CAA6A /* ElPersonView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElPersonView.xib; sourceTree = "<group>"; };
 		49DEC8031DCC1B13003DD1FB /* ElCommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElCommentTableViewCell.h; sourceTree = "<group>"; };
 		49DEC8041DCC1B13003DD1FB /* ElCommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElCommentTableViewCell.m; sourceTree = "<group>"; };
 		49DF2C1D1DC2DA040096E935 /* ElLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElLoginViewController.h; sourceTree = "<group>"; };
@@ -575,16 +570,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		49CB89FA1DCD753B002CAA6A /* PersonView */ = {
-			isa = PBXGroup;
-			children = (
-				49CB89FB1DCD7567002CAA6A /* ElPersonView.h */,
-				49CB89FC1DCD7567002CAA6A /* ElPersonView.m */,
-				49CB89FE1DCD7586002CAA6A /* ElPersonView.xib */,
-			);
-			path = PersonView;
-			sourceTree = "<group>";
-		};
 		49F2C9601DB9AF3E000589A7 /* Gift */ = {
 			isa = PBXGroup;
 			children = (
@@ -904,7 +889,6 @@
 				49F2C96F1DB9B063000589A7 /* Manage */,
 				49FE39DF1DB79BCE00FD8A99 /* New */,
 				49FE39E41DB79BE900FD8A99 /* Person */,
-				49CB89FA1DCD753B002CAA6A /* PersonView */,
 				49FE39FD1DB79CEE00FD8A99 /* Register */,
 				49FE39E91DB79C0400FD8A99 /* Search */,
 				49F2C96A1DB9AFE8000589A7 /* Setting */,
@@ -1675,7 +1659,6 @@
 				EB1DDAED1DCAE00E0095619C /* gift_heart_20.png in Resources */,
 				49CA285B1DC9E25800654B7C /* xinyiba_riva_Dolphin01.png in Resources */,
 				EB1DDAEA1DCAE00E0095619C /* gift_heart_18.png in Resources */,
-				49CB89FF1DCD7586002CAA6A /* ElPersonView.xib in Resources */,
 				EB1DDAE21DCAE00E0095619C /* gift_heart_10.png in Resources */,
 				EB1DDAE51DCAE00E0095619C /* gift_heart_13.png in Resources */,
 				49DF2C261DC2DA220096E935 /* ElRegisterViewController.xib in Resources */,
@@ -1836,7 +1819,6 @@
 				49FE39CB1DB79A4C00FD8A99 /* FileManagerUtils.m in Sources */,
 				4916D8561DBEF02700FAFB68 /* ElWatchViewController.m in Sources */,
 				EBCB053C1DCB4BE700BB2832 /* ElCarAnimationView.m in Sources */,
-				49CB89FD1DCD7567002CAA6A /* ElPersonView.m in Sources */,
 				49FE39BD1DB79A4C00FD8A99 /* NSDate+Categories.m in Sources */,
 				499FBE241DB786CE0015CC1D /* main.m in Sources */,
 				493DA3891DC188E90031C317 /* ElMainTabBar.m in Sources */,
