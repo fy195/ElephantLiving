@@ -27,13 +27,12 @@
     [super awakeFromNib];
     self.headerImageView.layer.borderWidth = 1.0f;
     self.headerImageView.layer.borderColor = [UIColor whiteColor].CGColor;
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
-    [_headerImageView addGestureRecognizer:tap];
+    _headerImageView.userInteractionEnabled = YES;
+    _headerImageView.image = [UIImage imageNamed:@"大象头像"];
 }
 
-- (void)tapAction:(UITapGestureRecognizer *)tapGesture {
-    
+- (IBAction)imageButtonAction:(id)sender {
+    [self.delegate presentBriefView];
 }
 
 - (void)setHeaderImage:(UIImage *)headerImage {

@@ -33,6 +33,7 @@
 #import "ElFireworksAnimationView.h"
 #import "ElHouseAniamtionView.h"
 #import "ElCommentTableViewCell.h"
+#import "ElUserBriefView.h"
 
 
 @interface ElLiveViewController ()
@@ -43,7 +44,7 @@ UITextFieldDelegate,
 UITableViewDelegate,
 UITableViewDataSource,
 ElGiftViewDelegate,
-UIGestureRecognizerDelegate
+ElLivingTopViewDelegate
 >
 
 
@@ -71,6 +72,7 @@ UIGestureRecognizerDelegate
 @property (nonatomic, strong) AVIMConversation *currentConversation;
 @property (nonatomic, strong) ElGiftView *giftView;
 @property (nonatomic, strong) NSMutableArray *animationImageViews;
+@property (nonatomic, strong) ElUserBriefView *userBriefView;
 
 @end
 
@@ -110,6 +112,11 @@ UIGestureRecognizerDelegate
     [_startView.startButton addTarget:self action:@selector(startButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_startView.backButton addTarget:self action:@selector(backButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     
+    self.userBriefView = [ElUserBriefView elUserBriefView];
+    _userBriefView.frame = CGRectMake(60, SCREEN_HEIGHT, SCREEN_WIDTH - 120, SCREEN_HEIGHT * 0.5);
+    _userBriefView.backgroundColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:0.85];
+    [self.view addSubview:_userBriefView];
+    
     [self createToolView];
     
     self.timeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 10, 10)];
@@ -137,6 +144,7 @@ UIGestureRecognizerDelegate
     self.topToolView = [ElLivingTopView elLivingTopView];
     _topToolView.frame = CGRectMake(0, 20, SCREEN_WIDTH, 57);
     _topToolView.backgroundColor = [UIColor clearColor];
+    _topToolView.delegate = self;
     [self.view addSubview:_topToolView];
     
     // 左侧工具栏
@@ -765,7 +773,6 @@ UIGestureRecognizerDelegate
     }
 }
 
-
 - (void)playGiftAnimation {
     
     if (self.animationImageViews.count > 0) {
@@ -779,6 +786,12 @@ UIGestureRecognizerDelegate
         }
     }
 
+}
+
+- (void)presentBriefView {
+    [UIView animateWithDuration:1.0 animations:^{
+        _userBriefView.frame = CGRectMake(60, SCREEN_HEIGHT * 0.25, SCREEN_WIDTH - 120, SCREEN_HEIGHT * 0.4);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

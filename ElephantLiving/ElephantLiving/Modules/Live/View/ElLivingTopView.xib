@@ -73,14 +73,25 @@
                     <animations/>
                     <color key="backgroundColor" red="1" green="0.09035328393" blue="0.068774554020000003" alpha="0.399137931" colorSpace="calibratedRGB"/>
                 </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fhW-CQ-9TI">
+                    <rect key="frame" x="15" y="13" width="30" height="30"/>
+                    <animations/>
+                    <connections>
+                        <action selector="imageButtonAction:" destination="-1" eventType="touchUpInside" id="OzV-iO-yPW"/>
+                    </connections>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="QsS-mP-bmd" firstAttribute="centerY" secondItem="gGw-h4-j22" secondAttribute="centerY" id="0y2-xT-BpH"/>
+                <constraint firstItem="fhW-CQ-9TI" firstAttribute="trailing" secondItem="i2I-wF-cRs" secondAttribute="trailing" id="8Ej-qZ-HPk"/>
                 <constraint firstItem="QsS-mP-bmd" firstAttribute="leading" secondItem="gGw-h4-j22" secondAttribute="trailing" constant="15" id="CS1-9d-lAX"/>
                 <constraint firstItem="gGw-h4-j22" firstAttribute="top" secondItem="Be2-U9-I6s" secondAttribute="top" constant="8" id="KZE-zc-C7p"/>
+                <constraint firstItem="fhW-CQ-9TI" firstAttribute="leading" secondItem="i2I-wF-cRs" secondAttribute="leading" id="Uf3-Fu-djW"/>
                 <constraint firstItem="gGw-h4-j22" firstAttribute="leading" secondItem="Be2-U9-I6s" secondAttribute="leading" constant="10" id="V3A-wz-lve"/>
+                <constraint firstItem="fhW-CQ-9TI" firstAttribute="top" secondItem="i2I-wF-cRs" secondAttribute="top" id="aRP-kx-xFs"/>
+                <constraint firstItem="fhW-CQ-9TI" firstAttribute="bottom" secondItem="i2I-wF-cRs" secondAttribute="bottom" id="gTZ-E6-WVc"/>
                 <constraint firstItem="QsS-mP-bmd" firstAttribute="top" secondItem="gGw-h4-j22" secondAttribute="top" id="iDA-eW-emE"/>
                 <constraint firstAttribute="trailing" secondItem="QsS-mP-bmd" secondAttribute="trailing" constant="8" id="j7I-K7-Q1G"/>
                 <constraint firstItem="QsS-mP-bmd" firstAttribute="bottom" secondItem="gGw-h4-j22" secondAttribute="bottom" id="sTv-gx-Ub7"/>
