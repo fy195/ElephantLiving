@@ -45,6 +45,7 @@ UITableViewDataSource
 
 - (void)getCurrentUserInfo{
     self.currentUserInfo = [_User currentUser];
+    
 }
 
 - (void)createTableView {
@@ -53,7 +54,7 @@ UITableViewDataSource
     UINib *cellNib = [UINib nibWithNibName:@"ElPersonTableViewCell" bundle:nil];
     UINib *charmNib = [UINib nibWithNibName:@"ElPersonCharmTableViewCell" bundle:nil];
     self.titleArray = @[@[@"魅力值", @"收到的礼物", @"送出的礼物"], @[@"相册", @"直播间管理"], @[@"设置"]];
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 44) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, -20, SCREEN_WIDTH, SCREEN_HEIGHT - 44) style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.backgroundColor = [UIColor colorWithRed:0.97 green:0.97 blue:0.97 alpha:1.00];

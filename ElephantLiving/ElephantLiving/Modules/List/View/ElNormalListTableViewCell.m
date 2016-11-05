@@ -30,6 +30,7 @@
         _headerImageView.layer.cornerRadius = 35;
         _headerImageView.backgroundColor = [UIColor yellowColor];
         _headerImageView.clipsToBounds = YES;
+        _headerImageView.image = [UIImage imageNamed:@"大象头像"];
         [self addSubview:_headerImageView];
         
         
