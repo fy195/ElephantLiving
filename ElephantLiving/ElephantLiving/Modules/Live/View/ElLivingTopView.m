@@ -27,6 +27,12 @@
     [super awakeFromNib];
     self.headerImageView.layer.borderWidth = 1.0f;
     self.headerImageView.layer.borderColor = [UIColor whiteColor].CGColor;
+    _headerImageView.userInteractionEnabled = YES;
+    _headerImageView.image = [UIImage imageNamed:@"大象头像"];
+}
+
+- (IBAction)imageButtonAction:(id)sender {
+    [self.delegate presentBriefView];
 }
 
 - (void)setHeaderImage:(UIImage *)headerImage {
