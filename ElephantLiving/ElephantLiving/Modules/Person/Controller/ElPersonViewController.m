@@ -15,6 +15,7 @@
 #import "ElManageViewController.h"
 #import "ElSettingViewController.h"
 #import "_User.h"
+#import "UIImage+Categories.h"
 
 static NSString *const person = @"person";
 static NSString *const charm = @"charm";
@@ -70,9 +71,7 @@ UIImagePickerControllerDelegate
     [_tableView registerNib:charmNib forCellReuseIdentifier:charm];
     
     
-    
-    
-    
+
     self.headerView = [[ElPersonHeaderView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT * 0.45)];
     _tableView.tableHeaderView = _headerView;
     
@@ -81,7 +80,19 @@ UIImagePickerControllerDelegate
     _headerView.gradeNumberLabel.text = [NSString stringWithFormat:@"%@",[_currentUserInfo level]];
     _headerView.viewNumberLabel.text = [NSString stringWithFormat:@"%@",[_currentUserInfo follow_count]];
     
-    _headerView.headerImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_currentUserInfo.headImage]]];;
+
+    AVFile *file = [AVFile fileWithURL:_currentUserInfo.headImage];
+    [file getThumbnail:YES width:100 height:100 withBlock:^(UIImage *image, NSError *error) {
+        if (!error) {
+            _headerView.headerImage = image;
+            
+           UIImage *blurImage = [image boxblurImageWithBlur:0.7];
+            _headerView.backgroundImage = blurImage;
+        }else {
+            NSLog(@"%@",error);
+        }
+    }];
+
     _headerView.headerImageView.userInteractionEnabled = YES;
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(alterHeadImageAction:)];
     [_headerView.headerImageView addGestureRecognizer:singleTap];
@@ -132,21 +143,33 @@ UIImagePickerControllerDelegate
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    
     UIImage *newPhoto = [info objectForKey:@"UIImagePickerControllerEditedImage"];
     NSData *data = UIImagePNGRepresentation(newPhoto);
+    
     AVFile *file = [AVFile fileWithName:@"headImage.png" data:data];
+    
     [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (!error) {
+            
             _User *user = [_User currentUser];
             user.headImage = file.url;
             [user saveInBackground];
-
-            _headerView.headerImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_currentUserInfo.headImage]]];
+            
+            AVFile *file = [AVFile fileWithURL:user.headImage];
+            [file getThumbnail:YES width:100 height:100 withBlock:^(UIImage *image, NSError *error) {
+                if (!error) {
+                    _headerView.headerImage = image;
+                    UIImage *blurImage = [image boxblurImageWithBlur:0.7];
+                    _headerView.backgroundImage = blurImage;
+                }else {
+                    NSLog(@"%@",error);
+                }
+            }];
         } else {
             NSLog(@"%@",error);
         }
     }];
-        
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
