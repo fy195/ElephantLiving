@@ -30,23 +30,25 @@ UICollectionViewDataSource
 
 - (void)viewDidLoad {
     self.liveRoomArray = [NSMutableArray array];
-    [self createCollectionView];
     [self searchLiving];
+    [self createCollectionView];
 }
 
 - (void)searchLiving {
-    AVQuery *query = [AVQuery queryWithClassName:@"LiveRoom"];
+    AVQuery *query = [AVQuery queryWithClassName:@"ElLiveRoom"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-        [_liveRoomArray addObjectsFromArray:objects];
+        if (!error) {
+            [_liveRoomArray addObjectsFromArray:objects];
+            [_collectionView reloadData];
+        }
     }];
-    [_collectionView reloadData];
 }
 
 - (void)createCollectionView {
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    flowLayout.minimumLineSpacing = 0;
-    flowLayout.minimumInteritemSpacing = 0;
-    flowLayout.itemSize = CGSizeMake(SCREEN_WIDTH / 3.0, SCREEN_WIDTH / 3.0);
+    flowLayout.minimumLineSpacing = 5;
+    flowLayout.minimumInteritemSpacing = 5;
+    flowLayout.itemSize = CGSizeMake(SCREEN_WIDTH / 3.1, SCREEN_WIDTH / 3.1);
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) collectionViewLayout:flowLayout];
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
@@ -63,8 +65,9 @@ UICollectionViewDataSource
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     LiveRoom *liveRoom = _liveRoomArray[indexPath.item];
     ElNewCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:elNewViewCell forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor redColor];
     cell.name = liveRoom.host_name;
-    cell.iconImage = liveRoom.coverImage;
+    cell.iconImage = liveRoom.headerImage;
     return cell;
 }
 

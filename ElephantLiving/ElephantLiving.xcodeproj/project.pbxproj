@@ -61,6 +61,7 @@
 		49E759981DB8EE3100BDCB3C /* ElNormalListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E759971DB8EE3100BDCB3C /* ElNormalListTableViewCell.m */; };
 		49E7599B1DB8EE5100BDCB3C /* ElPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7599A1DB8EE5100BDCB3C /* ElPersonViewController.m */; };
 		49E7599E1DB8EE8800BDCB3C /* ElPersonHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E7599D1DB8EE8800BDCB3C /* ElPersonHeaderView.m */; };
+		49EE14011DD0865800F88828 /* ElLiveRoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EE14001DD0865800F88828 /* ElLiveRoom.m */; };
 		49F2C9591DB99F9E000589A7 /* ElPersonTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F2C9571DB99F9E000589A7 /* ElPersonTableViewCell.m */; };
 		49F2C95A1DB99F9E000589A7 /* ElPersonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49F2C9581DB99F9E000589A7 /* ElPersonTableViewCell.xib */; };
 		49F2C95E1DB9AAED000589A7 /* ElPersonCharmTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F2C95C1DB9AAED000589A7 /* ElPersonCharmTableViewCell.m */; };
@@ -259,6 +260,8 @@
 		49E7599A1DB8EE5100BDCB3C /* ElPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElPersonViewController.m; sourceTree = "<group>"; };
 		49E7599C1DB8EE8800BDCB3C /* ElPersonHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElPersonHeaderView.h; sourceTree = "<group>"; };
 		49E7599D1DB8EE8800BDCB3C /* ElPersonHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElPersonHeaderView.m; sourceTree = "<group>"; };
+		49EE13FF1DD0865800F88828 /* ElLiveRoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElLiveRoom.h; sourceTree = "<group>"; };
+		49EE14001DD0865800F88828 /* ElLiveRoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElLiveRoom.m; sourceTree = "<group>"; };
 		49F2C9561DB99F9E000589A7 /* ElPersonTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElPersonTableViewCell.h; sourceTree = "<group>"; };
 		49F2C9571DB99F9E000589A7 /* ElPersonTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElPersonTableViewCell.m; sourceTree = "<group>"; };
 		49F2C9581DB99F9E000589A7 /* ElPersonTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElPersonTableViewCell.xib; sourceTree = "<group>"; };
@@ -553,6 +556,8 @@
 				491E05BA1DCB289E009342BA /* LiveRoom.m */,
 				49C284751DCC366400ECCD13 /* _User.h */,
 				49C284761DCC366400ECCD13 /* _User.m */,
+				49EE13FF1DD0865800F88828 /* ElLiveRoom.h */,
+				49EE14001DD0865800F88828 /* ElLiveRoom.m */,
 			);
 			path = AVObject;
 			sourceTree = "<group>";
@@ -1847,6 +1852,7 @@
 				49FE39C61DB79A4C00FD8A99 /* UIImage+Categories.m in Sources */,
 				EB1DDACB1DCACFEE0095619C /* ShakeLabel.m in Sources */,
 				49FE39CA1DB79A4C00FD8A99 /* AppStoreUtils.m in Sources */,
+				49EE14011DD0865800F88828 /* ElLiveRoom.m in Sources */,
 				49FE39C51DB79A4C00FD8A99 /* UIColor+Categories.m in Sources */,
 				493DA3FC1DC217F90031C317 /* ElLeftToolView.m in Sources */,
 				49FE39CB1DB79A4C00FD8A99 /* FileManagerUtils.m in Sources */,

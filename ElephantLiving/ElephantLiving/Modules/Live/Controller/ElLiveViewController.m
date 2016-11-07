@@ -17,7 +17,7 @@
 #import "AVIMConversation.h"
 #import "ElGiftView.h"
 #import "_User.h"
-#import "LiveRoom.h"
+#import "ElLiveRoom.h"
 #import "AVObject+ElClassMap.h"
 #import "PresentView.h"
 #import "GiftModel.h"
@@ -49,7 +49,7 @@ ElUserBriefViewDelegate
 >
 
 
-@property (nonatomic, strong) LiveRoom *liveRoom;
+@property (nonatomic, strong) ElLiveRoom *liveRoom;
 @property (nonatomic, strong) ElStartLiving *startView;
 @property (nonatomic, strong) UIImageView *timeImageView;
 @property (nonatomic, strong) NSTimer *myTimer;
@@ -262,11 +262,11 @@ ElUserBriefViewDelegate
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"确定结束直播吗？" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     UIAlertAction *commitAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self timeEnd];
         [_liveRoom deleteInBackground];
         [_liveSession disconnectServer];
         [_liveSession stopPreview];
-        _endView.hidden = NO;        
-        [self timeEnd];
+        _endView.hidden = NO;
         _endView.time = _timeString;
         [self hiddenToolView:YES];
         [self dismissViewControllerAnimated:YES completion:nil];
@@ -482,7 +482,7 @@ ElUserBriefViewDelegate
 - (void)creatLiveRoom {
 
     _User *currentUser = [_User currentUser];
-    self.liveRoom = [[LiveRoom alloc] initWithClassName:NSStringFromClass([LiveRoom class])];
+    self.liveRoom = [[ElLiveRoom alloc] initWithClassName:NSStringFromClass([ElLiveRoom class])];
     /**
      *  拉流地址
      */
