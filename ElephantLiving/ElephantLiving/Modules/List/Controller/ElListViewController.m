@@ -126,7 +126,7 @@ UITableViewDelegate
     UILabel *charmLabelOfFirst = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.41, SCREEN_WIDTH * 0.34 + 10, SCREEN_WIDTH * 0.2, SCREEN_WIDTH * 0.04)];
     charmLabelOfFirst.textAlignment = NSTextAlignmentCenter;
     charmLabelOfFirst.font = [UIFont systemFontOfSize:15];
-    charmLabelOfFirst.text = [NSString stringWithFormat:@"%ld",[[_userInfoArray firstObject] charm]];
+    charmLabelOfFirst.text = [NSString stringWithFormat:@"%d",[[_userInfoArray firstObject] charm]];
     charmLabelOfFirst.numberOfLines = 0;
     [charmLabelOfFirst sizeToFit];
     [topView addSubview:charmLabelOfFirst];
@@ -159,7 +159,7 @@ UITableViewDelegate
     [topView addSubview:nikenameLabelOfSecond];
     
     UILabel *charmLabelOfSecond = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.11, SCREEN_WIDTH * 0.58 + 15, SCREEN_WIDTH * 0.17, SCREEN_WIDTH * 0.04)];
-    charmLabelOfSecond.text = [NSString stringWithFormat:@"%ld",[[_userInfoArray objectAtIndex:1] charm]];
+    charmLabelOfSecond.text = [NSString stringWithFormat:@"%ld",(long)[[_userInfoArray objectAtIndex:1] charm]];
     charmLabelOfSecond.textAlignment = NSTextAlignmentCenter;
     charmLabelOfSecond.font = [UIFont systemFontOfSize:15];
     charmLabelOfSecond.numberOfLines = 0;
@@ -190,7 +190,7 @@ UITableViewDelegate
     [topView addSubview:nikenameLabelOfThird];
     
     UILabel *charmLabelOfThird = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.75, SCREEN_WIDTH * 0.58 + 15, SCREEN_WIDTH * 0.17, SCREEN_WIDTH * 0.04)];
-    charmLabelOfThird.text = [NSString stringWithFormat:@"%ld",[[_userInfoArray objectAtIndex:2] charm]];
+    charmLabelOfThird.text = [NSString stringWithFormat:@"%ld",(long)[[_userInfoArray objectAtIndex:2] charm]];
     charmLabelOfThird.textAlignment = NSTextAlignmentCenter;
     charmLabelOfThird.font = [UIFont systemFontOfSize:15];
     charmLabelOfThird.numberOfLines = 0;
@@ -216,7 +216,7 @@ UITableViewDelegate
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.listNumber = indexPath.row + 4;
     cell.nikenameText = [_userInfoArray[indexPath.row + 3] username];
-    cell.charmText = [NSString stringWithFormat: @"%ld",[_userInfoArray[indexPath.row + 3] charm]];
+    cell.charmText = [NSString stringWithFormat: @"%ld",(long)[_userInfoArray[indexPath.row + 3] charm]];
     
     cell.headerImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[_userInfoArray[indexPath.row + 3] headImage]]]];
     

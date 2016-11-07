@@ -84,7 +84,7 @@
 -(void)setListNumber:(NSInteger)listNumber {
     if (_listNumber != listNumber) {
         _listNumber = listNumber;
-        _listLabel.text = [NSString stringWithFormat: @"%ld",listNumber];
+        _listLabel.text = [NSString stringWithFormat: @"%ld",(long)listNumber];
     }
 
 }

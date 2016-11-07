@@ -38,7 +38,7 @@
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hidePresendView) object:nil];
     [self performSelector:@selector(hidePresendView) withObject:nil afterDelay:2];
     
-    self.skLabel.text = [NSString stringWithFormat:@"X %ld", _animCount];
+    self.skLabel.text = [NSString stringWithFormat:@"X %ld", (long)_animCount];
     [self.skLabel startAnimWithDuration:0.3];
 
 }
