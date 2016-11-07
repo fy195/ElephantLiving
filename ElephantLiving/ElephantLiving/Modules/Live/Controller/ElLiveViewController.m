@@ -491,6 +491,7 @@ ElUserBriefViewDelegate
      *  主播名称
      */
     _liveRoom.host_name = currentUser.username;
+    _liveRoom.userObjectId = currentUser.objectId;
     _liveRoom.level = currentUser.level;
     _liveRoom.headerImage = currentUser.headImage;
     /**

@@ -19,7 +19,7 @@
 @end
 
 @implementation ElUserBriefView
-
+                                 
 + (instancetype)elUserBriefView {
     return [[NSBundle mainBundle] loadNibNamed:@"ElUserBriefView" owner:nil options:nil].lastObject;
 }

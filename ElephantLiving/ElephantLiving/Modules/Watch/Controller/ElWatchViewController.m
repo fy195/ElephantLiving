@@ -15,13 +15,16 @@
 #import "_User.h"
 #import "LiveRoom.h"
 #import "AVObject+ElClassMap.h"
+#import "ElUserBriefView.h"
 
 @interface ElWatchViewController ()
 <
 UITableViewDelegate,
 UITableViewDataSource,
 UITextFieldDelegate,
-AVIMClientDelegate
+AVIMClientDelegate,
+ElUserBriefViewDelegate,
+ElLivingTopViewDelegate
 >
 @property (nonatomic, strong) IJKFFMoviePlayerController *moviePlayer;
 @property (nonatomic, strong) UIButton *closeButton;
