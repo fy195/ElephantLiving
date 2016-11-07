@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ElNewCollectionViewCell : UICollectionViewCell
-@property (nonatomic, strong) UIImage *iconImage;
+@property (nonatomic, strong) NSString *iconImage;
 @property (nonatomic, strong) NSString *location;
 @property (nonatomic, strong) NSString *name;
 @end
