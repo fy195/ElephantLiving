@@ -165,7 +165,6 @@
 		EBCB054B1DCB68D100BB2832 /* ElFireworksAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCB054A1DCB68D100BB2832 /* ElFireworksAnimationView.m */; };
 		EBCB054E1DCB697C00BB2832 /* ElHouseAniamtionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCB054D1DCB697C00BB2832 /* ElHouseAniamtionView.m */; };
 		EBD4C0921DCDDD5700F81382 /* hahaha.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EBD4C0911DCDDD5700F81382 /* hahaha.jpeg */; };
-		EBD4C0941DCDFDB500F81382 /* xiong.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EBD4C0931DCDFDB500F81382 /* xiong.jpeg */; };
 		EBD4C0981DCE0C9600F81382 /* 对号气泡2.png in Resources */ = {isa = PBXBuildFile; fileRef = EBD4C0971DCE0C9600F81382 /* 对号气泡2.png */; };
 		EBD965AD1DD0158900936D66 /* 啊啊啊.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EBD965AC1DD0158900936D66 /* 啊啊啊.jpeg */; };
 		EBD965AF1DD01C8300936D66 /* 路牌x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBD965AE1DD01C8300936D66 /* 路牌x.png */; };
@@ -425,7 +424,6 @@
 		EBCB054C1DCB697C00BB2832 /* ElHouseAniamtionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElHouseAniamtionView.h; sourceTree = "<group>"; };
 		EBCB054D1DCB697C00BB2832 /* ElHouseAniamtionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElHouseAniamtionView.m; sourceTree = "<group>"; };
 		EBD4C0911DCDDD5700F81382 /* hahaha.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hahaha.jpeg; sourceTree = "<group>"; };
-		EBD4C0931DCDFDB500F81382 /* xiong.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xiong.jpeg; sourceTree = "<group>"; };
 		EBD4C0971DCE0C9600F81382 /* 对号气泡2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "对号气泡2.png"; sourceTree = "<group>"; };
 		EBD965AC1DD0158900936D66 /* 啊啊啊.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "啊啊啊.jpeg"; sourceTree = "<group>"; };
 		EBD965AE1DD01C8300936D66 /* 路牌x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "路牌x.png"; sourceTree = "<group>"; };
@@ -501,9 +499,6 @@
 		499FBE211DB786CE0015CC1D /* ElephantLiving */ = {
 			isa = PBXGroup;
 			children = (
-
-				EBD4C0931DCDFDB500F81382 /* xiong.jpeg */,
-				EBD4C0911DCDDD5700F81382 /* hahaha.jpeg */,
 				EBD4C0971DCE0C9600F81382 /* 对号气泡2.png */,
 				EBD965AE1DD01C8300936D66 /* 路牌x.png */,
 				EBD965AC1DD0158900936D66 /* 啊啊啊.jpeg */,
@@ -1709,7 +1704,6 @@
 				49F2C95A1DB99F9E000589A7 /* ElPersonTableViewCell.xib in Resources */,
 				49CA285F1DC9E25800654B7C /* xinyiba_riva_Dolphin05.png in Resources */,
 				EB1DDAEF1DCAE00E0095619C /* gift_heart_4.png in Resources */,
-				EBD4C0941DCDFDB500F81382 /* xiong.jpeg in Resources */,
 				EB1DDAF11DCAE00E0095619C /* gift_heart_6.png in Resources */,
 				EBD965AF1DD01C8300936D66 /* 路牌x.png in Resources */,
 				EB1DDAF21DCAE00E0095619C /* gift_heart_7.png in Resources */,
