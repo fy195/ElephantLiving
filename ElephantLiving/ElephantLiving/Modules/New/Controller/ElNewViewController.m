@@ -51,6 +51,7 @@ UICollectionViewDataSource
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
     [self.view addSubview:_collectionView];
+    _collectionView.backgroundColor = [UIColor whiteColor];
     UINib *nib = [UINib nibWithNibName:@"ElNewCollectionViewCell" bundle:nil];
     [_collectionView registerNib:nib forCellWithReuseIdentifier:elNewViewCell];
 }
@@ -63,8 +64,10 @@ UICollectionViewDataSource
     LiveRoom *liveRoom = _liveRoomArray[indexPath.item];
     ElNewCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:elNewViewCell forIndexPath:indexPath];
     cell.name = liveRoom.host_name;
-    cell.iconImage = [];
+    cell.iconImage = liveRoom.coverImage;
     return cell;
 }
+
+
 
 @end

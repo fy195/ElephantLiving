@@ -7,6 +7,7 @@
 //
 
 #import "ElNewCollectionViewCell.h"
+#import "UIImageView+WebCache.h"
 
 @interface ElNewCollectionViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
@@ -17,11 +18,11 @@
 
 @implementation ElNewCollectionViewCell
 
-- (void)setIconImage:(UIImage *)iconImage {
+- (void)setIconImage:(NSString *)iconImage {
     if (_iconImage != iconImage) {
         _iconImage = iconImage;
     }
-    _iconImageView.image = iconImage;
+    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:iconImage]];
     _userNewLabel.layer.borderWidth = 2.0f;
     _userNewLabel.layer.borderColor = [UIColor whiteColor].CGColor;
 }
