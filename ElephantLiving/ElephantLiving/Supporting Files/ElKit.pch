@@ -30,8 +30,6 @@
 
 #import "CocoaLumberjack.h"
 
-//#import <AVOSCloud/AVOSCloud.h>
-
 #define kELAppKey @"20cb0ee4eacf2a8"//使用自己的AppKey
 #define kELAppSecret @"629044b589904b8fb76019f6aeb4a186"//使用自己的AppSecret
 #define kELDomain @"http://elephantliving.s.qupai.me"//域名使用控制台空间管理自己的域名

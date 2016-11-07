@@ -491,6 +491,7 @@ ElUserBriefViewDelegate
      *  主播名称
      */
     _liveRoom.host_name = currentUser.username;
+    _liveRoom.userObjectId = currentUser.objectId;
     _liveRoom.level = currentUser.level;
     _liveRoom.headerImage = currentUser.headImage;
     /**
@@ -794,14 +795,6 @@ ElUserBriefViewDelegate
     [UIView animateWithDuration:0.5 delay:0.0f usingSpringWithDamping:0.7 initialSpringVelocity:-3 options:UIViewAnimationOptionCurveEaseIn animations:^{
         _userBriefView.frame = CGRectMake(SCREEN_WIDTH * 0.15, SCREEN_HEIGHT * 0.25, SCREEN_WIDTH * 0.7, SCREEN_HEIGHT * 0.45);
     } completion:nil];
-}
-
-- (void)report {
-
-}
-
-- (void)follow {
-    
 }
 
 - (void)didReceiveMemoryWarning {

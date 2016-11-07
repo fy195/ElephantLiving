@@ -19,7 +19,7 @@
 @end
 
 @implementation ElUserBriefView
-
+                                 
 + (instancetype)elUserBriefView {
     return [[NSBundle mainBundle] loadNibNamed:@"ElUserBriefView" owner:nil options:nil].lastObject;
 }
@@ -36,7 +36,7 @@
     }];
 }
 - (IBAction)followButtonAction:(id)sender {
-    [self.delegate follow];
+    [self.delegate follow:_isFollow];
 }
 
 /*
