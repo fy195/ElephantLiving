@@ -14,6 +14,7 @@
 #import "AVIMConversation.h"
 #import "_User.h"
 #import "LiveRoom.h"
+#import "ElLiveRoom.h"
 #import "AVObject+ElClassMap.h"
 #import "ElUserBriefView.h"
 
@@ -68,22 +69,41 @@ ElLivingTopViewDelegate
 
 // 搜索聊天室
 - (void)searchChatRoom {
-    _User *user = [_User currentUser];
-    self.client = [[AVIMClient alloc] initWithClientId:user.username];
-    _client.delegate = self;
-    [self.client openWithCallback:^(BOOL succeeded, NSError *error) {
-        AVIMConversationQuery *query = [self.client conversationQuery];
-        [query whereKey:AVIMAttr(@"topic") equalTo:_liveRoom.host_name];
-        // 额外调用一次确保查询的是聊天室而不是普通对话
-        [query whereKey:@"tr" equalTo:@(YES)];
-        [query findConversationsWithCallback:^(NSArray *objects, NSError *error) {
-            self.currentConversation = objects.lastObject;
-            [objects.lastObject joinWithCallback:^(BOOL succeeded, NSError * _Nullable error) {
-                NSLog(@"加入对话成功");
+    if(_liveRoom == nil) {
+        _User *user = [_User currentUser];
+        self.client = [[AVIMClient alloc] initWithClientId:user.username];
+        _client.delegate = self;
+        [self.client openWithCallback:^(BOOL succeeded, NSError *error) {
+            AVIMConversationQuery *query = [self.client conversationQuery];
+            [query whereKey:AVIMAttr(@"topic") equalTo:_elLiveRoom.host_name];
+            // 额外调用一次确保查询的是聊天室而不是普通对话
+            [query whereKey:@"tr" equalTo:@(YES)];
+            [query findConversationsWithCallback:^(NSArray *objects, NSError *error) {
+                self.currentConversation = objects.lastObject;
+                [objects.lastObject joinWithCallback:^(BOOL succeeded, NSError * _Nullable error) {
+                    NSLog(@"加入对话成功");
+                }];
+                NSLog(@"查询成功");
             }];
-            NSLog(@"查询成功");
         }];
-    }];
+    }else {
+        _User *user = [_User currentUser];
+        self.client = [[AVIMClient alloc] initWithClientId:user.username];
+        _client.delegate = self;
+        [self.client openWithCallback:^(BOOL succeeded, NSError *error) {
+            AVIMConversationQuery *query = [self.client conversationQuery];
+            [query whereKey:AVIMAttr(@"topic") equalTo:_liveRoom.host_name];
+            // 额外调用一次确保查询的是聊天室而不是普通对话
+            [query whereKey:@"tr" equalTo:@(YES)];
+            [query findConversationsWithCallback:^(NSArray *objects, NSError *error) {
+                self.currentConversation = objects.lastObject;
+                [objects.lastObject joinWithCallback:^(BOOL succeeded, NSError * _Nullable error) {
+                    NSLog(@"加入对话成功");
+                }];
+                NSLog(@"查询成功");
+            }];
+        }];
+    }
 }
 
 - (void)creatTool {
@@ -170,7 +190,12 @@ ElLivingTopViewDelegate
     [options setPlayerOptionIntValue:1 forKey:@"audiotoolbox"];
     [options setPlayerOptionIntValue:15 forKey:@"r"];
     [options setPlayerOptionIntValue:512 forKey:@"vol"];
-    self.moviePlayer = [[IJKFFMoviePlayerController alloc] initWithContentURLString:_liveRoom.pullUrl withOptions:options];
+    if (_liveRoom == nil) {
+        self.moviePlayer = [[IJKFFMoviePlayerController alloc] initWithContentURLString:_elLiveRoom.pullUrl withOptions:options];
+    }else {
+        self.moviePlayer = [[IJKFFMoviePlayerController alloc] initWithContentURLString:_liveRoom.pullUrl withOptions:options];
+    }
+    
     _moviePlayer.view.frame = self.view.bounds;
     _moviePlayer.scalingMode = IJKMPMovieScalingModeAspectFill;
     _moviePlayer.shouldAutoplay = NO;
@@ -340,6 +365,12 @@ ElLivingTopViewDelegate
 - (void)setLiveRoom:(LiveRoom *)liveRoom {
     if (_liveRoom != liveRoom) {
         _liveRoom = liveRoom;
+    }
+}
+
+- (void)setElLiveRoom:(ElLiveRoom *)elLiveRoom {
+    if (_elLiveRoom != elLiveRoom) {
+        _elLiveRoom = elLiveRoom;
     }
 }
 
