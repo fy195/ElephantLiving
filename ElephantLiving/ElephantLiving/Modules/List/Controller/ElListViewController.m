@@ -12,6 +12,7 @@
 #import "AVOSCloud.h"
 #import "AVUser+ElClassMap.h"
 #import "_User.h"
+#import "UIImage+Categories.h"
 
 static NSString *const normalList = @"normalList";
 static NSString *const first = @"firstCell";
@@ -104,7 +105,17 @@ UITableViewDelegate
     [topView addSubview:firstImage];
     
     UIButton *firstButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    firstButton.frame = CGRectMake(0, 0, SCREEN_WIDTH * 0.6, SCREEN_WIDTH * 0.35);
+    firstButton.frame = CGRectMake(0, 0, SCREEN_WIDTH * 0.22, SCREEN_WIDTH * 0.22);
+
+    AVFile *file = [AVFile fileWithURL:[[_userInfoArray firstObject] headImage]];
+    [file getThumbnail:YES width:100 height:100 withBlock:^(UIImage *image, NSError *error) {
+        if (!error) {
+            [firstButton setBackgroundImage:image forState:UIControlStateNormal];
+        }else {
+            NSLog(@"%@",error);
+        }
+    }];
+    
     [firstImage addSubview:firstButton];
     
     
@@ -117,7 +128,7 @@ UITableViewDelegate
     UILabel *charmLabelOfFirst = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.41, SCREEN_WIDTH * 0.34 + 10, SCREEN_WIDTH * 0.2, SCREEN_WIDTH * 0.04)];
     charmLabelOfFirst.textAlignment = NSTextAlignmentCenter;
     charmLabelOfFirst.font = [UIFont systemFontOfSize:15];
-    charmLabelOfFirst.text = [NSString stringWithFormat:@"%d",[[_userInfoArray firstObject] charm]];
+    charmLabelOfFirst.text = [NSString stringWithFormat:@"%ld",[[_userInfoArray firstObject] charm]];
     charmLabelOfFirst.numberOfLines = 0;
     [charmLabelOfFirst sizeToFit];
     [topView addSubview:charmLabelOfFirst];
@@ -132,13 +143,25 @@ UITableViewDelegate
     secondButton.frame = CGRectMake(0, 0, SCREEN_WIDTH * 0.24, SCREEN_WIDTH * 0.24);
     [secondImage addSubview:secondButton];
     
+    AVFile *secondFile = [AVFile fileWithURL:[[_userInfoArray objectAtIndex:1] headImage]];
+    [secondFile getThumbnail:YES width:100 height:100 withBlock:^(UIImage *image, NSError *error) {
+        if (!error) {
+            [secondButton setBackgroundImage:image forState:UIControlStateNormal];
+        }else {
+            NSLog(@"%@",error);
+        }
+    }];
+    
+    
+    
+    
     UILabel *nikenameLabelOfSecond = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.09, SCREEN_WIDTH * 0.52 + 15, SCREEN_WIDTH * 0.2, SCREEN_WIDTH * 0.06)];
     nikenameLabelOfSecond.text = [[_userInfoArray objectAtIndex:1] username];
     nikenameLabelOfSecond.textAlignment = NSTextAlignmentCenter;
     [topView addSubview:nikenameLabelOfSecond];
     
     UILabel *charmLabelOfSecond = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.11, SCREEN_WIDTH * 0.58 + 15, SCREEN_WIDTH * 0.17, SCREEN_WIDTH * 0.04)];
-    charmLabelOfSecond.text = [NSString stringWithFormat:@"%d",[[_userInfoArray objectAtIndex:1] charm]];
+    charmLabelOfSecond.text = [NSString stringWithFormat:@"%ld",[[_userInfoArray objectAtIndex:1] charm]];
     charmLabelOfSecond.textAlignment = NSTextAlignmentCenter;
     charmLabelOfSecond.font = [UIFont systemFontOfSize:15];
     charmLabelOfSecond.numberOfLines = 0;
@@ -155,13 +178,21 @@ UITableViewDelegate
     thirdButton.frame = CGRectMake(0, 0, SCREEN_WIDTH * 0.24, SCREEN_WIDTH * 0.24);
     [thirdImage addSubview:thirdButton];
     
+    AVFile *thirdFile = [AVFile fileWithURL:[[_userInfoArray objectAtIndex:2] headImage]];
+    [thirdFile getThumbnail:YES width:100 height:100 withBlock:^(UIImage *image, NSError *error) {
+        if (!error) {
+            [thirdButton setBackgroundImage:image forState:UIControlStateNormal];
+        }else {
+            NSLog(@"%@",error);
+        }
+    }];
     UILabel *nikenameLabelOfThird = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.73, SCREEN_WIDTH * 0.52 + 15, SCREEN_WIDTH * 0.21, SCREEN_WIDTH * 0.06)];
     nikenameLabelOfThird.text = [[_userInfoArray objectAtIndex:2] username];
     nikenameLabelOfThird.textAlignment = NSTextAlignmentCenter;
     [topView addSubview:nikenameLabelOfThird];
     
     UILabel *charmLabelOfThird = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.75, SCREEN_WIDTH * 0.58 + 15, SCREEN_WIDTH * 0.17, SCREEN_WIDTH * 0.04)];
-    charmLabelOfThird.text = [NSString stringWithFormat:@"%d",[[_userInfoArray objectAtIndex:2] charm]];
+    charmLabelOfThird.text = [NSString stringWithFormat:@"%ld",[[_userInfoArray objectAtIndex:2] charm]];
     charmLabelOfThird.textAlignment = NSTextAlignmentCenter;
     charmLabelOfThird.font = [UIFont systemFontOfSize:15];
     charmLabelOfThird.numberOfLines = 0;
@@ -188,7 +219,18 @@ UITableViewDelegate
     cell.listNumber = indexPath.row + 4;
     cell.nikenameText = [_userInfoArray[indexPath.row + 3] username];
     cell.charmText = [NSString stringWithFormat: @"%ld",[_userInfoArray[indexPath.row + 3] charm]];
+    
     cell.headerImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[_userInfoArray[indexPath.row + 3] headImage]]]];
+    
+//    AVFile *file = [AVFile fileWithURL:[_userInfoArray[indexPath.row + 3] headImage]];
+//    [file getThumbnail:YES width:100 height:100 withBlock:^(UIImage * _Nullable image, NSError * _Nullable error) {
+//        if (!error) {
+//            cell.headerImage = image;
+//        }else {
+//            NSLog(@"%@",error);
+//        }
+//    }];
+    
     return cell;
 }
 
