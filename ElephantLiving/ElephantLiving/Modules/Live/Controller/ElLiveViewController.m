@@ -518,6 +518,7 @@ ElUserBriefViewDelegate
         [_client createConversationWithName:topic clientIds:@[] attributes:dic options:AVIMConversationOptionTransient callback:^(AVIMConversation * _Nullable conversation, NSError * _Nullable error) {
             if (!error) {
                 self.currentConversation = conversation;
+                NSLog(@"创建聊天室成功");
             }
         }];
     }];

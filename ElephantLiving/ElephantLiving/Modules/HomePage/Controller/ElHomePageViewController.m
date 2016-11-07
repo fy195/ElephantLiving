@@ -19,7 +19,8 @@
 @interface ElHomePageViewController ()
 <
 UIScrollViewDelegate,
-ElHotViewControllerDelegate
+ElHotViewControllerDelegate,
+ElNewViewControllerDelegate
 >
 @property (nonatomic, strong) ElTopView *topView;
 
@@ -105,7 +106,7 @@ ElHotViewControllerDelegate
     self.newestVC = [[ElNewViewController alloc] init];
     _newestVC.view.frame = _listVC.view.frame;
     _newestVC.view.x = 0;
-    _newestVC.view.backgroundColor = [UIColor colorWithRed:0.658 green:0.7359 blue:1.0 alpha:1.0];
+    _newestVC.delegate = self;
     [_scrollView addSubview:_newestVC.view];
     
     self.hotVC = [[ElHotViewController alloc] init];
@@ -120,6 +121,12 @@ ElHotViewControllerDelegate
     ElWatchViewController *watchVC = [[ElWatchViewController alloc] init];
     watchVC.liveRoom = liveRoom;
     [self presentViewController:watchVC animated:YES completion:nil];
+}
+
+- (void)presentWatchControllerWithElLiveRoom:(ElLiveRoom *)liveRoom {
+    ElWatchViewController *watchViewController = [[ElWatchViewController alloc] init];
+    watchViewController.elLiveRoom = liveRoom;
+    [self presentViewController:watchViewController animated:YES completion:nil];
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{

@@ -12,7 +12,7 @@
 #import "AVOSCloud/AVOSCloud.h"
 #import "ElHomePageViewController.h"
 #import "_User.h"
-
+#import <LeanCloudSocial/LeanCloudSocial-umbrella.h>
 
 @interface ElLoginViewController ()
 
@@ -23,7 +23,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
     [_phoneNumberTextField setValue:[UIColor colorWithRed:1 green:0.74 blue:0.15 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
     [_passwordTextField setValue:[UIColor colorWithRed:1 green:0.74 blue:0.15 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
     
@@ -57,15 +56,6 @@
 }
 
 - (void)getUserInfo:(id)user {
-//    AVQuery *query  = [AVQuery queryWithClassName:@"UserInfo"];
-//    [query whereKey:@"owner" equalTo:user];
-//    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-//        if (error) {
-//            NSLog(@"%@",error);
-//        } else {
-//            NSLog(@"%@",objects);
-//        }
-//    }];
     user = [_User currentUser];
 
 }
@@ -75,19 +65,98 @@
     [self.navigationController pushViewController:forgetPasswordView animated:YES];
 }
 
+
+
+
+
+
+- (IBAction)QQLogin:(id)sender {
+    [AVOSCloudSNS loginWithCallback:^(id object, NSError *error) {
+        if (error) {
+            NSLog(@"failed to get authentication from weibo. error: %@", error.description);
+        } else {
+            [_User loginWithAuthData:object platform:AVOSCloudSNSPlatformQQ block:^(AVUser *user, NSError *error) {
+                NSString *username = object[@"username"];
+                NSString *avatar = object[@"avatar"];
+                _User *qqUser = (_User *)user;
+                qqUser.username = username;
+                qqUser.headImage = avatar;
+                [qqUser saveInBackground];
+            }];
+        }
+    } toPlatform:AVOSCloudSNSQQ];
+}
+
+- (IBAction)WeChatLogin:(id)sender {
+    if ([AVOSCloudSNS isAppInstalledForType:AVOSCloudSNSWeiXin]) {
+        // 请到真机测试
+        [AVOSCloudSNS loginWithCallback:^(id object, NSError *error) {
+
+            //        {
+            //            "access_token" = "OezXcEiiBSKSxW0eoylIeN_WWsgxroiydYCNnIX5hyDjK3CwA1hc2bvS1oaaaYqwpP7_vb7nhWadkCXGQukQ0hVjCPvWDHjGqSAF0utf2xvXG5coBh2RZViBKxd0POkMDYu0vNLQoBOTfl9yDzzLJQ";
+            //            avatar = "http://wx.qlogo.cn/mmopen/3Qx7ibib84ibZMVgJAaEAN7HW8Kyc3s0hLTKcuSlzSJibG8Mbr4g3PsApj8G1u5XxLq9Dnp7XiafxL9h4RSCUIbX39l6lc90Kyzcx/0";
+            //            "expires_at" = "2015-07-30 08:38:24 +0000";
+            //            id = oazTlwQwmWLyzz7wxnAXDsSZUjcM;
+            //            platform = 3;
+            //            "raw-user" =     {
+            //                city = "";
+            //                country = CN;
+            //                headimgurl = "http://wx.qlogo.cn/mmopen/3Qx7ibib84ibZMVgJAaEAN7HW8Kyc3s0hLTKcuSlzSJibG8Mbr4g3PsApj8G1u5XxLq9Dnp7XiafxL9h4RSCUIbX39l6lc90Kyzcx/0";
+            //                language = "zh_CN";
+            //                nickname = "\U674e\U667a\U7ef4";
+            //                openid = oazTlwQwmWLyzz7wxnAXDsSZUjcM;
+            //                privilege =         (
+            //                );
+            //                province = Beijing;
+            //                sex = 1;
+            //                unionid = ox7NLs813rA9sP6QPbadkulxgHn8;
+            //            };
+            //            username = "\U674e\U667a\U7ef4";
+            //        }
+            
+            if (!error) {
+                
+                NSLog(@"姓名: %@", [object username]);
+                
+            }else {
+                NSLog(@"object : %@ error:%@", object, error);
+            }
+
+        } toPlatform:AVOSCloudSNSWeiXin];
+    } else {
+        NSLog(@"没有安装微信, 暂不能登录");
+    }
+
+    
+    
+}
+
+- (IBAction)weiboLogin:(id)sender {
+    
+    NSLog(@"微博");
+    [AVOSCloudSNS loginWithCallback:^(id object, NSError *error) {
+        if (error) {
+            NSLog(@"failed to get authentication from weibo. error: %@", error.description);
+        } else {
+            [_User loginWithAuthData:object platform:AVOSCloudSNSPlatformWeiBo block:^(AVUser *user, NSError *error) {
+                NSString *username = object[@"username"];
+                NSString *avatar = object[@"avatar"];
+                _User *qqUser = (_User *)user;
+                qqUser.username = username;
+                qqUser.headImage = avatar;
+                [qqUser saveInBackground];
+            }];
+        }
+    } toPlatform:AVOSCloudSNSSinaWeibo];
+
+}
+
+
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

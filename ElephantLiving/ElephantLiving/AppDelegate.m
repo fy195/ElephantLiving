@@ -11,6 +11,7 @@
 #import <QPLive/QPLive.h>
 #import <AVOSCloud/AVOSCloud.h>
 #import <AVOSCloudCrashReporting/AVOSCloudCrashReporting.h>
+#import <LeanCloudSocial/LeanCloudSocial-umbrella.h>
 
 @interface AppDelegate ()
 
@@ -44,12 +45,22 @@
     [AVOSCloud setApplicationId:APP_ID clientKey:APP_KEY];
     [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     [AVOSCloud setAllLogsEnabled:YES];
-
-    
-    
-    
     return YES;
 }
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [AVOSCloudSNS handleOpenURL:url];
+}
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return [AVOSCloudSNS handleOpenURL:url];
+}
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options
+{
+    return [AVOSCloudSNS handleOpenURL:url];
+}
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
