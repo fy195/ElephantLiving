@@ -38,6 +38,11 @@ UIImagePickerControllerDelegate
 
 @implementation ElPersonViewController
 
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self getCurrentUserInfo];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

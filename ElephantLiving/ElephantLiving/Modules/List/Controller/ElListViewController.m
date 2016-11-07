@@ -43,8 +43,6 @@ UITableViewDelegate
 
 - (void)getUserInfo {
     AVQuery *query = [AVQuery queryWithClassName:@"_User"];
-    //  设置查询条数
-    query.limit = 10;
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         
         if (error) {
