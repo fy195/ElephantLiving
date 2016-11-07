@@ -503,11 +503,7 @@ ElUserBriefViewDelegate
      */
     _liveRoom.liveRoom_title = _startView.nameTextField.text;
     [_liveRoom saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        if (succeeded) {
-            NSLog(@"保存成功");
-        } else {
-            NSLog(@"创建对象出错 %@", error);
-        }
+        NSLog(@"保存成功");
     }];
 }
 
