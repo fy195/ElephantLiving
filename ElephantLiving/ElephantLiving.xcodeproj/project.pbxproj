@@ -502,9 +502,6 @@
 		499FBE211DB786CE0015CC1D /* ElephantLiving */ = {
 			isa = PBXGroup;
 			children = (
-				EBD4C0971DCE0C9600F81382 /* 对号气泡2.png */,
-				EBD965AE1DD01C8300936D66 /* 路牌x.png */,
-				EBD965AC1DD0158900936D66 /* 啊啊啊.jpeg */,
 				49CA28621DC9EC0800654B7C /* AVObject */,
 				49FE39841DB7974B00FD8A99 /* Base */,
 				49FE39931DB79A4C00FD8A99 /* Common */,
@@ -524,6 +521,9 @@
 				499FBE281DB786CE0015CC1D /* ViewController.h */,
 				499FBE291DB786CE0015CC1D /* ViewController.m */,
 				EBD4C0911DCDDD5700F81382 /* hahaha.jpeg */,
+				EBD965AC1DD0158900936D66 /* 啊啊啊.jpeg */,
+				EBD4C0971DCE0C9600F81382 /* 对号气泡2.png */,
+				EBD965AE1DD01C8300936D66 /* 路牌x.png */,
 			);
 			path = ElephantLiving;
 			sourceTree = "<group>";
@@ -552,12 +552,12 @@
 				49C284731DCC363C00ECCD13 /* ElBaseAVUser.m */,
 				49CA28661DC9EE0500654B7C /* ElGift.h */,
 				49CA28671DC9EE0500654B7C /* ElGift.m */,
+				49EE13FF1DD0865800F88828 /* ElLiveRoom.h */,
+				49EE14001DD0865800F88828 /* ElLiveRoom.m */,
 				491E05B91DCB289E009342BA /* LiveRoom.h */,
 				491E05BA1DCB289E009342BA /* LiveRoom.m */,
 				49C284751DCC366400ECCD13 /* _User.h */,
 				49C284761DCC366400ECCD13 /* _User.m */,
-				49EE13FF1DD0865800F88828 /* ElLiveRoom.h */,
-				49EE14001DD0865800F88828 /* ElLiveRoom.m */,
 			);
 			path = AVObject;
 			sourceTree = "<group>";
