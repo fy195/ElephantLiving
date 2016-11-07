@@ -59,7 +59,9 @@
     if (_headerImage != headerImage) {
         _headerImage = headerImage;
     }
+    
     _headerImageView.image = headerImage;
+    
 }
 
 
