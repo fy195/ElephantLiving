@@ -332,6 +332,46 @@ AVIMClientDelegate
     }
 }
 
+- (void)presentBriefView {
+    [UIView animateWithDuration:0.5 delay:0.0f usingSpringWithDamping:0.7 initialSpringVelocity:-3 options:UIViewAnimationOptionCurveEaseIn animations:^{
+        _userBriefView.frame = CGRectMake(SCREEN_WIDTH * 0.15, SCREEN_HEIGHT * 0.25, SCREEN_WIDTH * 0.7, SCREEN_HEIGHT * 0.45);
+    } completion:nil];
+    _User *currentUser = [_User currentUser];
+    _User *liveUser = [_User objectWithObjectId:_liveRoom.userObjectId];
+    [liveUser getFollowers:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        for (_User *user in objects) {
+            if (currentUser.objectId == user.objectId) {
+                [_userBriefView.followButton setTitle:@"已关注" forState:UIControlStateNormal];
+                _userBriefView.isFollow = YES;
+            }else {
+                _userBriefView.isFollow = NO;
+            }
+        }
+    }];
+}
+
+- (void)report {}
+
+- (void)follow:(BOOL)isFollow {
+    _User *currentUser = [_User currentUser];
+    _User *liveUser = [_User objectWithObjectId:_liveRoom.userObjectId];
+    if (!isFollow) {
+        [currentUser follow:_liveRoom.userObjectId andCallback:^(BOOL succeeded, NSError * _Nullable error) {
+            currentUser.follow_count = [NSNumber numberWithInteger:[currentUser.follow_count integerValue] + 1];
+            liveUser.follower_count = [NSNumber numberWithInteger:[liveUser.follower_count integerValue] + 1];
+            [_userBriefView.followButton setTitle:@"已关注" forState:UIControlStateNormal];
+            _userBriefView.isFollow = YES;
+        }];
+    }else {
+        [currentUser unfollow:_liveRoom.userObjectId andCallback:^(BOOL succeeded, NSError * _Nullable error) {
+            currentUser.follow_count = [NSNumber numberWithInteger:[currentUser.follow_count integerValue] - 1];
+            liveUser.follower_count = [NSNumber numberWithInteger:[liveUser.follower_count integerValue] - 1];
+            [_userBriefView.followButton setTitle:@"+ 关注" forState:UIControlStateNormal];
+            _userBriefView.isFollow = NO;
+        }];
+    }
+}
+
 /*
 #pragma mark - Navigation
 
