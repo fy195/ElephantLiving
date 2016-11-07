@@ -59,11 +59,4 @@
     }
 }
 
-- (void)setUserObjectId:(NSString *)userObjectId {
-    if (_userObjectId != userObjectId) {
-        _userObjectId = userObjectId;
-        [self setObject:userObjectId forKey:@"userObjectId"];
-    }
-}
-
 @end

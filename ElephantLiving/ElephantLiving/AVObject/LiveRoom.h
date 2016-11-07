@@ -20,10 +20,6 @@
  */
 @property (nonatomic, strong) NSString *host_name;
 /**
- *  主播id
- */
-@property (nonatomic, strong) NSString *userObjectId;
-/**
  *  主播图像
  */
 @property (nonatomic, strong) NSString *headerImage;
