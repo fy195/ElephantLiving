@@ -12,11 +12,9 @@
 #import "AVOSCloud/AVOSCloud.h"
 #import "ElHomePageViewController.h"
 #import "_User.h"
-#import "LeanCloudSocial/LeanCloudSocial-umbrella.h"
+#import <LeanCloudSocial/LeanCloudSocial-umbrella.h>
 
 @interface ElLoginViewController ()
-@property (weak, nonatomic) IBOutlet UIButton *registerButton;
-@property (weak, nonatomic) IBOutlet UIImageView *roadImageView;
 
 @end
 
@@ -27,8 +25,6 @@
     // Do any additional setup after loading the view from its nib.
     [_phoneNumberTextField setValue:[UIColor colorWithRed:1 green:0.74 blue:0.15 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
     [_passwordTextField setValue:[UIColor colorWithRed:1 green:0.74 blue:0.15 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
-    _registerButton.frame = CGRectMake(SCREEN_WIDTH * 0.69, SCREEN_HEIGHT * 0.57, _registerButton.width, _registerButton.height);
-    _roadImageView.frame = CGRectMake(SCREEN_WIDTH * 0.18, SCREEN_HEIGHT * 0.55, _roadImageView.width, _roadImageView.height);
     
 }
 
