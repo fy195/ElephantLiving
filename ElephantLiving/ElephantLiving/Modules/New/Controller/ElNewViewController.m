@@ -7,6 +7,19 @@
 //
 
 #import "ElNewViewController.h"
+#import "ElAVOSCloud.h"
+#import "ElNewCollectionViewCell.h"
+#import "LiveRoom.h"
+
+static NSString * const elNewViewCell = @"elNewViewCell";
+@interface ElNewViewController ()
+<
+UICollectionViewDelegate,
+UICollectionViewDataSource
+>
+@property (nonatomic, strong) NSMutableArray *liveRoomArray;
+@property (nonatomic, strong) UICollectionView *collectionView;
+@end
 
 @implementation ElNewViewController
 
