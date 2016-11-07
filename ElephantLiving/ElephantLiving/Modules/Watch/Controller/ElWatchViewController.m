@@ -35,6 +35,7 @@ ElLivingTopViewDelegate
 @property (nonatomic, strong) UITextField *textField;
 @property (nonatomic, strong) UIView *keyboardView;
 @property (nonatomic, strong) UIButton *keyboardButton;
+@property (nonatomic, strong) ElUserBriefView *userBriefView;
 
 @end
 
@@ -55,6 +56,12 @@ ElLivingTopViewDelegate
     self.view.backgroundColor = [UIColor whiteColor];
     self.messageArray = [NSMutableArray array];
     [self searchChatRoom];
+    
+    self.userBriefView = [ElUserBriefView elUserBriefView];
+    _userBriefView.frame = CGRectMake(SCREEN_WIDTH * 0.15, SCREEN_HEIGHT, SCREEN_WIDTH * 0.7, SCREEN_HEIGHT * 0.45);
+    _userBriefView.backgroundColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:0.85];
+    _userBriefView.delegate = self;
+    [self.view addSubview:_userBriefView];
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -87,6 +94,7 @@ ElLivingTopViewDelegate
     topToolView.backgroundColor = [UIColor clearColor];
     topToolView.headerImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_liveRoom.headerImage]]];
     topToolView.watchCount = _liveRoom.view_count;
+    topToolView.delegate = self;
     [_moviePlayer.view addSubview:topToolView];
     
     ElLivingBottomToolView *bottomToolView = [ElLivingBottomToolView elLivingBottomToolView];

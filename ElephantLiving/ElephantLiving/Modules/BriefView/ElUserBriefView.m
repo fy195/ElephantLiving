@@ -36,7 +36,7 @@
     }];
 }
 - (IBAction)followButtonAction:(id)sender {
-    [self.delegate follow];
+    [self.delegate follow:_isFollow];
 }
 
 /*

@@ -62,8 +62,8 @@ UICollectionViewDataSource
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     LiveRoom *liveRoom = _liveRoomArray[indexPath.item];
     ElNewCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:elNewViewCell forIndexPath:indexPath];
-    cell.name = liveRoom.host_name;
-    cell.iconImage = [];
+    
+    cell.iconImage = liveRoom.coverImage;
     return cell;
 }
 
