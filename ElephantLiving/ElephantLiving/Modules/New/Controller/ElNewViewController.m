@@ -50,6 +50,7 @@ UICollectionViewDataSource
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) collectionViewLayout:flowLayout];
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
+    _collectionView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:_collectionView];
     UINib *nib = [UINib nibWithNibName:@"ElNewCollectionViewCell" bundle:nil];
     [_collectionView registerNib:nib forCellWithReuseIdentifier:elNewViewCell];
@@ -62,7 +63,7 @@ UICollectionViewDataSource
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     LiveRoom *liveRoom = _liveRoomArray[indexPath.item];
     ElNewCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:elNewViewCell forIndexPath:indexPath];
-    
+    cell.name = liveRoom.host_name;
     cell.iconImage = liveRoom.coverImage;
     return cell;
 }

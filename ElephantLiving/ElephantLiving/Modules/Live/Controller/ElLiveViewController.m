@@ -791,18 +791,14 @@ ElUserBriefViewDelegate
 
 }
 
+- (void)follow:(BOOL)isFollow {}
+
+- (void)report {}
+
 - (void)presentBriefView {
     [UIView animateWithDuration:0.5 delay:0.0f usingSpringWithDamping:0.7 initialSpringVelocity:-3 options:UIViewAnimationOptionCurveEaseIn animations:^{
         _userBriefView.frame = CGRectMake(SCREEN_WIDTH * 0.15, SCREEN_HEIGHT * 0.25, SCREEN_WIDTH * 0.7, SCREEN_HEIGHT * 0.45);
     } completion:nil];
-}
-
-- (void)report {
-
-}
-
-- (void)follow {
-    
 }
 
 - (void)didReceiveMemoryWarning {
