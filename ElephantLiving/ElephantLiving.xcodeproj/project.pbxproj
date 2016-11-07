@@ -501,6 +501,7 @@
 		499FBE211DB786CE0015CC1D /* ElephantLiving */ = {
 			isa = PBXGroup;
 			children = (
+
 				EBD4C0931DCDFDB500F81382 /* xiong.jpeg */,
 				EBD4C0911DCDDD5700F81382 /* hahaha.jpeg */,
 				EBD4C0971DCE0C9600F81382 /* 对号气泡2.png */,
@@ -524,6 +525,7 @@
 				499FBE2B1DB786CE0015CC1D /* Main.storyboard */,
 				499FBE281DB786CE0015CC1D /* ViewController.h */,
 				499FBE291DB786CE0015CC1D /* ViewController.m */,
+				EBD4C0911DCDDD5700F81382 /* hahaha.jpeg */,
 			);
 			path = ElephantLiving;
 			sourceTree = "<group>";

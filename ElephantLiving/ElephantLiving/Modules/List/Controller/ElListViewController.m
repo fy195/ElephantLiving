@@ -84,7 +84,7 @@ UITableViewDelegate
     _listTableView.showsVerticalScrollIndicator = NO;
     [self.view                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  addSubview:_listTableView];
     
-    _listTableView.contentInset = UIEdgeInsetsMake(280, 0, 0, 0);
+    _listTableView.contentInset = UIEdgeInsetsMake(SCREEN_HEIGHT * 0.4, 0, 0, 0);
     
     [_listTableView registerClass:[ElNormalListTableViewCell class] forCellReuseIdentifier:normalList];
 
@@ -94,7 +94,7 @@ UITableViewDelegate
 #pragma mark - 顶部排名视图
 - (void)creatTopView {
     
-    UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, -280, SCREEN_WIDTH, 280)];
+    UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, -SCREEN_HEIGHT * 0.4, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4)];
     [_listTableView addSubview:topView];
     
     
@@ -116,7 +116,10 @@ UITableViewDelegate
     
     UILabel *charmLabelOfFirst = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.41, SCREEN_WIDTH * 0.34 + 10, SCREEN_WIDTH * 0.2, SCREEN_WIDTH * 0.04)];
     charmLabelOfFirst.textAlignment = NSTextAlignmentCenter;
-    charmLabelOfFirst.text = [NSString stringWithFormat:@"%ld",[[_userInfoArray firstObject] charm]];
+    charmLabelOfFirst.font = [UIFont systemFontOfSize:15];
+    charmLabelOfFirst.text = [NSString stringWithFormat:@"%d",[[_userInfoArray firstObject] charm]];
+    charmLabelOfFirst.numberOfLines = 0;
+    [charmLabelOfFirst sizeToFit];
     [topView addSubview:charmLabelOfFirst];
     
     
@@ -135,8 +138,11 @@ UITableViewDelegate
     [topView addSubview:nikenameLabelOfSecond];
     
     UILabel *charmLabelOfSecond = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.11, SCREEN_WIDTH * 0.58 + 15, SCREEN_WIDTH * 0.17, SCREEN_WIDTH * 0.04)];
-    charmLabelOfSecond.text = [NSString stringWithFormat:@"%ld",[[_userInfoArray objectAtIndex:1] charm]];
+    charmLabelOfSecond.text = [NSString stringWithFormat:@"%d",[[_userInfoArray objectAtIndex:1] charm]];
     charmLabelOfSecond.textAlignment = NSTextAlignmentCenter;
+    charmLabelOfSecond.font = [UIFont systemFontOfSize:15];
+    charmLabelOfSecond.numberOfLines = 0;
+    [charmLabelOfSecond sizeToFit];
     [topView addSubview:charmLabelOfSecond];
     
     
@@ -155,8 +161,11 @@ UITableViewDelegate
     [topView addSubview:nikenameLabelOfThird];
     
     UILabel *charmLabelOfThird = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.75, SCREEN_WIDTH * 0.58 + 15, SCREEN_WIDTH * 0.17, SCREEN_WIDTH * 0.04)];
-    charmLabelOfThird.text = [NSString stringWithFormat:@"%ld",[[_userInfoArray objectAtIndex:2] charm]];
+    charmLabelOfThird.text = [NSString stringWithFormat:@"%d",[[_userInfoArray objectAtIndex:2] charm]];
     charmLabelOfThird.textAlignment = NSTextAlignmentCenter;
+    charmLabelOfThird.font = [UIFont systemFontOfSize:15];
+    charmLabelOfThird.numberOfLines = 0;
+    [charmLabelOfThird sizeToFit];
     [topView addSubview:charmLabelOfThird];
     
     
@@ -175,13 +184,12 @@ UITableViewDelegate
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     ElNormalListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:normalList];
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.listNumber = indexPath.row + 4;
     cell.nikenameText = [_userInfoArray[indexPath.row + 3] username];
     cell.charmText = [NSString stringWithFormat: @"%ld",[_userInfoArray[indexPath.row + 3] charm]];
     cell.headerImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[_userInfoArray[indexPath.row + 3] headImage]]]];
     return cell;
-    
 }
 
 

@@ -8,14 +8,35 @@
 
 #import "ElUserBriefView.h"
 
-@implementation ElUserBriefView
+@interface ElUserBriefView ()
+@property (weak, nonatomic) IBOutlet UIImageView *headerImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *levelLabel;
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *followerLabel;
+@property (weak, nonatomic) IBOutlet UILabel *followeeLabel;
 
+@end
+
+@implementation ElUserBriefView
+                                 
 + (instancetype)elUserBriefView {
     return [[NSBundle mainBundle] loadNibNamed:@"ElUserBriefView" owner:nil options:nil].lastObject;
 }
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+}
+- (IBAction)reportButtonAction:(id)sender {
+    [self.delegate report];
+}
+- (IBAction)backButtonAction:(id)sender {
+    [UIView animateWithDuration:0.5 animations:^{
+        self.frame = CGRectMake(SCREEN_WIDTH * 0.15, SCREEN_HEIGHT, SCREEN_WIDTH * 0.7, SCREEN_HEIGHT * 0.45);
+    }];
+}
+- (IBAction)followButtonAction:(id)sender {
+    [self.delegate follow:_isFollow];
 }
 
 /*

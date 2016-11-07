@@ -15,40 +15,38 @@
 
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        
         // 排名数字
-        self.listLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.03, SCREEN_WIDTH * 0.06, SCREEN_WIDTH * 0.06, SCREEN_WIDTH * 0.1)];
+        self.listLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         _listLabel.text = @"";
         _listLabel.textAlignment = NSTextAlignmentCenter;
         _listLabel.textColor = [UIColor colorWithRed:0.8706 green:0.3412 blue:0.4392 alpha:1.0];
         _listLabel.numberOfLines = 1;
-        [self addSubview:_listLabel];
+        [self.contentView addSubview:_listLabel];
         
         
         // 排名头像
-        self.headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.12, SCREEN_WIDTH * 0.02, SCREEN_WIDTH * 0.17, SCREEN_WIDTH * 0.17)];
-        _headerImageView.layer.cornerRadius = 35;
-        _headerImageView.backgroundColor = [UIColor yellowColor];
+        self.headerImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+        _headerImageView.layer.cornerRadius = SCREEN_WIDTH * 0.17 / 2;
         _headerImageView.clipsToBounds = YES;
         _headerImageView.image = [UIImage imageNamed:@"大象头像"];
-        [self addSubview:_headerImageView];
+        [self.contentView addSubview:_headerImageView];
         
         
         // 昵称
-        self.nikenameLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.31, SCREEN_WIDTH * 0.07, SCREEN_WIDTH * 0.3, SCREEN_WIDTH * 0.08)];
+        self.nikenameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         _nikenameLabel.text = @"";
         _nikenameLabel.numberOfLines = 1;
         _nikenameLabel.textColor = [UIColor blackColor];
-        [self addSubview:_nikenameLabel];
+        [self.contentView addSubview:_nikenameLabel];
         
         
         // 魅力值
-        self.charmLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.8, SCREEN_WIDTH * 0.07, SCREEN_WIDTH * 0.17, SCREEN_WIDTH * 0.08)];
+        self.charmLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         _charmLabel.text = @"";
-        _charmLabel.textAlignment = NSTextAlignmentCenter;
+        _charmLabel.textAlignment = NSTextAlignmentRight;
         _charmLabel.numberOfLines = 1;
         _charmLabel.textColor = [UIColor colorWithRed:0.9843 green:0.4196 blue:0.0 alpha:1.0];
-        [self addSubview:_charmLabel];
+        [self.contentView addSubview:_charmLabel];
         
         
     }
@@ -78,6 +76,9 @@
         _charmText = charmText;
         _charmLabel.text = charmText;
     }
+    _charmLabel.numberOfLines = 0;
+    [_charmLabel sizeToFit];
+    _charmLabel.font = [UIFont systemFontOfSize:15];
 }
 -(void)setListNumber:(NSInteger)listNumber {
     if (_listNumber != listNumber) {
@@ -85,6 +86,18 @@
         _listLabel.text = [NSString stringWithFormat: @"%ld",listNumber];
     }
 
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    _listLabel.frame = CGRectMake(0, 0, self.width * 0.06, self.width * 0.1);
+    _listLabel.center = CGPointMake(_listLabel.x + _listLabel.width * 2, self.height * 0.5);
+    _headerImageView.frame = CGRectMake(_listLabel.x + _listLabel.width + 10, 0, self.width * 0.17, self.width * 0.17);
+    _headerImageView.center = CGPointMake(_headerImageView.x + _headerImageView.width / 2, self.height * 0.5);
+    _nikenameLabel.frame = CGRectMake(_headerImageView.x + _headerImageView.width + 10, 0, self.width * 0.3, self.width * 0.08);
+    _nikenameLabel.center = CGPointMake(_nikenameLabel.x + _nikenameLabel.width / 2, self.height * 0.5);
+    _charmLabel.frame = CGRectMake(self.bounds.size.width - self.bounds.size.width * 0.2 - 10, 0, self.width * 0.2, self.width * 0.08);
+    _charmLabel.center = CGPointMake(_charmLabel.x + _charmLabel.width / 2, self.height * 0.5);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

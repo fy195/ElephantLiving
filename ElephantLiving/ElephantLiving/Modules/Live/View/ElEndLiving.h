@@ -12,10 +12,6 @@
 
 @property (nonatomic, strong) UILabel *endLabel;
 
-@property (nonatomic, strong) UILabel *timeTextLabel;
-
-@property (nonatomic, strong) UILabel *timeLabel;
-
 @property (nonatomic, copy) NSString *time;
 
 @property (nonatomic, strong) UILabel *viewTextLabel;
