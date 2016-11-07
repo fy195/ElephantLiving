@@ -167,6 +167,8 @@
 		EBD4C0921DCDDD5700F81382 /* hahaha.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EBD4C0911DCDDD5700F81382 /* hahaha.jpeg */; };
 		EBD4C0941DCDFDB500F81382 /* xiong.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EBD4C0931DCDFDB500F81382 /* xiong.jpeg */; };
 		EBD4C0981DCE0C9600F81382 /* 对号气泡2.png in Resources */ = {isa = PBXBuildFile; fileRef = EBD4C0971DCE0C9600F81382 /* 对号气泡2.png */; };
+		EBD965AD1DD0158900936D66 /* 啊啊啊.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EBD965AC1DD0158900936D66 /* 啊啊啊.jpeg */; };
+		EBD965AF1DD01C8300936D66 /* 路牌x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBD965AE1DD01C8300936D66 /* 路牌x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -425,6 +427,8 @@
 		EBD4C0911DCDDD5700F81382 /* hahaha.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hahaha.jpeg; sourceTree = "<group>"; };
 		EBD4C0931DCDFDB500F81382 /* xiong.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xiong.jpeg; sourceTree = "<group>"; };
 		EBD4C0971DCE0C9600F81382 /* 对号气泡2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "对号气泡2.png"; sourceTree = "<group>"; };
+		EBD965AC1DD0158900936D66 /* 啊啊啊.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "啊啊啊.jpeg"; sourceTree = "<group>"; };
+		EBD965AE1DD01C8300936D66 /* 路牌x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "路牌x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -500,6 +504,8 @@
 				EBD4C0931DCDFDB500F81382 /* xiong.jpeg */,
 				EBD4C0911DCDDD5700F81382 /* hahaha.jpeg */,
 				EBD4C0971DCE0C9600F81382 /* 对号气泡2.png */,
+				EBD965AE1DD01C8300936D66 /* 路牌x.png */,
+				EBD965AC1DD0158900936D66 /* 啊啊啊.jpeg */,
 				49CA28621DC9EC0800654B7C /* AVObject */,
 				49FE39841DB7974B00FD8A99 /* Base */,
 				49FE39931DB79A4C00FD8A99 /* Common */,
@@ -1630,7 +1636,7 @@
 				TargetAttributes = {
 					499FBE1E1DB786CE0015CC1D = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = QWKQAE7W9B;
+						DevelopmentTeam = 9JEMMZTX7W;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1703,6 +1709,7 @@
 				EB1DDAEF1DCAE00E0095619C /* gift_heart_4.png in Resources */,
 				EBD4C0941DCDFDB500F81382 /* xiong.jpeg in Resources */,
 				EB1DDAF11DCAE00E0095619C /* gift_heart_6.png in Resources */,
+				EBD965AF1DD01C8300936D66 /* 路牌x.png in Resources */,
 				EB1DDAF21DCAE00E0095619C /* gift_heart_7.png in Resources */,
 				EB1DDAEE1DCAE00E0095619C /* gift_heart_3.png in Resources */,
 				EB1DDB101DCAE01F0095619C /* fireworks_8.png in Resources */,
@@ -1716,6 +1723,7 @@
 				EB1DDAEC1DCAE00E0095619C /* gift_heart_2.png in Resources */,
 				499FBE2D1DB786CE0015CC1D /* Main.storyboard in Resources */,
 				49CA285E1DC9E25800654B7C /* xinyiba_riva_Dolphin04.png in Resources */,
+				EBD965AD1DD0158900936D66 /* 啊啊啊.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1973,7 +1981,7 @@
 			baseConfigurationReference = D89B2F47EF8313096B83FF86 /* Pods-ElephantLiving.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Lefeng Guo (3JCKL8GQ34)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = QWKQAE7W9B;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -2010,7 +2018,7 @@
 			baseConfigurationReference = 4ED348DAA932E1D700311B69 /* Pods-ElephantLiving.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Lefeng Guo (3JCKL8GQ34)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = QWKQAE7W9B;
 				FRAMEWORK_SEARCH_PATHS = (

@@ -34,6 +34,7 @@ UITableViewDelegate
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
     [self getUserInfo];
 
     
@@ -74,18 +75,19 @@ UITableViewDelegate
 #pragma mark - 创建tableView
 - (void)createTableView {
     
+    
     self.listTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 108) style:UITableViewStylePlain];
     _listTableView.backgroundColor = [UIColor whiteColor];
     _listTableView.delegate = self;
     _listTableView.dataSource = self;
     _listTableView.rowHeight = 90;
     _listTableView.showsVerticalScrollIndicator = NO;
-    [self.view addSubview:_listTableView];
+    [self.view                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  addSubview:_listTableView];
     
     _listTableView.contentInset = UIEdgeInsetsMake(280, 0, 0, 0);
     
     [_listTableView registerClass:[ElNormalListTableViewCell class] forCellReuseIdentifier:normalList];
-    
+
 }
 
 
