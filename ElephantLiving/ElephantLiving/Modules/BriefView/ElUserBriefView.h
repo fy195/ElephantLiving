@@ -12,14 +12,12 @@
 
 - (void)report;
 
-- (void)follow:(BOOL)isFollow;
+- (void)follow;
 
 @end
 
 @interface ElUserBriefView : ElBaseView
 @property (nonatomic, assign) id<ElUserBriefViewDelegate>delegate;
-@property (weak, nonatomic) IBOutlet UIButton *followButton;
-@property (nonatomic, assign) BOOL isFollow;
 + (instancetype)elUserBriefView;
 
 @end

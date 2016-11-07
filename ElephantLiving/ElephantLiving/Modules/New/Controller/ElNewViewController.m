@@ -10,9 +10,8 @@
 #import "ElAVOSCloud.h"
 #import "ElNewCollectionViewCell.h"
 #import "LiveRoom.h"
-#import "UIImageView+WebCache.h"
 
-static NSString *const elNewViewCell = @"elNewViewCell";
+static NSString * const elNewViewCell = @"elNewViewCell";
 @interface ElNewViewController ()
 <
 UICollectionViewDelegate,
