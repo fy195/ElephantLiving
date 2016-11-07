@@ -9,8 +9,9 @@
 #import "ElNewViewController.h"
 #import "ElAVOSCloud.h"
 #import "ElNewCollectionViewCell.h"
-#import "LiveRoom.h"
+#import "ElLiveRoom.h"
 #import "UIImageView+WebCache.h"
+#import "ElWatchViewController.h"
 
 static NSString *const elNewViewCell = @"elNewViewCell";
 @interface ElNewViewController ()
@@ -63,12 +64,17 @@ UICollectionViewDataSource
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    LiveRoom *liveRoom = _liveRoomArray[indexPath.item];
+    ElLiveRoom *liveRoom = _liveRoomArray[indexPath.item];
     ElNewCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:elNewViewCell forIndexPath:indexPath];
     cell.backgroundColor = [UIColor redColor];
     cell.name = liveRoom.host_name;
     cell.iconImage = liveRoom.headerImage;
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    ElLiveRoom *liveRoom = _liveRoomArray[indexPath.item];
+    [self.delegate presentWatchControllerWithElLiveRoom:liveRoom];
 }
 
 @end
