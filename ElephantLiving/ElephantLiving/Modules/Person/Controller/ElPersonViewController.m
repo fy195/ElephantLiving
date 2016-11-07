@@ -41,6 +41,7 @@ UIImagePickerControllerDelegate
 
 - (void)viewWillAppear:(BOOL)animated {
     [self getCurrentUserInfo];
+    [self createTableView];
 }
 
 - (void)viewDidLoad {

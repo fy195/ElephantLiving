@@ -53,7 +53,6 @@
     return self;
 }
 
-
 #pragma mark - set传值
 - (void)setHeaderImage:(UIImage *)headerImage {
     if (_headerImage != headerImage) {
