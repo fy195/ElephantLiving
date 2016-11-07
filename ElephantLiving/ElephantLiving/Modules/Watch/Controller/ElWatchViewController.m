@@ -15,16 +15,13 @@
 #import "_User.h"
 #import "LiveRoom.h"
 #import "AVObject+ElClassMap.h"
-#import "ElUserBriefView.h"
 
 @interface ElWatchViewController ()
 <
 UITableViewDelegate,
 UITableViewDataSource,
 UITextFieldDelegate,
-AVIMClientDelegate,
-ElUserBriefViewDelegate,
-ElLivingTopViewDelegate
+AVIMClientDelegate
 >
 @property (nonatomic, strong) IJKFFMoviePlayerController *moviePlayer;
 @property (nonatomic, strong) UIButton *closeButton;
@@ -35,7 +32,6 @@ ElLivingTopViewDelegate
 @property (nonatomic, strong) UITextField *textField;
 @property (nonatomic, strong) UIView *keyboardView;
 @property (nonatomic, strong) UIButton *keyboardButton;
-@property (nonatomic, strong) ElUserBriefView *userBriefView;
 
 @end
 
@@ -56,12 +52,6 @@ ElLivingTopViewDelegate
     self.view.backgroundColor = [UIColor whiteColor];
     self.messageArray = [NSMutableArray array];
     [self searchChatRoom];
-    
-    self.userBriefView = [ElUserBriefView elUserBriefView];
-    _userBriefView.frame = CGRectMake(SCREEN_WIDTH * 0.15, SCREEN_HEIGHT, SCREEN_WIDTH * 0.7, SCREEN_HEIGHT * 0.45);
-    _userBriefView.backgroundColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:0.85];
-    _userBriefView.delegate = self;
-    [self.view addSubview:_userBriefView];
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -94,7 +84,6 @@ ElLivingTopViewDelegate
     topToolView.backgroundColor = [UIColor clearColor];
     topToolView.headerImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_liveRoom.headerImage]]];
     topToolView.watchCount = _liveRoom.view_count;
-    topToolView.delegate = self;
     [_moviePlayer.view addSubview:topToolView];
     
     ElLivingBottomToolView *bottomToolView = [ElLivingBottomToolView elLivingBottomToolView];
@@ -340,46 +329,6 @@ ElLivingTopViewDelegate
 - (void)setLiveRoom:(LiveRoom *)liveRoom {
     if (_liveRoom != liveRoom) {
         _liveRoom = liveRoom;
-    }
-}
-
-- (void)presentBriefView {
-    [UIView animateWithDuration:0.5 delay:0.0f usingSpringWithDamping:0.7 initialSpringVelocity:-3 options:UIViewAnimationOptionCurveEaseIn animations:^{
-        _userBriefView.frame = CGRectMake(SCREEN_WIDTH * 0.15, SCREEN_HEIGHT * 0.25, SCREEN_WIDTH * 0.7, SCREEN_HEIGHT * 0.45);
-    } completion:nil];
-    _User *currentUser = [_User currentUser];
-    _User *liveUser = [_User objectWithObjectId:_liveRoom.userObjectId];
-    [liveUser getFollowers:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-        for (_User *user in objects) {
-            if (currentUser.objectId == user.objectId) {
-                [_userBriefView.followButton setTitle:@"已关注" forState:UIControlStateNormal];
-                _userBriefView.isFollow = YES;
-            }else {
-                _userBriefView.isFollow = NO;
-            }
-        }
-    }];
-}
-
-- (void)report {}
-
-- (void)follow:(BOOL)isFollow {
-    _User *currentUser = [_User currentUser];
-    _User *liveUser = [_User objectWithObjectId:_liveRoom.userObjectId];
-    if (!isFollow) {
-        [currentUser follow:_liveRoom.userObjectId andCallback:^(BOOL succeeded, NSError * _Nullable error) {
-            currentUser.follow_count = [NSNumber numberWithInteger:[currentUser.follow_count integerValue] + 1];
-            liveUser.follower_count = [NSNumber numberWithInteger:[liveUser.follower_count integerValue] + 1];
-            [_userBriefView.followButton setTitle:@"已关注" forState:UIControlStateNormal];
-            _userBriefView.isFollow = YES;
-        }];
-    }else {
-        [currentUser unfollow:_liveRoom.userObjectId andCallback:^(BOOL succeeded, NSError * _Nullable error) {
-            currentUser.follow_count = [NSNumber numberWithInteger:[currentUser.follow_count integerValue] - 1];
-            liveUser.follower_count = [NSNumber numberWithInteger:[liveUser.follower_count integerValue] - 1];
-            [_userBriefView.followButton setTitle:@"+ 关注" forState:UIControlStateNormal];
-            _userBriefView.isFollow = NO;
-        }];
     }
 }
 
