@@ -152,7 +152,6 @@
 		EB3347A11DC08D4D00AB0D18 /* ElStartLiving.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3347A01DC08D4D00AB0D18 /* ElStartLiving.m */; };
 		EB3347A51DC1889200AB0D18 /* ElEndLiving.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3347A41DC1889200AB0D18 /* ElEndLiving.m */; };
 		EB3347A71DC190C400AB0D18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB3347A61DC190C400AB0D18 /* Assets.xcassets */; };
-		EB3AB8081DD0B3D70050ADFD /* 嗷嗷.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EB3AB8071DD0B3D70050ADFD /* 嗷嗷.jpeg */; };
 		EB5233001DC4749E00B35743 /* ElCommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5232FF1DC4749E00B35743 /* ElCommonUtils.m */; };
 		EB70D63A1DBA06A1009D9E34 /* ElAlbumCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB70D6391DBA06A1009D9E34 /* ElAlbumCollectionViewCell.m */; };
 		EB70D63D1DBA0756009D9E34 /* ElGiftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB70D63C1DBA0756009D9E34 /* ElGiftTableViewCell.m */; };
@@ -405,7 +404,6 @@
 		EB3347A31DC1889200AB0D18 /* ElEndLiving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElEndLiving.h; sourceTree = "<group>"; };
 		EB3347A41DC1889200AB0D18 /* ElEndLiving.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElEndLiving.m; sourceTree = "<group>"; };
 		EB3347A61DC190C400AB0D18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EB3AB8071DD0B3D70050ADFD /* 嗷嗷.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "嗷嗷.jpeg"; sourceTree = "<group>"; };
 		EB5232FE1DC4749E00B35743 /* ElCommonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElCommonUtils.h; sourceTree = "<group>"; };
 		EB5232FF1DC4749E00B35743 /* ElCommonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElCommonUtils.m; sourceTree = "<group>"; };
 		EB70D6381DBA06A1009D9E34 /* ElAlbumCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElAlbumCollectionViewCell.h; sourceTree = "<group>"; };
@@ -534,7 +532,6 @@
 				499FBE291DB786CE0015CC1D /* ViewController.m */,
 				EBD4C0911DCDDD5700F81382 /* hahaha.jpeg */,
 				EBD965AC1DD0158900936D66 /* 啊啊啊.jpeg */,
-				EB3AB8071DD0B3D70050ADFD /* 嗷嗷.jpeg */,
 				EBD4C0971DCE0C9600F81382 /* 对号气泡2.png */,
 				EBD965AE1DD01C8300936D66 /* 路牌x.png */,
 			);
@@ -1711,7 +1708,6 @@
 				49CA285C1DC9E25800654B7C /* xinyiba_riva_Dolphin02.png in Resources */,
 				EB1DDAE41DCAE00E0095619C /* gift_heart_12.png in Resources */,
 				EB1DDB111DCAE01F0095619C /* fireworks_9.png in Resources */,
-				EB3AB8081DD0B3D70050ADFD /* 嗷嗷.jpeg in Resources */,
 				EB1DDB0D1DCAE01F0095619C /* fireworks_5.png in Resources */,
 				EB1DDB0B1DCAE01F0095619C /* fireworks_3.png in Resources */,
 				EBD4C0981DCE0C9600F81382 /* 对号气泡2.png in Resources */,

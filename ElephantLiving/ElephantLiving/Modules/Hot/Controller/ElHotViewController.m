@@ -119,7 +119,7 @@ UITableViewDelegate
                 NSLog(@"创建直播对象出错 %@", error);
             }
         }];
-//        [self getElLiveRoomInfo];
+        [self getElLiveRoomInfo];
 }
 
 - (void)viewDidLoad {

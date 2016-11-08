@@ -10,9 +10,9 @@
 #import "ElRegisterViewController.h"
 #import "ElForgetPasswordViewController.h"
 #import "AVOSCloud/AVOSCloud.h"
-#import "ElHomePageViewController.h"
 #import "_User.h"
 #import <LeanCloudSocial/LeanCloudSocial-umbrella.h>
+#import "ElHomeTabBarController.h"
 
 @interface ElLoginViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *sinaButton;
@@ -34,11 +34,17 @@
 
 @implementation ElLoginViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    self.navigationController.navigationBar.hidden = YES;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [_phoneNumberTextField setValue:[UIColor colorWithRed:1 green:0.74 blue:0.15 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
+    [_phoneNumberTextField becomeFirstResponder];
     [_passwordTextField setValue:[UIColor colorWithRed:1 green:0.74 blue:0.15 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
+    [_passwordTextField becomeFirstResponder];
     _roadImageOriginY.constant = SCREEN_HEIGHT * 0.59;
     _roadImageOriginX.constant = SCREEN_WIDTH * 0.10;
     _registerButtonOriginY.constant = SCREEN_HEIGHT * 0.57;
@@ -71,7 +77,8 @@
                 [self presentViewController:alertController animated:YES completion:nil];
             } else {
                 [self getUserInfo:user];
-                [self.navigationController popViewControllerAnimated:YES];
+                ElHomeTabBarController *homeView = [[ElHomeTabBarController alloc] init];
+                [self.navigationController pushViewController:homeView animated:YES];
             }
         }];
     }
@@ -88,7 +95,10 @@
 }
 
 
-
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [_passwordTextField resignFirstResponder];
+    [_phoneNumberTextField resignFirstResponder];
+}
 
 
 
@@ -173,11 +183,6 @@
 
 }
 
-
-- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [_passwordTextField resignFirstResponder];
-    [_phoneNumberTextField resignFirstResponder];
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

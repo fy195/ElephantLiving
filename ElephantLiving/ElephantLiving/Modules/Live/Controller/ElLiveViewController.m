@@ -176,7 +176,7 @@ ElUserBriefViewDelegate
     _closeButton.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.15];
     _closeButton.layer.cornerRadius = 15.0;
     _closeButton.clipsToBounds = YES;
-    [_closeButton setBackgroundImage:[UIImage imageNamed:@"Home"] forState:UIControlStateNormal];
+    [_closeButton setBackgroundImage:[UIImage imageNamed:@"关闭-1"] forState:UIControlStateNormal];
     [_closeButton addTarget:self action:@selector(closeButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_closeButton];
     [self.view bringSubviewToFront:_closeButton];

@@ -29,7 +29,6 @@ UITextFieldDelegate
         self.backgroundColor = [UIColor clearColor];
         
         self.nameTextField = [[UITextField alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.15, SCREEN_HEIGHT * 0.3, SCREEN_WIDTH * 0.7, SCREEN_HEIGHT * 0.1)];
-//        _nameTextField.backgroundColor = [UIColor yellowColor];
         _nameTextField.textAlignment = NSTextAlignmentCenter;
         _nameTextField.textColor = [UIColor whiteColor];
         _nameTextField.font = [UIFont systemFontOfSize:25];
@@ -39,9 +38,8 @@ UITextFieldDelegate
         
         
         self.backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _backButton.backgroundColor = [UIColor yellowColor];
-        _backButton.frame = CGRectMake(SCREEN_WIDTH * 0.88, 20, SCREEN_WIDTH * 0.08, SCREEN_WIDTH * 0.08);
-        [_backButton setImage:[UIImage imageNamed:@"2"] forState:UIControlStateNormal];
+        _backButton.frame = CGRectMake(SCREEN_WIDTH * 0.05, SCREEN_WIDTH * 0.1, SCREEN_WIDTH * 0.08, SCREEN_WIDTH * 0.08);
+        [_backButton setImage:[UIImage imageNamed:@"返回"] forState:UIControlStateNormal];
         [self addSubview:_backButton];
         
         

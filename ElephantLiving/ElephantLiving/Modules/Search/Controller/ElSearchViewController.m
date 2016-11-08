@@ -69,7 +69,7 @@ ElUserBriefViewDelegate
     [self.view addSubview:returnButton];
     [returnButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
         self.tabBarController.tabBar.hidden = NO;
-        [self.navigationController popToRootViewControllerAnimated:YES];
+        [self.navigationController popViewControllerAnimated:YES];
     }];
     
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(5, 70, SCREEN_WIDTH - 10, SCREEN_HEIGHT - 30) style:UITableViewStylePlain];

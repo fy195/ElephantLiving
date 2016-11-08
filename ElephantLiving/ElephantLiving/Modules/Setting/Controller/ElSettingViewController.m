@@ -25,23 +25,26 @@
     topView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:topView];
     
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, SCREEN_WIDTH, 64)];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 64)];
     titleLabel.text = @"设置";
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.textColor = [UIColor blackColor];
-    titleLabel.backgroundColor = [UIColor whiteColor];
+    titleLabel.backgroundColor = [UIColor colorWithRed:1 green:0.5 blue:0 alpha:1];
     titleLabel.font = [UIFont systemFontOfSize:17];
     
     [self.view addSubview:titleLabel];
     
-    UILabel *lineLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, titleLabel.y + titleLabel.height, SCREEN_WIDTH, 0.5)];
+    UILabel *lineLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, titleLabel.height, SCREEN_WIDTH, 0.5)];
     lineLabel.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:lineLabel];
     
     
     UIButton *returnButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    returnButton.backgroundColor = [UIColor yellowColor];
-    returnButton.frame = CGRectMake(20, 40, 40, 40);
+    returnButton.backgroundColor = [UIColor clearColor];
+    returnButton.frame = CGRectMake(SCREEN_WIDTH * 0.02, SCREEN_HEIGHT * 0.07, SCREEN_WIDTH * 0.1, SCREEN_WIDTH * 0.1);
+    [returnButton setTitle:@"⇦" forState:UIControlStateNormal];
+    returnButton.titleLabel.font = [UIFont systemFontOfSize:35];
+    [returnButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     returnButton.centerY = titleLabel.centerY;
     [self.view addSubview:returnButton];
     
@@ -50,18 +53,13 @@
     }];
 
     
-    
-    
-    
-    
-    
-    UIView *livingView = [[UIView alloc] initWithFrame:CGRectMake(0, titleLabel.y * 2+ titleLabel.height , titleLabel.width, titleLabel.height / 3 * 2)];
+    UIView *livingView = [[UIView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT * 0.1, SCREEN_WIDTH, SCREEN_HEIGHT * 0.08)];
     livingView.layer.borderWidth = 1;
     livingView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     livingView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:livingView];
     
-    UILabel *livingLabel = [[UILabel alloc] initWithFrame:CGRectMake(returnButton.x, 0, SCREEN_WIDTH, livingView.height)];
+    UILabel *livingLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.03, 0, SCREEN_WIDTH, livingView.height)];
     livingLabel.text = @"开播提醒";
     livingLabel.textAlignment = NSTextAlignmentLeft;
     [livingView addSubview:livingLabel];
@@ -72,11 +70,7 @@
     [livingView addSubview:livingSwitch];
     
     
-    
-    
-    
-    
-    UILabel *livingTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(returnButton.x * 2,livingView.y + livingView.height, SCREEN_WIDTH - returnButton.x * 2, livingView.height / 2)];
+    UILabel *livingTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.03, SCREEN_HEIGHT * 0.18, SCREEN_WIDTH, SCREEN_HEIGHT * 0.04)];
     livingTextLabel.text = @"开启后,你关注的主播开播时你会收到通知";
     livingTextLabel.textAlignment = NSTextAlignmentLeft;
     livingTextLabel.textColor = [UIColor lightGrayColor];
@@ -84,13 +78,13 @@
     [self.view addSubview:livingTextLabel];
     
     
-    UIView *messageView = [[UIView alloc] initWithFrame:CGRectMake(0, livingView.y + livingView.height * 2, livingView.width, livingView.height)];
+    UIView *messageView = [[UIView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT * 0.23, SCREEN_WIDTH, SCREEN_HEIGHT * 0.08)];
     messageView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     messageView.layer.borderWidth = 1;
     messageView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:messageView];
     
-    UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(returnButton.x, 0, SCREEN_WIDTH, messageView.height)];
+    UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.03, 0, SCREEN_WIDTH, messageView.height)];
     messageLabel.text = @"公聊消息过滤";
     messageLabel.textAlignment = NSTextAlignmentLeft;
     [messageView addSubview:messageLabel];
@@ -100,7 +94,7 @@
     messagesSwitch.centerY = messageLabel.centerY;
     [messageView addSubview:messagesSwitch];
     
-    UILabel *messageTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(livingTextLabel.x, messageView.y + messageView.height, livingTextLabel.width, livingTextLabel.height)];
+    UILabel *messageTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.03, SCREEN_HEIGHT * 0.31, SCREEN_WIDTH, SCREEN_HEIGHT * 0.04)];
     messageTextLabel.text = @"开启后,显示当前主播和你相关的公聊消息";
     messageTextLabel.textAlignment = NSTextAlignmentLeft;
     messageTextLabel.textColor = [UIColor lightGrayColor];
@@ -109,12 +103,12 @@
     
     
     UIButton *cacheButton= [UIButton buttonWithType:UIButtonTypeCustom];
-    cacheButton.frame = CGRectMake(0, messageView.y + messageView.height * 2, messageView.width, messageView.height);
+    cacheButton.frame = CGRectMake(0, SCREEN_HEIGHT * 0.36, SCREEN_WIDTH, SCREEN_HEIGHT * 0.08);
     cacheButton.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     cacheButton.layer.borderWidth = 1;
     cacheButton.backgroundColor = [UIColor whiteColor];
     
-    UILabel *cacheLabel = [[UILabel alloc] initWithFrame:CGRectMake(returnButton.x, 0, SCREEN_WIDTH, cacheButton.height)];
+    UILabel *cacheLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.03, 0, SCREEN_WIDTH, cacheButton.height)];
     cacheLabel.text = @"清除缓存";
     cacheLabel.textAlignment = NSTextAlignmentLeft;
     [cacheButton addSubview:cacheLabel];
@@ -123,18 +117,13 @@
     
    
     
-    
-    
-    
-    
-    
     UIButton *aboutUs = [UIButton buttonWithType:UIButtonTypeCustom];
-    aboutUs.frame = CGRectMake(0, cacheButton.y + cacheButton.height * 2, cacheButton.width, cacheButton.height);
+    aboutUs.frame = CGRectMake(0, SCREEN_HEIGHT * 0.49, SCREEN_WIDTH, SCREEN_HEIGHT * 0.08);
     aboutUs.layer.borderWidth = 1;
     aboutUs.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     aboutUs.backgroundColor = [UIColor whiteColor];
     
-    UILabel *aboutUsLabel = [[UILabel alloc] initWithFrame:CGRectMake(returnButton.x, 0, SCREEN_WIDTH, aboutUs.height)];
+    UILabel *aboutUsLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.03, 0, SCREEN_WIDTH, aboutUs.height)];
     aboutUsLabel.text = @"关于我们";
     aboutUsLabel.textAlignment = NSTextAlignmentLeft;
     [aboutUs addSubview:aboutUsLabel];
@@ -143,19 +132,17 @@
     
     
     
-    
-    
-    
-    
-    UILabel *bottomLineLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - titleLabel.height - 1, SCREEN_WIDTH, 1)];
-    bottomLineLabel.backgroundColor = [UIColor lightGrayColor];
-    [self.view addSubview:bottomLineLabel];
-    
     UIButton *exitButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    exitButton.frame = CGRectMake(0, SCREEN_HEIGHT - titleLabel.height, SCREEN_WIDTH, titleLabel.height);
-    exitButton.backgroundColor = [UIColor whiteColor];
+    exitButton.frame = CGRectMake(SCREEN_WIDTH * 0.05, SCREEN_HEIGHT * 0.9, SCREEN_WIDTH * 0.9, SCREEN_HEIGHT * 0.08);
+
     [exitButton setTitle:@"退出登录" forState:UIControlStateNormal];
-    [exitButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [exitButton setTitleColor:[UIColor colorWithRed:1 green:0.5 blue:0 alpha:1] forState:UIControlStateNormal];
+    exitButton.layer.cornerRadius = SCREEN_HEIGHT * 0.08 / 2;
+    [exitButton.layer setBorderWidth:2.0f];
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGColorRef borderColor = CGColorCreate(colorSpace,(CGFloat[]){ 1, 0.5, 0,1 });
+    [exitButton.layer setBorderColor:borderColor];
+    CGColorRelease(borderColor);
     [self.view addSubview:exitButton];
     
     [exitButton addTarget:self action:@selector(exitButtonAction:) forControlEvents:UIControlEventTouchUpInside];

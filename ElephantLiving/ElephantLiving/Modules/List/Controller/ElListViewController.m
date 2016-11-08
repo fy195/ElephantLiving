@@ -53,7 +53,6 @@ UITableViewDelegate
             NSLog(@"%@",error);
         } else {
             self.userInfoArray = [NSMutableArray arrayWithArray:objects];
-            
             //  按魅力值排序
             for (NSInteger i = 0; i < _userInfoArray.count ; i++)
             {
@@ -77,7 +76,6 @@ UITableViewDelegate
 
 #pragma mark - 创建tableView
 - (void)createTableView {
-    
     
     self.listTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 108) style:UITableViewStylePlain];
     _listTableView.backgroundColor = [UIColor clearColor];
