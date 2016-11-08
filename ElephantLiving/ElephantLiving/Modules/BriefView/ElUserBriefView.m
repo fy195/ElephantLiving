@@ -7,6 +7,7 @@
 //
 
 #import "ElUserBriefView.h"
+#import "UIImageView+WebCache.h"
 
 @interface ElUserBriefView ()
 @property (weak, nonatomic) IBOutlet UIImageView *headerImageView;
@@ -37,6 +38,49 @@
 }
 - (IBAction)followButtonAction:(id)sender {
     [self.delegate follow:_isFollow];
+}
+
+- (void)setImage:(NSString *)image {
+    if (_image != image) {
+        _image = image;
+    }
+    [_headerImageView sd_setImageWithURL:[NSURL URLWithString:image]];
+}
+
+- (void)setName:(NSString *)name {
+    if (_name != name) {
+        _name = name;
+    }
+    _nameLabel.text = name;
+}
+
+- (void)setLevel:(NSNumber *)level {
+    if (_level != level) {
+        _level = level;
+        _levelLabel.text = [NSString stringWithFormat:@"Level %@",level];
+        _levelLabel.textColor = [UIColor colorWithRed:1.0 green:0.503 blue:0.0028 alpha:1.0];
+    }
+}
+
+- (void)setLocation:(NSString *)location {
+    if (_location != location) {
+        _location = location;
+    }
+    _locationLabel.text = location;
+}
+
+- (void)setFollower:(NSNumber *)follower {
+    if (_follower != follower) {
+        _follower = follower;
+    }
+    _followerLabel.text = [NSString stringWithFormat:@"粉丝:%@",follower];
+}
+
+- (void)setFollowee:(NSString *)followee {
+    if (_followee != followee) {
+        _followee = followee;
+    }
+    _followerLabel.text = [NSString stringWithFormat:@"关注:%@", followee];
 }
 
 /*
