@@ -12,6 +12,8 @@
 #import <AVOSCloud/AVOSCloud.h>
 #import <AVOSCloudCrashReporting/AVOSCloudCrashReporting.h>
 #import <LeanCloudSocial/LeanCloudSocial-umbrella.h>
+#import "_User.h"
+#import "ElLoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -27,12 +29,6 @@
     _window.backgroundColor = [UIColor whiteColor];
     [_window makeKeyAndVisible];
     
-    ElHomeTabBarController *homeView = [[ElHomeTabBarController alloc] init];
-    UINavigationController *navHomeView = [[UINavigationController alloc] initWithRootViewController:homeView];
-    self.window.rootViewController = navHomeView;
-    
-    [NSThread sleepForTimeInterval:1];
-    
     [[QPAuth shared] registerAppWithKey:kELAppKey secret:kELAppSecret space:@"com.kfc.ElephantLiving" success:^(NSString *accessToken) {
         NSLog(@"access token : %@", accessToken);
     } failure:^(NSError *error) {
@@ -41,10 +37,24 @@
     // Override point for customization after application launch.
     
     // 登录注册
-//    [AVOSCloudCrashReporting enable];
     [AVOSCloud setApplicationId:APP_ID clientKey:APP_KEY];
     [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     [AVOSCloud setAllLogsEnabled:YES];
+    
+    _User *user = [_User currentUser];
+    if (user != nil) {
+        ElHomeTabBarController *homeView = [[ElHomeTabBarController alloc] init];
+        UINavigationController *navHomeView = [[UINavigationController alloc] initWithRootViewController:homeView];
+        self.window.rootViewController = navHomeView;
+    }else {
+        ElLoginViewController *loginViewController = [[ElLoginViewController alloc] init];
+        UINavigationController *navLoginVC = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+        self.window.rootViewController = navLoginVC;
+    }
+    
+    
+    
+    
     return YES;
 }
 

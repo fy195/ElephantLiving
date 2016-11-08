@@ -186,7 +186,7 @@
                 <outlet property="headerImageView" destination="VQo-aE-Xsv" id="XWC-Ar-dBk"/>
                 <outlet property="levelLabel" destination="bTZ-gc-A12" id="tWy-4s-808"/>
                 <outlet property="locationLabel" destination="z3G-5U-92R" id="TXF-3C-w4i"/>
-                <outlet property="nameLabel" destination="bTZ-gc-A12" id="5Ud-np-ipO"/>
+                <outlet property="nameLabel" destination="Jb8-zw-qw5" id="Hg1-17-zD4"/>
             </connections>
             <point key="canvasLocation" x="272" y="207.5"/>
         </view>

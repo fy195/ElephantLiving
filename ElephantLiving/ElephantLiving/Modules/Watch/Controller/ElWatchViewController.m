@@ -138,7 +138,7 @@ ElLivingTopViewDelegate
     _closeButton.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.15];
     _closeButton.layer.cornerRadius = 15.0;
     _closeButton.clipsToBounds = YES;
-    [_closeButton setBackgroundImage:[UIImage imageNamed:@"Home"] forState:UIControlStateNormal];
+    [_closeButton setBackgroundImage:[UIImage imageNamed:@"关闭-1"] forState:UIControlStateNormal];
     [_closeButton addTarget:self action:@selector(closeButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_moviePlayer.view addSubview:_closeButton];
     [_moviePlayer.view bringSubviewToFront:_closeButton];
@@ -391,7 +391,7 @@ ElLivingTopViewDelegate
     _User *liveUser = [_User objectWithObjectId:_liveRoom.userObjectId];
     [liveUser getFollowers:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         for (_User *user in objects) {
-            if (currentUser.objectId == user.objectId) {
+            if ([currentUser.objectId isEqualToString: user.objectId]) {
                 [_userBriefView.followButton setTitle:@"已关注" forState:UIControlStateNormal];
                 _userBriefView.isFollow = YES;
             }else {
@@ -406,51 +406,28 @@ ElLivingTopViewDelegate
 - (void)follow:(BOOL)isFollow {
     _User *currentUser = [_User currentUser];
     _User *liveUser = [_User objectWithObjectId:_liveRoom.userObjectId];
-    
     if (!isFollow) {
         [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-
             currentUser.follow_count = [NSNumber numberWithInteger:[currentUser.follow_count integerValue]+ 1];
             currentUser.fetchWhenSave = true;
             [currentUser saveInBackground];
         }];
         [liveUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-
             currentUser.follower_count = [NSNumber numberWithInteger:[currentUser.follower_count integerValue] + 1];
             liveUser.fetchWhenSave = true;
             [liveUser saveInBackground];
         }];
-//        [currentUser follow:_liveRoom.userObjectId andCallback:^(BOOL succeeded, NSError * _Nullable error) {
-//            currentUser.follow_count = [NSNumber numberWithInteger:[currentUser.follow_count integerValue] + 1];
-//            liveUser.follower_count = [NSNumber numberWithInteger:[liveUser.follower_count integerValue] + 1];
-//            [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-//                if (!error) {
-//                    NSLog(@"数据更新成功");
-//                }
-//            }];
-//            [liveUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-//                NSLog(@"更新成功");
-//            }];
-//            [_userBriefView.followButton setTitle:@"已关注" forState:UIControlStateNormal];
-//            _userBriefView.isFollow = YES;
-//        }];
     }else {
         [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-            
             currentUser.follow_count = [NSNumber numberWithInteger:[currentUser.follow_count integerValue]- 1];
             currentUser.fetchWhenSave = true;
             [currentUser saveInBackground];
         }];
         [liveUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-            
             currentUser.follower_count = [NSNumber numberWithInteger:[currentUser.follower_count integerValue] - 1];
             liveUser.fetchWhenSave = true;
             [liveUser saveInBackground];
         }];
-//        [currentUser unfollow:_liveRoom.userObjectId andCallback:^(BOOL succeeded, NSError * _Nullable error) {
-//            currentUser.follow_count = [NSNumber numberWithInteger:[currentUser.follow_count integerValue] - 1];
-//            liveUser.follower_count = [NSNumber numberWithInteger:[liveUser.follower_count integerValue] - 1];
-//        }];
             [_userBriefView.followButton setTitle:@"+ 关注" forState:UIControlStateNormal];
             _userBriefView.isFollow = NO;
     }
