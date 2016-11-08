@@ -38,7 +38,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [_phoneNumberTextField setValue:[UIColor colorWithRed:1 green:0.74 blue:0.15 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
+    [_phoneNumberTextField becomeFirstResponder];
     [_passwordTextField setValue:[UIColor colorWithRed:1 green:0.74 blue:0.15 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
+    [_passwordTextField becomeFirstResponder];
     _roadImageOriginY.constant = SCREEN_HEIGHT * 0.59;
     _roadImageOriginX.constant = SCREEN_WIDTH * 0.10;
     _registerButtonOriginY.constant = SCREEN_HEIGHT * 0.57;
@@ -88,7 +90,10 @@
 }
 
 
-
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [_passwordTextField resignFirstResponder];
+    [_phoneNumberTextField resignFirstResponder];
+}
 
 
 
@@ -173,11 +178,6 @@
 
 }
 
-
-- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [_passwordTextField resignFirstResponder];
-    [_phoneNumberTextField resignFirstResponder];
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

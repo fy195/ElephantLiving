@@ -47,9 +47,13 @@
     // Do any additional setup after loading the view from its nib.
     
     [_userNameTextField setValue:[UIColor colorWithRed:1 green:0.74 blue:0.15 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
+    [_userNameTextField becomeFirstResponder];
     [_phoneNumberTextField setValue:[UIColor colorWithRed:1 green:0.74 blue:0.15 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
+    [_phoneNumberTextField becomeFirstResponder];
     [_passwordTextField setValue:[UIColor colorWithRed:1 green:0.74 blue:0.15 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
+    [_passwordTextField becomeFirstResponder];
     [_smscodeTextField setValue:[UIColor colorWithRed:1 green:0.74 blue:0.15 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
+    [_smscodeTextField becomeFirstResponder];
     
     
     UIImageView *imageViewOne = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH, SCREEN_HEIGHT * 0.2, SCREEN_WIDTH * 0.3, SCREEN_HEIGHT * 0.1)];
@@ -121,7 +125,14 @@
         [AVUser verifyMobilePhone:_smscodeTextField.text withBlock:^(BOOL succeeded, NSError * _Nullable error) {
             if (succeeded) {
                 [self creatNewUserInfo];
-                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"注册成功" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"注册成功" message:nil    preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }];
+                [alertController addAction:cancelAction];
+                [self presentViewController:alertController animated:YES completion:nil];
+            }else {
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"注册失败" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                     [self dismissViewControllerAnimated:YES completion:nil];
                 }];
@@ -187,7 +198,12 @@
 }
 
 
-
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [_smscodeTextField resignFirstResponder];
+    [_userNameTextField resignFirstResponder];
+    [_phoneNumberTextField resignFirstResponder];
+    [_passwordTextField resignFirstResponder];
+}
 
 
 - (void)freezeMoreRequest {

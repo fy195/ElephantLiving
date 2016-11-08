@@ -126,7 +126,7 @@ UITableViewDelegate
     self.otherLiveArray = [NSMutableArray array];
     [self createTableView];
     [self deleteElLiveRoom];
-//    [self getOtherLiveRoomInfo];
+    [self getOtherLiveRoomInfo];
 }
 
 - (void)createTableView {
