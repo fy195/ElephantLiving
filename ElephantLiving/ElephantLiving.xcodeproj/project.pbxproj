@@ -504,10 +504,6 @@
 		499FBE211DB786CE0015CC1D /* ElephantLiving */ = {
 			isa = PBXGroup;
 			children = (
-				EB3AB8071DD0B3D70050ADFD /* 嗷嗷.jpeg */,
-				EBD4C0971DCE0C9600F81382 /* 对号气泡2.png */,
-				EBD965AE1DD01C8300936D66 /* 路牌x.png */,
-				EBD965AC1DD0158900936D66 /* 啊啊啊.jpeg */,
 				49CA28621DC9EC0800654B7C /* AVObject */,
 				49FE39841DB7974B00FD8A99 /* Base */,
 				49FE39931DB79A4C00FD8A99 /* Common */,
@@ -528,6 +524,7 @@
 				499FBE291DB786CE0015CC1D /* ViewController.m */,
 				EBD4C0911DCDDD5700F81382 /* hahaha.jpeg */,
 				EBD965AC1DD0158900936D66 /* 啊啊啊.jpeg */,
+				EB3AB8071DD0B3D70050ADFD /* 嗷嗷.jpeg */,
 				EBD4C0971DCE0C9600F81382 /* 对号气泡2.png */,
 				EBD965AE1DD01C8300936D66 /* 路牌x.png */,
 			);
