@@ -18,6 +18,7 @@
 #import "AVObject+ElClassMap.h"
 #import "ElUserBriefView.h"
 #import "UIImageView+WebCache.h"
+#import "ElReportViewController.h"
 
 @interface ElWatchViewController ()
 <
@@ -412,7 +413,10 @@ ElLivingTopViewDelegate
     }];
 }
 
-- (void)report {}
+- (void)report {
+    ElReportViewController *reportViewController = [[ElReportViewController alloc] init];
+    [self.navigationController pushViewController:reportViewController animated:YES];
+}
 
 - (void)follow:(BOOL)isFollow {
     _User *currentUser = [_User currentUser];

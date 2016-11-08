@@ -15,6 +15,7 @@
 #import "ElSearchTableViewCell.h"
 #import "_User.h"
 #import "ElUserBriefView.h"
+#import "ElReportViewController.h"
 
 static NSString *const searchCell = @"searchCell";
 @interface ElSearchViewController ()
@@ -126,7 +127,10 @@ ElUserBriefViewDelegate
     }];
 }
 
-- (void)report {}
+- (void)report {
+    ElReportViewController *reportViewController = [[ElReportViewController alloc] init];
+    [self.navigationController pushViewController:reportViewController animated:YES];
+}
 
 - (void)follow:(BOOL)isFollow {
     _User *currentUser = [_User currentUser];
