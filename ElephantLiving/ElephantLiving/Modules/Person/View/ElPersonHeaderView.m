@@ -36,6 +36,7 @@
         
         
         self.followerNumberLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, self.bounds.size.height * 0.81, self.bounds.size.width * 0.33, self.bounds.size.height * 0.08)];
+        _followerNumberLabel.textColor = [UIColor lightGrayColor];
         _followerNumberLabel.text = @"0";
         _followerNumberLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_followerNumberLabel];
@@ -53,6 +54,7 @@
         
         
         self.viewNumberLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width * 0.335, self.bounds.size.height * 0.81, self.bounds.size.width * 0.33, self.bounds.size.height * 0.08)];
+        _viewNumberLabel.textColor = [UIColor lightGrayColor];
         _viewNumberLabel.text = @"0";
         _viewNumberLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_viewNumberLabel];
@@ -71,6 +73,7 @@
 
         
         self.gradeNumberLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.bounds.size.width * 0.67, self.bounds.size.height * 0.81, self.bounds.size.width * 0.33, self.bounds.size.height * 0.08)];
+        _gradeNumberLabel.textColor = [UIColor lightGrayColor];
         _gradeNumberLabel.text = @"0";
         _gradeNumberLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_gradeNumberLabel];

@@ -25,7 +25,7 @@
 @property (nonatomic, strong) NSNumber *level;
 @property (nonatomic, strong) NSString *location;
 @property (nonatomic, strong) NSNumber *follower;
-@property (nonatomic, strong) NSString *followee;
+@property (nonatomic, strong) NSNumber *followee;
 + (instancetype)elUserBriefView;
 
 @end

@@ -34,12 +34,18 @@ ElUserBriefViewDelegate
 
 @implementation ElSearchViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    
+    UIImageView *backView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"hahaha.jpeg"]];
+    backView.frame = self.view.bounds;
+    [self.view addSubview:backView];
+    
     self.resultArray = [NSMutableArray array];
     self.searchTextField = [[UITextField alloc] initWithFrame:CGRectMake(5, 30, SCREEN_WIDTH * 0.8, 34)];
-    _searchTextField.backgroundColor = [UIColor whiteColor];
+    _searchTextField.textColor = [UIColor whiteColor];
+    _searchTextField.backgroundColor = [UIColor clearColor];
     _searchTextField.layer.borderColor = [[UIColor colorWithRed:0.9843 green:0.4196 blue:0.0 alpha:1.0] CGColor];
     _searchTextField.layer.borderWidth = 1;
     _searchTextField.layer.cornerRadius = 5;
@@ -66,6 +72,7 @@ ElUserBriefViewDelegate
     _tableView.dataSource = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.rowHeight = 50;
+    _tableView.backgroundColor = [UIColor clearColor];
     UINib *nib = [UINib nibWithNibName:@"ElSearchTableViewCell" bundle:nil];
     [_tableView registerNib:nib forCellReuseIdentifier:searchCell];
     [self.view addSubview:_tableView];
@@ -87,12 +94,18 @@ ElUserBriefViewDelegate
     cell.name = user.username;
     cell.headerImage = user.headImage;
     cell.level = user.level;
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     _User *currentUser = [_User currentUser];
     self.selectedUser = _resultArray[indexPath.row];
+    _userBriefView.name = _selectedUser.username;
+    _userBriefView.image = _selectedUser.headImage;
+    _userBriefView.level = _selectedUser.level;
+    _userBriefView.follower = _selectedUser.follower_count;
+    _userBriefView.followee = _selectedUser.follow_count;
     [UIView animateWithDuration:0.5 delay:0.0f usingSpringWithDamping:0.7 initialSpringVelocity:-3 options:UIViewAnimationOptionCurveEaseIn animations:^{
         _userBriefView.frame = CGRectMake(SCREEN_WIDTH * 0.15, SCREEN_HEIGHT * 0.25, SCREEN_WIDTH * 0.7, SCREEN_HEIGHT * 0.45);
     } completion:nil];
@@ -114,17 +127,35 @@ ElUserBriefViewDelegate
     _User *currentUser = [_User currentUser];
     if (!isFollow) {
         [currentUser follow:_selectedUser.objectId andCallback:^(BOOL succeeded, NSError * _Nullable error) {
-            currentUser.follow_count = [NSNumber numberWithInteger:[currentUser.follow_count integerValue] + 1];
-            _selectedUser.follower_count = [NSNumber numberWithInteger:[_selectedUser.follower_count integerValue] + 1];
-            [_userBriefView.followButton setTitle:@"已关注" forState:UIControlStateNormal];
-            _userBriefView.isFollow = YES;
+            if (succeeded){
+                currentUser.follow_count = [NSNumber numberWithInteger:[currentUser.follow_count integerValue] + 1];
+                _selectedUser.follower_count = [NSNumber numberWithInteger:[_selectedUser.follower_count integerValue] + 1];
+                [_userBriefView.followButton setTitle:@"已关注" forState:UIControlStateNormal];
+                _userBriefView.isFollow = YES;
+            }else {
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }];
+                [alertController addAction:cancelAction];
+                [self presentViewController:alertController animated:YES completion:nil];
+            }
         }];
     }else {
         [currentUser unfollow:_selectedUser.objectId andCallback:^(BOOL succeeded, NSError * _Nullable error) {
-            currentUser.follow_count = [NSNumber numberWithInteger:[currentUser.follow_count integerValue] - 1];
-            _selectedUser.follower_count = [NSNumber numberWithInteger:[_selectedUser.follower_count integerValue] - 1];
-            [_userBriefView.followButton setTitle:@"+ 关注" forState:UIControlStateNormal];
-            _userBriefView.isFollow = NO;
+            if (succeeded) {
+                currentUser.follow_count = [NSNumber numberWithInteger:[currentUser.follow_count integerValue] - 1];
+                _selectedUser.follower_count = [NSNumber numberWithInteger:[_selectedUser.follower_count integerValue] - 1];
+                [_userBriefView.followButton setTitle:@"+ 关注" forState:UIControlStateNormal];
+                _userBriefView.isFollow = NO;
+            }else {
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }];
+                [alertController addAction:cancelAction];
+                [self presentViewController:alertController animated:YES completion:nil];
+            }
         }];
     }
 }
@@ -156,7 +187,13 @@ ElUserBriefViewDelegate
     return YES;
 }
 
-
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    //黑色
+    //return UIStatusBarStyleDefault;
+    //白色
+    return UIStatusBarStyleLightContent;
+}
 
 
 
