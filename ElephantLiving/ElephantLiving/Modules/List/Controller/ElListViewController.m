@@ -35,6 +35,10 @@ UITableViewDelegate
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:SCREEN_RECT];
+    backgroundImageView.image = [UIImage imageNamed:@"啊啊啊啊啊.jpeg"];
+    [self.view addSubview:backgroundImageView];
+    
     
     [self getUserInfo];
 
@@ -76,14 +80,12 @@ UITableViewDelegate
     
     
     self.listTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 108) style:UITableViewStylePlain];
-    _listTableView.backgroundColor = [UIColor whiteColor];
+    _listTableView.backgroundColor = [UIColor clearColor];
     _listTableView.delegate = self;
     _listTableView.dataSource = self;
     _listTableView.rowHeight = 90;
     _listTableView.showsVerticalScrollIndicator = NO;
     [self.view                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  addSubview:_listTableView];
-    
-    _listTableView.contentInset = UIEdgeInsetsMake(SCREEN_HEIGHT * 0.4, 0, 0, 0);
     
     [_listTableView registerClass:[ElNormalListTableViewCell class] forCellReuseIdentifier:normalList];
 
@@ -93,8 +95,8 @@ UITableViewDelegate
 #pragma mark - 顶部排名视图
 - (void)creatTopView {
     
-    UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, -SCREEN_HEIGHT * 0.4, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4)];
-    [_listTableView addSubview:topView];
+    UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4)];
+    _listTableView.tableHeaderView = topView;
     
     
     // 第一名
@@ -102,24 +104,42 @@ UITableViewDelegate
     firstImage.image = [UIImage imageNamed:@"me_yp_no.1_"];
     [topView addSubview:firstImage];
     
+    
     UIButton *firstButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    firstButton.frame = CGRectMake(0, 0, SCREEN_WIDTH * 0.22, SCREEN_WIDTH * 0.22);
+    firstButton.backgroundColor = [UIColor clearColor];
+    firstButton.frame = CGRectMake(0, 0, SCREEN_WIDTH * 0.21, SCREEN_WIDTH * 0.21);
+    firstButton.layer.cornerRadius = SCREEN_WIDTH * 0.23 / 2;
+    
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.4, SCREEN_HEIGHT * 0.037, SCREEN_WIDTH * 0.21, SCREEN_WIDTH * 0.21)];
+    imageView.backgroundColor = [UIColor cyanColor];
+    imageView.layer.cornerRadius = SCREEN_WIDTH * 0.21 / 2;
+    imageView.clipsToBounds = YES;
+    
+    
 
     AVFile *file = [AVFile fileWithURL:[[_userInfoArray firstObject] headImage]];
-    [file getThumbnail:YES width:100 height:100 withBlock:^(UIImage *image, NSError *error) {
+    
+    [file getThumbnail:YES width:0 height:0 withBlock:^(UIImage *image, NSError *error) {
         if (!error) {
-            [firstButton setBackgroundImage:image forState:UIControlStateNormal];
+            imageView.image = image;
+            
+            [topView addSubview:imageView];
+            
+            [topView sendSubviewToBack:imageView];
+            
         }else {
             NSLog(@"%@",error);
         }
     }];
     
-    [firstImage addSubview:firstButton];
+    [imageView addSubview:firstButton];
+    
     
     
     UILabel *nikenameLabelOfFirst = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.39, SCREEN_WIDTH * 0.28 + 10, SCREEN_WIDTH * 0.22, SCREEN_WIDTH * 0.06)];
     nikenameLabelOfFirst.text = [[_userInfoArray firstObject] username];
-    nikenameLabelOfFirst.backgroundColor = [UIColor whiteColor];
+    nikenameLabelOfFirst.backgroundColor = [UIColor clearColor];
     nikenameLabelOfFirst.textAlignment = NSTextAlignmentCenter;
     [topView addSubview:nikenameLabelOfFirst];
     
@@ -138,27 +158,33 @@ UITableViewDelegate
     [topView addSubview:secondImage];
     
     UIButton *secondButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    secondButton.frame = CGRectMake(0, 0, SCREEN_WIDTH * 0.24, SCREEN_WIDTH * 0.24);
+    secondButton.frame = CGRectMake(0, 0, SCREEN_WIDTH * 0.2, SCREEN_WIDTH * 0.2);
     [secondImage addSubview:secondButton];
+    
+    UIImageView *imageViewNO2 = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.114, SCREEN_HEIGHT * 0.175, SCREEN_WIDTH * 0.195, SCREEN_WIDTH * 0.195)];
+    imageViewNO2.layer.cornerRadius = SCREEN_WIDTH * 0.195 / 2;
+    imageViewNO2.clipsToBounds = YES;
     
     AVFile *secondFile = [AVFile fileWithURL:[[_userInfoArray objectAtIndex:1] headImage]];
     [secondFile getThumbnail:YES width:100 height:100 withBlock:^(UIImage *image, NSError *error) {
         if (!error) {
-            [secondButton setBackgroundImage:image forState:UIControlStateNormal];
+            imageViewNO2.image = image;
+            [topView addSubview:imageViewNO2];
+            [topView sendSubviewToBack:imageViewNO2];
         }else {
             NSLog(@"%@",error);
         }
     }];
     
+    [imageViewNO2 addSubview:secondButton];
     
     
-    
-    UILabel *nikenameLabelOfSecond = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.09, SCREEN_WIDTH * 0.52 + 15, SCREEN_WIDTH * 0.2, SCREEN_WIDTH * 0.06)];
+    UILabel *nikenameLabelOfSecond = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.115, SCREEN_WIDTH * 0.52 + 15, SCREEN_WIDTH * 0.2, SCREEN_WIDTH * 0.06)];
     nikenameLabelOfSecond.text = [[_userInfoArray objectAtIndex:1] username];
     nikenameLabelOfSecond.textAlignment = NSTextAlignmentCenter;
     [topView addSubview:nikenameLabelOfSecond];
     
-    UILabel *charmLabelOfSecond = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.11, SCREEN_WIDTH * 0.58 + 15, SCREEN_WIDTH * 0.17, SCREEN_WIDTH * 0.04)];
+    UILabel *charmLabelOfSecond = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.14, SCREEN_WIDTH * 0.58 + 15, SCREEN_WIDTH * 0.17, SCREEN_WIDTH * 0.04)];
     charmLabelOfSecond.text = [NSString stringWithFormat:@"%ld",[[_userInfoArray objectAtIndex:1] charm]];
     charmLabelOfSecond.textAlignment = NSTextAlignmentCenter;
     charmLabelOfSecond.font = [UIFont systemFontOfSize:15];
@@ -173,23 +199,32 @@ UITableViewDelegate
     [topView addSubview:thirdImage];
     
     UIButton *thirdButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    thirdButton.frame = CGRectMake(0, 0, SCREEN_WIDTH * 0.24, SCREEN_WIDTH * 0.24);
-    [thirdImage addSubview:thirdButton];
+    thirdButton.frame = CGRectMake(0, 0, SCREEN_WIDTH * 0.2, SCREEN_WIDTH * 0.2);
+    
+    
+    UIImageView *imageViewNO3 = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.73, SCREEN_HEIGHT * 0.174, SCREEN_WIDTH * 0.195, SCREEN_WIDTH * 0.195)];
+    imageViewNO3.layer.cornerRadius = SCREEN_WIDTH * 0.195 / 2;
+    imageViewNO3.clipsToBounds = YES;
     
     AVFile *thirdFile = [AVFile fileWithURL:[[_userInfoArray objectAtIndex:2] headImage]];
     [thirdFile getThumbnail:YES width:100 height:100 withBlock:^(UIImage *image, NSError *error) {
         if (!error) {
-            [thirdButton setBackgroundImage:image forState:UIControlStateNormal];
+            imageViewNO3.image = image;
+            [topView addSubview:imageViewNO3];
+            [topView sendSubviewToBack:imageViewNO3];
         }else {
             NSLog(@"%@",error);
         }
     }];
+    
+    [imageViewNO3 addSubview:thirdButton];
+    
     UILabel *nikenameLabelOfThird = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.73, SCREEN_WIDTH * 0.52 + 15, SCREEN_WIDTH * 0.21, SCREEN_WIDTH * 0.06)];
     nikenameLabelOfThird.text = [[_userInfoArray objectAtIndex:2] username];
     nikenameLabelOfThird.textAlignment = NSTextAlignmentCenter;
     [topView addSubview:nikenameLabelOfThird];
     
-    UILabel *charmLabelOfThird = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.75, SCREEN_WIDTH * 0.58 + 15, SCREEN_WIDTH * 0.17, SCREEN_WIDTH * 0.04)];
+    UILabel *charmLabelOfThird = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.77, SCREEN_WIDTH * 0.58 + 15, SCREEN_WIDTH * 0.17, SCREEN_WIDTH * 0.04)];
     charmLabelOfThird.text = [NSString stringWithFormat:@"%ld",[[_userInfoArray objectAtIndex:2] charm]];
     charmLabelOfThird.textAlignment = NSTextAlignmentCenter;
     charmLabelOfThird.font = [UIFont systemFontOfSize:15];
@@ -213,6 +248,7 @@ UITableViewDelegate
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     ElNormalListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:normalList];
+    cell.backgroundColor = [UIColor clearColor];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.listNumber = indexPath.row + 4;
     cell.nikenameText = [_userInfoArray[indexPath.row + 3] username];
