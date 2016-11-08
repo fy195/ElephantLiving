@@ -62,6 +62,15 @@ ElLivingTopViewDelegate
     _userBriefView.frame = CGRectMake(SCREEN_WIDTH * 0.15, SCREEN_HEIGHT, SCREEN_WIDTH * 0.7, SCREEN_HEIGHT * 0.45);
     _userBriefView.backgroundColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:0.85];
     _userBriefView.delegate = self;
+    if (_liveRoom == nil) {
+        _userBriefView.name = _elLiveRoom.host_name;
+        _userBriefView.level = _elLiveRoom.level;
+        _userBriefView.image = _elLiveRoom.headerImage;
+    }else {
+        _userBriefView.name = _liveRoom.host_name;
+        _userBriefView.level = _liveRoom.level;
+        _userBriefView.image = _liveRoom.headerImage;
+    }
     [self.view addSubview:_userBriefView];
     
     // Do any additional setup after loading the view from its nib.
@@ -397,31 +406,55 @@ ElLivingTopViewDelegate
 - (void)follow:(BOOL)isFollow {
     _User *currentUser = [_User currentUser];
     _User *liveUser = [_User objectWithObjectId:_liveRoom.userObjectId];
+    
     if (!isFollow) {
-        [currentUser follow:_liveRoom.userObjectId andCallback:^(BOOL succeeded, NSError * _Nullable error) {
-            currentUser.follow_count = [NSNumber numberWithInteger:[currentUser.follow_count integerValue] + 1];
-            liveUser.follower_count = [NSNumber numberWithInteger:[liveUser.follower_count integerValue] + 1];
-            [_userBriefView.followButton setTitle:@"已关注" forState:UIControlStateNormal];
-            _userBriefView.isFollow = YES;
+        [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+
+            currentUser.follow_count = [NSNumber numberWithInteger:[currentUser.follow_count integerValue]+ 1];
+            currentUser.fetchWhenSave = true;
+            [currentUser saveInBackground];
         }];
+        [liveUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+
+            currentUser.follower_count = [NSNumber numberWithInteger:[currentUser.follower_count integerValue] + 1];
+            liveUser.fetchWhenSave = true;
+            [liveUser saveInBackground];
+        }];
+//        [currentUser follow:_liveRoom.userObjectId andCallback:^(BOOL succeeded, NSError * _Nullable error) {
+//            currentUser.follow_count = [NSNumber numberWithInteger:[currentUser.follow_count integerValue] + 1];
+//            liveUser.follower_count = [NSNumber numberWithInteger:[liveUser.follower_count integerValue] + 1];
+//            [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+//                if (!error) {
+//                    NSLog(@"数据更新成功");
+//                }
+//            }];
+//            [liveUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+//                NSLog(@"更新成功");
+//            }];
+//            [_userBriefView.followButton setTitle:@"已关注" forState:UIControlStateNormal];
+//            _userBriefView.isFollow = YES;
+//        }];
     }else {
-        [currentUser unfollow:_liveRoom.userObjectId andCallback:^(BOOL succeeded, NSError * _Nullable error) {
-            currentUser.follow_count = [NSNumber numberWithInteger:[currentUser.follow_count integerValue] - 1];
-            liveUser.follower_count = [NSNumber numberWithInteger:[liveUser.follower_count integerValue] - 1];
+        [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            
+            currentUser.follow_count = [NSNumber numberWithInteger:[currentUser.follow_count integerValue]- 1];
+            currentUser.fetchWhenSave = true;
+            [currentUser saveInBackground];
+        }];
+        [liveUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+            
+            currentUser.follower_count = [NSNumber numberWithInteger:[currentUser.follower_count integerValue] - 1];
+            liveUser.fetchWhenSave = true;
+            [liveUser saveInBackground];
+        }];
+//        [currentUser unfollow:_liveRoom.userObjectId andCallback:^(BOOL succeeded, NSError * _Nullable error) {
+//            currentUser.follow_count = [NSNumber numberWithInteger:[currentUser.follow_count integerValue] - 1];
+//            liveUser.follower_count = [NSNumber numberWithInteger:[liveUser.follower_count integerValue] - 1];
+//        }];
             [_userBriefView.followButton setTitle:@"+ 关注" forState:UIControlStateNormal];
             _userBriefView.isFollow = NO;
-        }];
     }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

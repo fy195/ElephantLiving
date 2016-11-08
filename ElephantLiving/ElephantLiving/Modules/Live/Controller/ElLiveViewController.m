@@ -502,6 +502,11 @@ ElUserBriefViewDelegate
      *  直播间标题
      */
     _liveRoom.liveRoom_title = _startView.nameTextField.text;
+    
+    _userBriefView.name = _liveRoom.host_name;
+    _userBriefView.level = _liveRoom.level;
+    _userBriefView.image = _liveRoom.headerImage;
+    
     [_liveRoom saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         NSLog(@"保存成功");
     }];

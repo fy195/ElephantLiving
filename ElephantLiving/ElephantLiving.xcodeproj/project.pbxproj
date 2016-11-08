@@ -51,6 +51,8 @@
 		49CA28681DC9EE0500654B7C /* ElGift.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CA28671DC9EE0500654B7C /* ElGift.m */; };
 		49CB8A0D1DCDD785002CAA6A /* ElUserBriefView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CB8A0C1DCDD785002CAA6A /* ElUserBriefView.m */; };
 		49CB8A0F1DCDD79C002CAA6A /* ElUserBriefView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CB8A0E1DCDD79C002CAA6A /* ElUserBriefView.xib */; };
+		49D1CA861DD17C260003211A /* ElSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D1CA841DD17C260003211A /* ElSearchTableViewCell.m */; };
+		49D1CA871DD17C260003211A /* ElSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49D1CA851DD17C260003211A /* ElSearchTableViewCell.xib */; };
 		49DEC8061DCC1B13003DD1FB /* ElCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DEC8041DCC1B13003DD1FB /* ElCommentTableViewCell.m */; };
 		49DF2C201DC2DA040096E935 /* ElLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DF2C1E1DC2DA040096E935 /* ElLoginViewController.m */; };
 		49DF2C211DC2DA040096E935 /* ElLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49DF2C1F1DC2DA040096E935 /* ElLoginViewController.xib */; };
@@ -244,6 +246,9 @@
 		49CB8A0B1DCDD785002CAA6A /* ElUserBriefView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElUserBriefView.h; sourceTree = "<group>"; };
 		49CB8A0C1DCDD785002CAA6A /* ElUserBriefView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElUserBriefView.m; sourceTree = "<group>"; };
 		49CB8A0E1DCDD79C002CAA6A /* ElUserBriefView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElUserBriefView.xib; sourceTree = "<group>"; };
+		49D1CA831DD17C260003211A /* ElSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ElSearchTableViewCell.h; path = ElephantLiving/Modules/Search/ElSearchTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		49D1CA841DD17C260003211A /* ElSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ElSearchTableViewCell.m; path = ElephantLiving/Modules/Search/ElSearchTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		49D1CA851DD17C260003211A /* ElSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ElSearchTableViewCell.xib; path = ElephantLiving/Modules/Search/ElSearchTableViewCell.xib; sourceTree = SOURCE_ROOT; };
 		49DEC8031DCC1B13003DD1FB /* ElCommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElCommentTableViewCell.h; sourceTree = "<group>"; };
 		49DEC8041DCC1B13003DD1FB /* ElCommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElCommentTableViewCell.m; sourceTree = "<group>"; };
 		49DF2C1D1DC2DA040096E935 /* ElLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElLoginViewController.h; sourceTree = "<group>"; };
@@ -504,10 +509,6 @@
 		499FBE211DB786CE0015CC1D /* ElephantLiving */ = {
 			isa = PBXGroup;
 			children = (
-				EB3AB8071DD0B3D70050ADFD /* 嗷嗷.jpeg */,
-				EBD4C0971DCE0C9600F81382 /* 对号气泡2.png */,
-				EBD965AE1DD01C8300936D66 /* 路牌x.png */,
-				EBD965AC1DD0158900936D66 /* 啊啊啊.jpeg */,
 				49CA28621DC9EC0800654B7C /* AVObject */,
 				49FE39841DB7974B00FD8A99 /* Base */,
 				49FE39931DB79A4C00FD8A99 /* Common */,
@@ -528,6 +529,7 @@
 				499FBE291DB786CE0015CC1D /* ViewController.m */,
 				EBD4C0911DCDDD5700F81382 /* hahaha.jpeg */,
 				EBD965AC1DD0158900936D66 /* 啊啊啊.jpeg */,
+				EB3AB8071DD0B3D70050ADFD /* 嗷嗷.jpeg */,
 				EBD4C0971DCE0C9600F81382 /* 对号气泡2.png */,
 				EBD965AE1DD01C8300936D66 /* 路牌x.png */,
 			);
@@ -1138,6 +1140,9 @@
 		49FE39EA1DB79C0D00FD8A99 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				49D1CA831DD17C260003211A /* ElSearchTableViewCell.h */,
+				49D1CA841DD17C260003211A /* ElSearchTableViewCell.m */,
+				49D1CA851DD17C260003211A /* ElSearchTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1676,6 +1681,7 @@
 				EB1DDAF01DCAE00E0095619C /* gift_heart_5.png in Resources */,
 				EB1DDB071DCAE01F0095619C /* fireworks_12.png in Resources */,
 				49DF2C211DC2DA040096E935 /* ElLoginViewController.xib in Resources */,
+				49D1CA871DD17C260003211A /* ElSearchTableViewCell.xib in Resources */,
 				EB1DDAE81DCAE00E0095619C /* gift_heart_16.png in Resources */,
 				EB1DDB081DCAE01F0095619C /* fireworks_13.png in Resources */,
 				49CA285C1DC9E25800654B7C /* xinyiba_riva_Dolphin02.png in Resources */,
@@ -1805,6 +1811,7 @@
 				49C2847A1DCC38F800ECCD13 /* AVUser+ElClassMap.m in Sources */,
 				49E7599B1DB8EE5100BDCB3C /* ElPersonViewController.m in Sources */,
 				49FE398B1DB797C100FD8A99 /* ElBaseModel.m in Sources */,
+				49D1CA861DD17C260003211A /* ElSearchTableViewCell.m in Sources */,
 				493DA3921DC1CA7D0031C317 /* ElLivingTopView.m in Sources */,
 				EBCB054E1DCB697C00BB2832 /* ElHouseAniamtionView.m in Sources */,
 				49F2C9791DB9B0B2000589A7 /* ElAlbumViewController.m in Sources */,

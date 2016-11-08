@@ -15,6 +15,20 @@
 #import <LeanCloudSocial/LeanCloudSocial-umbrella.h>
 
 @interface ElLoginViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *sinaButton;
+@property (weak, nonatomic) IBOutlet UIButton *WeChatButton;
+@property (weak, nonatomic) IBOutlet UIButton *QQButton;
+@property (weak, nonatomic) IBOutlet UIButton *registerButton;
+@property (weak, nonatomic) IBOutlet UIImageView *roadImageView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *roadImageOriginY;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *roadImageOriginX;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *registerButtonOriginY;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *registerButtonOriginX;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *QQbuttonToRoad;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *roadImageWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *roadImageHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *WeChatToQQ;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *sinaToWeChat;
 
 @end
 
@@ -25,7 +39,15 @@
     // Do any additional setup after loading the view from its nib.
     [_phoneNumberTextField setValue:[UIColor colorWithRed:1 green:0.74 blue:0.15 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
     [_passwordTextField setValue:[UIColor colorWithRed:1 green:0.74 blue:0.15 alpha:1] forKeyPath:@"_placeholderLabel.textColor"];
-    
+    _roadImageOriginY.constant = SCREEN_HEIGHT * 0.59;
+    _roadImageOriginX.constant = SCREEN_WIDTH * 0.10;
+    _registerButtonOriginY.constant = SCREEN_HEIGHT * 0.57;
+    _registerButtonOriginX.constant = SCREEN_WIDTH * 0.09;
+    _roadImageWidth.constant = SCREEN_WIDTH * 0.41;
+    _roadImageHeight.constant = SCREEN_HEIGHT * 0.20;
+    _QQbuttonToRoad.constant = - SCREEN_HEIGHT * 0.18;
+    _WeChatToQQ.constant = SCREEN_HEIGHT * 0.008;
+    _sinaToWeChat.constant = SCREEN_HEIGHT * 0.008;
 }
 
 - (IBAction)RegisterButton:(id)sender {
@@ -152,7 +174,10 @@
 }
 
 
-
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [_passwordTextField resignFirstResponder];
+    [_phoneNumberTextField resignFirstResponder];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
