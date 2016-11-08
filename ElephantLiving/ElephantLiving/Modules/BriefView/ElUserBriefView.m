@@ -76,11 +76,11 @@
     _followerLabel.text = [NSString stringWithFormat:@"粉丝:%@",follower];
 }
 
-- (void)setFollowee:(NSString *)followee {
+- (void)setFollowee:(NSNumber *)followee {
     if (_followee != followee) {
         _followee = followee;
     }
-    _followerLabel.text = [NSString stringWithFormat:@"关注:%@", followee];
+    _followeeLabel.text = [NSString stringWithFormat:@"关注:%@", followee];
 }
 
 /*

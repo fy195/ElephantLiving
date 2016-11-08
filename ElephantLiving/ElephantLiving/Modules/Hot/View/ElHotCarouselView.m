@@ -32,11 +32,11 @@ UIScrollViewDelegate
         self.currentArray = [NSMutableArray array];
         
         UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-        flowLayout.itemSize = CGSizeMake(SCREEN_WIDTH, 100);
+        flowLayout.itemSize = CGSizeMake(SCREEN_WIDTH, self.height);
         flowLayout.minimumLineSpacing = 0;
         flowLayout.minimumInteritemSpacing = 0;
         flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        self.carouselView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 100) collectionViewLayout:flowLayout];
+        self.carouselView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.height) collectionViewLayout:flowLayout];
         _carouselView.delegate = self;
         _carouselView.dataSource = self;
         _carouselView.pagingEnabled = YES;
@@ -89,14 +89,14 @@ UIScrollViewDelegate
     self.timer = [NSTimer scheduledTimerWithTimeInterval:3.0 target:self selector:@selector(timeAction:) userInfo:nil repeats:YES];
     
     self.pageControl = [[UIPageControl alloc] initWithFrame:CGRectZero];
-    _pageControl.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.5];
+    _pageControl.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0];
     _pageControl.pageIndicatorTintColor = [UIColor colorWithRed:0.909 green:0.906 blue:0.907 alpha:0.393];
     _pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
     [self addSubview:_pageControl];
     _pageControl.numberOfPages = _imageArray.count;
     CGSize pageSize = [_pageControl sizeForNumberOfPages:_imageArray.count];
     _pageControl.frame = CGRectMake(0, 0, pageSize.width, pageSize.height);
-    _pageControl.center = CGPointMake(self.x + self.width -  _pageControl.width - 10, self.y +  self.height - _pageControl.height / 2 - 5);
+    _pageControl.center = CGPointMake(self.x + self.width / 2, self.y +  self.height - _pageControl.height / 2 );
     [_pageControl addTarget:self action:@selector(pageControlValueChanged:) forControlEvents:UIControlEventValueChanged];
     _carouselView.contentOffset = CGPointMake(SCREEN_WIDTH, 0);
     

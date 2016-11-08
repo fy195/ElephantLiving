@@ -147,6 +147,7 @@ UICollectionViewDelegate
 }
 
 - (void)sendButtonAction:(UIButton *)button {
+    
     [self.delegate animationWithItemCount:_itemCount];
 }
 
