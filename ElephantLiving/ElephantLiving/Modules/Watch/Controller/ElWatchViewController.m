@@ -17,6 +17,7 @@
 #import "ElLiveRoom.h"
 #import "AVObject+ElClassMap.h"
 #import "ElUserBriefView.h"
+#import "UIImageView+WebCache.h"
 
 @interface ElWatchViewController ()
 <
@@ -51,10 +52,17 @@ ElLivingTopViewDelegate
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    if (_liveRoom == nil) {
+        [imageView sd_setImageWithURL:[NSURL URLWithString:_elLiveRoom.coverImage]];
+    }else {
+        [imageView sd_setImageWithURL:[NSURL URLWithString:_liveRoom.coverImage]];
+    }
     
+    [self.view addSubview:imageView];
     [self playFlv];
     [self creatTool];
-    self.view.backgroundColor = [UIColor whiteColor];
+    
     self.messageArray = [NSMutableArray array];
     [self searchChatRoom];
     
@@ -182,7 +190,6 @@ ElLivingTopViewDelegate
 - (void)closeButtonAction:(UIButton *)button {
  
     [_moviePlayer shutdown];
-    [_moviePlayer.view removeFromSuperview];
     _moviePlayer = nil;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -213,7 +220,6 @@ ElLivingTopViewDelegate
     [_moviePlayer prepareToPlay];
     [self initObserver];
     [self.view addSubview:_moviePlayer.view];
-    
 }
 
 - (void)initObserver
@@ -224,7 +230,14 @@ ElLivingTopViewDelegate
 }
 
 - (void)didFinish {
-    NSLog(@"结束");
+    [_moviePlayer.view removeFromSuperview];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"播放结束" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [alertController addAction:cancelAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+
 }
 
 - (void)stateDidChange {
@@ -232,10 +245,8 @@ ElLivingTopViewDelegate
         if (!self.moviePlayer.isPlaying) {
             [self.moviePlayer play];
         }else{
-            NSLog(@"网络状态不好");
         }
     }else if (self.moviePlayer.loadState & IJKMPMovieLoadStateStalled){ // 网速不佳, 自动暂停状态
-        NSLog(@"网速不佳暂停");
     }
     
 }
