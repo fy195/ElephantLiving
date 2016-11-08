@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="KGk-i7-Jjw" customClass="ElSearchTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="321" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="321" height="49"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="大象头像" translatesAutoresizingMaskIntoConstraints="NO" id="pa0-S5-p9Y">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="D2O-7r-fdQ"/>
+                            <constraint firstAttribute="height" constant="50" id="W0K-3d-dS3"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="25"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="巴尔米拉" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqE-3Z-svp">
+                        <rect key="frame" x="60" y="-1" width="150" height="51"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="34h-BB-Tei"/>
+                            <constraint firstAttribute="width" constant="150" id="Y3S-m3-TJN"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Level 5" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B6z-qn-XyD">
+                        <rect key="frame" x="220" y="-1" width="80" height="51"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="XgS-cw-QYa"/>
+                            <constraint firstAttribute="width" constant="80" id="vSG-uJ-Ki4"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstItem="fqE-3Z-svp" firstAttribute="centerY" secondItem="pa0-S5-p9Y" secondAttribute="centerY" id="65L-Wz-x8Z"/>
+                    <constraint firstItem="pa0-S5-p9Y" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Ph4-4q-P7V"/>
+                    <constraint firstItem="B6z-qn-XyD" firstAttribute="leading" secondItem="fqE-3Z-svp" secondAttribute="trailing" constant="10" id="igT-pS-AS4"/>
+                    <constraint firstItem="fqE-3Z-svp" firstAttribute="leading" secondItem="pa0-S5-p9Y" secondAttribute="trailing" constant="10" id="nQi-RW-ruC"/>
+                    <constraint firstItem="pa0-S5-p9Y" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="oTL-Gl-VDx"/>
+                    <constraint firstItem="B6z-qn-XyD" firstAttribute="centerY" secondItem="pa0-S5-p9Y" secondAttribute="centerY" id="onp-B9-X3i"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <connections>
+                <outlet property="headerImageView" destination="pa0-S5-p9Y" id="gQL-Sb-yC1"/>
+                <outlet property="levelLabel" destination="B6z-qn-XyD" id="odh-uB-yLu"/>
+                <outlet property="nameLabel" destination="fqE-3Z-svp" id="v9e-mt-KRH"/>
+            </connections>
+            <point key="canvasLocation" x="426.5" y="335"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="大象头像" width="200" height="200"/>
+    </resources>
+</document>
