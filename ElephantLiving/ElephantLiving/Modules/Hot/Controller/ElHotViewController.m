@@ -136,8 +136,8 @@ UITableViewDelegate
     _tableView.rowHeight = 420;
     [self.view addSubview:_tableView];
     
-    self.carouselView = [[ElHotCarouselView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 100)];
-    _carouselView.imageArray = @[@"1", @"2", @"1", @"2", @"1"];
+    self.carouselView = [[ElHotCarouselView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 150)];
+    _carouselView.imageArray = @[@"轮播1", @"轮播2", @"轮播3", @"轮播4", @"轮播5"];
     _tableView.tableHeaderView = _carouselView;
 }
 
