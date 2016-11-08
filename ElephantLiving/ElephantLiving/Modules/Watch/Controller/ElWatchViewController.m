@@ -391,7 +391,7 @@ ElLivingTopViewDelegate
     _User *liveUser = [_User objectWithObjectId:_liveRoom.userObjectId];
     [liveUser getFollowers:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         for (_User *user in objects) {
-            if (currentUser.objectId == user.objectId) {
+            if ([currentUser.objectId isEqualToString: user.objectId]) {
                 [_userBriefView.followButton setTitle:@"已关注" forState:UIControlStateNormal];
                 _userBriefView.isFollow = YES;
             }else {

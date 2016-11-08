@@ -52,6 +52,10 @@ ElUserBriefViewDelegate
     _searchTextField.clipsToBounds = YES;
     _searchTextField.delegate = self;
     _searchTextField.returnKeyType = UIReturnKeySearch;
+    _searchTextField.leftView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 10, 0)];
+    //设置显示模式为永远显示(默认不显示)
+    _searchTextField.leftViewMode = UITextFieldViewModeAlways;
+    
 
     
     [self.view addSubview:_searchTextField];
@@ -91,6 +95,7 @@ ElUserBriefViewDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     _User *user = _resultArray[indexPath.row];
     ElSearchTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:searchCell];
+    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     cell.name = user.username;
     cell.headerImage = user.headImage;
     cell.level = user.level;
@@ -111,7 +116,7 @@ ElUserBriefViewDelegate
     } completion:nil];
     [_selectedUser getFollowers:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         for (_User *user in objects) {
-            if (currentUser.objectId == user.objectId) {
+            if ([currentUser.objectId isEqualToString:user.objectId]) {
                 [_userBriefView.followButton setTitle:@"已关注" forState:UIControlStateNormal];
                 _userBriefView.isFollow = YES;
             }else {
@@ -185,6 +190,10 @@ ElUserBriefViewDelegate
     }];
     [_searchTextField resignFirstResponder];
     return YES;
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [_searchTextField resignFirstResponder];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle
