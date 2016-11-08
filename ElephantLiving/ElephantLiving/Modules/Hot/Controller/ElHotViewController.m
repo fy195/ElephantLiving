@@ -119,14 +119,14 @@ UITableViewDelegate
                 NSLog(@"创建直播对象出错 %@", error);
             }
         }];
-        [self getElLiveRoomInfo];
+//        [self getElLiveRoomInfo];
 }
 
 - (void)viewDidLoad {
     self.otherLiveArray = [NSMutableArray array];
     [self createTableView];
     [self deleteElLiveRoom];
-//    [self getOtherLiveRoomInfo];
+    [self getOtherLiveRoomInfo];
 }
 
 - (void)createTableView {
