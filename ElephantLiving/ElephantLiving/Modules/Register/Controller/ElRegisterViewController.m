@@ -127,7 +127,9 @@
                 [self creatNewUserInfo];
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"注册成功" message:nil    preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                    [self dismissViewControllerAnimated:YES completion:nil];
+                    [self dismissViewControllerAnimated:YES completion:^{
+                        [self.navigationController popViewControllerAnimated:YES];
+                    }];
                 }];
                 [alertController addAction:cancelAction];
                 [self presentViewController:alertController animated:YES completion:nil];
@@ -186,6 +188,8 @@
     user.follow_count = @0;
     user.follower_count = @0;
     user.charm = 0;
+    user.sendGift = @0;
+    user.receiveGift = @0;
     
     [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
     if (succeeded) {

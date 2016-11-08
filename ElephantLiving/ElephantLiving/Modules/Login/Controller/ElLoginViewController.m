@@ -10,9 +10,9 @@
 #import "ElRegisterViewController.h"
 #import "ElForgetPasswordViewController.h"
 #import "AVOSCloud/AVOSCloud.h"
-#import "ElHomePageViewController.h"
 #import "_User.h"
 #import <LeanCloudSocial/LeanCloudSocial-umbrella.h>
+#import "ElHomeTabBarController.h"
 
 @interface ElLoginViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *sinaButton;
@@ -33,6 +33,10 @@
 @end
 
 @implementation ElLoginViewController
+
+- (void)viewWillAppear:(BOOL)animated {
+    self.navigationController.navigationBar.hidden = YES;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -73,7 +77,8 @@
                 [self presentViewController:alertController animated:YES completion:nil];
             } else {
                 [self getUserInfo:user];
-                [self.navigationController popViewControllerAnimated:YES];
+                ElHomeTabBarController *homeView = [[ElHomeTabBarController alloc] init];
+                [self.navigationController pushViewController:homeView animated:YES];
             }
         }];
     }

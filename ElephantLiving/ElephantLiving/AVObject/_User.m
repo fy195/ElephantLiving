@@ -37,7 +37,19 @@
     }
 }
 
+- (void)setSendGift:(NSNumber *)sendGift {
+    if (_sendGift != sendGift) {
+        _sendGift = sendGift;
+        [self setObject:sendGift forKey:@"sendGift"];
+    }
+}
 
+- (void)setReceiveGift:(NSNumber *)receiveGift {
+    if (_receiveGift != receiveGift) {
+        _receiveGift = receiveGift;
+        [self setObject:receiveGift forKey:@"receiveGift"];
+    }
+}
 
 //- (void)setCharm:(NSInteger)charm {
 //    if (_charm != charm) {

@@ -30,7 +30,14 @@
  *  头像
  */
 @property (nonatomic, strong) NSString *headImage;
-
+/**
+ *  送出礼物
+ */
+@property (nonatomic, strong) NSNumber *sendGift;
+/**
+ *  收到礼物
+ */
+@property (nonatomic, strong) NSNumber *receiveGift;
 
 
 @end
