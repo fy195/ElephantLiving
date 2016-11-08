@@ -174,7 +174,10 @@
 }
 
 
-
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [_passwordTextField resignFirstResponder];
+    [_phoneNumberTextField resignFirstResponder];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -20,6 +20,12 @@
 @property (nonatomic, assign) id<ElUserBriefViewDelegate>delegate;
 @property (weak, nonatomic) IBOutlet UIButton *followButton;
 @property (nonatomic, assign) BOOL isFollow;
+@property (nonatomic, strong) NSString *image;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSNumber *level;
+@property (nonatomic, strong) NSString *location;
+@property (nonatomic, strong) NSNumber *follower;
+@property (nonatomic, strong) NSString *followee;
 + (instancetype)elUserBriefView;
 
 @end
