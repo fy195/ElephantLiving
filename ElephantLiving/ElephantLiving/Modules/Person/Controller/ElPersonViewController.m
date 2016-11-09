@@ -44,8 +44,22 @@ UIImagePickerControllerDelegate
     [_tableView reloadData];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    //黑色
+    //return UIStatusBarStyleDefault;
+    //白色
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // 状态栏颜色
+    UIView *statusBarView=[[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 20)];
+    statusBarView.backgroundColor=[UIColor blackColor];
+    [self.view addSubview:statusBarView];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:NO];
     
     [self getCurrentUserInfo];
     [self createTableView];
@@ -67,6 +81,7 @@ UIImagePickerControllerDelegate
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.rowHeight = 60;
     _tableView.bounces = NO;
+    _tableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:_tableView];
     
     [_tableView registerNib:cellNib forCellReuseIdentifier:person];

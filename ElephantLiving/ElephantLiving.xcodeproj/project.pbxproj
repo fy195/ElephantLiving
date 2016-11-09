@@ -159,6 +159,7 @@
 		EB55576D1DD2CE5A005934F7 /* 景3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB55576C1DD2CE5A005934F7 /* 景3.jpg */; };
 		EB70D63A1DBA06A1009D9E34 /* ElAlbumCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB70D6391DBA06A1009D9E34 /* ElAlbumCollectionViewCell.m */; };
 		EB70D63D1DBA0756009D9E34 /* ElGiftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB70D63C1DBA0756009D9E34 /* ElGiftTableViewCell.m */; };
+		EB936CED1DD33E6D00038291 /* xaingxiang.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EB936CEC1DD33E6D00038291 /* xaingxiang.jpeg */; };
 		EB93C5AF1DC9793C005C8E7B /* ElGiftView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB93C5AE1DC9793C005C8E7B /* ElGiftView.m */; };
 		EB93C5B21DC98581005C8E7B /* ElGiftCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB93C5B11DC98581005C8E7B /* ElGiftCollectionViewCell.m */; };
 		EB99EAF61DC0506000621EF3 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB99EAF11DC0506000621EF3 /* IJKMediaFramework.framework */; };
@@ -419,6 +420,7 @@
 		EB70D6391DBA06A1009D9E34 /* ElAlbumCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElAlbumCollectionViewCell.m; sourceTree = "<group>"; };
 		EB70D63B1DBA0756009D9E34 /* ElGiftTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElGiftTableViewCell.h; sourceTree = "<group>"; };
 		EB70D63C1DBA0756009D9E34 /* ElGiftTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElGiftTableViewCell.m; sourceTree = "<group>"; };
+		EB936CEC1DD33E6D00038291 /* xaingxiang.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xaingxiang.jpeg; sourceTree = "<group>"; };
 		EB93C5AD1DC9793C005C8E7B /* ElGiftView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElGiftView.h; sourceTree = "<group>"; };
 		EB93C5AE1DC9793C005C8E7B /* ElGiftView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElGiftView.m; sourceTree = "<group>"; };
 		EB93C5B01DC98581005C8E7B /* ElGiftCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElGiftCollectionViewCell.h; sourceTree = "<group>"; };
@@ -575,6 +577,7 @@
 				499FBE291DB786CE0015CC1D /* ViewController.m */,
 				EBD4C0911DCDDD5700F81382 /* hahaha.jpeg */,
 				EBD4C0971DCE0C9600F81382 /* 对号气泡2.png */,
+				EB936CEC1DD33E6D00038291 /* xaingxiang.jpeg */,
 				EB55576C1DD2CE5A005934F7 /* 景3.jpg */,
 				EBD965AE1DD01C8300936D66 /* 路牌x.png */,
 			);
@@ -1776,6 +1779,7 @@
 				49CA285B1DC9E25800654B7C /* xinyiba_riva_Dolphin01.png in Resources */,
 				EB1DDAEA1DCAE00E0095619C /* gift_heart_18.png in Resources */,
 				EB1DDAE21DCAE00E0095619C /* gift_heart_10.png in Resources */,
+				EB936CED1DD33E6D00038291 /* xaingxiang.jpeg in Resources */,
 				EB55576D1DD2CE5A005934F7 /* 景3.jpg in Resources */,
 				EB1DDAE51DCAE00E0095619C /* gift_heart_13.png in Resources */,
 				49DF2C261DC2DA220096E935 /* ElRegisterViewController.xib in Resources */,
