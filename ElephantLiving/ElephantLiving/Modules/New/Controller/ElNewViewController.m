@@ -62,7 +62,7 @@ UICollectionViewDataSource
     
     
     _collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [_collectionView reloadData];
+        [self searchLiving];
         [_collectionView.mj_header endRefreshing];
     }];
     _collectionView.mj_header.automaticallyChangeAlpha = YES;
