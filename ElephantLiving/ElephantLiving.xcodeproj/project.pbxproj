@@ -32,6 +32,7 @@
 		498A10461DB8F233003F86B8 /* ElTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 498A10451DB8F233003F86B8 /* ElTopView.m */; };
 		498A10491DB8F25B003F86B8 /* ElListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498A10481DB8F25B003F86B8 /* ElListViewController.m */; };
 		4996B6291DC43156003189FA /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4996B6281DC43156003189FA /* libicucore.tbd */; };
+		499E3F781DD2B1AA00CC9846 /* ElAgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 499E3F771DD2B1AA00CC9846 /* ElAgreementViewController.m */; };
 		499FBE241DB786CE0015CC1D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 499FBE231DB786CE0015CC1D /* main.m */; };
 		499FBE271DB786CE0015CC1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 499FBE261DB786CE0015CC1D /* AppDelegate.m */; };
 		499FBE2A1DB786CE0015CC1D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 499FBE291DB786CE0015CC1D /* ViewController.m */; };
@@ -218,6 +219,8 @@
 		498A10471DB8F25B003F86B8 /* ElListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElListViewController.h; sourceTree = "<group>"; };
 		498A10481DB8F25B003F86B8 /* ElListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElListViewController.m; sourceTree = "<group>"; };
 		4996B6281DC43156003189FA /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		499E3F761DD2B1AA00CC9846 /* ElAgreementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElAgreementViewController.h; sourceTree = "<group>"; };
+		499E3F771DD2B1AA00CC9846 /* ElAgreementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElAgreementViewController.m; sourceTree = "<group>"; };
 		499FBE1F1DB786CE0015CC1D /* ElephantLiving.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElephantLiving.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		499FBE231DB786CE0015CC1D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		499FBE251DB786CE0015CC1D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -489,6 +492,23 @@
 				49CA5A3E1DC03CF1005F2172 /* ViewModel */,
 			);
 			path = Watch;
+			sourceTree = "<group>";
+		};
+		499E3F741DD2B19000CC9846 /* Agreement */ = {
+			isa = PBXGroup;
+			children = (
+				499E3F751DD2B19600CC9846 /* Controller */,
+			);
+			path = Agreement;
+			sourceTree = "<group>";
+		};
+		499E3F751DD2B19600CC9846 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				499E3F761DD2B1AA00CC9846 /* ElAgreementViewController.h */,
+				499E3F771DD2B1AA00CC9846 /* ElAgreementViewController.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		499FBE161DB786CE0015CC1D = {
@@ -937,6 +957,7 @@
 		49FE39D41DB79B8C00FD8A99 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				499E3F741DD2B19000CC9846 /* Agreement */,
 				49F2C9651DB9AFA0000589A7 /* Album */,
 				49CB8A0A1DCDD755002CAA6A /* BriefView */,
 				49FE3A021DB79D0F00FD8A99 /* ForgetPassword */,
@@ -1883,6 +1904,7 @@
 				EB1DDAC61DCACFEE0095619C /* AnimOperation.m in Sources */,
 				49E759981DB8EE3100BDCB3C /* ElNormalListTableViewCell.m in Sources */,
 				492709CA1DB9C4B000D6F550 /* ElHotCollectionViewCell.m in Sources */,
+				499E3F781DD2B1AA00CC9846 /* ElAgreementViewController.m in Sources */,
 				49F2C95E1DB9AAED000589A7 /* ElPersonCharmTableViewCell.m in Sources */,
 				49FE39C61DB79A4C00FD8A99 /* UIImage+Categories.m in Sources */,
 				EB1DDACB1DCACFEE0095619C /* ShakeLabel.m in Sources */,
