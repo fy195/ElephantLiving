@@ -157,7 +157,6 @@
 		EB55576D1DD2CE5A005934F7 /* 景3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB55576C1DD2CE5A005934F7 /* 景3.jpg */; };
 		EB70D63A1DBA06A1009D9E34 /* ElAlbumCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB70D6391DBA06A1009D9E34 /* ElAlbumCollectionViewCell.m */; };
 		EB70D63D1DBA0756009D9E34 /* ElGiftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB70D63C1DBA0756009D9E34 /* ElGiftTableViewCell.m */; };
-		EB81A1101DD2B4660035566E /* ElWatchGiftView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB81A10F1DD2B4660035566E /* ElWatchGiftView.m */; };
 		EB93C5AF1DC9793C005C8E7B /* ElGiftView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB93C5AE1DC9793C005C8E7B /* ElGiftView.m */; };
 		EB93C5B21DC98581005C8E7B /* ElGiftCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB93C5B11DC98581005C8E7B /* ElGiftCollectionViewCell.m */; };
 		EB99EAF61DC0506000621EF3 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB99EAF11DC0506000621EF3 /* IJKMediaFramework.framework */; };
@@ -415,8 +414,6 @@
 		EB70D6391DBA06A1009D9E34 /* ElAlbumCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElAlbumCollectionViewCell.m; sourceTree = "<group>"; };
 		EB70D63B1DBA0756009D9E34 /* ElGiftTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElGiftTableViewCell.h; sourceTree = "<group>"; };
 		EB70D63C1DBA0756009D9E34 /* ElGiftTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElGiftTableViewCell.m; sourceTree = "<group>"; };
-		EB81A10E1DD2B4660035566E /* ElWatchGiftView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ElWatchGiftView.h; path = ElephantLiving/Modules/Watch/ElWatchGiftView.h; sourceTree = SOURCE_ROOT; };
-		EB81A10F1DD2B4660035566E /* ElWatchGiftView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ElWatchGiftView.m; path = ElephantLiving/Modules/Watch/ElWatchGiftView.m; sourceTree = SOURCE_ROOT; };
 		EB93C5AD1DC9793C005C8E7B /* ElGiftView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElGiftView.h; sourceTree = "<group>"; };
 		EB93C5AE1DC9793C005C8E7B /* ElGiftView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElGiftView.m; sourceTree = "<group>"; };
 		EB93C5B01DC98581005C8E7B /* ElGiftCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElGiftCollectionViewCell.h; sourceTree = "<group>"; };
@@ -607,8 +604,6 @@
 		49CA5A3C1DC03CE5005F2172 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				EB81A10E1DD2B4660035566E /* ElWatchGiftView.h */,
-				EB81A10F1DD2B4660035566E /* ElWatchGiftView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1905,7 +1900,6 @@
 				49FE39C01DB79A4C00FD8A99 /* NSNumber+Extend.m in Sources */,
 				49FE39C71DB79A4C00FD8A99 /* UIView+Frame.m in Sources */,
 				49C284741DCC363C00ECCD13 /* ElBaseAVUser.m in Sources */,
-				EB81A1101DD2B4660035566E /* ElWatchGiftView.m in Sources */,
 				49FE39C31DB79A4C00FD8A99 /* NSUserDefaults+Categories.m in Sources */,
 				EB1DDAC61DCACFEE0095619C /* AnimOperation.m in Sources */,
 				49E759981DB8EE3100BDCB3C /* ElNormalListTableViewCell.m in Sources */,
