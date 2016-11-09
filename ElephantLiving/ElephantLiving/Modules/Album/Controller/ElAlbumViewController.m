@@ -7,19 +7,13 @@
 //
 
 #import "ElAlbumViewController.h"
-#import "ElMacro.h"
-#import "ElAlbumCollectionViewCell.h"
 
-static NSString *const albumCell = @"cell";
-static NSString *const header = @"headerCell";
+
 
 @interface ElAlbumViewController ()
-
 <
-UICollectionViewDataSource,
-UICollectionViewDelegate
+UITextViewDelegate
 >
-
 @end
 
 @implementation ElAlbumViewController
@@ -28,87 +22,100 @@ UICollectionViewDelegate
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self createAlbumCollectionView];
+    UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0,0, SCREEN_WIDTH, 20)];
+    topView.backgroundColor = [UIColor colorWithRed:1 green:0.5 blue:0 alpha:1];
+    [self.view addSubview:topView];
     
-    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    backButton.backgroundColor = [UIColor yellowColor];
-    backButton.frame = CGRectMake(0, 0, 64, 64);
-    [backButton addTarget:self action:@selector(buttonAction) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:backButton];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, SCREEN_WIDTH, 44)];
+    titleLabel.text = @"意见反馈";
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.textColor = [UIColor blackColor];
+    titleLabel.backgroundColor = [UIColor colorWithRed:1 green:0.5 blue:0 alpha:1];
+    titleLabel.font = [UIFont systemFontOfSize:18];
     
-    
-}
+    [self.view addSubview:titleLabel];
 
-#pragma mark - 创建相册collectionView
-- (void)createAlbumCollectionView {
+    UIButton *returnButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    returnButton.backgroundColor = [UIColor clearColor];
+    returnButton.frame = CGRectMake(SCREEN_WIDTH * 0.02, SCREEN_WIDTH * 0.1, SCREEN_WIDTH * 0.09, SCREEN_WIDTH * 0.09);
+    [returnButton setTitle:@"⇦" forState:UIControlStateNormal];
+    returnButton.titleLabel.font = [UIFont systemFontOfSize:30];
+    [returnButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    returnButton.centerY = titleLabel.centerY;
+    [self.view addSubview:returnButton];
+    
+    [returnButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
 
-    UICollectionViewFlowLayout *albumFlowLayout = [[UICollectionViewFlowLayout alloc] init];
-    albumFlowLayout.itemSize = CGSizeMake((SCREEN_WIDTH - SCREEN_WIDTH * 0.015) / 4, ((SCREEN_WIDTH - SCREEN_WIDTH * 0.015) / 4) / 9 * 10);
-    albumFlowLayout.minimumInteritemSpacing = 0;
-    albumFlowLayout.minimumLineSpacing = 2;
-    albumFlowLayout.headerReferenceSize = CGSizeMake(SCREEN_WIDTH, 50);
+    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.02, titleLabel.height + SCREEN_WIDTH * 0.02 + 20, SCREEN_WIDTH * 0.96, SCREEN_HEIGHT * 0.24)];
+    [textView becomeFirstResponder];
+    textView.delegate = self;
+    textView.font = [UIFont systemFontOfSize:15];
+    [self.view addSubview:textView];
+    
+    textView.layer.borderWidth = 1;
+    textView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    
+    UILabel *placeHolderLabel = [[UILabel alloc] init];
+    placeHolderLabel.text = @"请尽量详细的描述您遇到的问题和现象,也欢迎对我们吐槽您不爽的地方,感谢您给我们提出宝贵的意见.";
+    placeHolderLabel.font = [UIFont systemFontOfSize:15];
+    placeHolderLabel.numberOfLines = 0;
+    placeHolderLabel.textColor = [UIColor lightGrayColor];
+    [placeHolderLabel sizeToFit];
+    [textView addSubview:placeHolderLabel];
+    [textView setValue:placeHolderLabel forKey:@"_placeholderLabel"];
     
     
-    UICollectionView *albumCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT - 64) collectionViewLayout:albumFlowLayout];
-    albumCollectionView.backgroundColor = [UIColor whiteColor];
-    albumCollectionView.delegate = self;
-    albumCollectionView.dataSource = self;
-    [self.view addSubview:albumCollectionView];
+    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0, textView.height + textView.y + 20, SCREEN_WIDTH, SCREEN_HEIGHT * 0.05)];
+    textField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    textField.layer.borderWidth = 1;
+    textField.font = [UIFont systemFontOfSize:15];
+    textField.placeholder = @" 请留下您的手机号/邮箱/QQ号, 方便我们与您联系";
     
-    // 注册
-    [albumCollectionView registerClass:[ElAlbumCollectionViewCell class] forCellWithReuseIdentifier:albumCell];
+    [self.view addSubview:textField];
     
-    [albumCollectionView registerClass:[UICollectionViewCell class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:header];
+    UIButton *submitButton = [[UIButton alloc] initWithFrame:CGRectMake(0, textField.y + textField.height + 30, SCREEN_WIDTH * 0.8, textField.height)];
+    submitButton.backgroundColor = [UIColor colorWithRed:0.9843 green:0.4196 blue:0.0 alpha:1.0];
+    submitButton.centerX = self.view.centerX;
+    submitButton.layer.cornerRadius = textField.height / 2;
+    [submitButton setTitle:@"提交" forState:UIControlStateNormal];
+    [self.view addSubview:submitButton];
     
-}
-
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    
-    NSArray *timeArray = @[@"2016年10月19日", @"2016年10月20日", @"2016年10月21日"];
-
-    UICollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:header forIndexPath:indexPath];
-    
-    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.03, SCREEN_WIDTH * 0.05, SCREEN_WIDTH, SCREEN_WIDTH * 0.06)];
-    headerLabel.text = timeArray[indexPath.section];
-    [headerView addSubview:headerLabel];
-    
-    return headerView;
-
-}
-
-#pragma mark - 返回按钮点击事件
-- (void)buttonAction {
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-}
-
-#pragma mark - collectionView协议方
-// 设置区
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    
-    return 3;
-}
-
-// 返回item个数
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-
-    if (0 == section) {
-        return 3;
-    } else if (1 == section) {
-    
-        return 9;
-        
+    [submitButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
+    if (textView.text.length > 0 && textField.text.length > 0 ) {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提交成功" message:@"我们已经收到了,您的意见." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                [self dismissViewControllerAnimated:YES completion:^{
+                }];
+                [self.navigationController popViewControllerAnimated:YES];
+            }];
+            [alertController addAction:cancelAction];
+            [self presentViewController:alertController animated:YES completion:nil];
+    } else {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"请填写您的意见或联系方式" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [self dismissViewControllerAnimated:YES completion:^{
+            }];
+        }];
+        [alertController addAction:cancelAction];
+        [self presentViewController:alertController animated:YES completion:nil];
     }
-    return 5;
+    }];
+   
 }
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-
-    ElAlbumCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:albumCell forIndexPath:indexPath];
+- (void)textViewDidChange:(UITextView *)textView {
     
-    return cell;
-
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    paragraphStyle.lineSpacing = 5;    //行间距
+    paragraphStyle.maximumLineHeight = 20;   /**最大行高*/
+    paragraphStyle.firstLineHeadIndent = 15.f;    /**首行缩进宽度*/
+    paragraphStyle.alignment = NSTextAlignmentJustified;
+    NSDictionary *attributes = @{
+                                 NSFontAttributeName:[UIFont systemFontOfSize:16],
+                                 NSParagraphStyleAttributeName:paragraphStyle
+                                 };
+    textView.attributedText = [[NSAttributedString alloc] initWithString:textView.text attributes:attributes];
 }
 
 

@@ -59,7 +59,7 @@ UIImagePickerControllerDelegate
     
     UINib *cellNib = [UINib nibWithNibName:@"ElPersonTableViewCell" bundle:nil];
     UINib *charmNib = [UINib nibWithNibName:@"ElPersonCharmTableViewCell" bundle:nil];
-    self.titleArray = @[@[@"魅力值", @"收到的礼物", @"送出的礼物"], @[@"相册", @"直播间管理"], @[@"设置"]];
+    self.titleArray = @[@[@"魅力值", @"修改昵称", @"修改密码"], @[@"意见反馈"], @[@"设置"]];
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 44) style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -217,7 +217,7 @@ UIImagePickerControllerDelegate
     }else if (1 == indexPath.section) {
         if (0 == indexPath.row) {
             ElAlbumViewController *albumViewController = [[ElAlbumViewController alloc] init];
-            [self presentViewController:albumViewController animated:YES completion:nil];
+            [self.navigationController pushViewController:albumViewController animated:YES];
         }else {
             ElManageViewController *manageViewController = [[ElManageViewController alloc] init];
             [self presentViewController:manageViewController animated:YES completion:nil];
