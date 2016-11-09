@@ -59,6 +59,11 @@
     }
 }
 
+- (void)setView_count:(NSInteger)view_count {
+    if (_view_count != view_count) {
+        _view_count = view_count;
+    }
+}
 
 
 @end
