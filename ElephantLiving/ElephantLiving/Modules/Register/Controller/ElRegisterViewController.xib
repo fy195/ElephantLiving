@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
@@ -166,6 +166,17 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5xG-wx-AxU">
+                    <rect key="frame" x="151" y="440" width="203" height="30"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <state key="normal" title="注册即表示用户同意  隐私政策">
+                        <color key="titleColor" red="0.99215686274509807" green="0.68235294117647061" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="agreementButton:" destination="-1" eventType="touchUpInside" id="HrC-dL-J2H"/>
+                    </connections>
+                </button>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -182,9 +193,11 @@
                 <constraint firstItem="w3y-u5-DD0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="60" id="I3g-gq-cgQ"/>
                 <constraint firstAttribute="trailing" secondItem="G9n-q6-U68" secondAttribute="trailing" constant="60" id="IPQ-ih-42P"/>
                 <constraint firstItem="t2k-qm-OkC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="LXV-r3-hMn"/>
+                <constraint firstItem="5xG-wx-AxU" firstAttribute="trailing" secondItem="WMF-py-rMm" secondAttribute="trailing" id="LuQ-8q-Gfl"/>
                 <constraint firstItem="OCS-JY-flF" firstAttribute="top" secondItem="RwP-IE-qWj" secondAttribute="bottom" constant="5" id="O8f-pI-65A"/>
                 <constraint firstItem="lUu-Uh-aDT" firstAttribute="top" secondItem="fIw-51-UP8" secondAttribute="bottom" constant="10" id="PBv-WY-C1b"/>
                 <constraint firstItem="RwP-IE-qWj" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="PE6-hU-YPV"/>
+                <constraint firstItem="5xG-wx-AxU" firstAttribute="top" secondItem="WMF-py-rMm" secondAttribute="bottom" constant="5" id="ROM-H9-AtQ"/>
                 <constraint firstItem="lUu-Uh-aDT" firstAttribute="top" secondItem="G9n-q6-U68" secondAttribute="bottom" id="S3z-kd-hip"/>
                 <constraint firstItem="fIw-51-UP8" firstAttribute="top" secondItem="OCS-JY-flF" secondAttribute="bottom" constant="10" id="T7S-j3-RTR"/>
                 <constraint firstAttribute="trailing" secondItem="U12-Mg-TnP" secondAttribute="trailing" constant="60" id="TGu-mz-3ty"/>

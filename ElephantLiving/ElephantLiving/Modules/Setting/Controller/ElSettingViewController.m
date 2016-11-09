@@ -21,10 +21,6 @@
     
     self.view.backgroundColor = [UIColor colorWithRed:0.9255 green:0.9255 blue:0.9373 alpha:1.0];
     
-    UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0,0, SCREEN_WIDTH, 20)];
-    topView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:topView];
-    
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 64)];
     titleLabel.text = @"设置";
     titleLabel.textAlignment = NSTextAlignmentCenter;
