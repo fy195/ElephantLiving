@@ -129,7 +129,7 @@ ElUserBriefViewDelegate
 
 - (void)report {
     ElReportViewController *reportViewController = [[ElReportViewController alloc] init];
-    [self.navigationController pushViewController:reportViewController animated:YES];
+    [self presentViewController:reportViewController animated:YES completion:nil];
 }
 
 - (void)follow:(BOOL)isFollow {
