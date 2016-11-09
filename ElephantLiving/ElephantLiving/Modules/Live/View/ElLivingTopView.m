@@ -7,6 +7,7 @@
 //
 
 #import "ElLivingTopView.h"
+#import "UIImageView+WebCache.h"
 
 @interface ElLivingTopView ()
 @property (weak, nonatomic) IBOutlet UIView *backView;
@@ -35,18 +36,18 @@
     [self.delegate presentBriefView];
 }
 
-- (void)setHeaderImage:(UIImage *)headerImage {
+- (void)setHeaderImage:(NSString *)headerImage {
     if (_headerImage != headerImage) {
         _headerImage = headerImage;
     }
-    _headerImageView.image = headerImage;
+    [_headerImageView sd_setImageWithURL:[NSURL URLWithString:headerImage]];
 }
 
-- (void)setWatchCount:(NSNumber *)watchCount {
+- (void)setWatchCount:(NSInteger )watchCount {
     if (_watchCount != watchCount) {
         _watchCount = watchCount;
     }
-    _watchCountLabel.text = [NSString stringWithFormat:@"%@人在观看", watchCount];
+    _watchCountLabel.text = [NSString stringWithFormat:@"%ld人在观看", watchCount];
 }
 
 /*

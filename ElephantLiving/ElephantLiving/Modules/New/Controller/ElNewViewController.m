@@ -85,6 +85,14 @@ UICollectionViewDataSource
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     ElLiveRoom *liveRoom = _liveRoomArray[indexPath.item];
+    /**
+     *  观看人数
+     */
+    liveRoom.view_count = 0;
+    [liveRoom incrementKey:@"view_count"];
+    // 保存时自动取回云端最新数据
+    liveRoom.fetchWhenSave = true;
+    [liveRoom saveInBackground];
     [self.delegate presentWatchControllerWithElLiveRoom:liveRoom];
 }
 

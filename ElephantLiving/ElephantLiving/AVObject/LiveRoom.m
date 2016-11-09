@@ -17,13 +17,6 @@
     }
 }
 
-- (void)setView_count:(NSNumber *)view_count {
-    if (_view_count != view_count) {
-        _view_count = view_count;
-        [self setObject:_view_count forKey:@"view_count"];
-    }
-}
-
 - (void)setLiveRoom_title:(NSString *)liveRoom_title {
     if (_liveRoom_title != liveRoom_title) {
         _liveRoom_title = liveRoom_title;

@@ -57,7 +57,7 @@ UITableViewDelegate
     [super viewDidLoad];
     
     UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:SCREEN_RECT];
-    backgroundImageView.image = [UIImage imageNamed:@"啊啊啊啊啊.jpeg"];
+    backgroundImageView.image = [UIImage imageNamed:@"景3.jpg"];
     [self.view addSubview:backgroundImageView];
     
     [self createTableView];
