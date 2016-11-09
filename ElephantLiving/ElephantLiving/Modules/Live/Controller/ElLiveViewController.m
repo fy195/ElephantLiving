@@ -670,17 +670,18 @@ ElUserBriefViewDelegate
         msg.senderName = msg.senderChatID;
     
         // 礼物模型
-        GiftModel *giftModel = [[GiftModel alloc] init];
-        giftModel.headImage = [UIImage imageNamed:@"FF885B69C30A56A3D0296F10CFF6D1D8"];
-        giftModel.name = msg.senderName;
-        giftModel.giftImage = [UIImage imageNamed:@"gift_flower"];
-        giftModel.giftName = msg.text;
-        giftModel.giftCount = 1;
+        GiftModel *firstGiftModel = [[GiftModel alloc] init];
+        firstGiftModel.headImage = [UIImage imageNamed:@"FF885B69C30A56A3D0296F10CFF6D1D8"];
+        firstGiftModel.name = msg.senderName;
+        firstGiftModel.giftImage = [UIImage imageNamed:@"gift_flower"];
+        firstGiftModel.giftName = msg.text;
+        firstGiftModel.giftCount = 1;
+        [self.animationImageViews addObject:firstGiftModel];
         
         AnimOperationManager *manager = [AnimOperationManager sharedManager];
         manager.parentView = self.view;
         // 用用户唯一标识 msg.senderChatID 存礼物信息,model 传入礼物模型
-        [manager animWithUserID:[NSString stringWithFormat:@"%@",msg.senderChatID] model:giftModel finishedBlock:^(BOOL result) {
+        [manager animWithUserID:[NSString stringWithFormat:@"%@",msg.senderChatID] model:firstGiftModel finishedBlock:^(BOOL result) {
         }];
     } else if (1 == itemCount) {
         // IM 消息

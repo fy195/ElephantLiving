@@ -19,6 +19,20 @@
 #import "ElUserBriefView.h"
 #import "UIImageView+WebCache.h"
 #import "ElReportViewController.h"
+#import "ElGiftView.h"
+#import "GSPChatMessage.h"
+#import "GiftModel.h"
+#import "AnimOperation.h"
+#import "AnimOperationManager.h"
+#import "ElHeartAnimationView.h"
+#import "ElCarAnimationView.h"
+#import "ElCarTwoAnimationView.h"
+#import "ElCarThreeAnimationView.h"
+#import "ElCarFourAnimationView.h"
+#import "ElDolphinAnimationView.h"
+#import "ElFireworksAnimationView.h"
+#import "ElHouseAniamtionView.h"
+#import "ElBaseGiftAnimationView.h"
 
 @interface ElWatchViewController ()
 <
@@ -27,8 +41,10 @@ UITableViewDataSource,
 UITextFieldDelegate,
 AVIMClientDelegate,
 ElUserBriefViewDelegate,
-ElLivingTopViewDelegate
+ElLivingTopViewDelegate,
+ElGiftViewDelegate
 >
+
 @property (nonatomic, strong) IJKFFMoviePlayerController *moviePlayer;
 @property (nonatomic, strong) UIButton *closeButton;
 @property (nonatomic, strong) UITableView *commentTableView;
@@ -39,6 +55,8 @@ ElLivingTopViewDelegate
 @property (nonatomic, strong) UIView *keyboardView;
 @property (nonatomic, strong) UIButton *keyboardButton;
 @property (nonatomic, strong) ElUserBriefView *userBriefView;
+@property (nonatomic, strong) ElGiftView *giftView;
+@property (nonatomic, strong) NSMutableArray *animationImageViews;
 
 @end
 
@@ -49,6 +67,13 @@ ElLivingTopViewDelegate
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:IJKMPMoviePlayerPlaybackDidFinishNotification object:self.moviePlayer];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:IJKMPMoviePlayerLoadStateDidChangeNotification object:self.moviePlayer];
+}
+
+- (NSMutableArray *)animationImageViews {
+    if (nil == _animationImageViews) {
+        _animationImageViews = [NSMutableArray array];
+    }
+    return _animationImageViews;
 }
 
 - (void)viewDidLoad {
@@ -141,6 +166,11 @@ ElLivingTopViewDelegate
     [_moviePlayer.view addSubview:bottomToolView];
     [_moviePlayer.view bringSubviewToFront:bottomToolView];
     [bottomToolView.commentButton addTarget:self action:@selector(commentButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [bottomToolView.giftButton addTarget:self action:@selector(giftButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    self.giftView = [[ElGiftView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4)];
+    [self.view addSubview:_giftView];
+    _giftView.delegate = self;
+
     
     self.closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
     _closeButton.frame = CGRectMake(SCREEN_WIDTH - 22 - 30, SCREEN_HEIGHT - 20 - 30, 30, 30);
@@ -446,6 +476,149 @@ ElLivingTopViewDelegate
             [_userBriefView.followButton setTitle:@"+ 关注" forState:UIControlStateNormal];
             _userBriefView.isFollow = NO;
     }
+}
+
+// 礼物
+- (void)giftButtonAction:(UIButton *)giftButton {
+    [UIView animateWithDuration:0.5 animations:^{
+        _giftView.frame = CGRectMake(0, SCREEN_HEIGHT * 0.6, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4);
+    }];
+    [self.view bringSubviewToFront:_giftView];
+    _giftView.userInteractionEnabled = YES;
+}
+
+- (void)animationWithItemCount:(NSInteger)itemCount {
+    
+    if (0 == itemCount) {
+        // IM 消息
+        GSPChatMessage *msg = [[GSPChatMessage alloc] init];
+        msg.text = @"1个【玫瑰花】";
+        msg.senderChatID = @"亮锅";
+        msg.senderName = msg.senderChatID;
+        
+        // 礼物模型
+        GiftModel *giftModel = [[GiftModel alloc] init];
+        giftModel.headImage = [UIImage imageNamed:@"FF885B69C30A56A3D0296F10CFF6D1D8"];
+        giftModel.name = msg.senderName;
+        giftModel.giftImage = [UIImage imageNamed:@"gift_flower"];
+        giftModel.giftName = msg.text;
+        giftModel.giftCount = 1;
+        
+        AnimOperationManager *manager = [AnimOperationManager sharedManager];
+        manager.parentView = self.view;
+        // 用用户唯一标识 msg.senderChatID 存礼物信息,model 传入礼物模型
+        [manager animWithUserID:[NSString stringWithFormat:@"%@",msg.senderChatID] model:giftModel finishedBlock:^(BOOL result) {
+        }];
+    } else if (1 == itemCount) {
+        // IM 消息
+        GSPChatMessage *msg = [[GSPChatMessage alloc] init];
+        msg.text = @"1个【樱花】";
+        msg.senderChatID = @"班长";
+        msg.senderName = msg.senderChatID;
+        
+        // 礼物模型
+        GiftModel *giftModel = [[GiftModel alloc] init];
+        giftModel.headImage = [UIImage imageNamed:@"CFE1DC2535199A7B6437D2805419BF23"];
+        giftModel.name = msg.senderName;
+        giftModel.giftImage = [UIImage imageNamed:@"flower"];
+        giftModel.giftName = msg.text;
+        giftModel.giftCount = 1;
+        
+        AnimOperationManager *manager = [AnimOperationManager sharedManager];
+        manager.parentView = self.view;
+        // 用用户唯一标识 msg.senderChatID 存礼物信息,model 传入礼物模型
+        [manager animWithUserID:[NSString stringWithFormat:@"%@",msg.senderChatID] model:giftModel finishedBlock:^(BOOL result) {
+            
+        }];
+    } else if (2 == itemCount) {
+        // IM 消息
+        GSPChatMessage *msg = [[GSPChatMessage alloc] init];
+        msg.text = @"1个【钻石】";
+        msg.senderChatID = @"亮锅";
+        msg.senderName = msg.senderChatID;
+        
+        // 礼物模型
+        GiftModel *giftModel = [[GiftModel alloc] init];
+        giftModel.headImage = [UIImage imageNamed:@"FF885B69C30A56A3D0296F10CFF6D1D8"];
+        giftModel.name = msg.senderName;
+        giftModel.giftImage = [UIImage imageNamed:@"living_money_icon21"];
+        giftModel.giftName = msg.text;
+        giftModel.giftCount = 1;
+        
+        AnimOperationManager *manager = [AnimOperationManager sharedManager];
+        manager.parentView = self.view;
+        // 用用户唯一标识 msg.senderChatID 存礼物信息,model 传入礼物模型
+        [manager animWithUserID:[NSString stringWithFormat:@"%@",msg.senderChatID] model:giftModel finishedBlock:^(BOOL result) {
+            
+        }];
+    } else if (3 == itemCount) {
+        
+        ElCarTwoAnimationView *carImageView2 = [[ElCarTwoAnimationView alloc] initWithFrame:CGRectMake(-100, 100, 100, 40)];
+        [self.view addSubview:carImageView2];
+        [self.animationImageViews addObject:carImageView2];
+        [self playGiftAnimation];
+        
+        
+    } else if (4 == itemCount) {
+        ElCarThreeAnimationView *carImageView3 = [[ElCarThreeAnimationView alloc] initWithFrame:CGRectMake(self.view.frame.size.width, 100, 100, 40)];
+        [self.view addSubview:carImageView3];
+        [self.animationImageViews addObject:carImageView3];
+        [self playGiftAnimation];
+        
+    } else if (5 == itemCount) {
+        ElCarFourAnimationView *carImageView4 = [[ElCarFourAnimationView alloc] initWithFrame:CGRectMake(-100, 200, 120, 40)];
+        [self.view addSubview:carImageView4];
+        [self.animationImageViews addObject:carImageView4];
+        [self playGiftAnimation];
+        
+    } else if (6 == itemCount) {
+        ElDolphinAnimationView *imageView = [[ElDolphinAnimationView alloc] initWithFrame:CGRectMake(100, SCREEN_HEIGHT * 0.6 - 200, 200, 200)];
+        [self.view addSubview:imageView];
+        [self.animationImageViews addObject:imageView];
+        [self playGiftAnimation];
+        
+    } else if (7 == itemCount) {
+        ElFireworksAnimationView *imageView = [[ElFireworksAnimationView alloc] initWithFrame:SCREEN_RECT];
+        [self.view addSubview:imageView];
+        [self.animationImageViews addObject:imageView];
+        [self playGiftAnimation];
+        
+        
+    } else if (8 == itemCount) {
+        
+        ElHeartAnimationView *heartImageView = [[ElHeartAnimationView alloc] initWithFrame:CGRectMake(100, 200, 200, 200)];
+        [self.view addSubview:heartImageView];
+        [self.animationImageViews addObject:heartImageView];
+        [self playGiftAnimation];
+        
+    }  else if (9 == itemCount) {
+        
+        ElCarAnimationView *carImageView2 = [[ElCarAnimationView alloc] initWithFrame:CGRectMake(-100, 100, 100, 40)];
+        [self.view addSubview:carImageView2];
+        [self.animationImageViews addObject:carImageView2];
+        [self playGiftAnimation];
+        
+    } else if (10 == itemCount) {
+        ElHouseAniamtionView *imageView = [[ElHouseAniamtionView alloc] initWithFrame:CGRectMake(100, 250, self.view.frame.size.width - 200, 200)];
+        [self.view addSubview:imageView];
+        [self.animationImageViews addObject:imageView];
+        [self playGiftAnimation];
+    }
+}
+
+- (void)playGiftAnimation {
+    
+    if (self.animationImageViews.count > 0) {
+        ElBaseGiftAnimationView *giftImageView = [self.animationImageViews firstObject];
+        if (!giftImageView.isGiftAnimating) {
+            [giftImageView animationComplete:^(UIImageView *currentView) {
+                [self.animationImageViews removeObjectAtIndex:0];
+                [currentView removeFromSuperview];
+                [self playGiftAnimation];
+            }];
+        }
+    }
+    
 }
 
 
