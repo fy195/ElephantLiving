@@ -40,7 +40,6 @@ UICollectionViewDataSource
             if (_liveRoomArray.count > 0) {
                 [_liveRoomArray removeAllObjects];
             }
-            
             [_liveRoomArray addObjectsFromArray:objects];
             [_collectionView reloadData];
         }
@@ -62,7 +61,7 @@ UICollectionViewDataSource
     
     
     _collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [_collectionView reloadData];
+        [self searchLiving];
         [_collectionView.mj_header endRefreshing];
     }];
     _collectionView.mj_header.automaticallyChangeAlpha = YES;

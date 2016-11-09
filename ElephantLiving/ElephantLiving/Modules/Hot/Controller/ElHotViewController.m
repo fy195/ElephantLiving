@@ -15,6 +15,7 @@
 #import "AVIMClient.h"
 #import "LiveRoom.h"
 #import "AVObject+ElClassMap.h"
+#import "MJRefresh.h"
 
 static NSString *const identifier = @"cell";
 static NSString *const carousel = @"carousel";
@@ -38,6 +39,8 @@ UITableViewDelegate
     self.navigationController.navigationBarHidden = NO;
     [self deleteElLiveRoom];
     [self getOtherLiveRoomInfo];
+    
+    
 }
 
 - (void)getElLiveRoomInfo{
@@ -135,6 +138,17 @@ UITableViewDelegate
     _tableView.dataSource = self;
     _tableView.rowHeight = 420;
     [self.view addSubview:_tableView];
+    
+    
+    
+    _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self deleteElLiveRoom];
+        [self getOtherLiveRoomInfo];
+        [_tableView.mj_header endRefreshing];
+    }];
+    _tableView.mj_header.automaticallyChangeAlpha = YES;
+
+    
     
     self.carouselView = [[ElHotCarouselView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 150)];
     _carouselView.imageArray = @[@"轮播1", @"轮播2", @"轮播3", @"轮播4", @"轮播5"];
