@@ -38,7 +38,7 @@
 /**
  *  观看人数
  */
-@property (nonatomic, strong) NSNumber *view_count;
+@property (nonatomic, assign) NSInteger view_count;
 /**
  *  直播间标题
  */

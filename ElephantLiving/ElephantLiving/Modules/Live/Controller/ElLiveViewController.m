@@ -75,6 +75,7 @@ ElUserBriefViewDelegate
 @property (nonatomic, strong) ElGiftView *giftView;
 @property (nonatomic, strong) NSMutableArray *animationImageViews;
 @property (nonatomic, strong) ElUserBriefView *userBriefView;
+@property (nonatomic, strong) _User *liveUser;
 
 @end
 
@@ -269,6 +270,7 @@ ElUserBriefViewDelegate
         [_liveSession stopPreview];
         _endView.hidden = NO;
         _endView.time = _timeString;
+        _endView.view_count = _topToolView.watchCount;
         [self hiddenToolView:YES];
         [self dismissViewControllerAnimated:YES completion:nil];
     }];
@@ -455,6 +457,9 @@ ElUserBriefViewDelegate
 
 - (void) timerAction {
     _timeNumber++;
+    [_liveRoom fetchInBackgroundWithBlock:^(AVObject * _Nullable object, NSError * _Nullable error) {
+        _topToolView.watchCount = _liveRoom.view_count;
+    }];
 }
 
 //  直播时长
@@ -497,21 +502,17 @@ ElUserBriefViewDelegate
     _liveRoom.headerImage = currentUser.headImage;
     _liveRoom.coverImage = currentUser.headImage;
     /**
-     *  观看人数
-     */
-    _liveRoom.view_count = @0;
-    /**
      *  直播间标题
      */
     _liveRoom.liveRoom_title = _startView.nameTextField.text;
     
-    _userBriefView.name = _liveRoom.host_name;
-    _userBriefView.level = _liveRoom.level;
-    _userBriefView.image = _liveRoom.headerImage;
-    
     [_liveRoom saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         NSLog(@"保存成功");
     }];
+    _topToolView.headerImage = _liveRoom.headerImage;
+    _userBriefView.name = _liveRoom.host_name;
+    _userBriefView.level = _liveRoom.level;
+    _userBriefView.image = _liveRoom.headerImage;
 }
 
 // 创建聊天室
@@ -797,7 +798,50 @@ ElUserBriefViewDelegate
 
 }
 
-- (void)follow:(BOOL)isFollow {}
+- (void)follow:(BOOL)isFollow {
+    _User *currentUser = [_User currentUser];
+    if (!isFollow) {
+        [currentUser follow:_liveUser.objectId andCallback:^(BOOL succeeded, NSError * _Nullable error) {
+            if (succeeded) {
+                currentUser.follow_count = [NSNumber numberWithInteger:[currentUser.follow_count integerValue]+ 1];
+                currentUser.fetchWhenSave = true;
+                [currentUser saveInBackground];
+                _liveUser.follower_count = [NSNumber numberWithInteger:[_liveUser.follower_count integerValue] + 1];
+                _liveUser.fetchWhenSave = true;
+                [_liveUser saveInBackground];
+                [_userBriefView.followButton setTitle:@"已关注" forState:UIControlStateNormal];
+                _userBriefView.isFollow = YES;
+            }else {
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }];
+                [alertController addAction:cancelAction];
+                [self presentViewController:alertController animated:YES completion:nil];
+            }
+        }];
+    }else {
+        [currentUser unfollow:_liveUser.objectId andCallback:^(BOOL succeeded, NSError * _Nullable error) {
+            if (succeeded) {
+                currentUser.follow_count = [NSNumber numberWithInteger:[currentUser.follow_count integerValue]- 1];
+                currentUser.fetchWhenSave = true;
+                [currentUser saveInBackground];
+                _liveUser.follower_count = [NSNumber numberWithInteger:[currentUser.follower_count integerValue] - 1];
+                _liveUser.fetchWhenSave = true;
+                [_liveUser saveInBackground];
+                [_userBriefView.followButton setTitle:@"+ 关注" forState:UIControlStateNormal];
+                _userBriefView.isFollow = NO;
+            }else {
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }];
+                [alertController addAction:cancelAction];
+                [self presentViewController:alertController animated:YES completion:nil];
+            }
+        }];
+    }
+}
 
 - (void)report {
     ElReportViewController *reportViewController = [[ElReportViewController alloc] init];
@@ -808,6 +852,21 @@ ElUserBriefViewDelegate
     [UIView animateWithDuration:0.5 delay:0.0f usingSpringWithDamping:0.7 initialSpringVelocity:-3 options:UIViewAnimationOptionCurveEaseIn animations:^{
         _userBriefView.frame = CGRectMake(SCREEN_WIDTH * 0.15, SCREEN_HEIGHT * 0.25, SCREEN_WIDTH * 0.7, SCREEN_HEIGHT * 0.45);
     } completion:nil];
+    _User *currentUser = [_User currentUser];
+    AVQuery *query = [AVQuery queryWithClassName:@"_User"];
+    [query getObjectInBackgroundWithId:_liveRoom.userObjectId block:^(AVObject * _Nullable object, NSError * _Nullable error) {
+        self.liveUser = (_User *)object;
+    }];
+    [_liveUser getFollowers:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        for (_User *user in objects) {
+            if ([currentUser.objectId isEqualToString: user.objectId]) {
+                [_userBriefView.followButton setTitle:@"已关注" forState:UIControlStateNormal];
+                _userBriefView.isFollow = YES;
+            }else {
+                _userBriefView.isFollow = NO;
+            }
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

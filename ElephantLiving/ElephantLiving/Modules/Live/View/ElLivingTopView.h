@@ -16,9 +16,9 @@
 
 @interface ElLivingTopView : UIView
 
-@property (nonatomic, strong) UIImage *headerImage;
+@property (nonatomic, strong) NSString *headerImage;
 
-@property (nonatomic, strong) NSNumber *watchCount;
+@property (nonatomic, assign) NSInteger watchCount;
 
 @property (nonatomic, assign) id<ElLivingTopViewDelegate>delegate;
 

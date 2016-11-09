@@ -13,7 +13,7 @@
 @property (nonatomic, strong) UIImage *iconImage;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSNumber *level;
-@property (nonatomic, strong) NSNumber *viewCount;
+@property (nonatomic, assign) NSInteger viewCount;
 @property (nonatomic, strong) UIImage *coverImage;
 
 @end
