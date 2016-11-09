@@ -72,6 +72,7 @@ UITableViewDelegate
 
 - (void)getUserInfo {
     AVQuery *query = [AVQuery queryWithClassName:@"_User"];
+//    query.cachePolicy = 3;
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         if (error) {
             NSLog(@"%@",error);

@@ -233,7 +233,7 @@ ElUserBriefViewDelegate
             [_commentTableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
             ElCommentTableViewCell *cell = [_commentTableView cellForRowAtIndexPath:indexPath];
             _commentTableView.rowHeight = cell.height;
-            [_commentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
+            [_commentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:NO];
         }
     }];
 }

@@ -116,8 +116,8 @@
     
     [self.view addSubview:cacheButton];
     [cacheButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
-        NSLog(@"清除缓存");
-        [AVFile clearAllCachedFiles];
+//        NSLog(@"清除缓存");
+//        [AVFile clearAllCachedFiles];
     }];
     
    

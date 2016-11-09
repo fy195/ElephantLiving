@@ -33,14 +33,6 @@ UITableViewDelegate
 
 @implementation ElHotViewController
 
-
-
-//- (void)viewWillAppear:(BOOL)animated {
-//    self.navigationController.navigationBarHidden = NO;
-//    [self deleteElLiveRoom];
-//    [self getOtherLiveRoomInfo];
-//}
-
 - (void)getElLiveRoomInfo{
     AVQuery *query = [AVQuery queryWithClassName:@"LiveRoom"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
@@ -77,7 +69,6 @@ UITableViewDelegate
                 for (NSDictionary *dic in listArray) {
                     ElOtherLiveModel *model = [[ElOtherLiveModel alloc] initWithDic:dic];
                     [self saveElLiveInfo:model array:_otherLiveArray];
-
                 }
             }
         });
@@ -113,14 +104,8 @@ UITableViewDelegate
      */
     _liveRoom.level = model.starlevel;
     
-        [_liveRoom saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-            if (succeeded) {
-                NSLog(@"直播间信息保存成功");
-            } else {
-                NSLog(@"创建直播对象出错 %@", error);
-            }
-        }];
-        [self getElLiveRoomInfo];
+    [_liveRoom saveInBackground];
+    [self getElLiveRoomInfo];
 }
 
 - (void)viewDidLoad {
