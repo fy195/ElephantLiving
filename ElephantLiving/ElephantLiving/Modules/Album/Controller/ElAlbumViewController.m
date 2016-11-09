@@ -48,7 +48,7 @@ UITextViewDelegate
         [self.navigationController popViewControllerAnimated:YES];
     }];
 
-    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.02, titleLabel.height + SCREEN_WIDTH * 0.02 + 20, SCREEN_WIDTH * 0.96, SCREEN_HEIGHT * 0.24)];
+    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.03, titleLabel.height + SCREEN_WIDTH * 0.02 + 20, SCREEN_WIDTH * 0.94, SCREEN_HEIGHT * 0.24)];
     [textView becomeFirstResponder];
     textView.delegate = self;
     textView.font = [UIFont systemFontOfSize:15];
@@ -67,7 +67,7 @@ UITextViewDelegate
     [textView setValue:placeHolderLabel forKey:@"_placeholderLabel"];
     
     
-    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0, textView.height + textView.y + 20, SCREEN_WIDTH, SCREEN_HEIGHT * 0.05)];
+    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.03, textView.height + textView.y + 20, SCREEN_WIDTH * 0.94, SCREEN_HEIGHT * 0.05)];
     textField.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     textField.layer.borderWidth = 1;
     textField.font = [UIFont systemFontOfSize:15];
@@ -75,10 +75,10 @@ UITextViewDelegate
     
     [self.view addSubview:textField];
     
-    UIButton *submitButton = [[UIButton alloc] initWithFrame:CGRectMake(0, textField.y + textField.height + 30, SCREEN_WIDTH * 0.8, textField.height)];
+    UIButton *submitButton = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.03, textField.y + textField.height + 30, SCREEN_WIDTH * 0.94, SCREEN_HEIGHT * 0.06)];
     submitButton.backgroundColor = [UIColor colorWithRed:0.9843 green:0.4196 blue:0.0 alpha:1.0];
     submitButton.centerX = self.view.centerX;
-    submitButton.layer.cornerRadius = textField.height / 2;
+    submitButton.layer.cornerRadius = SCREEN_HEIGHT * 0.06 / 2;
     [submitButton setTitle:@"提交" forState:UIControlStateNormal];
     [self.view addSubview:submitButton];
     
