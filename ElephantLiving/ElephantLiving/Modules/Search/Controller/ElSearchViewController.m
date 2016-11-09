@@ -15,6 +15,7 @@
 #import "ElSearchTableViewCell.h"
 #import "_User.h"
 #import "ElUserBriefView.h"
+#import "ElReportViewController.h"
 
 static NSString *const searchCell = @"searchCell";
 @interface ElSearchViewController ()
@@ -43,7 +44,7 @@ ElUserBriefViewDelegate
     [self.view addSubview:backView];
     
     self.resultArray = [NSMutableArray array];
-    self.searchTextField = [[UITextField alloc] initWithFrame:CGRectMake(5, 30, SCREEN_WIDTH * 0.8, 34)];
+    self.searchTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, 30, SCREEN_WIDTH * 0.8, 34)];
     _searchTextField.textColor = [UIColor whiteColor];
     _searchTextField.backgroundColor = [UIColor clearColor];
     _searchTextField.layer.borderColor = [[UIColor colorWithRed:0.9843 green:0.4196 blue:0.0 alpha:1.0] CGColor];
@@ -62,7 +63,7 @@ ElUserBriefViewDelegate
     
     UIButton *returnButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [returnButton setTitle:@"取消" forState:UIControlStateNormal];
-    returnButton.frame = CGRectMake(_searchTextField.width + 5, _searchTextField.y  , SCREEN_WIDTH * 0.2 - 15, _searchTextField.height);
+    returnButton.frame = CGRectMake(_searchTextField.x + _searchTextField.width , _searchTextField.y  , SCREEN_WIDTH * 0.2 - 15, _searchTextField.height);
     returnButton.centerY = _searchTextField.centerY;
     [returnButton setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
     [self.view addSubview:returnButton];
@@ -126,7 +127,10 @@ ElUserBriefViewDelegate
     }];
 }
 
-- (void)report {}
+- (void)report {
+    ElReportViewController *reportViewController = [[ElReportViewController alloc] init];
+    [self.navigationController pushViewController:reportViewController animated:YES];
+}
 
 - (void)follow:(BOOL)isFollow {
     _User *currentUser = [_User currentUser];

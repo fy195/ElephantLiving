@@ -39,9 +39,7 @@ UITableViewDelegate
     backgroundImageView.image = [UIImage imageNamed:@"啊啊啊啊啊.jpeg"];
     [self.view addSubview:backgroundImageView];
     
-    
     [self getUserInfo];
-
     
 }
 

@@ -34,6 +34,7 @@
 #import "ElHouseAniamtionView.h"
 #import "ElCommentTableViewCell.h"
 #import "ElUserBriefView.h"
+#import "ElReportViewController.h"
 
 
 @interface ElLiveViewController ()
@@ -795,7 +796,10 @@ ElUserBriefViewDelegate
 
 - (void)follow:(BOOL)isFollow {}
 
-- (void)report {}
+- (void)report {
+    ElReportViewController *reportViewController = [[ElReportViewController alloc] init];
+    [self.navigationController pushViewController:reportViewController animated:YES];
+}
 
 - (void)presentBriefView {
     [UIView animateWithDuration:0.5 delay:0.0f usingSpringWithDamping:0.7 initialSpringVelocity:-3 options:UIViewAnimationOptionCurveEaseIn animations:^{

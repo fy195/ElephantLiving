@@ -53,6 +53,8 @@
 		49CB8A0F1DCDD79C002CAA6A /* ElUserBriefView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CB8A0E1DCDD79C002CAA6A /* ElUserBriefView.xib */; };
 		49D1CA861DD17C260003211A /* ElSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D1CA841DD17C260003211A /* ElSearchTableViewCell.m */; };
 		49D1CA871DD17C260003211A /* ElSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49D1CA851DD17C260003211A /* ElSearchTableViewCell.xib */; };
+		49D1CAB31DD1F4110003211A /* ElReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49D1CAB11DD1F4100003211A /* ElReportViewController.m */; };
+		49D1CAB41DD1F4110003211A /* ElReportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49D1CAB21DD1F4100003211A /* ElReportViewController.xib */; };
 		49DEC8061DCC1B13003DD1FB /* ElCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DEC8041DCC1B13003DD1FB /* ElCommentTableViewCell.m */; };
 		49DF2C201DC2DA040096E935 /* ElLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49DF2C1E1DC2DA040096E935 /* ElLoginViewController.m */; };
 		49DF2C211DC2DA040096E935 /* ElLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49DF2C1F1DC2DA040096E935 /* ElLoginViewController.xib */; };
@@ -248,6 +250,9 @@
 		49D1CA831DD17C260003211A /* ElSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElSearchTableViewCell.h; sourceTree = "<group>"; };
 		49D1CA841DD17C260003211A /* ElSearchTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElSearchTableViewCell.m; sourceTree = "<group>"; };
 		49D1CA851DD17C260003211A /* ElSearchTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElSearchTableViewCell.xib; sourceTree = "<group>"; };
+		49D1CAB01DD1F4100003211A /* ElReportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElReportViewController.h; sourceTree = "<group>"; };
+		49D1CAB11DD1F4100003211A /* ElReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElReportViewController.m; sourceTree = "<group>"; };
+		49D1CAB21DD1F4100003211A /* ElReportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElReportViewController.xib; sourceTree = "<group>"; };
 		49DEC8031DCC1B13003DD1FB /* ElCommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElCommentTableViewCell.h; sourceTree = "<group>"; };
 		49DEC8041DCC1B13003DD1FB /* ElCommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElCommentTableViewCell.m; sourceTree = "<group>"; };
 		49DF2C1D1DC2DA040096E935 /* ElLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElLoginViewController.h; sourceTree = "<group>"; };
@@ -607,6 +612,24 @@
 			path = BriefView;
 			sourceTree = "<group>";
 		};
+		49D1CAAB1DD1EA8C0003211A /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				49D1CAAC1DD1EA960003211A /* Controller */,
+			);
+			path = Report;
+			sourceTree = "<group>";
+		};
+		49D1CAAC1DD1EA960003211A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				49D1CAB01DD1F4100003211A /* ElReportViewController.h */,
+				49D1CAB11DD1F4100003211A /* ElReportViewController.m */,
+				49D1CAB21DD1F4100003211A /* ElReportViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		49F2C9601DB9AF3E000589A7 /* Gift */ = {
 			isa = PBXGroup;
 			children = (
@@ -928,6 +951,7 @@
 				49FE39DF1DB79BCE00FD8A99 /* New */,
 				49FE39E41DB79BE900FD8A99 /* Person */,
 				49FE39FD1DB79CEE00FD8A99 /* Register */,
+				49D1CAAB1DD1EA8C0003211A /* Report */,
 				49FE39E91DB79C0400FD8A99 /* Search */,
 				49F2C96A1DB9AFE8000589A7 /* Setting */,
 				4916D8521DBEEEAF00FAFB68 /* Watch */,
@@ -1690,6 +1714,7 @@
 				499FBE321DB786CE0015CC1D /* LaunchScreen.storyboard in Resources */,
 				EB1DDAF31DCAE00E0095619C /* gift_heart_8.png in Resources */,
 				493907561DB8EEF000F06D40 /* ElNewCollectionViewCell.xib in Resources */,
+				49D1CAB41DD1F4110003211A /* ElReportViewController.xib in Resources */,
 				EB1DDAE71DCAE00E0095619C /* gift_heart_15.png in Resources */,
 				49DF2C2B1DC2E4990096E935 /* ElForgetPasswordViewController.xib in Resources */,
 				493DA3FD1DC217F90031C317 /* ElLeftToolView.xib in Resources */,
@@ -1865,6 +1890,7 @@
 				49EE14011DD0865800F88828 /* ElLiveRoom.m in Sources */,
 				49FE39C51DB79A4C00FD8A99 /* UIColor+Categories.m in Sources */,
 				493DA3FC1DC217F90031C317 /* ElLeftToolView.m in Sources */,
+				49D1CAB31DD1F4110003211A /* ElReportViewController.m in Sources */,
 				49FE39CB1DB79A4C00FD8A99 /* FileManagerUtils.m in Sources */,
 				4916D8561DBEF02700FAFB68 /* ElWatchViewController.m in Sources */,
 				EBCB053C1DCB4BE700BB2832 /* ElCarAnimationView.m in Sources */,

@@ -21,7 +21,7 @@
         _listLabel.textAlignment = NSTextAlignmentCenter;
         _listLabel.textColor = [UIColor colorWithRed:0.8706 green:0.3412 blue:0.4392 alpha:1.0];
         _listLabel.numberOfLines = 1;
-        [self.contentView addSubview:_listLabel];
+        [self addSubview:_listLabel];
         
         
         // 排名头像
@@ -29,7 +29,7 @@
         _headerImageView.layer.cornerRadius = SCREEN_WIDTH * 0.17 / 2;
         _headerImageView.clipsToBounds = YES;
         _headerImageView.image = [UIImage imageNamed:@"大象头像"];
-        [self.contentView addSubview:_headerImageView];
+        [self addSubview:_headerImageView];
         
         
         // 昵称
@@ -37,7 +37,7 @@
         _nikenameLabel.text = @"";
         _nikenameLabel.numberOfLines = 1;
         _nikenameLabel.textColor = [UIColor blackColor];
-        [self.contentView addSubview:_nikenameLabel];
+        [self addSubview:_nikenameLabel];
         
         
         // 魅力值
@@ -46,7 +46,7 @@
         _charmLabel.textAlignment = NSTextAlignmentRight;
         _charmLabel.numberOfLines = 1;
         _charmLabel.textColor = [UIColor colorWithRed:0.9843 green:0.4196 blue:0.0 alpha:1.0];
-        [self.contentView addSubview:_charmLabel];
+        [self addSubview:_charmLabel];
         
         
     }
@@ -91,11 +91,11 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    _listLabel.frame = CGRectMake(0, 0, self.width * 0.06, self.width * 0.1);
+    _listLabel.frame = CGRectMake(5, 0, self.width * 0.06, self.width * 0.1);
     _listLabel.center = CGPointMake(_listLabel.x + _listLabel.width * 2, self.height * 0.5);
     _headerImageView.frame = CGRectMake(_listLabel.x + _listLabel.width + 10, 0, self.width * 0.17, self.width * 0.17);
     _headerImageView.center = CGPointMake(_headerImageView.x + _headerImageView.width / 2, self.height * 0.5);
-    _nikenameLabel.frame = CGRectMake(_headerImageView.x + _headerImageView.width + 10, 0, self.width * 0.3, self.width * 0.08);
+    _nikenameLabel.frame = CGRectMake(_headerImageView.x + _headerImageView.width + 10, 0, self.width * 0.35, self.width * 0.08);
     _nikenameLabel.center = CGPointMake(_nikenameLabel.x + _nikenameLabel.width / 2, self.height * 0.5);
     _charmLabel.frame = CGRectMake(self.bounds.size.width - self.bounds.size.width * 0.2 - 10, 0, self.width * 0.2, self.width * 0.08);
     _charmLabel.center = CGPointMake(_charmLabel.x + _charmLabel.width / 2, self.height * 0.5);
