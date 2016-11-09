@@ -654,5 +654,12 @@ ElGiftViewDelegate
     
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        _giftView.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4);
+    }];
+    
+}
 
 @end

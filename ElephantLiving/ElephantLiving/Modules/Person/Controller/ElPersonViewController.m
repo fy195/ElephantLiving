@@ -49,18 +49,13 @@ UIImagePickerControllerDelegate
     
     [self getCurrentUserInfo];
     [self createTableView];
-  
-    
-
 }
 
 - (void)getCurrentUserInfo{
     self.currentUserInfo = [_User currentUser];
-    
 }
 
 - (void)createTableView {
-    
     
     UINib *cellNib = [UINib nibWithNibName:@"ElPersonTableViewCell" bundle:nil];
     UINib *charmNib = [UINib nibWithNibName:@"ElPersonCharmTableViewCell" bundle:nil];
@@ -71,6 +66,7 @@ UIImagePickerControllerDelegate
     _tableView.backgroundColor = [UIColor colorWithRed:0.97 green:0.97 blue:0.97 alpha:1.00];
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.rowHeight = 60;
+    _tableView.bounces = NO;
     [self.view addSubview:_tableView];
     
     [_tableView registerNib:cellNib forCellReuseIdentifier:person];

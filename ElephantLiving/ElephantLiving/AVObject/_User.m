@@ -51,10 +51,17 @@
     }
 }
 
+- (void)setLivingTime:(NSInteger)livingTime {
+    if (_livingTime != livingTime) {
+        _livingTime = livingTime;
+        [self setObject:[NSNumber numberWithInteger:livingTime] forKey:@"livingTime"];
+    }
+}
+
 - (void)setCharm:(NSInteger)charm {
     if (_charm != charm) {
         _charm = charm;
-    [self setObject:[NSNumber numberWithInteger:charm] forKey:@"charm"];
+        [self setObject:[NSNumber numberWithInteger:charm] forKey:@"charm"];
     }
 }
 

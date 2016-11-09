@@ -464,6 +464,11 @@ ElUserBriefViewDelegate
 
 //  直播时长
 - (void)timeEnd {
+    _User *user = [_User currentUser];
+    user.livingTime = user.livingTime + _timeNumber;
+    user.level = [NSNumber numberWithInteger:user.livingTime / 3600];
+    user.charm = [user.level integerValue] * [user.follower_count integerValue];
+    [user saveInBackground];
     [_myTimer invalidate];
     NSInteger tempHour = _timeNumber / 3600;
     NSInteger tempMinute = _timeNumber / 60 - (tempHour * 60);
@@ -517,7 +522,7 @@ ElUserBriefViewDelegate
 
 // 创建聊天室
 - (void)createChatRoom {
-    AVUser *user = [AVUser currentUser];
+    _User *user = [_User currentUser];
     self.client = [[AVIMClient alloc] initWithClientId:user.username];
     _client.delegate = self;
     [_client openWithCallback:^(BOOL succeeded, NSError * _Nullable error) {
@@ -868,6 +873,14 @@ ElUserBriefViewDelegate
             }
         }
     }];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+
+    [UIView animateWithDuration:0.5 animations:^{
+        _giftView.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4);
+    }];
+
 }
 
 - (void)didReceiveMemoryWarning {

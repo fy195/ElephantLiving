@@ -38,6 +38,10 @@
  *  收到礼物
  */
 @property (nonatomic, strong) NSNumber *receiveGift;
+/**
+ *  直播时长
+ */
+@property (nonatomic, assign) NSInteger livingTime;
 
 
 @end
