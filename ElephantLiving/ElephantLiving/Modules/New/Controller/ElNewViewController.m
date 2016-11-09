@@ -12,6 +12,7 @@
 #import "ElLiveRoom.h"
 #import "UIImageView+WebCache.h"
 #import "ElWatchViewController.h"
+#import "MJRefresh.h"
 
 static NSString *const elNewViewCell = @"elNewViewCell";
 @interface ElNewViewController ()
@@ -25,9 +26,6 @@ UICollectionViewDataSource
 
 @implementation ElNewViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [self searchLiving];
-}
 
 - (void)viewDidLoad {
     self.liveRoomArray = [NSMutableArray array];
@@ -39,6 +37,10 @@ UICollectionViewDataSource
     AVQuery *query = [AVQuery queryWithClassName:@"ElLiveRoom"];
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         if (!error) {
+            if (_liveRoomArray.count > 0) {
+                [_liveRoomArray removeAllObjects];
+            }
+            
             [_liveRoomArray addObjectsFromArray:objects];
             [_collectionView reloadData];
         }
@@ -57,7 +59,16 @@ UICollectionViewDataSource
     [self.view addSubview:_collectionView];
     UINib *nib = [UINib nibWithNibName:@"ElNewCollectionViewCell" bundle:nil];
     [_collectionView registerNib:nib forCellWithReuseIdentifier:elNewViewCell];
+    
+    
+    _collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [_collectionView reloadData];
+        [_collectionView.mj_header endRefreshing];
+    }];
+    _collectionView.mj_header.automaticallyChangeAlpha = YES;
+    
 }
+
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return _liveRoomArray.count;
@@ -74,6 +85,14 @@ UICollectionViewDataSource
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     ElLiveRoom *liveRoom = _liveRoomArray[indexPath.item];
+    /**
+     *  观看人数
+     */
+    liveRoom.view_count = 0;
+    [liveRoom incrementKey:@"view_count"];
+    // 保存时自动取回云端最新数据
+    liveRoom.fetchWhenSave = true;
+    [liveRoom saveInBackground];
     [self.delegate presentWatchControllerWithElLiveRoom:liveRoom];
 }
 

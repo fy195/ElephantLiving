@@ -11,5 +11,4 @@
 @interface AVObject (ElClassMap)
 
 + (instancetype)objectWithClassName:(NSString *)className;
-
 @end

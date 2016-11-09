@@ -16,9 +16,7 @@
 
 @property (nonatomic, strong) UILabel *viewTextLabel;
 
-@property (nonatomic, strong) UILabel *viewLabel;
-
-@property (nonatomic, copy) NSString *view_count;
+@property (nonatomic, assign) NSInteger view_count;
 
 @property (nonatomic, strong) UIButton *backButton;
 

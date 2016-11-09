@@ -69,7 +69,7 @@ ElNewViewControllerDelegate
     
     
     UIButton *searchButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    searchButton.frame = CGRectMake(SCREEN_WIDTH / 4 * 3 + 60,30,30, 30);
+    searchButton.frame = CGRectMake(SCREEN_WIDTH / 8 - 30,30,30, 30);
     [searchButton setImage:[UIImage imageNamed:@"search"] forState:UIControlStateNormal];
     [_topView addSubview:searchButton];
     

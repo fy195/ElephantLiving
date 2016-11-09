@@ -21,10 +21,4 @@
     Class class = NSClassFromString(@"_User");
     return  [[class  alloc] initWithClassName:[[self class] userTag]];;
 }
-
-
-
-
-
-
 @end

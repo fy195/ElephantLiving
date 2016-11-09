@@ -33,6 +33,7 @@
 #import "ElFireworksAnimationView.h"
 #import "ElHouseAniamtionView.h"
 #import "ElBaseGiftAnimationView.h"
+#import "ElCommentTableViewCell.h"
 
 @interface ElWatchViewController ()
 <
@@ -57,6 +58,8 @@ ElGiftViewDelegate
 @property (nonatomic, strong) ElUserBriefView *userBriefView;
 @property (nonatomic, strong) ElGiftView *giftView;
 @property (nonatomic, strong) NSMutableArray *animationImageViews;
+@property (nonatomic, strong) _User *liveUser;
+
 
 @end
 
@@ -155,8 +158,14 @@ ElGiftViewDelegate
     ElLivingTopView *topToolView = [ElLivingTopView elLivingTopView];
     topToolView.frame = CGRectMake(0, 20, SCREEN_WIDTH, 57);
     topToolView.backgroundColor = [UIColor clearColor];
-    topToolView.headerImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_liveRoom.headerImage]]];
-    topToolView.watchCount = _liveRoom.view_count;
+    if (_liveRoom == nil) {
+        topToolView.headerImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_elLiveRoom.headerImage]]];
+        topToolView.watchCount = _elLiveRoom.view_count;
+    }else {
+        topToolView.headerImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_liveRoom.headerImage]]];
+        topToolView.watchCount = _liveRoom.view_count;
+    }
+    
     topToolView.delegate = self;
     [_moviePlayer.view addSubview:topToolView];
     
@@ -185,11 +194,11 @@ ElGiftViewDelegate
     self.commentTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 270, SCREEN_WIDTH - 70, 200) style:UITableViewStylePlain];
     _commentTableView.delegate = self;
     _commentTableView.dataSource = self;
-    _commentTableView.rowHeight = 15;
     _commentTableView.backgroundColor = [UIColor clearColor];
     _commentTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_commentTableView];
     [self.view bringSubviewToFront:_commentTableView];
+    [_commentTableView registerClass:[ElCommentTableViewCell class] forCellReuseIdentifier:@"cell"];
     self.client = [AVIMClient defaultClient];
     _client.delegate = self;
 }
@@ -199,22 +208,9 @@ ElGiftViewDelegate
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (nil == cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    }
+    ElCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.textLabel.text = _messageArray[indexPath.row];
-    cell.textLabel.textColor = [UIColor colorWithWhite:0.900 alpha:1.000];
-    NSRange range = [_messageArray[indexPath.row] rangeOfString:@":"];
-    NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@",_messageArray[indexPath.row]]];
-    NSRange range1 = NSMakeRange(0, range.location + 1);
-    [str addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithRed:1.000 green:0.559 blue:0.224 alpha:1.000] range:range1];
-    [str addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:20] range:range1];
-    [cell.textLabel setAttributedText:str];
-    cell.textLabel.font = [UIFont systemFontOfSize:14];
-    cell.backgroundColor = [UIColor clearColor];
-    [cell.textLabel sizeToFit];
+    cell.comment = _messageArray[indexPath.row];
     return cell;
 }
 
@@ -320,6 +316,8 @@ ElGiftViewDelegate
             [_messageArray addObject:[NSString stringWithFormat:@"%@: %@", textMessage.clientId, textMessage.text]];
             NSIndexPath *indexPath = [NSIndexPath indexPathForRow:_messageArray.count - 1 inSection:0];
             [_commentTableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            ElCommentTableViewCell *cell = [_commentTableView cellForRowAtIndexPath:indexPath];
+            _commentTableView.rowHeight = cell.height;
             [_commentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
         }
     }];
@@ -391,6 +389,8 @@ ElGiftViewDelegate
     [_messageArray addObject:str];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:_messageArray.count - 1 inSection:0];
     [_commentTableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    ElCommentTableViewCell *cell = [_commentTableView cellForRowAtIndexPath:indexPath];
+    _commentTableView.rowHeight = cell.height;
     [_commentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
 }
 
@@ -430,8 +430,11 @@ ElGiftViewDelegate
         _userBriefView.frame = CGRectMake(SCREEN_WIDTH * 0.15, SCREEN_HEIGHT * 0.25, SCREEN_WIDTH * 0.7, SCREEN_HEIGHT * 0.45);
     } completion:nil];
     _User *currentUser = [_User currentUser];
-    _User *liveUser = [_User objectWithObjectId:_liveRoom.userObjectId];
-    [liveUser getFollowers:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+    AVQuery *query = [AVQuery queryWithClassName:@"_User"];
+    [query getObjectInBackgroundWithId:_elLiveRoom.userObjectId block:^(AVObject * _Nullable object, NSError * _Nullable error) {
+        self.liveUser = (_User *)object;
+    }];
+    [_liveUser getFollowers:^(NSArray * _Nullable objects, NSError * _Nullable error) {
         for (_User *user in objects) {
             if ([currentUser.objectId isEqualToString: user.objectId]) {
                 [_userBriefView.followButton setTitle:@"已关注" forState:UIControlStateNormal];
@@ -445,36 +448,66 @@ ElGiftViewDelegate
 
 - (void)report {
     ElReportViewController *reportViewController = [[ElReportViewController alloc] init];
-    [self.navigationController pushViewController:reportViewController animated:YES];
+    [self presentViewController:reportViewController animated:YES completion:nil];
 }
 
 - (void)follow:(BOOL)isFollow {
     _User *currentUser = [_User currentUser];
-    _User *liveUser = [_User objectWithObjectId:_liveRoom.userObjectId];
     if (!isFollow) {
-        [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-            currentUser.follow_count = [NSNumber numberWithInteger:[currentUser.follow_count integerValue]+ 1];
-            currentUser.fetchWhenSave = true;
-            [currentUser saveInBackground];
-        }];
-        [liveUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-            currentUser.follower_count = [NSNumber numberWithInteger:[currentUser.follower_count integerValue] + 1];
-            liveUser.fetchWhenSave = true;
-            [liveUser saveInBackground];
+        [currentUser follow:_liveUser.objectId andCallback:^(BOOL succeeded, NSError * _Nullable error) {
+            if (succeeded) {
+                currentUser.follow_count = [NSNumber numberWithInteger:[currentUser.follow_count integerValue]+ 1];
+                currentUser.fetchWhenSave = true;
+                [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                    if (succeeded) {
+                        NSLog(@"存储成功");
+                        NSLog(@"%@", currentUser);
+                    }else {
+                        NSLog(@"%@", error);
+                    }
+                    
+                }];
+                _liveUser.follower_count = [NSNumber numberWithInteger:[_liveUser.follower_count integerValue] + 1];
+                _liveUser.fetchWhenSave = true;
+                [_liveUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+                    if (succeeded) {
+                        NSLog(@"存储成功");
+                        NSLog(@"%@",_liveUser);
+                    }else {
+                        NSLog(@"%@", error);
+                    }
+                }];
+                [_userBriefView.followButton setTitle:@"已关注" forState:UIControlStateNormal];
+                _userBriefView.isFollow = YES;
+            }else {
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }];
+                [alertController addAction:cancelAction];
+                [self presentViewController:alertController animated:YES completion:nil];
+            }
         }];
     }else {
-        [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-            currentUser.follow_count = [NSNumber numberWithInteger:[currentUser.follow_count integerValue]- 1];
-            currentUser.fetchWhenSave = true;
-            [currentUser saveInBackground];
+        [currentUser unfollow:_liveUser.objectId andCallback:^(BOOL succeeded, NSError * _Nullable error) {
+            if (succeeded) {
+                currentUser.follow_count = [NSNumber numberWithInteger:[currentUser.follow_count integerValue]- 1];
+                currentUser.fetchWhenSave = true;
+                [currentUser saveInBackground];
+                _liveUser.follower_count = [NSNumber numberWithInteger:[currentUser.follower_count integerValue] - 1];
+                _liveUser.fetchWhenSave = true;
+                [_liveUser saveInBackground];
+                [_userBriefView.followButton setTitle:@"+ 关注" forState:UIControlStateNormal];
+                _userBriefView.isFollow = NO;
+            }else {
+                UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }];
+                [alertController addAction:cancelAction];
+                [self presentViewController:alertController animated:YES completion:nil];
+            }
         }];
-        [liveUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-            currentUser.follower_count = [NSNumber numberWithInteger:[currentUser.follower_count integerValue] - 1];
-            liveUser.fetchWhenSave = true;
-            [liveUser saveInBackground];
-        }];
-            [_userBriefView.followButton setTitle:@"+ 关注" forState:UIControlStateNormal];
-            _userBriefView.isFollow = NO;
     }
 }
 

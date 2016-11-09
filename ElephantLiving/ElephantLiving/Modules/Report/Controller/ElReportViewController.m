@@ -31,14 +31,13 @@
     // Do any additional setup after loading the view from its nib.
 }
 - (IBAction)returnButton:(id)sender {
-     [self.navigationController popViewControllerAnimated:YES];
+     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)reportButton:(id)sender {
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"举报成功" message:@"我们将根据您的举报进行进一步的调查,如果符实我们将对该用户进行查封" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         [self dismissViewControllerAnimated:YES completion:nil];
-        [self.navigationController popViewControllerAnimated:YES];
     }];
     [alertController addAction:cancelAction];
     [self presentViewController:alertController animated:YES completion:nil];

@@ -10,6 +10,7 @@
 #import "AVOSCloud/AVOSCloud.h"
 #import "ElCommonUtils.h"
 #import "_User.h"
+#import "ElAgreementViewController.h"
 
 
 @interface ElRegisterViewController ()
@@ -229,6 +230,10 @@
     } else {
         [self.verifyButton setTitle:[NSString stringWithFormat:counterFormat, freezeCounter] forState:UIControlStateNormal];
     }
+}
+- (IBAction)agreementButton:(id)sender {
+    ElAgreementViewController *agreementViewController = [[ElAgreementViewController alloc] init];
+    [self.navigationController pushViewController:agreementViewController animated:YES];
 }
 
 
