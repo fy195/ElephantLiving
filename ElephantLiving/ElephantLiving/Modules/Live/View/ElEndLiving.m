@@ -31,12 +31,12 @@
         _endLabel.center = CGPointMake(SCREEN_WIDTH * 0.5, SCREEN_HEIGHT * 0.19);
         _endLabel.text = @"直播已结束";
         _endLabel.font = [UIFont systemFontOfSize:28];
-        _endLabel.textColor = [UIColor cyanColor];
+        _endLabel.textColor = [UIColor colorWithRed:1 green:0.74 blue:0.15 alpha:1];
         _endLabel.textAlignment = NSTextAlignmentCenter;
         [self addSubview:_endLabel];
         
         self.timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH * 0.7, SCREEN_HEIGHT * 0.05)];
-        _timeLabel.textColor = [UIColor cyanColor];
+        _timeLabel.textColor = [UIColor colorWithRed:1 green:0.74 blue:0.15 alpha:1];
         _timeLabel.font = [UIFont systemFontOfSize:20];
         _timeLabel.textAlignment = NSTextAlignmentLeft;
         [self addSubview:_timeLabel];
@@ -46,7 +46,7 @@
         _viewLabel.text = @"999999";
         _viewLabel.font = [UIFont systemFontOfSize:25];
         _viewLabel.textAlignment = NSTextAlignmentCenter;
-        _viewLabel.textColor = [UIColor cyanColor];
+        _viewLabel.textColor = [UIColor colorWithRed:1 green:0.74 blue:0.15 alpha:1];
         [self addSubview:_viewLabel];
         
         
@@ -99,10 +99,15 @@
         
         
         self.backButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _backButton.frame = CGRectMake(SCREEN_WIDTH *0.1, SCREEN_HEIGHT *0.6, SCREEN_WIDTH *0.8, SCREEN_HEIGHT * 0.08);
+        _backButton.frame = CGRectMake(SCREEN_WIDTH *0.1, SCREEN_HEIGHT *0.65, SCREEN_WIDTH *0.8, SCREEN_HEIGHT * 0.08);
         [_backButton setTitle:@"返回首页" forState:UIControlStateNormal];
-        [_backButton setTitleColor:[UIColor cyanColor] forState:UIControlStateNormal];
-        [_backButton setBackgroundImage:[UIImage imageNamed:@"button_bg_large_borders"] forState:UIControlStateNormal];
+        [_backButton setTitleColor:[UIColor colorWithRed:1 green:0.74 blue:0.15 alpha:1] forState:UIControlStateNormal];
+        _backButton.layer.cornerRadius = SCREEN_HEIGHT * 0.08 / 2;
+        [_backButton.layer setBorderWidth:2.0f];
+        CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+        CGColorRef borderColor = CGColorCreate(colorSpace,(CGFloat[]){ 1, 0.74, 0.15,1 });
+        [_backButton.layer setBorderColor:borderColor];
+        CGColorRelease(borderColor);
         [self addSubview:_backButton];  
     }
     return self;

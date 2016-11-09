@@ -41,7 +41,8 @@
     
     UIButton *returnButton = [UIButton buttonWithType:UIButtonTypeCustom];
     returnButton.backgroundColor = [UIColor clearColor];
-    returnButton.frame = CGRectMake(SCREEN_WIDTH * 0.02, SCREEN_HEIGHT * 0.07, SCREEN_WIDTH * 0.1, SCREEN_WIDTH * 0.1);
+    returnButton.frame = CGRectMake(SCREEN_WIDTH * 0.02, SCREEN_WIDTH * 0.1, SCREEN_WIDTH * 0.09, SCREEN_WIDTH * 0.09);
+    returnButton.backgroundColor = [UIColor cyanColor];
     [returnButton setTitle:@"⇦" forState:UIControlStateNormal];
     returnButton.titleLabel.font = [UIFont systemFontOfSize:35];
     [returnButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
