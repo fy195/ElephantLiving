@@ -11,7 +11,6 @@
 @interface AVUser (ElClassMap)
 
 + (instancetype)user;
-+(NSString *)userTag;
-
++ (NSString *)userTag;
 
 @end
