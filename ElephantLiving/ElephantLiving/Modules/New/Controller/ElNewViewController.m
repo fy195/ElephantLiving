@@ -40,7 +40,6 @@ UICollectionViewDataSource
             if (_liveRoomArray.count > 0) {
                 [_liveRoomArray removeAllObjects];
             }
-            
             [_liveRoomArray addObjectsFromArray:objects];
             [_collectionView reloadData];
         }

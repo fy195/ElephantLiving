@@ -12,7 +12,7 @@
 /**
  *  当前直播观看人数
  */
-@property (nonatomic, strong) NSNumber *allnum;
+@property (nonatomic, assign) NSInteger allnum;
 /**
  *  直播拉留地址
  */
