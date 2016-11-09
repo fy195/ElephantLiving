@@ -35,13 +35,11 @@ UITableViewDelegate
 
 
 
-- (void)viewWillAppear:(BOOL)animated {
-    self.navigationController.navigationBarHidden = NO;
-    [self deleteElLiveRoom];
-    [self getOtherLiveRoomInfo];
-    
-    
-}
+//- (void)viewWillAppear:(BOOL)animated {
+//    self.navigationController.navigationBarHidden = NO;
+//    [self deleteElLiveRoom];
+//    [self getOtherLiveRoomInfo];
+//}
 
 - (void)getElLiveRoomInfo{
     AVQuery *query = [AVQuery queryWithClassName:@"LiveRoom"];

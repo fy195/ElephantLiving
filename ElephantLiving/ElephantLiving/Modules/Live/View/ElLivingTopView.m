@@ -13,8 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIView *backView;
 @property (weak, nonatomic) IBOutlet UIImageView *headerImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *watchCountLabel;
-@property (weak, nonatomic) IBOutlet UIScrollView *headerScrollView;
+@property (weak, nonatomic) IBOutlet UILabel *watchCountLabel;                                                                             
 
 @end
 
