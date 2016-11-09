@@ -43,8 +43,8 @@
         [self addSubview:_timeLabel];
         
         
-        self.viewLabel = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.35, SCREEN_HEIGHT * 0.33, SCREEN_WIDTH * 0.3, SCREEN_WIDTH * 0.1)];
-        _viewLabel.center = CGPointMake(SCREEN_WIDTH * 0.5, _viewLabel.y + _viewLabel.height / 2);
+        self.viewLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT * 0.33, SCREEN_WIDTH, SCREEN_WIDTH * 0.1)];
+        _viewLabel.text = @"0位观众";
         _viewLabel.font = [UIFont systemFontOfSize:25];
         _viewLabel.textAlignment = NSTextAlignmentCenter;
         _viewLabel.textColor = [UIColor colorWithRed:1 green:0.74 blue:0.15 alpha:1];
@@ -133,9 +133,11 @@
 - (void)setView_count:(NSInteger)view_count {
     if (_view_count != view_count) {
         _view_count = view_count;
-        _viewLabel.text = [NSString stringWithFormat:@"%ld", view_count];
-        _viewLabel.numberOfLines = 0;
-        [_viewLabel sizeToFit];
+        _viewLabel.text = [NSString stringWithFormat:@"%ld位观众", view_count];
+//        _viewLabel.numberOfLines = 0;
+//        [_viewLabel sizeToFit];
+////        _viewLabel.center = CGPointMake(SCREEN_WIDTH * 0.5, _viewLabel.y + _viewLabel.height / 2);
+        _viewLabel.textAlignment = NSTextAlignmentCenter;
     }
 }
 

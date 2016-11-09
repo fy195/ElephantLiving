@@ -159,10 +159,10 @@ ElGiftViewDelegate
     topToolView.frame = CGRectMake(0, 20, SCREEN_WIDTH, 57);
     topToolView.backgroundColor = [UIColor clearColor];
     if (_liveRoom == nil) {
-        topToolView.headerImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_elLiveRoom.headerImage]]];
+        topToolView.headerImage = _elLiveRoom.headerImage;
         topToolView.watchCount = _elLiveRoom.view_count;
     }else {
-        topToolView.headerImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:_liveRoom.headerImage]]];
+        topToolView.headerImage = _liveRoom.headerImage;
         topToolView.watchCount = _liveRoom.view_count;
     }
     

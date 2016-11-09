@@ -11,7 +11,6 @@
 @interface ElLivingBottomToolView : UIView
 
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
-@property (weak, nonatomic) IBOutlet UIButton *socialButton;
 @property (weak, nonatomic) IBOutlet UIButton *giftButton;
 @property (weak, nonatomic) IBOutlet UIButton *shareButton;
 

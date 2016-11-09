@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ElLivingTopView"/>
@@ -16,6 +16,7 @@
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i2I-wF-cRs">
                             <rect key="frame" x="5" y="5" width="30" height="30"/>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="hYz-0p-oqf"/>
                                 <constraint firstAttribute="width" constant="30" id="sja-hJ-yyy"/>
@@ -28,6 +29,7 @@
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="直播中" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMZ-7Y-R7N">
                             <rect key="frame" x="40" y="5" width="80" height="15"/>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="15" id="0rW-se-4Kb"/>
                                 <constraint firstAttribute="width" constant="80" id="jo8-4E-JDC"/>
@@ -38,6 +40,7 @@
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="观看人数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pId-u6-GY5">
                             <rect key="frame" x="40" y="20" width="120" height="15"/>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="120" id="Xwn-fA-xV9"/>
                                 <constraint firstAttribute="height" constant="15" id="vY3-Ed-17y"/>
@@ -47,6 +50,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
+                    <animations/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.1451239224137931" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="uMZ-7Y-R7N" firstAttribute="top" secondItem="i2I-wF-cRs" secondAttribute="top" id="EBL-Yk-yfw"/>
@@ -64,37 +68,29 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QsS-mP-bmd">
-                    <rect key="frame" x="185" y="8" width="221" height="40"/>
-                    <color key="backgroundColor" red="1" green="0.09035328393" blue="0.068774554020000003" alpha="0.399137931" colorSpace="calibratedRGB"/>
-                </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fhW-CQ-9TI">
                     <rect key="frame" x="15" y="13" width="30" height="30"/>
+                    <animations/>
                     <connections>
                         <action selector="imageButtonAction:" destination="-1" eventType="touchUpInside" id="OzV-iO-yPW"/>
                     </connections>
                 </button>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="QsS-mP-bmd" firstAttribute="centerY" secondItem="gGw-h4-j22" secondAttribute="centerY" id="0y2-xT-BpH"/>
                 <constraint firstItem="fhW-CQ-9TI" firstAttribute="trailing" secondItem="i2I-wF-cRs" secondAttribute="trailing" id="8Ej-qZ-HPk"/>
-                <constraint firstItem="QsS-mP-bmd" firstAttribute="leading" secondItem="gGw-h4-j22" secondAttribute="trailing" constant="15" id="CS1-9d-lAX"/>
                 <constraint firstItem="gGw-h4-j22" firstAttribute="top" secondItem="Be2-U9-I6s" secondAttribute="top" constant="8" id="KZE-zc-C7p"/>
                 <constraint firstItem="fhW-CQ-9TI" firstAttribute="leading" secondItem="i2I-wF-cRs" secondAttribute="leading" id="Uf3-Fu-djW"/>
                 <constraint firstItem="gGw-h4-j22" firstAttribute="leading" secondItem="Be2-U9-I6s" secondAttribute="leading" constant="10" id="V3A-wz-lve"/>
                 <constraint firstItem="fhW-CQ-9TI" firstAttribute="top" secondItem="i2I-wF-cRs" secondAttribute="top" id="aRP-kx-xFs"/>
                 <constraint firstItem="fhW-CQ-9TI" firstAttribute="bottom" secondItem="i2I-wF-cRs" secondAttribute="bottom" id="gTZ-E6-WVc"/>
-                <constraint firstItem="QsS-mP-bmd" firstAttribute="top" secondItem="gGw-h4-j22" secondAttribute="top" id="iDA-eW-emE"/>
-                <constraint firstAttribute="trailing" secondItem="QsS-mP-bmd" secondAttribute="trailing" constant="8" id="j7I-K7-Q1G"/>
-                <constraint firstItem="QsS-mP-bmd" firstAttribute="bottom" secondItem="gGw-h4-j22" secondAttribute="bottom" id="sTv-gx-Ub7"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="backView" destination="gGw-h4-j22" id="EqO-fn-YIq"/>
                 <outlet property="headerImageView" destination="i2I-wF-cRs" id="oce-6L-ZVt"/>
-                <outlet property="headerScrollView" destination="QsS-mP-bmd" id="zHo-Kt-aWr"/>
                 <outlet property="nameLabel" destination="uMZ-7Y-R7N" id="pll-MQ-v95"/>
                 <outlet property="watchCountLabel" destination="pId-u6-GY5" id="5HV-8T-coF"/>
             </connections>
