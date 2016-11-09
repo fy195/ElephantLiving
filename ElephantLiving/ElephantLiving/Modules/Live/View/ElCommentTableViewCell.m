@@ -18,8 +18,10 @@
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.backgroundColor = [UIColor clearColor];
         self.commentLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 0, self.width - 40, self.height)];
         [self.contentView addSubview:_commentLabel];
+        _commentLabel.backgroundColor = [UIColor clearColor];
     }
     return self;
 }
@@ -45,8 +47,7 @@
     CGRect textRect = [comment boundingRectWithSize:textSize options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:dic context:nil];
     _commentLabel.frame = CGRectMake(20, 0, textRect.size.width, textRect.size.height);
     [_commentLabel setAttributedText:str];
-    _commentLabel.font = [UIFont systemFontOfSize:14];
-    _commentLabel.backgroundColor = [UIColor clearColor];
+    _commentLabel.font = [UIFont systemFontOfSize:13];
     _commentLabel.numberOfLines = 0;
     [_commentLabel sizeToFit];
 }

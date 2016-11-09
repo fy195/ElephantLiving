@@ -495,6 +495,7 @@ ElUserBriefViewDelegate
     _liveRoom.userObjectId = currentUser.objectId;
     _liveRoom.level = currentUser.level;
     _liveRoom.headerImage = currentUser.headImage;
+    _liveRoom.coverImage = currentUser.headImage;
     /**
      *  观看人数
      */
@@ -648,6 +649,8 @@ ElUserBriefViewDelegate
     [_messageArray addObject:str];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:_messageArray.count - 1 inSection:0];
     [_commentTableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    ElCommentTableViewCell *cell = [_commentTableView cellForRowAtIndexPath:indexPath];
+    _commentTableView.rowHeight = cell.height;
     [_commentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
 }
 

@@ -41,7 +41,7 @@ UIImagePickerControllerDelegate
 
 - (void)viewWillAppear:(BOOL)animated {
     [self getCurrentUserInfo];
-    [self createTableView];
+    [_tableView reloadData];
 }
 
 - (void)viewDidLoad {
@@ -95,7 +95,6 @@ UIImagePickerControllerDelegate
            UIImage *blurImage = [image boxblurImageWithBlur:0.7];
             _headerView.backgroundImage = blurImage;
         }else {
-            NSLog(@"%@",error);
         }
     }];
 

@@ -141,6 +141,8 @@ ElUserBriefViewDelegate
                 _selectedUser.follower_count = [NSNumber numberWithInteger:[_selectedUser.follower_count integerValue] + 1];
                 [_userBriefView.followButton setTitle:@"已关注" forState:UIControlStateNormal];
                 _userBriefView.isFollow = YES;
+                [currentUser saveInBackground];
+                [_selectedUser saveInBackground];
             }else {
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -157,6 +159,8 @@ ElUserBriefViewDelegate
                 _selectedUser.follower_count = [NSNumber numberWithInteger:[_selectedUser.follower_count integerValue] - 1];
                 [_userBriefView.followButton setTitle:@"+ 关注" forState:UIControlStateNormal];
                 _userBriefView.isFollow = NO;
+                [currentUser saveInBackground];
+                [_selectedUser saveInBackground];
             }else {
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
