@@ -139,8 +139,9 @@
             [ElCommonUtils displayError:error];
         } else {
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"成功" message:@"已经成功重置当前用户的密码！" preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                 [self dismissViewControllerAnimated:YES completion:nil];
+                [self.navigationController popViewControllerAnimated:YES];
             }];
             [alertController addAction:cancelAction];
             [self presentViewController:alertController animated:YES completion:nil];

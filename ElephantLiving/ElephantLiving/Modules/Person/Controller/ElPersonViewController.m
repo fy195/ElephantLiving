@@ -10,12 +10,13 @@
 #import "ElPersonHeaderView.h"
 #import "ElPersonTableViewCell.h"
 #import "ElPersonCharmTableViewCell.h"
-#import "ElGiftViewController.h"
 #import "ElAlbumViewController.h"
 #import "ElManageViewController.h"
 #import "ElSettingViewController.h"
 #import "_User.h"
 #import "UIImage+Categories.h"
+#import "ElForgetPasswordViewController.h"
+#import "ElChangeNicknameViewController.h"
 
 static NSString *const person = @"person";
 static NSString *const charm = @"charm";
@@ -41,6 +42,17 @@ UIImagePickerControllerDelegate
 
 - (void)viewWillAppear:(BOOL)animated {
     [self getCurrentUserInfo];
+    _headerView.nicknameText = [_currentUserInfo username];
+    AVFile *file = [AVFile fileWithURL:_currentUserInfo.headImage];
+    [file getThumbnail:YES width:100 height:100 withBlock:^(UIImage *image, NSError *error) {
+        if (!error) {
+            _headerView.headerImage = image;
+            UIImage *blurImage = [image boxblurImageWithBlur:0.7];
+            _headerView.backgroundImage = blurImage;
+        }else {
+        }
+    }];
+    _headerView.headerImageView.userInteractionEnabled = YES;
     [_tableView reloadData];
 }
 
@@ -73,7 +85,7 @@ UIImagePickerControllerDelegate
     
     UINib *cellNib = [UINib nibWithNibName:@"ElPersonTableViewCell" bundle:nil];
     UINib *charmNib = [UINib nibWithNibName:@"ElPersonCharmTableViewCell" bundle:nil];
-    self.titleArray = @[@[@"魅力值", @"收到的礼物", @"送出的礼物"], @[@"相册", @"直播间管理"], @[@"设置"]];
+    self.titleArray = @[@[@"魅力值", @"修改昵称", @"修改密码"], @[@"意见反馈"], @[@"设置"]];
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 44) style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
@@ -102,14 +114,13 @@ UIImagePickerControllerDelegate
     [file getThumbnail:YES width:100 height:100 withBlock:^(UIImage *image, NSError *error) {
         if (!error) {
             _headerView.headerImage = image;
-            
            UIImage *blurImage = [image boxblurImageWithBlur:0.7];
             _headerView.backgroundImage = blurImage;
         }else {
         }
     }];
-
     _headerView.headerImageView.userInteractionEnabled = YES;
+    
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(alterHeadImageAction:)];
     [_headerView.headerImageView addGestureRecognizer:singleTap];
     
@@ -167,7 +178,6 @@ UIImagePickerControllerDelegate
     
     [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (!error) {
-            
             _User *user = [_User currentUser];
             user.headImage = file.url;
             [user saveInBackground];
@@ -188,11 +198,6 @@ UIImagePickerControllerDelegate
     }];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-
-
-
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return _titleArray.count;
@@ -225,14 +230,17 @@ UIImagePickerControllerDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (0 == indexPath.section) {
-        if (indexPath.row > 0) {
-            ElGiftViewController *giftViewController = [[ElGiftViewController alloc] init];
-            [self presentViewController:giftViewController animated:YES completion:nil];
+        if (indexPath.row == 1) {
+            ElChangeNicknameViewController *changeNicknameViewController = [[ElChangeNicknameViewController alloc] init];
+            [self.navigationController pushViewController:changeNicknameViewController animated:YES];
+        } else {
+            ElForgetPasswordViewController *forgetPasswordViewController = [[ElForgetPasswordViewController alloc] init];
+            [self.navigationController pushViewController:forgetPasswordViewController animated:YES];
         }
     }else if (1 == indexPath.section) {
         if (0 == indexPath.row) {
             ElAlbumViewController *albumViewController = [[ElAlbumViewController alloc] init];
-            [self presentViewController:albumViewController animated:YES completion:nil];
+            [self.navigationController pushViewController:albumViewController animated:YES];
         }else {
             ElManageViewController *manageViewController = [[ElManageViewController alloc] init];
             [self presentViewController:manageViewController animated:YES completion:nil];

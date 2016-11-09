@@ -198,6 +198,15 @@ ElUserBriefViewDelegate
     [self.view bringSubviewToFront:_commentTableView];
     [_commentTableView registerClass:[ElCommentTableViewCell class] forCellReuseIdentifier:@"cell"];
     
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 270, SCREEN_WIDTH - 70, 30)];
+    label.font = [UIFont systemFontOfSize:13];
+    label.textColor = [[UIColor purpleColor] colorWithAlphaComponent:0.8];
+    label.text = @"系统消息:大象直播提倡绿色直播,封面和直播内容含低俗、诱惑、暴露、暴力、赌博等内容都将被屏蔽热门或封停帐号,网警24小时在线巡查!官方严禁私下交易货币,如遇纠纷,概不负责!";
+    label.numberOfLines = 0;
+    [label sizeToFit];
+    _commentTableView.tableHeaderView = label;
+    
+    
     self.client = [AVIMClient defaultClient];
     _client.delegate = self;
 }
@@ -224,7 +233,7 @@ ElUserBriefViewDelegate
             [_commentTableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
             ElCommentTableViewCell *cell = [_commentTableView cellForRowAtIndexPath:indexPath];
             _commentTableView.rowHeight = cell.height;
-            [_commentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
+            [_commentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:NO];
         }
     }];
 }
