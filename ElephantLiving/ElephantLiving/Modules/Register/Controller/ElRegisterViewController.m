@@ -129,8 +129,8 @@
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"注册成功" message:nil    preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                     [self dismissViewControllerAnimated:YES completion:^{
-                        [self.navigationController popViewControllerAnimated:YES];
                     }];
+                    [self.navigationController popViewControllerAnimated:YES];
                 }];
                 [alertController addAction:cancelAction];
                 [self presentViewController:alertController animated:YES completion:nil];
@@ -165,7 +165,7 @@
             [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                 if (succeeded) {
                     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"获取验证码成功" message:nil preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
                         [self dismissViewControllerAnimated:YES completion:nil];
                     }];
                     [alertController addAction:cancelAction];
@@ -185,7 +185,7 @@
 
 - (void)creatNewUserInfo {
     _User *user = [_User currentUser];
-    user.level = @1;
+    user.level = @0;
     user.follow_count = @0;
     user.follower_count = @0;
     user.charm = 0;
