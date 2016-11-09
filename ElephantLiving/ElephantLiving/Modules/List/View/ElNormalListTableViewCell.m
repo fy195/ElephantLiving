@@ -92,7 +92,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     _listLabel.frame = CGRectMake(5, 0, self.width * 0.06, self.width * 0.1);
-    _listLabel.center = CGPointMake(_listLabel.x + _listLabel.width * 2, self.height * 0.5);
+    _listLabel.center = CGPointMake(_listLabel.x + _listLabel.width / 2, self.height * 0.5);
     _headerImageView.frame = CGRectMake(_listLabel.x + _listLabel.width + 10, 0, self.width * 0.17, self.width * 0.17);
     _headerImageView.center = CGPointMake(_headerImageView.x + _headerImageView.width / 2, self.height * 0.5);
     _nikenameLabel.frame = CGRectMake(_headerImageView.x + _headerImageView.width + 10, 0, self.width * 0.35, self.width * 0.08);
