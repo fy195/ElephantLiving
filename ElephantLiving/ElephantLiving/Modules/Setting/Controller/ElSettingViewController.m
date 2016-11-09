@@ -9,6 +9,7 @@
 #import "ElSettingViewController.h"
 #import "ElLoginViewController.h"
 #import "ElAVOSCloud.h"
+#import "ElUsViewController.h"
 
 @interface ElSettingViewController ()
 
@@ -134,6 +135,10 @@
     
     [self.view addSubview:aboutUs];
     
+    [aboutUs handleControlEvent:UIControlEventTouchUpInside withBlock:^{
+        ElUsViewController *usViewController = [[ElUsViewController alloc] init];
+        [self.navigationController pushViewController:usViewController animated:YES];
+    }];
     
     
     UIButton *exitButton = [UIButton buttonWithType:UIButtonTypeCustom];
