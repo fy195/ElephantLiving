@@ -33,6 +33,8 @@
 		498A10491DB8F25B003F86B8 /* ElListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498A10481DB8F25B003F86B8 /* ElListViewController.m */; };
 		4996B6291DC43156003189FA /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4996B6281DC43156003189FA /* libicucore.tbd */; };
 		499E3F781DD2B1AA00CC9846 /* ElAgreementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 499E3F771DD2B1AA00CC9846 /* ElAgreementViewController.m */; };
+		499E3F821DD3046200CC9846 /* ElUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 499E3F801DD3046200CC9846 /* ElUsViewController.m */; };
+		499E3F831DD3046200CC9846 /* ElUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 499E3F811DD3046200CC9846 /* ElUsViewController.xib */; };
 		499FBE241DB786CE0015CC1D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 499FBE231DB786CE0015CC1D /* main.m */; };
 		499FBE271DB786CE0015CC1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 499FBE261DB786CE0015CC1D /* AppDelegate.m */; };
 		499FBE2A1DB786CE0015CC1D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 499FBE291DB786CE0015CC1D /* ViewController.m */; };
@@ -221,6 +223,9 @@
 		4996B6281DC43156003189FA /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		499E3F761DD2B1AA00CC9846 /* ElAgreementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElAgreementViewController.h; sourceTree = "<group>"; };
 		499E3F771DD2B1AA00CC9846 /* ElAgreementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElAgreementViewController.m; sourceTree = "<group>"; };
+		499E3F7F1DD3046200CC9846 /* ElUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElUsViewController.h; sourceTree = "<group>"; };
+		499E3F801DD3046200CC9846 /* ElUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElUsViewController.m; sourceTree = "<group>"; };
+		499E3F811DD3046200CC9846 /* ElUsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ElUsViewController.xib; sourceTree = "<group>"; };
 		499FBE1F1DB786CE0015CC1D /* ElephantLiving.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElephantLiving.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		499FBE231DB786CE0015CC1D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		499FBE251DB786CE0015CC1D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -511,6 +516,24 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		499E3F7A1DD3033D00CC9846 /* Us */ = {
+			isa = PBXGroup;
+			children = (
+				499E3F7B1DD3034600CC9846 /* Controller */,
+			);
+			path = Us;
+			sourceTree = "<group>";
+		};
+		499E3F7B1DD3034600CC9846 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				499E3F7F1DD3046200CC9846 /* ElUsViewController.h */,
+				499E3F801DD3046200CC9846 /* ElUsViewController.m */,
+				499E3F811DD3046200CC9846 /* ElUsViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		499FBE161DB786CE0015CC1D = {
 			isa = PBXGroup;
 			children = (
@@ -532,7 +555,6 @@
 		499FBE211DB786CE0015CC1D /* ElephantLiving */ = {
 			isa = PBXGroup;
 			children = (
-				EB55576C1DD2CE5A005934F7 /* 景3.jpg */,
 				49CA28621DC9EC0800654B7C /* AVObject */,
 				49FE39841DB7974B00FD8A99 /* Base */,
 				49FE39931DB79A4C00FD8A99 /* Common */,
@@ -553,6 +575,7 @@
 				499FBE291DB786CE0015CC1D /* ViewController.m */,
 				EBD4C0911DCDDD5700F81382 /* hahaha.jpeg */,
 				EBD4C0971DCE0C9600F81382 /* 对号气泡2.png */,
+				EB55576C1DD2CE5A005934F7 /* 景3.jpg */,
 				EBD965AE1DD01C8300936D66 /* 路牌x.png */,
 			);
 			path = ElephantLiving;
@@ -975,6 +998,7 @@
 				49D1CAAB1DD1EA8C0003211A /* Report */,
 				49FE39E91DB79C0400FD8A99 /* Search */,
 				49F2C96A1DB9AFE8000589A7 /* Setting */,
+				499E3F7A1DD3033D00CC9846 /* Us */,
 				4916D8521DBEEEAF00FAFB68 /* Watch */,
 			);
 			path = Modules;
@@ -1728,6 +1752,7 @@
 				EB1DDB081DCAE01F0095619C /* fireworks_13.png in Resources */,
 				49CA285C1DC9E25800654B7C /* xinyiba_riva_Dolphin02.png in Resources */,
 				EB1DDAE41DCAE00E0095619C /* gift_heart_12.png in Resources */,
+				499E3F831DD3046200CC9846 /* ElUsViewController.xib in Resources */,
 				EB1DDB111DCAE01F0095619C /* fireworks_9.png in Resources */,
 				EB1DDB0D1DCAE01F0095619C /* fireworks_5.png in Resources */,
 				EB1DDB0B1DCAE01F0095619C /* fireworks_3.png in Resources */,
@@ -1845,6 +1870,7 @@
 				49FE39CC1DB79A4C00FD8A99 /* NSUserDefaultsUtils.m in Sources */,
 				EB1DDACA1DCACFEE0095619C /* PresentView.m in Sources */,
 				EBCB05391DCB44A800BB2832 /* ElBaseGiftAnimationView.m in Sources */,
+				499E3F821DD3046200CC9846 /* ElUsViewController.m in Sources */,
 				493907551DB8EEF000F06D40 /* ElNewCollectionViewCell.m in Sources */,
 				499FBE2A1DB786CE0015CC1D /* ViewController.m in Sources */,
 				49FE39C11DB79A4C00FD8A99 /* NSString+Categories.m in Sources */,

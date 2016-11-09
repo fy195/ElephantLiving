@@ -23,7 +23,7 @@
 // 根据礼物个数播放动画
 - (void)animateWithCompleteBlock:(completeBlock)completed {
 
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:0.2 animations:^{
     self.frame = CGRectMake(0, self.frame.origin.y, self.frame.size.width, self.frame.size.height);
     } completion:^(BOOL finished) {
         [self shakeNumberLabel];

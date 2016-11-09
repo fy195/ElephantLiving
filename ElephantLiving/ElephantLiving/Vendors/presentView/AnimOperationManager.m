@@ -132,7 +132,7 @@
                 [self.queue2 addOperation:op];
             }
         }
-    
+
     }
     
 }

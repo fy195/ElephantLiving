@@ -670,12 +670,12 @@ ElUserBriefViewDelegate
         // IM 消息
         GSPChatMessage *msg = [[GSPChatMessage alloc] init];
         msg.text = @"1个【玫瑰花】";
-        msg.senderChatID = @"亮锅";
+        msg.senderChatID = @"象";
         msg.senderName = msg.senderChatID;
     
         // 礼物模型
         GiftModel *firstGiftModel = [[GiftModel alloc] init];
-        firstGiftModel.headImage = [UIImage imageNamed:@"FF885B69C30A56A3D0296F10CFF6D1D8"];
+        firstGiftModel.headImage = [UIImage imageNamed:@"2BF46EE33F21ED32747002E979B04D5B"];
         firstGiftModel.name = msg.senderName;
         firstGiftModel.giftImage = [UIImage imageNamed:@"gift_flower"];
         firstGiftModel.giftName = msg.text;
@@ -695,17 +695,17 @@ ElUserBriefViewDelegate
         msg.senderName = msg.senderChatID;
         
         // 礼物模型
-        GiftModel *giftModel = [[GiftModel alloc] init];
-        giftModel.headImage = [UIImage imageNamed:@"CFE1DC2535199A7B6437D2805419BF23"];
-        giftModel.name = msg.senderName;
-        giftModel.giftImage = [UIImage imageNamed:@"flower"];
-        giftModel.giftName = msg.text;
-        giftModel.giftCount = 1;
+        GiftModel *secondGiftModel = [[GiftModel alloc] init];
+        secondGiftModel.headImage = [UIImage imageNamed:@"CFE1DC2535199A7B6437D2805419BF23"];
+        secondGiftModel.name = msg.senderName;
+        secondGiftModel.giftImage = [UIImage imageNamed:@"flower"];
+        secondGiftModel.giftName = msg.text;
+        secondGiftModel.giftCount = 1;
         
         AnimOperationManager *manager = [AnimOperationManager sharedManager];
         manager.parentView = self.view;
         // 用用户唯一标识 msg.senderChatID 存礼物信息,model 传入礼物模型
-        [manager animWithUserID:[NSString stringWithFormat:@"%@",msg.senderChatID] model:giftModel finishedBlock:^(BOOL result) {
+        [manager animWithUserID:[NSString stringWithFormat:@"%@",msg.senderChatID] model:secondGiftModel finishedBlock:^(BOOL result) {
             
         }];
     } else if (2 == itemCount) {
@@ -716,17 +716,17 @@ ElUserBriefViewDelegate
         msg.senderName = msg.senderChatID;
         
         // 礼物模型
-        GiftModel *giftModel = [[GiftModel alloc] init];
-        giftModel.headImage = [UIImage imageNamed:@"FF885B69C30A56A3D0296F10CFF6D1D8"];
-        giftModel.name = msg.senderName;
-        giftModel.giftImage = [UIImage imageNamed:@"living_money_icon21"];
-        giftModel.giftName = msg.text;
-        giftModel.giftCount = 1;
+        GiftModel *thirdGiftModel = [[GiftModel alloc] init];
+        thirdGiftModel.headImage = [UIImage imageNamed:@"FF885B69C30A56A3D0296F10CFF6D1D8"];
+        thirdGiftModel.name = msg.senderName;
+        thirdGiftModel.giftImage = [UIImage imageNamed:@"living_money_icon21"];
+        thirdGiftModel.giftName = msg.text;
+        thirdGiftModel.giftCount = 1;
         
         AnimOperationManager *manager = [AnimOperationManager sharedManager];
         manager.parentView = self.view;
         // 用用户唯一标识 msg.senderChatID 存礼物信息,model 传入礼物模型
-        [manager animWithUserID:[NSString stringWithFormat:@"%@",msg.senderChatID] model:giftModel finishedBlock:^(BOOL result) {
+        [manager animWithUserID:[NSString stringWithFormat:@"%@",msg.senderChatID] model:thirdGiftModel finishedBlock:^(BOOL result) {
  
         }];
     } else if (3 == itemCount) {
