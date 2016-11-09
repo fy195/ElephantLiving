@@ -10,12 +10,13 @@
 #import "ElPersonHeaderView.h"
 #import "ElPersonTableViewCell.h"
 #import "ElPersonCharmTableViewCell.h"
-#import "ElGiftViewController.h"
 #import "ElAlbumViewController.h"
 #import "ElManageViewController.h"
 #import "ElSettingViewController.h"
 #import "_User.h"
 #import "UIImage+Categories.h"
+#import "ElForgetPasswordViewController.h"
+#import "ElChangeNicknameViewController.h"
 
 static NSString *const person = @"person";
 static NSString *const charm = @"charm";
@@ -41,6 +42,17 @@ UIImagePickerControllerDelegate
 
 - (void)viewWillAppear:(BOOL)animated {
     [self getCurrentUserInfo];
+    _headerView.nicknameText = [_currentUserInfo username];
+    AVFile *file = [AVFile fileWithURL:_currentUserInfo.headImage];
+    [file getThumbnail:YES width:100 height:100 withBlock:^(UIImage *image, NSError *error) {
+        if (!error) {
+            _headerView.headerImage = image;
+            UIImage *blurImage = [image boxblurImageWithBlur:0.7];
+            _headerView.backgroundImage = blurImage;
+        }else {
+        }
+    }];
+    _headerView.headerImageView.userInteractionEnabled = YES;
     [_tableView reloadData];
 }
 
@@ -87,14 +99,13 @@ UIImagePickerControllerDelegate
     [file getThumbnail:YES width:100 height:100 withBlock:^(UIImage *image, NSError *error) {
         if (!error) {
             _headerView.headerImage = image;
-            
            UIImage *blurImage = [image boxblurImageWithBlur:0.7];
             _headerView.backgroundImage = blurImage;
         }else {
         }
     }];
-
     _headerView.headerImageView.userInteractionEnabled = YES;
+    
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(alterHeadImageAction:)];
     [_headerView.headerImageView addGestureRecognizer:singleTap];
     
@@ -152,7 +163,6 @@ UIImagePickerControllerDelegate
     
     [file saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if (!error) {
-            
             _User *user = [_User currentUser];
             user.headImage = file.url;
             [user saveInBackground];
@@ -173,11 +183,6 @@ UIImagePickerControllerDelegate
     }];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-
-
-
-
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return _titleArray.count;
@@ -210,9 +215,12 @@ UIImagePickerControllerDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (0 == indexPath.section) {
-        if (indexPath.row > 0) {
-            ElGiftViewController *giftViewController = [[ElGiftViewController alloc] init];
-            [self presentViewController:giftViewController animated:YES completion:nil];
+        if (indexPath.row == 1) {
+            ElChangeNicknameViewController *changeNicknameViewController = [[ElChangeNicknameViewController alloc] init];
+            [self.navigationController pushViewController:changeNicknameViewController animated:YES];
+        } else {
+            ElForgetPasswordViewController *forgetPasswordViewController = [[ElForgetPasswordViewController alloc] init];
+            [self.navigationController pushViewController:forgetPasswordViewController animated:YES];
         }
     }else if (1 == indexPath.section) {
         if (0 == indexPath.row) {
