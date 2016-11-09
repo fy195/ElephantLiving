@@ -104,8 +104,7 @@ UITableViewDelegate
             [file getThumbnail:YES width:0 height:0 withBlock:^(UIImage *image, NSError *error) {
                 if (!error) {
                     _imageView.image = image;
-                    [_topView addSubview:_imageView];
-                    [_topView sendSubviewToBack:_imageView];
+                    
                 }else {
                     NSLog(@"%@",error);
                 }
@@ -117,8 +116,7 @@ UITableViewDelegate
             [secondFile getThumbnail:YES width:100 height:100 withBlock:^(UIImage *image, NSError *error) {
                 if (!error) {
                     _imageViewNO2.image = image;
-                    [_topView addSubview:_imageViewNO2];
-                    [_topView sendSubviewToBack:_imageViewNO2];
+                    
                 }else {
                     NSLog(@"%@",error);
                 }
@@ -130,8 +128,6 @@ UITableViewDelegate
             [thirdFile getThumbnail:YES width:100 height:100 withBlock:^(UIImage *image, NSError *error) {
                 if (!error) {
                     _imageViewNO3.image = image;
-                    [_topView addSubview:_imageViewNO3];
-                    [_topView sendSubviewToBack:_imageViewNO3];
                 }else {
                     NSLog(@"%@",error);
                 }
@@ -179,7 +175,10 @@ UITableViewDelegate
     
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.4, SCREEN_HEIGHT * 0.037, SCREEN_WIDTH * 0.21, SCREEN_WIDTH * 0.21)];
     _imageView.layer.cornerRadius = SCREEN_WIDTH * 0.21 / 2;
+    _imageView.image = [UIImage imageNamed:@"大象头像"];
     _imageView.clipsToBounds = YES;
+    [_topView addSubview:_imageView];
+    [_topView sendSubviewToBack:_imageView];
     [_imageView addSubview:firstButton];
     
 
@@ -207,6 +206,9 @@ UITableViewDelegate
     self.imageViewNO2 = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.114, SCREEN_HEIGHT * 0.175, SCREEN_WIDTH * 0.195, SCREEN_WIDTH * 0.195)];
     _imageViewNO2.layer.cornerRadius = SCREEN_WIDTH * 0.195 / 2;
     _imageViewNO2.clipsToBounds = YES;
+    _imageViewNO2.image = [UIImage imageNamed:@"大象头像"];
+    [_topView addSubview:_imageViewNO2];
+    [_topView sendSubviewToBack:_imageViewNO2];
     [_imageViewNO2 addSubview:secondButton];
     
     self.nikenameLabelOfSecond = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.115, SCREEN_WIDTH * 0.52 + 15, SCREEN_WIDTH * 0.2, SCREEN_WIDTH * 0.06)];
@@ -229,8 +231,12 @@ UITableViewDelegate
     thirdButton.frame = CGRectMake(0, 0, SCREEN_WIDTH * 0.2, SCREEN_WIDTH * 0.2);
     
     self.imageViewNO3 = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.73, SCREEN_HEIGHT * 0.174, SCREEN_WIDTH * 0.195, SCREEN_WIDTH * 0.195)];
+    _imageViewNO3.backgroundColor = [UIColor redColor];
+    _imageViewNO3.image = [UIImage imageNamed:@"大象头像"];
     _imageViewNO3.layer.cornerRadius = SCREEN_WIDTH * 0.195 / 2;
     _imageViewNO3.clipsToBounds = YES;
+    [_topView addSubview:_imageViewNO3];
+    [_topView sendSubviewToBack:_imageViewNO3];
     [_imageViewNO3 addSubview:thirdButton];
     
     self.nikenameLabelOfThird = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.73, SCREEN_WIDTH * 0.52 + 15, SCREEN_WIDTH * 0.21, SCREEN_WIDTH * 0.06)];
