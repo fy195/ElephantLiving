@@ -16,5 +16,6 @@
 
 @property (nonatomic,retain) NSString *senderChatID;
 
+@property (nonatomic,strong) NSString *headerImage;
 
 @end
