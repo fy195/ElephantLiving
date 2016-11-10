@@ -39,6 +39,13 @@ UITableViewDelegate
         if (!error) {
             self.otherLiveArray = [NSMutableArray arrayWithArray:objects];
             [_tableView reloadData];
+        }else {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }];
+            [alertController addAction:cancelAction];
+            [self presentViewController:alertController animated:YES completion:nil];
         }
     }];
 }

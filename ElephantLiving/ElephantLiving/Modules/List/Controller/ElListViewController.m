@@ -125,6 +125,13 @@ UITableViewDelegate
             }];
             _nikenameLabelOfThird.text = thirdUser.username;
             _charmLabelOfThird.text = [NSString stringWithFormat:@"%ld",thirdUser.charm];
+        }else {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                [self dismissViewControllerAnimated:YES completion:nil];
+            }];
+            [alertController addAction:cancelAction];
+            [self presentViewController:alertController animated:YES completion:nil];
         }
     }];
 }

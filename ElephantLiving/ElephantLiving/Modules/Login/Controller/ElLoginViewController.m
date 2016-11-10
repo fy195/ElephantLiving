@@ -62,8 +62,7 @@
 }
 
 - (IBAction)loginButtonAction:(id)sender {
-    [self freezeMoreRequest];
-    NSString *phoneNumber =_phoneNumberTextField.text;
+        NSString *phoneNumber =_phoneNumberTextField.text;
     NSString *password = _passwordTextField.text;
     
     if (phoneNumber && password) {
@@ -76,6 +75,7 @@
                 [alertController addAction:cancelAction];
                 [self presentViewController:alertController animated:YES completion:nil];
             } else {
+                [self freezeMoreRequest];
                 [self getUserInfo:user];
                 ElHomeTabBarController *homeView = [[ElHomeTabBarController alloc] init];
                 [self.navigationController pushViewController:homeView animated:YES];
