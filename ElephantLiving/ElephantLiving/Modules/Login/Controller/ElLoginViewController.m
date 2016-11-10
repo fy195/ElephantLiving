@@ -114,6 +114,10 @@
                 qqUser.username = username;
                 qqUser.headImage = avatar;
                 [qqUser saveInBackground];
+                
+                ElHomeTabBarController *homeView = [[ElHomeTabBarController alloc] init];
+                [self.navigationController pushViewController:homeView animated:YES];
+                
             }];
         }
     } toPlatform:AVOSCloudSNSQQ];
@@ -186,6 +190,8 @@
                 qqUser.username = username;
                 qqUser.headImage = avatar;
                 [qqUser saveInBackground];
+                ElHomeTabBarController *homeView = [[ElHomeTabBarController alloc] init];
+                [self.navigationController pushViewController:homeView animated:YES];
             }];
         }
     } toPlatform:AVOSCloudSNSSinaWeibo];
