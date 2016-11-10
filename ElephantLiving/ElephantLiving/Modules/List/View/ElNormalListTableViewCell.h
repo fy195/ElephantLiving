@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong)UIImageView *headerImageView;
 
-@property (nonatomic, strong)UIImage *headerImage;
+@property (nonatomic, strong)NSString *headerImage;
 
 @property (nonatomic, strong)UILabel *nikenameLabel;
 

@@ -130,7 +130,7 @@ UITableViewDelegate
         [_tableView.mj_header endRefreshing];
     }];
     _tableView.mj_header.automaticallyChangeAlpha = YES;
-
+    
     
     
     self.carouselView = [[ElHotCarouselView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 150)];
@@ -154,8 +154,8 @@ UITableViewDelegate
     cell.name = liveRoom.host_name;
     cell.viewCount = liveRoom.view_count;
     cell.level = liveRoom.level;
-    cell.iconImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:liveRoom.headerImage]]];
-    cell.coverImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:liveRoom.coverImage]]];
+    cell.iconImage = liveRoom.headerImage;
+    cell.coverImage = liveRoom.coverImage;
     return cell;
 }
 
@@ -173,3 +173,5 @@ UITableViewDelegate
 
 
 @end
+
+

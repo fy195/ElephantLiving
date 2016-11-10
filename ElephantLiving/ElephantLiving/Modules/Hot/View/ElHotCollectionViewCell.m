@@ -27,7 +27,7 @@
     if (_coverImage != coverImage) {
         _coverImage = coverImage;
     }
-    _coverImageView.image = _coverImage;
+    _coverImageView.image = coverImage;
 }
 
 - (void)layoutSubviews {

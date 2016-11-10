@@ -66,21 +66,18 @@ UITableViewDelegate
     [self getUserInfo];
     [self creatTopView];
     
-
+    
     
 }
 
 - (void)getUserInfo {
     AVQuery *query = [AVQuery queryWithClassName:@"_User"];
-//    query.cachePolicy = 3;
+    //    query.cachePolicy = 3;
     [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-        if (error) {
-            NSLog(@"%@",error);
-        } else {
+        if (!error) {
             if (_userInfoArray.count > 0) {
-                [_userInfoArray removeAllObjects];
-            }
-            
+            [_userInfoArray removeAllObjects];
+        }
             self.userInfoArray = [NSMutableArray arrayWithArray:objects];
             //  按魅力值排序
             for (NSInteger i = 0; i < _userInfoArray.count ; i++)
@@ -94,46 +91,40 @@ UITableViewDelegate
                         //交换
                         [_userInfoArray replaceObjectAtIndex:i withObject:model_j];
                         [_userInfoArray replaceObjectAtIndex:j withObject:model_i];
-                    }    
+                    }
                 }
             }
             [_listTableView reloadData];
             
-            
-            AVFile *file = [AVFile fileWithURL:[[_userInfoArray firstObject] headImage]];
+            _User *firstUser = [_userInfoArray firstObject];
+            AVFile *file = [AVFile fileWithURL:firstUser.headImage];
             [file getThumbnail:YES width:0 height:0 withBlock:^(UIImage *image, NSError *error) {
                 if (!error) {
                     _imageView.image = image;
-                    
-                }else {
-                    NSLog(@"%@",error);
                 }
             }];
-            _nikenameLabelOfFirst.text = [[_userInfoArray firstObject] username];
-            _charmLabelOfFirst.text = [NSString stringWithFormat:@"%ld",[[_userInfoArray firstObject] charm]];
+            _nikenameLabelOfFirst.text = firstUser.username;
+            _charmLabelOfFirst.text = [NSString stringWithFormat:@"%ld",firstUser.charm];
             
-            AVFile *secondFile = [AVFile fileWithURL:[[_userInfoArray objectAtIndex:1] headImage]];
+            _User *secondUser = _userInfoArray[1];
+            AVFile *secondFile = [AVFile fileWithURL:secondUser.headImage];
             [secondFile getThumbnail:YES width:100 height:100 withBlock:^(UIImage *image, NSError *error) {
                 if (!error) {
                     _imageViewNO2.image = image;
-                    
-                }else {
-                    NSLog(@"%@",error);
                 }
             }];
-            _nikenameLabelOfSecond.text = [[_userInfoArray objectAtIndex:1] username];
-            _charmLabelOfSecond.text = [NSString stringWithFormat:@"%ld",[[_userInfoArray objectAtIndex:1] charm]];
+            _nikenameLabelOfSecond.text = secondUser.username;
+            _charmLabelOfSecond.text = [NSString stringWithFormat:@"%ld",secondUser.charm];
             
-            AVFile *thirdFile = [AVFile fileWithURL:[[_userInfoArray objectAtIndex:2] headImage]];
+            _User *thirdUser = _userInfoArray[2];
+            AVFile *thirdFile = [AVFile fileWithURL:thirdUser.headImage];
             [thirdFile getThumbnail:YES width:100 height:100 withBlock:^(UIImage *image, NSError *error) {
                 if (!error) {
                     _imageViewNO3.image = image;
-                }else {
-                    NSLog(@"%@",error);
                 }
             }];
-            _nikenameLabelOfThird.text = [[_userInfoArray objectAtIndex:2] username];
-            _charmLabelOfThird.text = [NSString stringWithFormat:@"%ld",[[_userInfoArray objectAtIndex:2] charm]];
+            _nikenameLabelOfThird.text = thirdUser.username;
+            _charmLabelOfThird.text = [NSString stringWithFormat:@"%ld",thirdUser.charm];
         }
     }];
 }
@@ -149,7 +140,7 @@ UITableViewDelegate
     _listTableView.showsVerticalScrollIndicator = NO;
     [self.view                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  addSubview:_listTableView];
     
-   
+    
     [_listTableView registerClass:[ElNormalListTableViewCell class] forCellReuseIdentifier:normalList];
     
     _listTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -181,13 +172,14 @@ UITableViewDelegate
     [_topView sendSubviewToBack:_imageView];
     [_imageView addSubview:firstButton];
     
-
+    
     self.nikenameLabelOfFirst = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.39, SCREEN_WIDTH * 0.28 + 10, SCREEN_WIDTH * 0.22, SCREEN_WIDTH * 0.06)];
     _nikenameLabelOfFirst.backgroundColor = [UIColor clearColor];
     _nikenameLabelOfFirst.textAlignment = NSTextAlignmentCenter;
     [_topView addSubview:_nikenameLabelOfFirst];
     
     self.charmLabelOfFirst = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.41, SCREEN_WIDTH * 0.34 + 10, SCREEN_WIDTH * 0.2, SCREEN_WIDTH * 0.04)];
+    _charmLabelOfFirst.text = @"0";
     _charmLabelOfFirst.textAlignment = NSTextAlignmentCenter;
     _charmLabelOfFirst.font = [UIFont systemFontOfSize:15];
     _charmLabelOfFirst.numberOfLines = 0;
@@ -216,6 +208,7 @@ UITableViewDelegate
     [_topView addSubview:_nikenameLabelOfSecond];
     
     self.charmLabelOfSecond = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.14, SCREEN_WIDTH * 0.58 + 15, SCREEN_WIDTH * 0.17, SCREEN_WIDTH * 0.04)];
+    _charmLabelOfSecond.text = @"0";
     _charmLabelOfSecond.textAlignment = NSTextAlignmentCenter;
     _charmLabelOfSecond.font = [UIFont systemFontOfSize:15];
     _charmLabelOfSecond.numberOfLines = 0;
@@ -244,6 +237,7 @@ UITableViewDelegate
     [_topView addSubview:_nikenameLabelOfThird];
     
     self.charmLabelOfThird = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.77, SCREEN_WIDTH * 0.58 + 15, SCREEN_WIDTH * 0.17, SCREEN_WIDTH * 0.04)];
+    _charmLabelOfThird.text = @"0";
     _charmLabelOfThird.textAlignment = NSTextAlignmentCenter;
     _charmLabelOfThird.font = [UIFont systemFontOfSize:15];
     _charmLabelOfThird.numberOfLines = 0;
@@ -254,23 +248,20 @@ UITableViewDelegate
 
 #pragma mark - tableView协议方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
     return _userInfoArray.count - 3;
-    
 }
 
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    _User *user = _userInfoArray[indexPath.row + 3];
     ElNormalListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:normalList];
     cell.backgroundColor = [UIColor clearColor];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.listNumber = indexPath.row + 4;
     cell.nikenameText = [_userInfoArray[indexPath.row + 3] username];
-    cell.charmText = [NSString stringWithFormat: @"%ld",[_userInfoArray[indexPath.row + 3] charm]];
+    cell.charmText = [NSString stringWithFormat: @"%ld",user.charm];
     
-    cell.headerImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[_userInfoArray[indexPath.row + 3] headImage]]]];
-    
+    cell.headerImage = user.headImage;
     return cell;
 }
 
