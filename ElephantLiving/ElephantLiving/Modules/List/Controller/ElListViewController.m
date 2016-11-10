@@ -105,6 +105,10 @@ UITableViewDelegate
             }];
             _nikenameLabelOfFirst.text = firstUser.username;
             _charmLabelOfFirst.text = [NSString stringWithFormat:@"%ld",firstUser.charm];
+            _charmLabelOfFirst.numberOfLines = 1;
+            [_charmLabelOfFirst sizeToFit];       
+            _charmLabelOfFirst.textAlignment = NSTextAlignmentCenter;
+            _charmLabelOfFirst.centerX = _nikenameLabelOfFirst.centerX;
             
             _User *secondUser = _userInfoArray[1];
             AVFile *secondFile = [AVFile fileWithURL:secondUser.headImage];
@@ -115,6 +119,11 @@ UITableViewDelegate
             }];
             _nikenameLabelOfSecond.text = secondUser.username;
             _charmLabelOfSecond.text = [NSString stringWithFormat:@"%ld",secondUser.charm];
+            _charmLabelOfSecond.numberOfLines = 1;
+            [_charmLabelOfSecond sizeToFit];
+            _charmLabelOfSecond.textAlignment = NSTextAlignmentCenter;
+            _charmLabelOfSecond.centerX = _nikenameLabelOfSecond.centerX;
+
             
             _User *thirdUser = _userInfoArray[2];
             AVFile *thirdFile = [AVFile fileWithURL:thirdUser.headImage];
@@ -125,6 +134,10 @@ UITableViewDelegate
             }];
             _nikenameLabelOfThird.text = thirdUser.username;
             _charmLabelOfThird.text = [NSString stringWithFormat:@"%ld",thirdUser.charm];
+            _charmLabelOfThird.numberOfLines = 1;
+            [_charmLabelOfThird sizeToFit];
+            _charmLabelOfThird.textAlignment = NSTextAlignmentCenter;
+            _charmLabelOfThird.centerX = _nikenameLabelOfThird.centerX;
         }else {
             UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
@@ -182,15 +195,15 @@ UITableViewDelegate
     
     self.nikenameLabelOfFirst = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.39, SCREEN_WIDTH * 0.28 + 10, SCREEN_WIDTH * 0.22, SCREEN_WIDTH * 0.06)];
     _nikenameLabelOfFirst.backgroundColor = [UIColor clearColor];
+    _nikenameLabelOfFirst.text = @"未知用户";
     _nikenameLabelOfFirst.textAlignment = NSTextAlignmentCenter;
     [_topView addSubview:_nikenameLabelOfFirst];
     
     self.charmLabelOfFirst = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.41, SCREEN_WIDTH * 0.34 + 10, SCREEN_WIDTH * 0.2, SCREEN_WIDTH * 0.04)];
     _charmLabelOfFirst.text = @"0";
     _charmLabelOfFirst.textAlignment = NSTextAlignmentCenter;
+    _charmLabelOfFirst.centerX = _nikenameLabelOfFirst.centerX;
     _charmLabelOfFirst.font = [UIFont systemFontOfSize:15];
-    _charmLabelOfFirst.numberOfLines = 0;
-    [_charmLabelOfFirst sizeToFit];
     [_topView addSubview:_charmLabelOfFirst];
     
     // 第二名
@@ -211,15 +224,15 @@ UITableViewDelegate
     [_imageViewNO2 addSubview:secondButton];
     
     self.nikenameLabelOfSecond = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.115, SCREEN_WIDTH * 0.52 + 15, SCREEN_WIDTH * 0.2, SCREEN_WIDTH * 0.06)];
+    _nikenameLabelOfSecond.text = @"未知用户";
+    _nikenameLabelOfSecond.backgroundColor = [UIColor clearColor];
     _nikenameLabelOfSecond.textAlignment = NSTextAlignmentCenter;
     [_topView addSubview:_nikenameLabelOfSecond];
     
     self.charmLabelOfSecond = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.14, SCREEN_WIDTH * 0.58 + 15, SCREEN_WIDTH * 0.17, SCREEN_WIDTH * 0.04)];
     _charmLabelOfSecond.text = @"0";
     _charmLabelOfSecond.textAlignment = NSTextAlignmentCenter;
-    _charmLabelOfSecond.font = [UIFont systemFontOfSize:15];
-    _charmLabelOfSecond.numberOfLines = 0;
-    [_charmLabelOfSecond sizeToFit];
+    _charmLabelOfSecond.centerX = _nikenameLabelOfSecond.centerX;
     [_topView addSubview:_charmLabelOfSecond];
     
     // 第三名
@@ -240,15 +253,15 @@ UITableViewDelegate
     [_imageViewNO3 addSubview:thirdButton];
     
     self.nikenameLabelOfThird = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.73, SCREEN_WIDTH * 0.52 + 15, SCREEN_WIDTH * 0.21, SCREEN_WIDTH * 0.06)];
+    _nikenameLabelOfThird.text = @"未知用户";
+    _nikenameLabelOfThird.backgroundColor = [UIColor clearColor];
     _nikenameLabelOfThird.textAlignment = NSTextAlignmentCenter;
     [_topView addSubview:_nikenameLabelOfThird];
     
     self.charmLabelOfThird = [[UILabel alloc] initWithFrame:CGRectMake(SCREEN_WIDTH * 0.77, SCREEN_WIDTH * 0.58 + 15, SCREEN_WIDTH * 0.17, SCREEN_WIDTH * 0.04)];
     _charmLabelOfThird.text = @"0";
     _charmLabelOfThird.textAlignment = NSTextAlignmentCenter;
-    _charmLabelOfThird.font = [UIFont systemFontOfSize:15];
-    _charmLabelOfThird.numberOfLines = 0;
-    [_charmLabelOfThird sizeToFit];
+    _charmLabelOfThird.centerX = _nikenameLabelOfThird.centerX;
     [_topView addSubview:_charmLabelOfThird];
 }
 
