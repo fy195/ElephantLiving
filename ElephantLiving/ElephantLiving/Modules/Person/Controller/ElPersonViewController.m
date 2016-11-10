@@ -11,7 +11,6 @@
 #import "ElPersonTableViewCell.h"
 #import "ElPersonCharmTableViewCell.h"
 #import "ElAlbumViewController.h"
-#import "ElManageViewController.h"
 #import "ElSettingViewController.h"
 #import "_User.h"
 #import "UIImage+Categories.h"

@@ -10,10 +10,10 @@
 
 @interface ElHotTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) UIImage *iconImage;
+@property (nonatomic, strong) NSString *iconImage;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSNumber *level;
 @property (nonatomic, assign) NSInteger viewCount;
-@property (nonatomic, strong) UIImage *coverImage;
+@property (nonatomic, strong) NSString *coverImage;
 
 @end

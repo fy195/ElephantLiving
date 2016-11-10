@@ -14,7 +14,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="400" height="448"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fjv-Zk-BLX">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="大象头像" translatesAutoresizingMaskIntoConstraints="NO" id="Fjv-Zk-BLX">
                         <rect key="frame" x="8" y="8" width="50" height="50"/>
                         <animations/>
                         <color key="backgroundColor" red="1" green="0.73956197499999998" blue="0.69724521780000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -61,7 +61,7 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fzF-Pe-K2I">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="景3.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="fzF-Pe-K2I">
                         <rect key="frame" x="8" y="66" width="384" height="374"/>
                         <animations/>
                     </imageView>
@@ -107,4 +107,8 @@
             <point key="canvasLocation" x="389" y="679.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="大象头像" width="200" height="200"/>
+        <image name="景3.jpg" width="390" height="614"/>
+    </resources>
 </document>
