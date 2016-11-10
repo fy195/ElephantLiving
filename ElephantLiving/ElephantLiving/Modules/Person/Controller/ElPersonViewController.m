@@ -232,7 +232,7 @@ UIImagePickerControllerDelegate
         if (indexPath.row == 1) {
             ElChangeNicknameViewController *changeNicknameViewController = [[ElChangeNicknameViewController alloc] init];
             [self.navigationController pushViewController:changeNicknameViewController animated:YES];
-        } else {
+        } else if (indexPath.row == 2){
             ElForgetPasswordViewController *forgetPasswordViewController = [[ElForgetPasswordViewController alloc] init];
             [self.navigationController pushViewController:forgetPasswordViewController animated:YES];
         }

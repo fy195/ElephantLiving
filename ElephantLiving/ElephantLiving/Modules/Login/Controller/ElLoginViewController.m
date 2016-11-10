@@ -125,15 +125,24 @@
             NSLog(@"failed to get authentication from weibo. error: %@", error.description);
         } else {
             [_User loginWithAuthData:object platform:AVOSCloudSNSPlatformQQ block:^(AVUser *user, NSError *error) {
-                NSString *username = object[@"username"];
-                NSString *avatar = object[@"avatar"];
-                _User *qqUser = (_User *)user;
-                qqUser.username = username;
-                qqUser.headImage = avatar;
-                [qqUser saveInBackground];
-                
-                ElHomeTabBarController *homeView = [[ElHomeTabBarController alloc] init];
-                [self.navigationController pushViewController:homeView animated:YES];
+                if (!error) {
+                    NSString *username = object[@"username"];
+                    NSString *avatar = object[@"avatar"];
+                    _User *qqUser = (_User *)user;
+                    qqUser.username = username;
+                    qqUser.headImage = avatar;
+                    [qqUser saveInBackground];
+                    
+                    ElHomeTabBarController *homeView = [[ElHomeTabBarController alloc] init];
+                    [self.navigationController pushViewController:homeView animated:YES];
+                }else {
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                        [self dismissViewControllerAnimated:YES completion:nil];
+                    }];
+                    [alertController addAction:cancelAction];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                }
                 
             }];
         }
@@ -148,14 +157,24 @@
             NSLog(@"failed to get authentication from weibo. error: %@", error.description);
         } else {
             [_User loginWithAuthData:object platform:AVOSCloudSNSPlatformWeiBo block:^(AVUser *user, NSError *error) {
-                NSString *username = object[@"username"];
-                NSString *avatar = object[@"avatar"];
-                _User *qqUser = (_User *)user;
-                qqUser.username = username;
-                qqUser.headImage = avatar;
-                [qqUser saveInBackground];
-                ElHomeTabBarController *homeView = [[ElHomeTabBarController alloc] init];
-                [self.navigationController pushViewController:homeView animated:YES];
+                if (!error) {
+                    
+                    NSString *username = object[@"username"];
+                    NSString *avatar = object[@"avatar"];
+                    _User *qqUser = (_User *)user;
+                    qqUser.username = username;
+                    qqUser.headImage = avatar;
+                    [qqUser saveInBackground];
+                    ElHomeTabBarController *homeView = [[ElHomeTabBarController alloc] init];
+                    [self.navigationController pushViewController:homeView animated:YES];
+                }else {
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+                        [self dismissViewControllerAnimated:YES completion:nil];
+                    }];
+                    [alertController addAction:cancelAction];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                }
             }];
         }
     } toPlatform:AVOSCloudSNSSinaWeibo];
