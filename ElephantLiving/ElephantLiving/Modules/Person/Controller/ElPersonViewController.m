@@ -241,8 +241,6 @@ UIImagePickerControllerDelegate
             ElAlbumViewController *albumViewController = [[ElAlbumViewController alloc] init];
             [self.navigationController pushViewController:albumViewController animated:YES];
         }else {
-            ElManageViewController *manageViewController = [[ElManageViewController alloc] init];
-            [self presentViewController:manageViewController animated:YES completion:nil];
         }
     }else {
         ElSettingViewController *settingViewController = [[ElSettingViewController alloc] init];
