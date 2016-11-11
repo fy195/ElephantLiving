@@ -46,6 +46,7 @@
 		49C284741DCC363C00ECCD13 /* ElBaseAVUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C284731DCC363C00ECCD13 /* ElBaseAVUser.m */; };
 		49C284771DCC366400ECCD13 /* _User.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C284761DCC366400ECCD13 /* _User.m */; };
 		49C2847A1DCC38F800ECCD13 /* AVUser+ElClassMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C284791DCC38F800ECCD13 /* AVUser+ElClassMap.m */; };
+		49C9BD6A1DD4A5FB0069659D /* NSString+ElAutoSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C9BD691DD4A5FB0069659D /* NSString+ElAutoSize.m */; };
 		49CA285B1DC9E25800654B7C /* xinyiba_riva_Dolphin01.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CA28541DC9E25800654B7C /* xinyiba_riva_Dolphin01.png */; };
 		49CA285C1DC9E25800654B7C /* xinyiba_riva_Dolphin02.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CA28551DC9E25800654B7C /* xinyiba_riva_Dolphin02.png */; };
 		49CA285D1DC9E25800654B7C /* xinyiba_riva_Dolphin03.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CA28561DC9E25800654B7C /* xinyiba_riva_Dolphin03.png */; };
@@ -247,6 +248,8 @@
 		49C284781DCC38F800ECCD13 /* AVUser+ElClassMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AVUser+ElClassMap.h"; sourceTree = "<group>"; };
 		49C284791DCC38F800ECCD13 /* AVUser+ElClassMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AVUser+ElClassMap.m"; sourceTree = "<group>"; };
 		49C2847B1DCC394500ECCD13 /* ElAVUserCloud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElAVUserCloud.h; sourceTree = "<group>"; };
+		49C9BD681DD4A5FB0069659D /* NSString+ElAutoSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ElAutoSize.h"; sourceTree = "<group>"; };
+		49C9BD691DD4A5FB0069659D /* NSString+ElAutoSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ElAutoSize.m"; sourceTree = "<group>"; };
 		49CA28541DC9E25800654B7C /* xinyiba_riva_Dolphin01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin01.png; sourceTree = "<group>"; };
 		49CA28551DC9E25800654B7C /* xinyiba_riva_Dolphin02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin02.png; sourceTree = "<group>"; };
 		49CA28561DC9E25800654B7C /* xinyiba_riva_Dolphin03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = xinyiba_riva_Dolphin03.png; sourceTree = "<group>"; };
@@ -882,6 +885,8 @@
 				49FE39AA1DB79A4C00FD8A99 /* UIImage+Categories.m */,
 				49FE39AB1DB79A4C00FD8A99 /* UIView+Frame.h */,
 				49FE39AC1DB79A4C00FD8A99 /* UIView+Frame.m */,
+				49C9BD681DD4A5FB0069659D /* NSString+ElAutoSize.h */,
+				49C9BD691DD4A5FB0069659D /* NSString+ElAutoSize.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -1240,7 +1245,6 @@
 			isa = PBXGroup;
 			children = (
 				49FE39F71DB79CB900FD8A99 /* Controller */,
-				49FE39F51DB79CAC00FD8A99 /* Model */,
 				49FE39F41DB79CA700FD8A99 /* View */,
 				49FE39F61DB79CB000FD8A99 /* ViewModel */,
 			);
@@ -1289,13 +1293,6 @@
 				EB3347A01DC08D4D00AB0D18 /* ElStartLiving.m */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		49FE39F51DB79CAC00FD8A99 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		49FE39F61DB79CB000FD8A99 /* ViewModel */ = {
@@ -1880,6 +1877,7 @@
 				EBCB053F1DCB5CE300BB2832 /* ElCarTwoAnimationView.m in Sources */,
 				498A10491DB8F25B003F86B8 /* ElListViewController.m in Sources */,
 				49FE39D21DB79B7200FD8A99 /* AboutMe.text in Sources */,
+				49C9BD6A1DD4A5FB0069659D /* NSString+ElAutoSize.m in Sources */,
 				491E05C61DCB2EE1009342BA /* ElBaseAVObject.m in Sources */,
 				49FE39911DB797E500FD8A99 /* ElBaseViewController.m in Sources */,
 				49FE39C81DB79A4C00FD8A99 /* DataBaseManager.m in Sources */,

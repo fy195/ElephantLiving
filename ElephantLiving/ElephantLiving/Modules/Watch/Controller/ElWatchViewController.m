@@ -34,6 +34,7 @@
 #import "ElHouseAniamtionView.h"
 #import "ElBaseGiftAnimationView.h"
 #import "ElCommentTableViewCell.h"
+#import "NSString+ElAutoSize.h"
 
 @interface ElWatchViewController ()
 <
@@ -176,6 +177,7 @@ ElGiftViewDelegate
     [_moviePlayer.view bringSubviewToFront:bottomToolView];
     [bottomToolView.commentButton addTarget:self action:@selector(commentButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [bottomToolView.giftButton addTarget:self action:@selector(giftButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [bottomToolView.shareButton addTarget:self action:@selector(shareButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     self.giftView = [[ElGiftView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4)];
     [self.view addSubview:_giftView];
     _giftView.delegate = self;
@@ -200,7 +202,7 @@ ElGiftViewDelegate
     [self.view bringSubviewToFront:_commentTableView];
     [_commentTableView registerClass:[ElCommentTableViewCell class] forCellReuseIdentifier:@"cell"];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 270, SCREEN_WIDTH - 70, 30)];
-    label.textColor = [UIColor purpleColor];
+    label.textColor = [[UIColor purpleColor] colorWithAlphaComponent:0.8];
     label.text = @"系统消息:大象直播提倡绿色直播,封面和直播内容含低俗、诱惑、暴露、暴力、赌博等内容都将被屏蔽热门或封停帐号,网警24小时在线巡查!官方严禁私下交易货币,如遇纠纷,概不负责!";
     label.numberOfLines = 0;
     [label sizeToFit];
@@ -208,6 +210,16 @@ ElGiftViewDelegate
     
     self.client = [AVIMClient defaultClient];
     _client.delegate = self;
+}
+
+- (void)shareButtonAction:(UIButton *)button {
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[@"smalltiger"] applicationActivities:nil];
+    activityViewController.excludedActivityTypes = @[UIActivityTypeMail];
+    [self presentViewController:activityViewController animated:YES completion:nil];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [_messageArray[indexPath.row] cellHeight];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -321,11 +333,8 @@ ElGiftViewDelegate
     [_currentConversation sendMessage:textMessage option:option callback:^(BOOL succeeded, NSError * _Nullable error) {
         if (!error) {
             [_messageArray addObject:[NSString stringWithFormat:@"%@: %@", textMessage.clientId, textMessage.text]];
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:_messageArray.count - 1 inSection:0];
-            [_commentTableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-            ElCommentTableViewCell *cell = [_commentTableView cellForRowAtIndexPath:indexPath];
-            _commentTableView.rowHeight = cell.height;
-            [_commentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
+            [_commentTableView reloadData];
+            [self tableViewScrollToBottom];
         }
     }];
 }
@@ -394,11 +403,8 @@ ElGiftViewDelegate
         str = [NSString stringWithFormat:@"%@: %@", message.clientId, msg];
     }
     [_messageArray addObject:str];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:_messageArray.count - 1 inSection:0];
-    [_commentTableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-    ElCommentTableViewCell *cell = [_commentTableView cellForRowAtIndexPath:indexPath];
-    _commentTableView.rowHeight = cell.height;
-    [_commentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
+    [_commentTableView reloadData];
+    [self tableViewScrollToBottom];
 }
 
 - (void)imClientPaused:(AVIMClient *)imClient {
@@ -528,17 +534,17 @@ ElGiftViewDelegate
 }
 
 - (void)animationWithItemCount:(NSInteger)itemCount {
-    
+    _User *user = [_User currentUser];
     if (0 == itemCount) {
         // IM 消息
         GSPChatMessage *msg = [[GSPChatMessage alloc] init];
         msg.text = @"1个【玫瑰花】";
-        msg.senderChatID = @"亮锅";
+        msg.senderChatID = user.username;
         msg.senderName = msg.senderChatID;
         
         // 礼物模型
         GiftModel *giftModel = [[GiftModel alloc] init];
-        giftModel.headImage = [UIImage imageNamed:@"FF885B69C30A56A3D0296F10CFF6D1D8"];
+        giftModel.headImage = user.headImage;
         giftModel.name = msg.senderName;
         giftModel.giftImage = [UIImage imageNamed:@"gift_flower"];
         giftModel.giftName = msg.text;
@@ -553,12 +559,12 @@ ElGiftViewDelegate
         // IM 消息
         GSPChatMessage *msg = [[GSPChatMessage alloc] init];
         msg.text = @"1个【樱花】";
-        msg.senderChatID = @"班长";
+        msg.senderChatID = user.username;
         msg.senderName = msg.senderChatID;
         
         // 礼物模型
         GiftModel *giftModel = [[GiftModel alloc] init];
-        giftModel.headImage = [UIImage imageNamed:@"CFE1DC2535199A7B6437D2805419BF23"];
+        giftModel.headImage = user.headImage;
         giftModel.name = msg.senderName;
         giftModel.giftImage = [UIImage imageNamed:@"flower"];
         giftModel.giftName = msg.text;
@@ -574,12 +580,12 @@ ElGiftViewDelegate
         // IM 消息
         GSPChatMessage *msg = [[GSPChatMessage alloc] init];
         msg.text = @"1个【钻石】";
-        msg.senderChatID = @"亮锅";
+        msg.senderChatID = user.username;
         msg.senderName = msg.senderChatID;
         
         // 礼物模型
         GiftModel *giftModel = [[GiftModel alloc] init];
-        giftModel.headImage = [UIImage imageNamed:@"FF885B69C30A56A3D0296F10CFF6D1D8"];
+        giftModel.headImage = user.headImage;
         giftModel.name = msg.senderName;
         giftModel.giftImage = [UIImage imageNamed:@"living_money_icon21"];
         giftModel.giftName = msg.text;
@@ -666,7 +672,14 @@ ElGiftViewDelegate
     [UIView animateWithDuration:0.5 animations:^{
         _giftView.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4);
     }];
-    
+}
+
+- (void)tableViewScrollToBottom {
+    if (_messageArray.count == 0) {
+        return;
+    }
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:_messageArray.count - 1 inSection:0];
+    [_commentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
 @end

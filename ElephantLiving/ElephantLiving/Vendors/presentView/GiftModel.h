@@ -10,7 +10,7 @@
 
 @interface GiftModel : NSObject
 // 头像
-@property (nonatomic, strong)UIImage *headImage;
+@property (nonatomic, strong)NSString *headImage;
 // 礼物
 @property (nonatomic, strong)UIImage *giftImage;
 // 送礼物者
