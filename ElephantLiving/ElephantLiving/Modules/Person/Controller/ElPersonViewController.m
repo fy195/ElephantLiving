@@ -11,7 +11,6 @@
 #import "ElPersonTableViewCell.h"
 #import "ElPersonCharmTableViewCell.h"
 #import "ElAlbumViewController.h"
-#import "ElManageViewController.h"
 #import "ElSettingViewController.h"
 #import "_User.h"
 #import "UIImage+Categories.h"
@@ -233,7 +232,7 @@ UIImagePickerControllerDelegate
         if (indexPath.row == 1) {
             ElChangeNicknameViewController *changeNicknameViewController = [[ElChangeNicknameViewController alloc] init];
             [self.navigationController pushViewController:changeNicknameViewController animated:YES];
-        } else {
+        } else if (indexPath.row == 2){
             ElForgetPasswordViewController *forgetPasswordViewController = [[ElForgetPasswordViewController alloc] init];
             [self.navigationController pushViewController:forgetPasswordViewController animated:YES];
         }
@@ -242,8 +241,6 @@ UIImagePickerControllerDelegate
             ElAlbumViewController *albumViewController = [[ElAlbumViewController alloc] init];
             [self.navigationController pushViewController:albumViewController animated:YES];
         }else {
-            ElManageViewController *manageViewController = [[ElManageViewController alloc] init];
-            [self presentViewController:manageViewController animated:YES completion:nil];
         }
     }else {
         ElSettingViewController *settingViewController = [[ElSettingViewController alloc] init];

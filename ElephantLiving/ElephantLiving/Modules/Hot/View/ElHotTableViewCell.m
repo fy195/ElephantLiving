@@ -7,6 +7,7 @@
 //
 
 #import "ElHotTableViewCell.h"
+#import "UIImageView+WebCache.h"
 
 @interface ElHotTableViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
@@ -21,11 +22,11 @@
 @implementation ElHotTableViewCell
 
 
-- (void)setIconImage:(UIImage *)iconImage {
+- (void)setIconImage:(NSString *)iconImage {
     if (_iconImage != iconImage) {
         _iconImage = iconImage;
     }
-    _iconImageView.image = iconImage;
+    [_iconImageView sd_setImageWithURL:[NSURL URLWithString:iconImage] placeholderImage:[UIImage imageNamed:@"大象头像"]];
 }
 
 - (void)setName:(NSString *)name {
@@ -57,11 +58,11 @@
     _liveLabel.layer.borderColor = [UIColor whiteColor].CGColor;
 }
 
-- (void)setCoverImage:(UIImage *)coverImage {
+- (void)setCoverImage:(NSString *)coverImage {
     if (_coverImage != coverImage) {
         _coverImage = coverImage;
     }
-    _coverImageView.image = coverImage;
+    [_coverImageView sd_setImageWithURL:[NSURL URLWithString:coverImage] placeholderImage:[UIImage imageNamed:@"景3"]];
 }
 
 

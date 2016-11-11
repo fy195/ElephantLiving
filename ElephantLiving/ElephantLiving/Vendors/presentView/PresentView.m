@@ -7,6 +7,7 @@
 //
 
 #import "PresentView.h"
+#import "UIImageView+WebCache.h"
 
 @interface PresentView ()
 
@@ -138,7 +139,7 @@
 
 - (void)setModel:(GiftModel *)model {
     _model = model;
-    _headImageView.image = model.headImage;
+    [_headImageView sd_setImageWithURL:[NSURL URLWithString:model.headImage]];
     _giftImageView.image = model.giftImage;
     _nameLabel.text = model.name;
     _giftLabel.text = [NSString stringWithFormat:@"送了%@",model.giftName];

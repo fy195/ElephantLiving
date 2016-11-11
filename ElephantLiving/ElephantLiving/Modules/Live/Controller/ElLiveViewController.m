@@ -35,6 +35,7 @@
 #import "ElCommentTableViewCell.h"
 #import "ElUserBriefView.h"
 #import "ElReportViewController.h"
+#import "NSString+ElAutoSize.h"
 
 
 @interface ElLiveViewController ()
@@ -109,7 +110,6 @@ ElUserBriefViewDelegate
     self.tabBarController.tabBar.hidden = YES;
     
     self.messageArray = [NSMutableArray array];
-    
     self.startView = [[ElStartLiving alloc] initWithFrame:self.view.bounds];
     [self.view addSubview:_startView];
     [_startView.startButton addTarget:self action:@selector(startButtonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -166,6 +166,7 @@ ElUserBriefViewDelegate
     _bottomToolView.backgroundColor = [UIColor clearColor];
     [_bottomToolView.commentButton addTarget:self action:@selector(commentButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_bottomToolView.giftButton addTarget:self action:@selector(giftButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [_bottomToolView.shareButton addTarget:self action:@selector(shareButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     self.giftView = [[ElGiftView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4)];
     [self.view addSubview:_giftView];
     _giftView.delegate = self;
@@ -186,6 +187,12 @@ ElUserBriefViewDelegate
     [self hiddenToolView:YES];
 }
 
+- (void)shareButtonAction:(UIButton *)button {
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[@"smalltiger"] applicationActivities:nil];
+    activityViewController.excludedActivityTypes = @[UIActivityTypeMail];
+    [self presentViewController:activityViewController animated:YES completion:nil];
+}
+
 // 创建tableView
 - (void)createCommentTableView {
     self.commentTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT - 270, SCREEN_WIDTH - 70, 200) style:UITableViewStylePlain];
@@ -193,7 +200,7 @@ ElUserBriefViewDelegate
     _commentTableView.dataSource = self;
     _commentTableView.backgroundColor = [UIColor clearColor];
     _commentTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    _commentTableView.estimatedRowHeight = 30;
+    _commentTableView.bounces = NO;
     [self.view addSubview:_commentTableView];
     [self.view bringSubviewToFront:_commentTableView];
     [_commentTableView registerClass:[ElCommentTableViewCell class] forCellReuseIdentifier:@"cell"];
@@ -211,11 +218,16 @@ ElUserBriefViewDelegate
     _client.delegate = self;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [_messageArray[indexPath.row] cellHeight];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _messageArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     ElCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.comment = _messageArray[indexPath.row];
@@ -229,11 +241,8 @@ ElUserBriefViewDelegate
     [_currentConversation sendMessage:textMessage option:option callback:^(BOOL succeeded, NSError * _Nullable error) {
         if (!error) {
             [_messageArray addObject:[NSString stringWithFormat:@"%@: %@", textMessage.clientId, textMessage.text]];
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:_messageArray.count - 1 inSection:0];
-            [_commentTableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-            ElCommentTableViewCell *cell = [_commentTableView cellForRowAtIndexPath:indexPath];
-            _commentTableView.rowHeight = cell.height;
-            [_commentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:NO];
+            [_commentTableView reloadData];
+            [self tableViewScrollToBottom];
         }
     }];
 }
@@ -662,11 +671,8 @@ ElUserBriefViewDelegate
         str = [NSString stringWithFormat:@"%@: %@", message.clientId, msg];
     }
     [_messageArray addObject:str];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:_messageArray.count - 1 inSection:0];
-    [_commentTableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
-    ElCommentTableViewCell *cell = [_commentTableView cellForRowAtIndexPath:indexPath];
-    _commentTableView.rowHeight = cell.height;
-    [_commentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:NO];
+    [_commentTableView reloadData];
+    [self tableViewScrollToBottom];
 }
 
 - (void)imClientPaused:(AVIMClient *)imClient {
@@ -679,17 +685,17 @@ ElUserBriefViewDelegate
 }
 
 - (void)animationWithItemCount:(NSInteger)itemCount {
-    
+    _User *user = [_User currentUser];
     if (0 == itemCount) {
         // IM 消息
         GSPChatMessage *msg = [[GSPChatMessage alloc] init];
         msg.text = @"1个【玫瑰花】";
-        msg.senderChatID = @"象";
+        msg.senderChatID = user.username;
         msg.senderName = msg.senderChatID;
     
         // 礼物模型
         GiftModel *firstGiftModel = [[GiftModel alloc] init];
-        firstGiftModel.headImage = [UIImage imageNamed:@"2BF46EE33F21ED32747002E979B04D5B"];
+        firstGiftModel.headImage = user.headImage;
         firstGiftModel.name = msg.senderName;
         firstGiftModel.giftImage = [UIImage imageNamed:@"gift_flower"];
         firstGiftModel.giftName = msg.text;
@@ -705,12 +711,12 @@ ElUserBriefViewDelegate
         // IM 消息
         GSPChatMessage *msg = [[GSPChatMessage alloc] init];
         msg.text = @"1个【樱花】";
-        msg.senderChatID = @"班长";
+        msg.senderChatID = user.username;
         msg.senderName = msg.senderChatID;
         
         // 礼物模型
         GiftModel *secondGiftModel = [[GiftModel alloc] init];
-        secondGiftModel.headImage = [UIImage imageNamed:@"CFE1DC2535199A7B6437D2805419BF23"];
+        secondGiftModel.headImage = user.headImage;
         secondGiftModel.name = msg.senderName;
         secondGiftModel.giftImage = [UIImage imageNamed:@"flower"];
         secondGiftModel.giftName = msg.text;
@@ -726,12 +732,12 @@ ElUserBriefViewDelegate
         // IM 消息
         GSPChatMessage *msg = [[GSPChatMessage alloc] init];
         msg.text = @"1个【钻石】";
-        msg.senderChatID = @"亮锅";
+        msg.senderChatID = user.username;
         msg.senderName = msg.senderChatID;
         
         // 礼物模型
         GiftModel *thirdGiftModel = [[GiftModel alloc] init];
-        thirdGiftModel.headImage = [UIImage imageNamed:@"FF885B69C30A56A3D0296F10CFF6D1D8"];
+        thirdGiftModel.headImage = user.headImage;
         thirdGiftModel.name = msg.senderName;
         thirdGiftModel.giftImage = [UIImage imageNamed:@"living_money_icon21"];
         thirdGiftModel.giftName = msg.text;
@@ -890,6 +896,13 @@ ElUserBriefViewDelegate
         _giftView.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4);
     }];
 
+}
+- (void)tableViewScrollToBottom {
+    if (_messageArray.count == 0) {
+        return;
+    }
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:_messageArray.count - 1 inSection:0];
+    [_commentTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

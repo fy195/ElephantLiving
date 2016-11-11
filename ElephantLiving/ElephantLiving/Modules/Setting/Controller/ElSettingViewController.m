@@ -10,6 +10,7 @@
 #import "ElLoginViewController.h"
 #import "ElAVOSCloud.h"
 #import "ElUsViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface ElSettingViewController ()
 
@@ -115,9 +116,27 @@
     [cacheButton addSubview:cacheLabel];
     
     [self.view addSubview:cacheButton];
+    NSString *message = [NSString stringWithFormat:@"清除%.2fM缓存。", [self getCacheSize]];
     [cacheButton handleControlEvent:UIControlEventTouchUpInside withBlock:^{
-//        NSLog(@"清除缓存");
-//        [AVFile clearAllCachedFiles];
+        //1.删除SDWebimage缓存
+        [[SDImageCache sharedImageCache]clearMemory];//清除内存缓存
+        [[SDImageCache sharedImageCache] clearDiskOnCompletion:nil];//清除磁盘
+        
+        //2.界面下载的缓存
+        NSString *myPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Library/Caches/MyCaches"];
+        // 删除文件
+        [[NSFileManager defaultManager]removeItemAtPath:myPath error:nil];
+        //3.LeanCloud缓存
+        [AVQuery clearAllCachedResults];
+        [AVFile clearAllCachedFiles];
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }];
+        [alertController addAction:cancelAction];
+        [self presentViewController:alertController animated:YES completion:nil];
+
     }];
     
    
@@ -158,6 +177,23 @@
     
     
     // Do any additional setup after loading the view.
+}
+
+- (CGFloat)getCacheSize {
+    
+    CGFloat sdSize = [[SDImageCache sharedImageCache] getSize];
+    NSString *myPath = [NSHomeDirectory()stringByAppendingPathComponent:@"Library/Caches/MyCaches"];
+    // 获取文件夹中的所有文件
+    NSArray *arr = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:myPath error:nil];
+    unsigned long long size = 0;
+    for (NSString *fileName in arr) {
+        NSString *filePath = [myPath stringByAppendingPathComponent:fileName];
+        NSDictionary *dict = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil];
+        size += dict.fileSize;
+    }
+    // 1M = 1024K = 1024 * 1024 字节
+    CGFloat totalSize = (sdSize + size) / 1024.0 / 1024.0;
+    return totalSize;
 }
 
 - (void)exitButtonAction:(UIButton *)button {

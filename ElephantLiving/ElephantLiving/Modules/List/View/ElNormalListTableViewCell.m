@@ -8,6 +8,7 @@
 
 #import "ElNormalListTableViewCell.h"
 #import "ElMacro.h"
+#import "UIImageView+WebCache.h"
 
 @implementation ElNormalListTableViewCell
 
@@ -42,7 +43,7 @@
         
         // 魅力值
         self.charmLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        _charmLabel.text = @"";
+        _charmLabel.text = @"0";
         _charmLabel.textAlignment = NSTextAlignmentRight;
         _charmLabel.numberOfLines = 1;
         _charmLabel.textColor = [UIColor colorWithRed:0.9843 green:0.4196 blue:0.0 alpha:1.0];
@@ -54,12 +55,12 @@
 }
 
 #pragma mark - set传值
-- (void)setHeaderImage:(UIImage *)headerImage {
+- (void)setHeaderImage:(NSString *)headerImage {
     if (_headerImage != headerImage) {
         _headerImage = headerImage;
     }
     
-    _headerImageView.image = headerImage;
+    [_headerImageView sd_setImageWithURL:[NSURL URLWithString:headerImage]];
     
 }
 
