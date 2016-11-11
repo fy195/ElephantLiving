@@ -159,8 +159,7 @@ UITableViewDelegate
     _listTableView.rowHeight = 90;
     _listTableView.showsVerticalScrollIndicator = NO;
     [self.view                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  addSubview:_listTableView];
-    
-    
+        
     [_listTableView registerClass:[ElNormalListTableViewCell class] forCellReuseIdentifier:normalList];
     
     _listTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
