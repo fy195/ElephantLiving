@@ -177,6 +177,7 @@ ElGiftViewDelegate
     [_moviePlayer.view bringSubviewToFront:bottomToolView];
     [bottomToolView.commentButton addTarget:self action:@selector(commentButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [bottomToolView.giftButton addTarget:self action:@selector(giftButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [bottomToolView.shareButton addTarget:self action:@selector(shareButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     self.giftView = [[ElGiftView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4)];
     [self.view addSubview:_giftView];
     _giftView.delegate = self;
@@ -209,6 +210,12 @@ ElGiftViewDelegate
     
     self.client = [AVIMClient defaultClient];
     _client.delegate = self;
+}
+
+- (void)shareButtonAction:(UIButton *)button {
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[@"smalltiger"] applicationActivities:nil];
+    activityViewController.excludedActivityTypes = @[UIActivityTypeMail];
+    [self presentViewController:activityViewController animated:YES completion:nil];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -166,6 +166,7 @@ ElUserBriefViewDelegate
     _bottomToolView.backgroundColor = [UIColor clearColor];
     [_bottomToolView.commentButton addTarget:self action:@selector(commentButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     [_bottomToolView.giftButton addTarget:self action:@selector(giftButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [_bottomToolView.shareButton addTarget:self action:@selector(shareButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     self.giftView = [[ElGiftView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4)];
     [self.view addSubview:_giftView];
     _giftView.delegate = self;
@@ -184,6 +185,12 @@ ElUserBriefViewDelegate
     [self createCommentTableView];
     
     [self hiddenToolView:YES];
+}
+
+- (void)shareButtonAction:(UIButton *)button {
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[@"smalltiger"] applicationActivities:nil];
+    activityViewController.excludedActivityTypes = @[UIActivityTypeMail];
+    [self presentViewController:activityViewController animated:YES completion:nil];
 }
 
 // 创建tableView
