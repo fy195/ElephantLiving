@@ -39,7 +39,6 @@
 		499E3F8B1DD3233400CC9846 /* ElChangeNicknameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 499E3F891DD3233400CC9846 /* ElChangeNicknameViewController.xib */; };
 		499FBE241DB786CE0015CC1D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 499FBE231DB786CE0015CC1D /* main.m */; };
 		499FBE271DB786CE0015CC1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 499FBE261DB786CE0015CC1D /* AppDelegate.m */; };
-		499FBE2A1DB786CE0015CC1D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 499FBE291DB786CE0015CC1D /* ViewController.m */; };
 		499FBE2D1DB786CE0015CC1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 499FBE2B1DB786CE0015CC1D /* Main.storyboard */; };
 		499FBE321DB786CE0015CC1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 499FBE301DB786CE0015CC1D /* LaunchScreen.storyboard */; };
 		49B5F6421DC2FAA8006A3538 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B5F6411DC2FAA8006A3538 /* QuartzCore.framework */; };
@@ -157,10 +156,6 @@
 		EB3347A51DC1889200AB0D18 /* ElEndLiving.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3347A41DC1889200AB0D18 /* ElEndLiving.m */; };
 		EB3347A71DC190C400AB0D18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB3347A61DC190C400AB0D18 /* Assets.xcassets */; };
 		EB5233001DC4749E00B35743 /* ElCommonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = EB5232FF1DC4749E00B35743 /* ElCommonUtils.m */; };
-		EB55576D1DD2CE5A005934F7 /* 景3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB55576C1DD2CE5A005934F7 /* 景3.jpg */; };
-		EB936CED1DD33E6D00038291 /* xaingxiang.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EB936CEC1DD33E6D00038291 /* xaingxiang.jpeg */; };
-		EB936CEF1DD3438100038291 /* 修改昵称.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EB936CEE1DD3438000038291 /* 修改昵称.jpeg */; };
-		EB936CF11DD3466400038291 /* 云.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB936CF01DD3466400038291 /* 云.jpg */; };
 		EB93C5AF1DC9793C005C8E7B /* ElGiftView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB93C5AE1DC9793C005C8E7B /* ElGiftView.m */; };
 		EB93C5B21DC98581005C8E7B /* ElGiftCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EB93C5B11DC98581005C8E7B /* ElGiftCollectionViewCell.m */; };
 		EB99EAF61DC0506000621EF3 /* IJKMediaFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB99EAF11DC0506000621EF3 /* IJKMediaFramework.framework */; };
@@ -175,9 +170,6 @@
 		EBCB05481DCB672B00BB2832 /* ElDolphinAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCB05471DCB672B00BB2832 /* ElDolphinAnimationView.m */; };
 		EBCB054B1DCB68D100BB2832 /* ElFireworksAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCB054A1DCB68D100BB2832 /* ElFireworksAnimationView.m */; };
 		EBCB054E1DCB697C00BB2832 /* ElHouseAniamtionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EBCB054D1DCB697C00BB2832 /* ElHouseAniamtionView.m */; };
-		EBD4C0921DCDDD5700F81382 /* hahaha.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EBD4C0911DCDDD5700F81382 /* hahaha.jpeg */; };
-		EBD4C0981DCE0C9600F81382 /* 对号气泡2.png in Resources */ = {isa = PBXBuildFile; fileRef = EBD4C0971DCE0C9600F81382 /* 对号气泡2.png */; };
-		EBD965AF1DD01C8300936D66 /* 路牌x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBD965AE1DD01C8300936D66 /* 路牌x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -235,8 +227,6 @@
 		499FBE231DB786CE0015CC1D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		499FBE251DB786CE0015CC1D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		499FBE261DB786CE0015CC1D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		499FBE281DB786CE0015CC1D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		499FBE291DB786CE0015CC1D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		499FBE2C1DB786CE0015CC1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		499FBE311DB786CE0015CC1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		499FBE331DB786CE0015CC1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -417,10 +407,6 @@
 		EB3347A61DC190C400AB0D18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB5232FE1DC4749E00B35743 /* ElCommonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElCommonUtils.h; sourceTree = "<group>"; };
 		EB5232FF1DC4749E00B35743 /* ElCommonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElCommonUtils.m; sourceTree = "<group>"; };
-		EB55576C1DD2CE5A005934F7 /* 景3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "景3.jpg"; sourceTree = "<group>"; };
-		EB936CEC1DD33E6D00038291 /* xaingxiang.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = xaingxiang.jpeg; sourceTree = "<group>"; };
-		EB936CEE1DD3438000038291 /* 修改昵称.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "修改昵称.jpeg"; sourceTree = "<group>"; };
-		EB936CF01DD3466400038291 /* 云.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "云.jpg"; sourceTree = "<group>"; };
 		EB93C5AD1DC9793C005C8E7B /* ElGiftView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElGiftView.h; sourceTree = "<group>"; };
 		EB93C5AE1DC9793C005C8E7B /* ElGiftView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElGiftView.m; sourceTree = "<group>"; };
 		EB93C5B01DC98581005C8E7B /* ElGiftCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElGiftCollectionViewCell.h; sourceTree = "<group>"; };
@@ -447,9 +433,6 @@
 		EBCB054A1DCB68D100BB2832 /* ElFireworksAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElFireworksAnimationView.m; sourceTree = "<group>"; };
 		EBCB054C1DCB697C00BB2832 /* ElHouseAniamtionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ElHouseAniamtionView.h; sourceTree = "<group>"; };
 		EBCB054D1DCB697C00BB2832 /* ElHouseAniamtionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ElHouseAniamtionView.m; sourceTree = "<group>"; };
-		EBD4C0911DCDDD5700F81382 /* hahaha.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hahaha.jpeg; sourceTree = "<group>"; };
-		EBD4C0971DCE0C9600F81382 /* 对号气泡2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "对号气泡2.png"; sourceTree = "<group>"; };
-		EBD965AE1DD01C8300936D66 /* 路牌x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "路牌x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -494,9 +477,6 @@
 			isa = PBXGroup;
 			children = (
 				49CA5A3B1DC03CDE005F2172 /* Controller */,
-				49CA5A3D1DC03CEC005F2172 /* Model */,
-				49CA5A3C1DC03CE5005F2172 /* View */,
-				49CA5A3E1DC03CF1005F2172 /* ViewModel */,
 			);
 			path = Watch;
 			sourceTree = "<group>";
@@ -557,12 +537,10 @@
 		499FBE211DB786CE0015CC1D /* ElephantLiving */ = {
 			isa = PBXGroup;
 			children = (
-				49CA28621DC9EC0800654B7C /* AVObject */,
 				49FE39841DB7974B00FD8A99 /* Base */,
-				49FE39931DB79A4C00FD8A99 /* Common */,
+				49F86C1A1DD7165800733206 /* Classes */,
 				EB51761C1DC9D4530047DD49 /* Image */,
 				49FE39CD1DB79A7400FD8A99 /* Macro */,
-				49FE39D41DB79B8C00FD8A99 /* Modules */,
 				49FE39D01DB79B5D00FD8A99 /* Resources */,
 				499FBE221DB786CE0015CC1D /* Supporting Files */,
 				EB99EAEE1DC0506000621EF3 /* Vendors */,
@@ -573,15 +551,6 @@
 				499FBE331DB786CE0015CC1D /* Info.plist */,
 				499FBE301DB786CE0015CC1D /* LaunchScreen.storyboard */,
 				499FBE2B1DB786CE0015CC1D /* Main.storyboard */,
-				499FBE281DB786CE0015CC1D /* ViewController.h */,
-				499FBE291DB786CE0015CC1D /* ViewController.m */,
-				EBD4C0911DCDDD5700F81382 /* hahaha.jpeg */,
-				EB936CEC1DD33E6D00038291 /* xaingxiang.jpeg */,
-				EB936CF01DD3466400038291 /* 云.jpg */,
-				EB936CEE1DD3438000038291 /* 修改昵称.jpeg */,
-				EBD4C0971DCE0C9600F81382 /* 对号气泡2.png */,
-				EB55576C1DD2CE5A005934F7 /* 景3.jpg */,
-				EBD965AE1DD01C8300936D66 /* 路牌x.png */,
 			);
 			path = ElephantLiving;
 			sourceTree = "<group>";
@@ -629,27 +598,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		49CA5A3C1DC03CE5005F2172 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		49CA5A3D1DC03CEC005F2172 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		49CA5A3E1DC03CF1005F2172 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		49CB8A0A1DCDD755002CAA6A /* BriefView */ = {
 			isa = PBXGroup;
 			children = (
@@ -682,9 +630,6 @@
 			isa = PBXGroup;
 			children = (
 				49F2C9611DB9AF72000589A7 /* Controller */,
-				49F2C9631DB9AF93000589A7 /* Model */,
-				49F2C9621DB9AF8E000589A7 /* View */,
-				49F2C9641DB9AF98000589A7 /* ViewModel */,
 			);
 			path = ChangeNickname;
 			sourceTree = "<group>";
@@ -699,34 +644,10 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		49F2C9621DB9AF8E000589A7 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		49F2C9631DB9AF93000589A7 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		49F2C9641DB9AF98000589A7 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		49F2C9651DB9AFA0000589A7 /* Feedback */ = {
 			isa = PBXGroup;
 			children = (
 				49F2C9661DB9AFB9000589A7 /* Controller */,
-				49F2C9691DB9AFD0000589A7 /* Model */,
-				49F2C9671DB9AFC6000589A7 /* View */,
-				49F2C9681DB9AFCA000589A7 /* ViewModel */,
 			);
 			path = Feedback;
 			sourceTree = "<group>";
@@ -740,34 +661,10 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		49F2C9671DB9AFC6000589A7 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		49F2C9681DB9AFCA000589A7 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		49F2C9691DB9AFD0000589A7 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		49F2C96A1DB9AFE8000589A7 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
 				49F2C96B1DB9AFF9000589A7 /* Controller */,
-				49F2C96D1DB9B007000589A7 /* Model */,
-				49F2C96C1DB9B000000589A7 /* View */,
-				49F2C96E1DB9B00C000589A7 /* ViewModel */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -781,25 +678,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		49F2C96C1DB9B000000589A7 /* View */ = {
+		49F86C1A1DD7165800733206 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				49CA28621DC9EC0800654B7C /* AVObject */,
+				49FE39931DB79A4C00FD8A99 /* Common */,
+				49FE39D41DB79B8C00FD8A99 /* Modules */,
 			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		49F2C96D1DB9B007000589A7 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		49F2C96E1DB9B00C000589A7 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		49FE39841DB7974B00FD8A99 /* Base */ = {
@@ -873,6 +759,8 @@
 				49FE399E1DB79A4C00FD8A99 /* NSNumber+Extend.m */,
 				49FE399F1DB79A4C00FD8A99 /* NSString+Categories.h */,
 				49FE39A01DB79A4C00FD8A99 /* NSString+Categories.m */,
+				49C9BD681DD4A5FB0069659D /* NSString+ElAutoSize.h */,
+				49C9BD691DD4A5FB0069659D /* NSString+ElAutoSize.m */,
 				49FE39A11DB79A4C00FD8A99 /* NSString+Regex.h */,
 				49FE39A21DB79A4C00FD8A99 /* NSString+Regex.m */,
 				49FE39A31DB79A4C00FD8A99 /* NSUserDefaults+Categories.h */,
@@ -885,8 +773,6 @@
 				49FE39AA1DB79A4C00FD8A99 /* UIImage+Categories.m */,
 				49FE39AB1DB79A4C00FD8A99 /* UIView+Frame.h */,
 				49FE39AC1DB79A4C00FD8A99 /* UIView+Frame.m */,
-				49C9BD681DD4A5FB0069659D /* NSString+ElAutoSize.h */,
-				49C9BD691DD4A5FB0069659D /* NSString+ElAutoSize.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -970,9 +856,7 @@
 			isa = PBXGroup;
 			children = (
 				49FE39D81DB79BA700FD8A99 /* Controller */,
-				49FE39D71DB79BA200FD8A99 /* Model */,
 				49FE39D61DB79B9E00FD8A99 /* View */,
-				49FE39D91DB79BAB00FD8A99 /* ViewModel */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -988,13 +872,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		49FE39D71DB79BA200FD8A99 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		49FE39D81DB79BA700FD8A99 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -1004,20 +881,12 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		49FE39D91DB79BAB00FD8A99 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		49FE39DA1DB79BB300FD8A99 /* Hot */ = {
 			isa = PBXGroup;
 			children = (
 				49FE39DD1DB79BC200FD8A99 /* Controller */,
 				49FE39DC1DB79BBE00FD8A99 /* Model */,
 				49FE39DB1DB79BBA00FD8A99 /* View */,
-				49FE39DE1DB79BC800FD8A99 /* ViewModel */,
 			);
 			path = Hot;
 			sourceTree = "<group>";
@@ -1054,20 +923,11 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		49FE39DE1DB79BC800FD8A99 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		49FE39DF1DB79BCE00FD8A99 /* New */ = {
 			isa = PBXGroup;
 			children = (
 				49FE39E21DB79BDD00FD8A99 /* Controller */,
-				49FE39E11DB79BD900FD8A99 /* Model */,
 				49FE39E01DB79BD400FD8A99 /* View */,
-				49FE39E31DB79BE200FD8A99 /* ViewModel */,
 			);
 			path = New;
 			sourceTree = "<group>";
@@ -1082,13 +942,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		49FE39E11DB79BD900FD8A99 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		49FE39E21DB79BDD00FD8A99 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -1098,20 +951,11 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		49FE39E31DB79BE200FD8A99 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		49FE39E41DB79BE900FD8A99 /* Person */ = {
 			isa = PBXGroup;
 			children = (
 				49FE39E61DB79BF300FD8A99 /* Controller */,
-				49FE39E71DB79BFA00FD8A99 /* Model */,
 				49FE39E51DB79BEF00FD8A99 /* View */,
-				49FE39E81DB79BFD00FD8A99 /* ViewModel */,
 			);
 			path = Person;
 			sourceTree = "<group>";
@@ -1140,27 +984,11 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		49FE39E71DB79BFA00FD8A99 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		49FE39E81DB79BFD00FD8A99 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		49FE39E91DB79C0400FD8A99 /* Search */ = {
 			isa = PBXGroup;
 			children = (
 				49FE39ED1DB79C1A00FD8A99 /* Controller */,
-				49FE39EB1DB79C1100FD8A99 /* Model */,
 				49FE39EA1DB79C0D00FD8A99 /* View */,
-				49FE39EC1DB79C1500FD8A99 /* ViewModel */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -1173,20 +1001,6 @@
 				49D1CA851DD17C260003211A /* ElSearchTableViewCell.xib */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		49FE39EB1DB79C1100FD8A99 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		49FE39EC1DB79C1500FD8A99 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		49FE39ED1DB79C1A00FD8A99 /* Controller */ = {
@@ -1202,9 +1016,7 @@
 			isa = PBXGroup;
 			children = (
 				49FE39F11DB79C7100FD8A99 /* Controller */,
-				49FE39F01DB79C6D00FD8A99 /* Model */,
 				49FE39EF1DB79C6800FD8A99 /* View */,
-				49FE39F21DB79C7E00FD8A99 /* ViewModel */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -1218,13 +1030,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		49FE39F01DB79C6D00FD8A99 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		49FE39F11DB79C7100FD8A99 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -1234,19 +1039,11 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		49FE39F21DB79C7E00FD8A99 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		49FE39F31DB79CA100FD8A99 /* Live */ = {
 			isa = PBXGroup;
 			children = (
 				49FE39F71DB79CB900FD8A99 /* Controller */,
 				49FE39F41DB79CA700FD8A99 /* View */,
-				49FE39F61DB79CB000FD8A99 /* ViewModel */,
 			);
 			path = Live;
 			sourceTree = "<group>";
@@ -1295,13 +1092,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		49FE39F61DB79CB000FD8A99 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		49FE39F71DB79CB900FD8A99 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -1315,25 +1105,8 @@
 			isa = PBXGroup;
 			children = (
 				49FE39FB1DB79CD100FD8A99 /* Controller */,
-				49FE39FA1DB79CCC00FD8A99 /* Model */,
-				49FE39F91DB79CC700FD8A99 /* View */,
-				49FE39FC1DB79CD900FD8A99 /* ViewModel */,
 			);
 			path = Login;
-			sourceTree = "<group>";
-		};
-		49FE39F91DB79CC700FD8A99 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		49FE39FA1DB79CCC00FD8A99 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		49FE39FB1DB79CD100FD8A99 /* Controller */ = {
@@ -1346,29 +1119,13 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		49FE39FC1DB79CD900FD8A99 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		49FE39FD1DB79CEE00FD8A99 /* Register */ = {
 			isa = PBXGroup;
 			children = (
 				49FE39FF1DB79CFC00FD8A99 /* Controller */,
 				49FE3A001DB79D0300FD8A99 /* Model */,
-				49FE39FE1DB79CF700FD8A99 /* View */,
-				49FE3A011DB79D0800FD8A99 /* ViewModel */,
 			);
 			path = Register;
-			sourceTree = "<group>";
-		};
-		49FE39FE1DB79CF700FD8A99 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		49FE39FF1DB79CFC00FD8A99 /* Controller */ = {
@@ -1390,36 +1147,12 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		49FE3A011DB79D0800FD8A99 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		49FE3A021DB79D0F00FD8A99 /* ForgetPassword */ = {
 			isa = PBXGroup;
 			children = (
 				49FE3A051DB79D3100FD8A99 /* Controller */,
-				49FE3A041DB79D2900FD8A99 /* Model */,
-				49FE3A031DB79D2500FD8A99 /* View */,
-				49FE3A061DB79D3700FD8A99 /* ViewModel */,
 			);
 			path = ForgetPassword;
-			sourceTree = "<group>";
-		};
-		49FE3A031DB79D2500FD8A99 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		49FE3A041DB79D2900FD8A99 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		49FE3A051DB79D3100FD8A99 /* Controller */ = {
@@ -1432,20 +1165,11 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		49FE3A061DB79D3700FD8A99 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		49FE3A101DB7A19200FD8A99 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
 				49FE3A121DB7A1A100FD8A99 /* Controller */,
-				49FE3A131DB7A1A700FD8A99 /* Model */,
 				49FE3A111DB7A19A00FD8A99 /* View */,
-				49FE3A141DB7A1AC00FD8A99 /* ViewModel */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -1466,20 +1190,6 @@
 				49FE3A161DB7A1FE00FD8A99 /* ElHomePageViewController.m */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		49FE3A131DB7A1A700FD8A99 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		49FE3A141DB7A1AC00FD8A99 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		49FE3A221DB7A7D400FD8A99 /* lib */ = {
@@ -1697,7 +1407,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBD4C0921DCDDD5700F81382 /* hahaha.jpeg in Resources */,
 				EB1DDAF01DCAE00E0095619C /* gift_heart_5.png in Resources */,
 				EB1DDB071DCAE01F0095619C /* fireworks_12.png in Resources */,
 				49DF2C211DC2DA040096E935 /* ElLoginViewController.xib in Resources */,
@@ -1710,7 +1419,6 @@
 				EB1DDB111DCAE01F0095619C /* fireworks_9.png in Resources */,
 				EB1DDB0D1DCAE01F0095619C /* fireworks_5.png in Resources */,
 				EB1DDB0B1DCAE01F0095619C /* fireworks_3.png in Resources */,
-				EBD4C0981DCE0C9600F81382 /* 对号气泡2.png in Resources */,
 				499FBE321DB786CE0015CC1D /* LaunchScreen.storyboard in Resources */,
 				EB1DDAF31DCAE00E0095619C /* gift_heart_8.png in Resources */,
 				493907561DB8EEF000F06D40 /* ElNewCollectionViewCell.xib in Resources */,
@@ -1729,12 +1437,8 @@
 				EB1DDAE91DCAE00E0095619C /* gift_heart_17.png in Resources */,
 				EB1DDAED1DCAE00E0095619C /* gift_heart_20.png in Resources */,
 				49CA285B1DC9E25800654B7C /* xinyiba_riva_Dolphin01.png in Resources */,
-				EB936CEF1DD3438100038291 /* 修改昵称.jpeg in Resources */,
-				EB936CF11DD3466400038291 /* 云.jpg in Resources */,
 				EB1DDAEA1DCAE00E0095619C /* gift_heart_18.png in Resources */,
 				EB1DDAE21DCAE00E0095619C /* gift_heart_10.png in Resources */,
-				EB936CED1DD33E6D00038291 /* xaingxiang.jpeg in Resources */,
-				EB55576D1DD2CE5A005934F7 /* 景3.jpg in Resources */,
 				EB1DDAE51DCAE00E0095619C /* gift_heart_13.png in Resources */,
 				49DF2C261DC2DA220096E935 /* ElRegisterViewController.xib in Resources */,
 				493DA3911DC1CA7D0031C317 /* ElLivingBottomToolView.xib in Resources */,
@@ -1749,7 +1453,6 @@
 				49CA285F1DC9E25800654B7C /* xinyiba_riva_Dolphin05.png in Resources */,
 				EB1DDAEF1DCAE00E0095619C /* gift_heart_4.png in Resources */,
 				EB1DDAF11DCAE00E0095619C /* gift_heart_6.png in Resources */,
-				EBD965AF1DD01C8300936D66 /* 路牌x.png in Resources */,
 				EB1DDAF21DCAE00E0095619C /* gift_heart_7.png in Resources */,
 				EB1DDAEE1DCAE00E0095619C /* gift_heart_3.png in Resources */,
 				EB1DDB101DCAE01F0095619C /* fireworks_8.png in Resources */,
@@ -1831,7 +1534,6 @@
 				EBCB05391DCB44A800BB2832 /* ElBaseGiftAnimationView.m in Sources */,
 				499E3F821DD3046200CC9846 /* ElUsViewController.m in Sources */,
 				493907551DB8EEF000F06D40 /* ElNewCollectionViewCell.m in Sources */,
-				499FBE2A1DB786CE0015CC1D /* ViewController.m in Sources */,
 				49FE39C11DB79A4C00FD8A99 /* NSString+Categories.m in Sources */,
 				493DA3861DC188D20031C317 /* ElMainTabBarButton.m in Sources */,
 				49FE39C91DB79A4C00FD8A99 /* HttpClient.m in Sources */,
