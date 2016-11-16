@@ -39,6 +39,7 @@ ElNewViewControllerDelegate
 @implementation ElHomePageViewController
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     self.tabBarController.tabBar.hidden = NO;
 }
 

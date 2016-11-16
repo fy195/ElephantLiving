@@ -36,6 +36,7 @@
     int freezeCounter;
 }
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
 }
 
@@ -76,7 +77,7 @@
                 [self presentViewController:alertController animated:YES completion:nil];
             } else {
                 [self freezeMoreRequest];
-                [self getUserInfo:user];
+                user = [_User currentUser];
                 ElHomeTabBarController *homeView = [[ElHomeTabBarController alloc] init];
                 [self.navigationController pushViewController:homeView animated:YES];
             }
@@ -101,11 +102,6 @@
     }
 }
 
-- (void)getUserInfo:(id)user {
-    user = [_User currentUser];
-
-}
-
 - (IBAction)ForgetPasswordButtonAction:(id)sender {
     ElForgetPasswordViewController *forgetPasswordView = [[ElForgetPasswordViewController alloc] init];
     [self.navigationController pushViewController:forgetPasswordView animated:YES];
@@ -122,7 +118,7 @@
 - (IBAction)QQLogin:(id)sender {
     [AVOSCloudSNS loginWithCallback:^(id object, NSError *error) {
         if (error) {
-            NSLog(@"failed to get authentication from weibo. error: %@", error.description);
+            //NSLog(@"failed to get authentication from weibo. error: %@", error.description);
         } else {
             [_User loginWithAuthData:object platform:AVOSCloudSNSPlatformQQ block:^(AVUser *user, NSError *error) {
                 if (!error) {
@@ -151,10 +147,10 @@
 
 - (IBAction)weiboLogin:(id)sender {
     
-    NSLog(@"微博");
+    //NSLog(@"微博");
     [AVOSCloudSNS loginWithCallback:^(id object, NSError *error) {
         if (error) {
-            NSLog(@"failed to get authentication from weibo. error: %@", error.description);
+            //NSLog(@"failed to get authentication from weibo. error: %@", error.description);
         } else {
             [_User loginWithAuthData:object platform:AVOSCloudSNSPlatformWeiBo block:^(AVUser *user, NSError *error) {
                 if (!error) {

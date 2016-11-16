@@ -91,6 +91,7 @@ ElUserBriefViewDelegate
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     _startView.hidden = NO;
     [self hiddenToolView:YES];
     _endView.hidden = YES;
@@ -530,7 +531,7 @@ ElUserBriefViewDelegate
     _liveRoom.liveRoom_title = _startView.nameTextField.text;
     
     [_liveRoom saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
-        NSLog(@"保存成功");
+        //NSLog(@"保存成功");
     }];
     _topToolView.headerImage = _liveRoom.headerImage;
     _userBriefView.name = _liveRoom.host_name;
@@ -549,7 +550,7 @@ ElUserBriefViewDelegate
         [_client createConversationWithName:topic clientIds:@[] attributes:dic options:AVIMConversationOptionTransient callback:^(AVIMConversation * _Nullable conversation, NSError * _Nullable error) {
             if (!error) {
                 self.currentConversation = conversation;
-                NSLog(@"创建聊天室成功");
+                //NSLog(@"创建聊天室成功");
             }
         }];
     }];

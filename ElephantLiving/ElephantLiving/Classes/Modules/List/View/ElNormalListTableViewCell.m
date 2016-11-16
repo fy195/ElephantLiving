@@ -37,7 +37,6 @@
         self.nikenameLabel = [[UILabel alloc] initWithFrame:CGRectZero];
         _nikenameLabel.text = @"";
         _nikenameLabel.numberOfLines = 1;
-        _nikenameLabel.textColor = [UIColor blackColor];
         [self addSubview:_nikenameLabel];
         
         

@@ -42,7 +42,7 @@
     
     CGImageRef img = destImage.CGImage;
     
-    vImage_Buffer inBuffer, outBuffer;
+    vImage_Buffer inBuffer;
     
     vImage_Error error;
     
@@ -65,9 +65,10 @@
     
     pixelBuffer = malloc(CGImageGetBytesPerRow(img) * CGImageGetHeight(img));
     
-    if(pixelBuffer == NULL)
+    if(pixelBuffer == NULL) {
         NSLog(@"No pixelbuffer");
-    
+    }
+    vImage_Buffer outBuffer;
     outBuffer.data = pixelBuffer;
     outBuffer.width = CGImageGetWidth(img);
     outBuffer.height = CGImageGetHeight(img);
@@ -88,7 +89,7 @@
     }
     error = vImageBoxConvolve_ARGB8888(&outBuffer2, &inBuffer, NULL, 0, 0, boxSize, boxSize, NULL, kvImageEdgeExtend);
     if (error) {
-        NSLog(@"error from convolution %ld", error);
+//        NSLog(@"error from convolution %ld", error);
     }
     error = vImageBoxConvolve_ARGB8888(&inBuffer, &outBuffer, NULL, 0, 0, boxSize, boxSize, NULL, kvImageEdgeExtend);
     if (error) {
@@ -240,7 +241,7 @@ CGImageRef CopyImageAndAddAlphaChannel(CGImageRef sourceImage);
     
     newImage = UIGraphicsGetImageFromCurrentImageContext();
     if (newImage == nil) {
-        NSLog(@"scale image fail");
+        //NSLog(@"scale image fail");
     }
     
     UIGraphicsEndImageContext();

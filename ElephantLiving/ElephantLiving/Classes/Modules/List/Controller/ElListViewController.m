@@ -56,9 +56,9 @@ UITableViewDelegate
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:SCREEN_RECT];
-    backgroundImageView.image = [UIImage imageNamed:@"景3.jpg"];
-    [self.view addSubview:backgroundImageView];
+//    UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:SCREEN_RECT];
+//    backgroundImageView.image = [UIImage imageNamed:@"hahaha"];
+//    [self.view addSubview:backgroundImageView];
     
     [self createTableView];
     self.topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT * 0.4)];
@@ -154,6 +154,7 @@ UITableViewDelegate
     
     self.listTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 108) style:UITableViewStylePlain];
     _listTableView.backgroundColor = [UIColor clearColor];
+    _listTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _listTableView.delegate = self;
     _listTableView.dataSource = self;
     _listTableView.rowHeight = 90;

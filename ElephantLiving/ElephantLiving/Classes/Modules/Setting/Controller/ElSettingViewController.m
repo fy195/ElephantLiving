@@ -167,10 +167,7 @@
     [exitButton setTitleColor:[UIColor colorWithRed:1 green:0.5 blue:0 alpha:1] forState:UIControlStateNormal];
     exitButton.layer.cornerRadius = SCREEN_HEIGHT * 0.08 / 2;
     [exitButton.layer setBorderWidth:2.0f];
-    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-    CGColorRef borderColor = CGColorCreate(colorSpace,(CGFloat[]){ 1, 0.5, 0,1 });
-    [exitButton.layer setBorderColor:borderColor];
-    CGColorRelease(borderColor);
+    exitButton.layer.borderColor = [UIColor colorWithRed:1 green:0.5 blue:0 alpha:1].CGColor;
     [self.view addSubview:exitButton];
     
     [exitButton addTarget:self action:@selector(exitButtonAction:) forControlEvents:UIControlEventTouchUpInside];

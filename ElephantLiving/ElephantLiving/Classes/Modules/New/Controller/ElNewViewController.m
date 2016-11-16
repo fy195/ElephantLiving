@@ -28,7 +28,7 @@ UICollectionViewDataSource
 
 
 - (void)viewDidLoad {
-    
+    [super viewDidLoad];
     UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:SCREEN_RECT];
     backgroundImageView.image = [UIImage imageNamed:@"xaingxiang.jpeg"];
     [self.view addSubview:backgroundImageView];

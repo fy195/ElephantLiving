@@ -105,10 +105,7 @@
         [_backButton setTitleColor:[UIColor colorWithRed:1 green:0.74 blue:0.15 alpha:1] forState:UIControlStateNormal];
         _backButton.layer.cornerRadius = SCREEN_HEIGHT * 0.08 / 2;
         [_backButton.layer setBorderWidth:2.0f];
-        CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
-        CGColorRef borderColor = CGColorCreate(colorSpace,(CGFloat[]){ 1, 0.74, 0.15,1 });
-        [_backButton.layer setBorderColor:borderColor];
-        CGColorRelease(borderColor);
+        _backButton.layer.borderColor = [UIColor colorWithRed:1 green:0.74 blue:0.15 alpha:1].CGColor;
         [self addSubview:_backButton];  
     }
     return self;

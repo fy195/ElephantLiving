@@ -45,7 +45,7 @@
             [alertController addAction:cancelAction];
             [self presentViewController:alertController animated:YES completion:nil];            
         }else {
-            NSLog(@"%@",error);
+            //NSLog(@"%@",error);
         }
     }];
 }

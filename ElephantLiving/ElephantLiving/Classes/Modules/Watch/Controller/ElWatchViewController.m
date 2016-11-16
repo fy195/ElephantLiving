@@ -128,9 +128,9 @@ ElGiftViewDelegate
             [query findConversationsWithCallback:^(NSArray *objects, NSError *error) {
                 self.currentConversation = objects.lastObject;
                 [objects.lastObject joinWithCallback:^(BOOL succeeded, NSError * _Nullable error) {
-                    NSLog(@"加入对话成功");
+                    //NSLog(@"加入对话成功");
                 }];
-                NSLog(@"查询成功");
+                //NSLog(@"查询成功");
             }];
         }];
     }else {
@@ -145,9 +145,9 @@ ElGiftViewDelegate
             [query findConversationsWithCallback:^(NSArray *objects, NSError *error) {
                 self.currentConversation = objects.lastObject;
                 [objects.lastObject joinWithCallback:^(BOOL succeeded, NSError * _Nullable error) {
-                    NSLog(@"加入对话成功");
+                    //NSLog(@"加入对话成功");
                 }];
-                NSLog(@"查询成功");
+                //NSLog(@"查询成功");
             }];
         }];
     }
@@ -473,10 +473,10 @@ ElGiftViewDelegate
                 currentUser.fetchWhenSave = true;
                 [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                     if (succeeded) {
-                        NSLog(@"存储成功");
-                        NSLog(@"%@", currentUser);
+                        //NSLog(@"存储成功");
+                        //NSLog(@"%@", currentUser);
                     }else {
-                        NSLog(@"%@", error);
+                        //NSLog(@"%@", error);
                     }
                     
                 }];
@@ -484,10 +484,10 @@ ElGiftViewDelegate
                 _liveUser.fetchWhenSave = true;
                 [_liveUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
                     if (succeeded) {
-                        NSLog(@"存储成功");
-                        NSLog(@"%@",_liveUser);
+                        //NSLog(@"存储成功");
+                        //NSLog(@"%@",_liveUser);
                     }else {
-                        NSLog(@"%@", error);
+                        //NSLog(@"%@", error);
                     }
                 }];
                 [_userBriefView.followButton setTitle:@"已关注" forState:UIControlStateNormal];

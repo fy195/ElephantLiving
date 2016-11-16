@@ -40,6 +40,7 @@ UIImagePickerControllerDelegate
 
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     [self getCurrentUserInfo];
     _headerView.nicknameText = [_currentUserInfo username];
     AVFile *file = [AVFile fileWithURL:_currentUserInfo.headImage];
@@ -113,10 +114,11 @@ UIImagePickerControllerDelegate
     [file getThumbnail:YES width:100 height:100 withBlock:^(UIImage *image, NSError *error) {
         if (!error) {
             _headerView.headerImage = image;
-           UIImage *blurImage = [image boxblurImageWithBlur:0.7];
-            _headerView.backgroundImage = blurImage;
-        }else {
-        }
+//            UIBlurEffect *effect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleDark];
+//            UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:effect];
+//            effectView.frame = CGRectMake(0, 0, bgImgView.frame.size.width*0.5, bgImgView.frame.size.height);
+            _headerView.backgroundImage = [image boxblurImageWithBlur:0.7];
+        }else {}
     }];
     _headerView.headerImageView.userInteractionEnabled = YES;
     
@@ -188,11 +190,11 @@ UIImagePickerControllerDelegate
                     UIImage *blurImage = [image boxblurImageWithBlur:0.7];
                     _headerView.backgroundImage = blurImage;
                 }else {
-                    NSLog(@"%@",error);
+                    //NSLog(@"%@",error);
                 }
             }];
         } else {
-            NSLog(@"%@",error);
+            //NSLog(@"%@",error);
         }
     }];
     [self dismissViewControllerAnimated:YES completion:nil];

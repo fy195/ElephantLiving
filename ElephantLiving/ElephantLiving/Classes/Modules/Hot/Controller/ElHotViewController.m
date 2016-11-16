@@ -116,6 +116,7 @@ UITableViewDelegate
 }
 
 - (void)viewDidLoad {
+    [super viewDidLoad];
     self.otherLiveArray = [NSMutableArray array];
     [self createTableView];
     [self deleteElLiveRoom];

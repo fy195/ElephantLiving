@@ -30,9 +30,9 @@
     [_window makeKeyAndVisible];
     
     [[QPAuth shared] registerAppWithKey:kELAppKey secret:kELAppSecret space:@"com.kfc.ElephantLiving" success:^(NSString *accessToken) {
-        NSLog(@"access token : %@", accessToken);
+        //NSLog(@"access token : %@", accessToken);
     } failure:^(NSError *error) {
-        NSLog(@"failed : %@", error.description);
+        //NSLog(@"failed : %@", error.description);
     }];
     // Override point for customization after application launch.
     
