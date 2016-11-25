@@ -75,57 +75,57 @@ UICollectionViewDelegate
     ElGiftCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:string forIndexPath:indexPath];
     if (0 == indexPath.item) {
         cell.giftImage = [UIImage imageNamed:@"gift_flower"];
-        cell.priceText = @"2💎";
+//        cell.priceText = @"2💎";
         cell.expericeText = @"+200经验";
         return cell;
     } else if (1 == indexPath.item) {
         cell.giftImage = [UIImage imageNamed:@"flower"];
-        cell.priceText = @"2💎";
+//        cell.priceText = @"2💎";
         cell.expericeText = @"+200经验";
         return cell;
     } else if (2 == indexPath.item) {
         cell.giftImage = [UIImage imageNamed:@"living_money_icon21"];
-        cell.priceText = @"5💎";
+//        cell.priceText = @"5💎";
         cell.expericeText = @"+500经验";
         return cell;
     } else if (3 == indexPath.item) {
         cell.giftImage = [UIImage imageNamed:@"car"];
-        cell.priceText = @"1200💎";
+//        cell.priceText = @"1200💎";
         cell.expericeText = @"+12000经验";
         return cell;
     } else if (4 == indexPath.item) {
         cell.giftImage = [UIImage imageNamed:@"ferrari"];
-        cell.priceText = @"1200💎";
+//        cell.priceText = @"1200💎";
         cell.expericeText = @"+12000经验";
         return cell;
     } else if (5 == indexPath.item) {
         cell.giftImage = [UIImage imageNamed:@"porsche_body"];
-        cell.priceText = @"3000💎";
+//        cell.priceText = @"3000💎";
         cell.expericeText = @"+30000经验";
         return cell;
     }  else if (6 == indexPath.item) {
         cell.giftImage = [UIImage imageNamed:@"xinyiba_riva_Dolphin04"];
-        cell.priceText = @"10💎";
+//        cell.priceText = @"10💎";
         cell.expericeText = @"+1000经验";
         return cell;
     } else if (7 == indexPath.item) {
         cell.giftImage = [UIImage imageNamed:@"fireworks_11"];
-        cell.priceText = @"888💎";
+//        cell.priceText = @"888💎";
         cell.expericeText = @"+88800经验";
         return cell;
     } else if (8 == indexPath.item) {
         cell.giftImage = [UIImage imageNamed:@"gift_heart_20"];
-        cell.priceText = @"888💎";
+//        cell.priceText = @"888💎";
         cell.expericeText = @"+88800经验";
         return cell;
     } else if (9 == indexPath.item) {
         cell.giftImage = [UIImage imageNamed:@"test_6"];
-        cell.priceText = @"3000💎";
+//        cell.priceText = @"3000💎";
         cell.expericeText = @"+300000经验";
         return cell;
     } else if (10 == indexPath.item) {
         cell.giftImage = [UIImage imageNamed:@"18888_anima_img1"];
-        cell.priceText = @"6666💎";
+//        cell.priceText = @"6666💎";
         cell.expericeText = @"+666600经验";
         return cell;
     }

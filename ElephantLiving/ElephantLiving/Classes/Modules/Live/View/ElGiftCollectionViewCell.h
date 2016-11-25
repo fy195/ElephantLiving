@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong)UIImage *giftImage;
 
-@property (nonatomic, copy)NSString *priceText;
+//@property (nonatomic, copy)NSString *priceText;
 
 @property (nonatomic, copy)NSString *expericeText;
 

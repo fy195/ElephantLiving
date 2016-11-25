@@ -10,7 +10,7 @@
 
 @interface ElGiftCollectionViewCell ()
 @property (nonatomic, strong)UIImageView *giftImageView;
-@property (nonatomic, strong)UILabel *priceLabel;
+//@property (nonatomic, strong)UILabel *priceLabel;
 @property (nonatomic, strong)UILabel *experienceLabel;
 @end
 
@@ -24,12 +24,12 @@
         [self addSubview:_giftImageView];
         
         
-        self.priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.frame.size.width * 0.15, self.frame.size.height * 0.7, self.frame.size.width * 0.7, self.frame.size.height * 0.15)];
-        _priceLabel.text = @"";
-        _priceLabel.textColor = [UIColor cyanColor];
-        _priceLabel.textAlignment = NSTextAlignmentCenter;
-        _priceLabel.font = [UIFont systemFontOfSize:12];
-        [self addSubview:_priceLabel];
+//        self.priceLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.frame.size.width * 0.15, self.frame.size.height * 0.7, self.frame.size.width * 0.7, self.frame.size.height * 0.15)];
+//        _priceLabel.text = @"";
+//        _priceLabel.textColor = [UIColor cyanColor];
+//        _priceLabel.textAlignment = NSTextAlignmentCenter;
+//        _priceLabel.font = [UIFont systemFontOfSize:12];
+//        [self addSubview:_priceLabel];
         
         
         self.experienceLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.frame.size.width * 0.15, self.frame.size.height * 0.85, self.frame.size.width * 0.7, self.frame.size.height * 0.15)];
@@ -50,12 +50,12 @@
     }
 }
 
-- (void)setPriceText:(NSString *)priceText {
-    if (_priceText != priceText) {
-        _priceText = priceText;
-        _priceLabel.text = priceText;
-    }
-}
+//- (void)setPriceText:(NSString *)priceText {
+//    if (_priceText != priceText) {
+//        _priceText = priceText;
+//        _priceLabel.text = priceText;
+//    }
+//}
 
 - (void)setExpericeText:(NSString *)expericeText {
     if (_expericeText != expericeText) {
