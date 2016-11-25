@@ -9,6 +9,11 @@
 #import "AppDelegate.h"
 #import "ElHomeTabBarController.h"
 #import <QPLive/QPLive.h>
+#import <AVOSCloud/AVOSCloud.h>
+#import <AVOSCloudCrashReporting/AVOSCloudCrashReporting.h>
+#import <LeanCloudSocial/LeanCloudSocial-umbrella.h>
+#import "_User.h"
+#import "ElLoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -24,19 +29,46 @@
     _window.backgroundColor = [UIColor whiteColor];
     [_window makeKeyAndVisible];
     
-    ElHomeTabBarController *homeView = [[ElHomeTabBarController alloc] init];
-    self.window.rootViewController = homeView;
-    
-//    [NSThread sleepForTimeInterval:1];
-    
-    [[QPAuth shared] registerAppWithKey:kQPAppKey secret:kQPAppSecret space:@"com.kfc.ElephantLiving" success:^(NSString *accessToken) {
-        NSLog(@"access token : %@", accessToken);
+    [[QPAuth shared] registerAppWithKey:kELAppKey secret:kELAppSecret space:@"com.kfc.ElephantLiving" success:^(NSString *accessToken) {
+        //NSLog(@"access token : %@", accessToken);
     } failure:^(NSError *error) {
-        NSLog(@"failed : %@", error.description);
+        //NSLog(@"failed : %@", error.description);
     }];
     // Override point for customization after application launch.
+    
+    // 登录注册
+    [AVOSCloud setApplicationId:APP_ID clientKey:APP_KEY];
+    [AVAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    [AVOSCloud setAllLogsEnabled:YES];
+    
+    _User *user = [_User currentUser];
+    if (user != nil) {
+        ElHomeTabBarController *homeView = [[ElHomeTabBarController alloc] init];
+        UINavigationController *navHomeView = [[UINavigationController alloc] initWithRootViewController:homeView];
+        self.window.rootViewController = navHomeView;
+    }else {
+        ElLoginViewController *loginViewController = [[ElLoginViewController alloc] init];
+        UINavigationController *navLoginVC = [[UINavigationController alloc] initWithRootViewController:loginViewController];
+        self.window.rootViewController = navLoginVC;
+    }
+    
+    
     return YES;
 }
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [AVOSCloudSNS handleOpenURL:url];
+}
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
+{
+    return [AVOSCloudSNS handleOpenURL:url];
+}
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options
+{
+    return [AVOSCloudSNS handleOpenURL:url];
+}
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

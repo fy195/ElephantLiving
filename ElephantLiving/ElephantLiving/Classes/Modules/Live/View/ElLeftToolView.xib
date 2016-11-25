@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ElLeftToolView">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="230"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l3F-qi-EDN">
+                    <rect key="frame" x="10" y="10" width="30" height="30"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.14598599130000001" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="NMG-gs-dPp"/>
+                        <constraint firstAttribute="width" constant="30" id="nbU-GX-Jgz"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="美颜"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="15"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mIr-MJ-nEe">
+                    <rect key="frame" x="10" y="70" width="30" height="30"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.14598599130000001" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="oCV-3N-DdV"/>
+                        <constraint firstAttribute="width" constant="30" id="wDI-OZ-WAH"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="转换摄像头"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="15"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DTb-tG-YYT" userLabel="Flashlight Button">
+                    <rect key="frame" x="10" y="130" width="30" height="30"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.14598599130000001" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="Jg9-xd-OES"/>
+                        <constraint firstAttribute="height" constant="30" id="Luq-JE-sgV"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="闪光"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="15"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="mIr-MJ-nEe" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="7G0-ZQ-ISQ"/>
+                <constraint firstItem="DTb-tG-YYT" firstAttribute="top" secondItem="mIr-MJ-nEe" secondAttribute="bottom" constant="30" id="GE5-ud-4A5"/>
+                <constraint firstItem="DTb-tG-YYT" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="GiO-is-hUo"/>
+                <constraint firstItem="l3F-qi-EDN" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Gx4-DQ-Pvb"/>
+                <constraint firstItem="mIr-MJ-nEe" firstAttribute="top" secondItem="l3F-qi-EDN" secondAttribute="bottom" constant="30" id="TLz-r5-5tS"/>
+                <constraint firstItem="l3F-qi-EDN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="VHP-oe-NYi"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="cameraButton" destination="mIr-MJ-nEe" id="vQE-9h-C8S"/>
+                <outlet property="flashlightButton" destination="DTb-tG-YYT" id="yVy-K2-AcO"/>
+                <outlet property="skinButton" destination="l3F-qi-EDN" id="Oha-5X-2P6"/>
+            </connections>
+            <point key="canvasLocation" x="360" y="199"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="美颜" width="64" height="64"/>
+        <image name="转换摄像头" width="64" height="64"/>
+        <image name="闪光" width="64" height="64"/>
+    </resources>
+</document>

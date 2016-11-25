@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ElNewCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="大象头像" translatesAutoresizingMaskIntoConstraints="NO" id="iFc-jO-1gb">
+                        <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
+                        <animations/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="大连市" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vbP-97-p4z">
+                        <rect key="frame" x="8" y="5" width="60" height="25"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="xRj-Pa-svA"/>
+                            <constraint firstAttribute="height" constant="25" id="zpJ-Zj-Vai"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="璀璨微风" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bth-EB-H0j">
+                        <rect key="frame" x="8" y="100" width="100" height="25"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="2hM-yw-5XS"/>
+                            <constraint firstAttribute="width" constant="100" id="lbz-Kc-od9"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEW" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45Z-WP-n1X">
+                        <rect key="frame" x="82" y="5" width="40" height="25"/>
+                        <animations/>
+                        <color key="backgroundColor" red="1" green="0.090353283930874495" blue="0.068774554016985623" alpha="0.39913793103448275" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="7ey-Ma-FBQ"/>
+                            <constraint firstAttribute="width" constant="40" id="cXh-6K-DFy"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </label>
+                </subviews>
+                <animations/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <animations/>
+            <constraints>
+                <constraint firstItem="Bth-EB-H0j" firstAttribute="leading" secondItem="iFc-jO-1gb" secondAttribute="leading" constant="8" id="8E0-oh-hF5"/>
+                <constraint firstItem="vbP-97-p4z" firstAttribute="leading" secondItem="iFc-jO-1gb" secondAttribute="leading" constant="8" id="DbM-Ln-uyn"/>
+                <constraint firstItem="Bth-EB-H0j" firstAttribute="bottom" secondItem="iFc-jO-1gb" secondAttribute="bottom" constant="-5" id="DsA-75-RgI"/>
+                <constraint firstItem="45Z-WP-n1X" firstAttribute="top" secondItem="iFc-jO-1gb" secondAttribute="top" constant="5" id="ORd-Ce-xvr"/>
+                <constraint firstItem="iFc-jO-1gb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="PhO-gw-Guv"/>
+                <constraint firstItem="vbP-97-p4z" firstAttribute="top" secondItem="iFc-jO-1gb" secondAttribute="top" constant="5" id="Rcg-7m-OUs"/>
+                <constraint firstAttribute="trailing" secondItem="iFc-jO-1gb" secondAttribute="trailing" id="Rwf-wk-d4b"/>
+                <constraint firstAttribute="bottom" secondItem="iFc-jO-1gb" secondAttribute="bottom" id="TuH-UN-ePP"/>
+                <constraint firstItem="iFc-jO-1gb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="cxV-GL-Abb"/>
+                <constraint firstItem="45Z-WP-n1X" firstAttribute="trailing" secondItem="iFc-jO-1gb" secondAttribute="trailing" constant="-8" id="y2a-Ib-knU"/>
+            </constraints>
+            <size key="customSize" width="130" height="130"/>
+            <connections>
+                <outlet property="iconImageView" destination="iFc-jO-1gb" id="Rh4-eh-20S"/>
+                <outlet property="locationLabel" destination="vbP-97-p4z" id="2iI-4b-ehx"/>
+                <outlet property="nameLabel" destination="Bth-EB-H0j" id="NBR-Uo-ARp"/>
+                <outlet property="userNewLabel" destination="45Z-WP-n1X" id="6pb-Vp-udB"/>
+            </connections>
+            <point key="canvasLocation" x="279" y="517"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="大象头像" width="200" height="200"/>
+    </resources>
+</document>
